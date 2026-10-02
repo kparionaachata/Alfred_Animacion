@@ -1,0 +1,717 @@
+# Guía viva de animación de Alfred
+
+Última actualización: 2026-09-15.
+
+## Propósito y mantenimiento
+
+Este documento reúne lo aprendido al animar a Alfred para que otra IA pueda continuar el trabajo. Leerlo antes de crear o modificar sus animaciones. Actualizarlo después de cada animación y de cada corrección del usuario: registrar intención, huesos, valores, ritmo, resultado visual, archivos y feedback. Las instrucciones actuales del usuario prevalecen sobre esta guía.
+
+No convertir una prueba en una regla definitiva ni marcar una animación como aprobada sin confirmación del usuario. Separar siempre: datos comprobados del rig, decisiones para una escena y propuestas pendientes. No inventar un carácter permanente del personaje a partir de una sola actuación.
+
+## Inicio rápido para otra IA
+
+**Hay dos flujos (manual e IA). Leer primero `FLUJOS_MANUAL_E_IA.md`.** Una tarea de animacion dada a una IA usa el flujo IA:
+resultado completo en `animaciones_ia/<nombre>/`, sin tocar los guiones del usuario ni el codigo existente.
+
+Antes de procesar el historial completo, usar este resumen operativo:
+
+1. Abrir el último `.blend` válido en la ventana visible y comprobar que el
+   personaje activo es Alfred.
+2. Mantener 24 fps, Empty `alfred` en Euler XYZ y la orientación solicitada para
+   la escena. En la discusión actual: Z=90 grados y cuello X=-30 grados.
+3. Conservar la locomoción generada por los Pasos 1 y 2. Para gestos nuevos, usar
+   el Paso 3 y desbloquear solo los bones necesarios.
+4. Animar primero con pocas claves: anticipación, pose, sobrepaso y recuperación.
+   Revisar el intervalo editado en Blender antes de hornear.
+5. Mantener acciones de ojos y shape keys separadas. Intensidad geométrica de
+   referencia para importar mallas de ojos: 0.06 cuando corresponda al sistema
+   que usa ese parámetro; comprobar visualmente que no se deformen.
+6. Aplicar filtros orgánicos y Elastic In-Out solo a intervalos seleccionados.
+   Hornear por frame, concatenar y exportar una sola vez al final.
+7. Validar la exportación sobre `estructura_lista/alfred.blend`: 22 bones, dos
+   ojos visibles, orientación, mirada, rango de frames y una expresión antes,
+   dentro y después del slot.
+
+Leer después únicamente las secciones relacionadas con la tarea: estructura del
+personaje, movimiento base, ocasión específica, ojos/filtros o historial de la
+versión que se está modificando.
+
+## Fuentes de referencia
+
+- Modelo: `C:/Users/user/Desktop/Alfred_Animacion/estructura_lista/alfred.blend`.
+- Estructura exportada: `C:/Users/user/Desktop/Alfred_Animacion/estructura_lista/alfred.json`.
+- Pose base proporcionada por el usuario: `C:/Users/user/Desktop/basico/parado.py`.
+- Pruebas de discusión: `C:/Users/user/Desktop/Alfred_Animacion/animaciones/`.
+
+El JSON describe el archivo de referencia; inspeccionar la escena activa antes de actuar, especialmente si hay varios personajes o ventanas. No asumir que el objeto llamado `Armature` corresponde a Alfred en cualquier escena.
+
+## Cómo trabajar con el usuario
+
+1. Aplicar cambios en la ventana visible de Blender que el usuario está revisando. Prefiere verlos en tiempo real y dar feedback rápido.
+2. Confirmar el archivo de la conexión antes de modificarlo. Si se pierde la conexión, recuperarla antes de afirmar que se está editando en vivo.
+3. Reproducir la secuencia después de los cambios; revisar también poses clave y transiciones en el viewport. Un script que termina correctamente no demuestra coherencia visual.
+4. Hacer los cambios de ritmo y amplitud perceptibles. El usuario rechazó revisiones demasiado sutiles con «no veo mejoras».
+5. Mantener el personaje suficientemente grande en pantalla. Si la vista de materiales ralentiza la reproducción, usar una vista ligera con texturas y sincronización temporal; no confundir bajo rendimiento con timing lento de la animación.
+6. Guardar versiones identificables y preservar el modelo original. Indicar si un cambio está solo en memoria o guardado en disco. Evitar abrir nuevas ventanas para cada corrección cuando ya funciona la conexión.
+7. Este chat se dedica a Alfred. No modificar otros personajes o escenas por suposición.
+
+## Flujo rápido para reducir el tiempo de procesamiento
+
+El objetivo es obtener feedback visible pronto y reservar los procesos costosos
+para cuando la actuación ya esté decidida. Mantener la escena a 24 fps; acelerar
+una actuación cambiando la separación entre poses, no aumentando los fps.
+
+### Orden de trabajo recomendado
+
+1. **Abrir el `.blend` que ya contiene el último estado válido.** No reconstruir
+   el personaje, las expresiones y la animación base en cada corrección. Confirmar
+   el nombre del archivo activo antes de editar.
+2. **Paso 1: trazar el recorrido e importar los slots necesarios.** Ajustar los
+   puntos del trayecto, el tipo de movimiento y las paradas antes de generar
+   curvas. Evitar regenerar por cambios que solo afectan gestos del torso.
+3. **Paso 2: reproducir y validar una sola vez la locomoción automática.** Este
+   paso ya produce caminar, saltar, subir, bajar y paradas según el recorrido.
+   Guardar ese resultado como base y no volver a calcularlo mientras el recorrido
+   y la duración de los segmentos no cambien.
+4. **Paso 3: añadir actuación con bloqueo de bones.** Desbloquear únicamente los
+   controles necesarios para el gesto. Así se conserva la locomoción mientras se
+   editan brazos, codos, columna, cuello o rostro.
+5. **Refinar con claves dispersas.** Durante las pruebas, crear claves solo en
+   anticipación, pose principal, sobrepaso y recuperación. No hornear los 360
+   frames después de cada ajuste. Reproducir el tramo afectado y mover las claves
+   hasta que el ritmo sea legible.
+6. **Aplicar procesos secundarios una vez que las poses estén estables.** Ejecutar
+   respiración, micro-movimiento, oscilaciones, suavizado, parpadeos y expresiones
+   solo en los bones, canales e intervalos que los necesitan. Mantener ojos y
+   shape keys en acciones propias para que dividir o concatenar segmentos no los
+   elimine.
+7. **Hornear y exportar al final.** El horneado por frame y `estractor.py` son para
+   la versión que se reutilizará. Generar el `.py` completo después de aprobar el
+   movimiento, y hacer una sola prueba de importación sobre
+   `estructura_lista/alfred.blend`.
+
+### Revisión visual rápida
+
+- Para una corrección local, revisar el frame inicial, el punto medio, la pose de
+  énfasis y el frame de recuperación del intervalo editado.
+- Reproducir solamente ese intervalo mientras se ajusta. Hacer la reproducción
+  completa cuando el cambio local ya sea coherente.
+- Usar una vista ligera con texturas y el personaje encuadrado de cerca. Volver a
+  la calidad final únicamente para revisar deformaciones, ojos y contacto con el
+  suelo.
+- Revisar primero silueta, dirección de la mirada, apoyo de los pies y lectura del
+  gesto. Inspeccionar curvas individuales solo cuando uno de esos puntos falle.
+
+### Qué invalida la base y obliga a recalcular
+
+Regenerar los Pasos 1 y 2 únicamente si cambia el recorrido, el orden o tipo de
+los segmentos, su duración, la orientación global inicial o el slot importado.
+Una corrección de brazos, torso, cuello, ojos, timing de una pose o intensidad de
+un filtro debe resolverse en el Paso 3 sobre la base existente.
+
+No concatenar segmentos después de cada gesto. Concatenar cuando los segmentos
+ya estén definidos y comprobar inmediatamente un parpadeo y una expresión antes,
+dentro y después del segmento importado. Si los ojos fallan, corregir sus acciones
+sin regenerar la locomoción.
+
+## Estructura del personaje
+
+`alfred` es un **Empty raíz**, no un hueso. Agrupa el esqueleto y las mallas del personaje. `Armature` es el objeto de tipo ARMATURE con 22 huesos. Seis mallas corporales (`Mesh_0_alfred` a `Mesh_5_alfred`) y dos ojos (`ojo_derecho_alfred`, `ojo_izquierdo_alfred`) están emparentados al Empty. Hay tres herramientas: `wooden_axe`, `wooden_pickaxe` y `stone_axe`, emparentadas al Armature.
+
+Jerarquía de huesos:
+
+```text
+Hips_alfred
+├─ Spine_alfred
+│  └─ Spine1_alfred
+│     └─ Spine2_alfred
+│        ├─ Neck_alfred
+│        │  └─ face_alfred
+│        ├─ RightUpArm_alfred
+│        │  └─ Rightelbow_alfred
+│        ├─ LeftUpArm_alfred
+│        │  └─ Leftelbow_alfred
+│        ├─ no_bone_03
+│        └─ no_bone_04
+├─ RightUpLeg_alfred
+│  ├─ Rightknee_alfred
+│  └─ no_bone_07
+├─ LeftUpLeg_alfred
+│  ├─ Leftknee_alfred
+│  └─ no_bone_08
+├─ no_bone_01
+├─ no_bone_02
+├─ no_bone_06
+└─ no_bone_05
+```
+
+| Control | Uso de actuación |
+| --- | --- |
+| Empty `alfred` | Posición, orientación y escala global del personaje. |
+| `Hips_alfred` | Peso y reacción de la pelvis; coordinar con las piernas para conservar apoyos. |
+| `Spine_alfred`, `Spine1_alfred`, `Spine2_alfred` | Inclinación y torsión repartidas del torso; acompañar los gestos con desfase suave. |
+| `Neck_alfred` | Dirección de la mirada y reacción del cuello. |
+| `face_alfred` | Movimiento secundario de la cabeza; no se ha demostrado que sea un control de boca o labios. |
+| `LeftUpArm_alfred`, `RightUpArm_alfred` | Elevación, apertura y dirección de los brazos. |
+| `Leftelbow_alfred`, `Rightelbow_alfred` | Flexión y énfasis del antebrazo; valores asimétricos en la pose base. |
+| `LeftUpLeg_alfred`, `RightUpLeg_alfred` | Apoyos y compensación de la cadera. |
+| `Leftknee_alfred`, `Rightknee_alfred` | Flexión de rodillas. |
+| `no_bone_01` a `no_bone_08` | Auxiliares. Su función exacta de deformación no está documentada: inspeccionar pesos y efecto visual antes de darles amplitud. |
+
+Los ejes de los huesos son locales y dependen de su orientación de reposo. No interpretar una rotación local como una rotación mundial ni inferir izquierda/derecha por su posición en pantalla. Usar Euler XYZ para reproducir los valores de esta guía; convertir grados a radianes al escribir con Python.
+
+### Orientación global solicitada
+
+El usuario pidió para el Empty `alfred`: **X=0°, Y=0°, Z=90°**. Se aplicó y se comprobó en la sesión conectada de `alfred_discusion_arriba_v3.blend`. No se confirmó un guardado posterior a ese cambio: comprobarlo al reabrir. Conservar esta orientación salvo nueva indicación. No trasladar estos 90° al hueso de cadera ni compensarlos automáticamente con los huesos.
+
+## Movimiento básico: parado
+
+La fuente `parado.py` define una postura sostenida: contiene valores idénticos en los frames 1 y 30 para diez huesos. No aporta por sí sola respiración ni oscilación. Declara 24 fps y 30 fotogramas (1,25 s de clip).
+
+Rotaciones locales en grados, aproximadas desde los radianes originales:
+
+| Hueso | X | Y | Z |
+| --- | ---: | ---: | ---: |
+| `LeftUpArm_alfred` | 90 | 0 | 0 |
+| `RightUpArm_alfred` | 90 | 0 | 0 |
+| `Leftelbow_alfred` | 0 | 0 | 19,16 |
+| `Rightelbow_alfred` | 0 | 0 | -47,15 |
+| `LeftUpLeg_alfred` | 0 | 0 | 0 |
+| `RightUpLeg_alfred` | 0 | 0 | 0 |
+| `Leftknee_alfred` | 0 | 0 | 0 |
+| `Rightknee_alfred` | -12 | 0 | 0 |
+| `Neck_alfred` | -0,0125 | 0,5303 | 0 |
+| `Spine_alfred` | 0,0500 | 0 | 0,0375 |
+
+Posiciones locales de brazos, en unidades de Blender:
+
+```python
+LeftUpArm_alfred.location  = (0.013552, 0.074613, -0.085881)
+RightUpArm_alfred.location = (0.006604, 0.096746, -0.086079)
+```
+
+Conservar estos ajustes cuando se use esta pose de referencia. No asumir que resetear todos los canales a cero equivale a «parado».
+
+Limitaciones del script original: busca un objeto llamado exactamente `Armature`, no usa `player_parts` para resolverlo, conserva los huesos no modificados y coloca las claves en `start_frame` y `start_frame+29` independientemente de `end_frame`. No define desplazamiento del Empty. Su acceso a `action.fcurves` no es el utilizado en las acciones por capas de la sesión Blender 5.2; adaptar al API disponible antes de reutilizarlo.
+
+## Ocasión específica: discusión con alguien situado arriba
+
+### Intención
+
+Alfred advierte que continuar avanzando es peligroso y propone retroceder. Actuación preocupada e insistente para esta escena, con interlocutor fuera de campo y por encima de él. No se añadió un segundo personaje ni voz o sincronización labial. Los textos de los marcadores son referencias de actuación, no audio.
+
+### Mirada
+
+Indicación expresa del usuario: `Neck_alfred = (-30°, 0°, 0°)` para mirar arriba. La primera versión mantuvo exactamente ese vector. Las versiones posteriores conservaron **X=-30°** y añadieron variaciones leves de Y/Z para reacciones. Si se exige el vector completo exacto, fijar también Y/Z a cero; no tratar las variaciones como requisito permanente.
+
+### Frases y gestos
+
+1. Escuchar mirando arriba, desde la base de parado.
+2. «Espera. Es peligroso»: levantar los brazos con gesto de advertencia, enfatizar con antebrazos y torso.
+3. Hacer una pausa de escucha.
+4. «No podemos seguir avanzando»: gestos más firmes y asimétricos, con reacción del cuerpo.
+5. «Es mejor retroceder. Volvamos»: un brazo indica hacia atrás mientras el otro mantiene el diálogo.
+6. Recoger el gesto y esperar respuesta manteniendo la mirada elevada.
+
+El gesto hacia atrás no incluye un paso real de retroceso. Diseñar apoyos y desplazamiento si se solicita caminar o retroceder físicamente.
+
+### Ritmo y cuerpo completo
+
+El usuario pidió movimientos algo más rápidos y participación de todos los huesos para dar realismo. Dar funciones distintas al movimiento principal, anticipación, compensación y reacción; no mover los 22 huesos con la misma amplitud ni al mismo tiempo.
+
+- Brazos y codos: gesto principal legible, alternancia y asimetría.
+- Columna: distribuir reacción en sus tres segmentos, con pequeños desfases.
+- Cadera, muslos y rodillas: cambios de peso contenidos; revisar que los pies no deslicen ni floten. No se implementó IK de apoyo, por lo que no se garantiza contacto perfecto durante toda la secuencia.
+- Cuello y cabeza: mantener el destinatario de la mirada y acompañar énfasis sin sacudidas.
+- Auxiliares: ajustes mínimos durante las pruebas; tener claves variables no demuestra una mejora visual ni una función anatómica correcta.
+- Usar pausas de escucha y transiciones con aceleración y frenado. En las pruebas se empleó Bezier con manejadores `AUTO_CLAMPED` para evitar sobrepasar los valores clave.
+
+## Historial y estado real de las pruebas
+
+| Versión | Cambios | Validación y feedback |
+| --- | --- | --- |
+| V1: `alfred_discusion_arriba.blend` | 240 frames, 24 fps, 10 s. Base de parado, cuello elevado, gesticulación de brazos y torso. Herramientas ocultas en la copia. | Se inspeccionaron renders de tres poses. El usuario pidió verla en Blender y solicitó más rapidez y participación de todos los huesos. |
+| V2: `alfred_discusion_arriba_v2.blend` | 192 frames, 8 s; 25 % más velocidad que V1. Movimiento secundario en cadera, columna, cabeza, piernas y auxiliares. | Se comprobó variación de rotación en 22 huesos y X=-30° del cuello durante 192 frames. Conexión en vivo y reproducción verificadas. Usuario: «no veo mejoras». No considerada aprobada. |
+| V3: `alfred_discusion_arriba_v3.blend` | 144 frames, 6 s; amplitud mayor, torso más activo, vista ampliada y ligera. Aplicada en la misma ventana conectada. | Se revisaron capturas del viewport en dos poses y se confirmó reproducción. El usuario no ha aprobado expresamente la actuación. Después pidió rotar el Empty a Z=90°. |
+
+Detalles de V3 para reproducir el cambio desde V2: excursión de X de brazos respecto a 90° multiplicada por 1,6; Y/Z por 1,4. Codo izquierdo Z respecto a 19,16° multiplicado por 1,35; derecho Z respecto a -47,15° por 1,25. Rotaciones de columna por 3; cadera y piernas por 2,2 conservando la base X=-12° de la rodilla derecha; cabeza por 3; cuello Y/Z por 2,2 conservando X=-30°. Son parámetros de esta prueba, no rangos seguros universales.
+
+**Diferencia entre archivos:** `animaciones/alfred_discusion_arriba.py` genera V2 (192 frames por defecto). V3 se creó mediante ajustes en vivo y está guardada en su `.blend`; no afirmar que el `.py` reproduce V3. `verificacion_v2.json` corresponde solo a V2.
+
+## Precauciones técnicas aprendidas
+
+- Blender utilizado: 5.2.1 LTS. Recorrer las curvas de acciones por `action.layers -> strips -> channelbags -> fcurves` cuando corresponda al formato de acción cargado.
+- Conservar acciones previas al sustituir la activa. Revisar NLA, drivers y restricciones: pueden interferir con nuevas claves. Las pruebas crearon una acción nueva y silenciaron pistas NLA del rig en la copia.
+- En el archivo de referencia se encontraron modificadores ARMATURE apuntando a objetos que no eran armatures. Se desactivaron esos modificadores en las copias de revisión; no eliminar indiscriminadamente modificadores válidos.
+- Hay huesos conectados. Su posición local puede estar limitada por la conexión; no desconectar huesos ni cambiar el rig solo para forzar una traslación sin estudiar su efecto.
+- Revisar las herramientas antes de gesticular: ocultarlas para una prueba no significa que deban permanecer ocultas en toda animación.
+- No sobrescribir animaciones existentes, orientaciones globales o cambios del usuario al ejecutar de nuevo un generador.
+
+## V4: filtros organicos, oscilaciones y ojos (2026-09-14)
+
+Peticion: revisar el ZIP `alfred_animation_studio.zip`, aplicar sus sistemas y superar 300 frames. Se genero `animaciones/alfred_v4_organico.py` leyendo las funciones directamente del ZIP, sin instalar ni registrar el complemento. Parametros reproducibles en `animaciones/alfred_v4_parametros.json`. Actuacion de 360 frames a 24 fps (15 s), con pausas y reiteracion de gestos, sin estirar uniformemente toda la V3.
+
+- Filtros: respiracion 0.040, velocidad 0.020, fase 1.97; cabeza 0.023, velocidad 0.079, semilla 693; retardo de codos 3.9 frames, amortiguacion 0.51; suavizado 3 pasadas, factor 0.63; microescala 0.010. Son unidades y formulas propias del addon, no grados para todas las amplitudes.
+- Se muestrean primero las curvas en cada frame para que los filtros no interpongan valores mientras modifican una curva dispersa. Cuello X se restablece a -30 grados; se conserva ruido en Y/Z y cabeza. Empty Z=90 grados.
+- Oscilaciones: el addon REEMPLAZA el canal del intervalo por una onda alrededor del valor inicial; no es una capa aditiva. Se limita a Spine2 Z durante pausas 46-79, 131-169 y 226-254; SINE_EASE de 0.9 grados, un ciclo, entradas/salidas de 8 frames. No aplicarlo indiscriminadamente sobre gestos existentes.
+- Ojos: shape keys del addon con sufijo `__v4` para conservar otros juegos, expresiones Triste/Enojado/Sospecha interpretadas como preocupacion/insistencia/escucha. Intensidades geometricas 0.012 en coordenadas locales; valores de mezcla 0.4-0.8. Revisar ejes de malla antes de usar swap_axes.
+- Cuatro parpadeos de 9 frames en ventanas 48-66, 138-156, 229-247 y 320-338. El addon usa Closed y ocultacion completa durante el cierre; canales de visibilidad con interpolacion CONSTANT. Cerrado y Closed son shape keys diferentes.
+- Se comprobo variacion en los 22 huesos durante los 360 frames, cuello X=-30 y cierre de ambos ojos en frame 57. La aprobacion artistica del usuario sigue pendiente; estas comprobaciones no garantizan ausencia de deslizamiento en todos los apoyos.
+
+## V5: apoyo firme y escala de ojos durante el enfasis (2026-09-14)
+
+Peticion: abrir mas las piernas para mantener a Alfred firme en el suelo y aumentar la escala de las mallas de los ojos cuando enfatiza. Aplicado sobre V4 y guardado como `animaciones/alfred_discusion_arriba_v5.blend`; script reproducible en `animaciones/alfred_v5_apoyo_enfasis.py`.
+
+- Correccion expresa del usuario: «abre las piernas, no las separes». No trasladar lateralmente los muslos. Mantener su `location.x` original y abrirlos desde la articulacion con `LeftUpLeg_alfred.rotation_euler.z += 8 grados` y `RightUpLeg_alfred.rotation_euler.z -= 8 grados`. Esto forma una base en V desde la cadera. La primera prueba por traslacion de +/-0.085 fue rechazada y se elimino en V6.
+- Se redujo al 35% el balanceo rotacional de cadera, muslos y rodillas respecto de sus valores base. La rodilla derecha conserva su referencia X=-12 grados. Revisar visualmente cualquier deslizamiento antes de aumentar el balanceo.
+- Escala base de cada ojo: `(1.555, 0.496018, 3.55)`. En enfasis se escalan solo los ejes del plano visible X/Z entre 1.18 y 1.24 veces; el eje de profundidad Y permanece en 0.496018.
+- Pulsos principales: frames 26-36 (1.18), 98 (1.22), 193 (1.20) y 280 (1.24). Los ojos vuelven exactamente a escala base en las pausas 48, 130, 226, 312 y al final 360. Se compensa `location` usando el centro local de cada malla para evitar que el crecimiento desplace visualmente el ojo.
+- Las transiciones de escala y posicion usan Bezier `AUTO_CLAMPED`. El aumento de escala complementa las shape keys de expresion y los parpadeos; no reemplaza esos sistemas.
+
+## V7: transiciones de poses Elastic In-Out (2026-09-15)
+
+Petición expresa del usuario, corregida durante la revisión: usar `Elastic
+In-Out` solamente para dar énfasis a algunas poses necesarias, no en todas las
+transiciones. El identificador interno de Alfred Animation Studio es
+`ELASTIC_IN_OUT`. Se aplicó sobre la V6 y se guardó
+como `animaciones/alfred_discusion_arriba_v7_elastic.blend`; el proceso
+reproducible está en `animaciones/alfred_v7_elastic_in_out.py` y la exportación
+completa en `animaciones_exportadas/slot_001_alfred_5.py`.
+
+- Se aplicó a columna, cuello, rostro, brazos y codos: 81 fcurves expresivas.
+- Se conservaron las piernas y apoyos de V6, el Empty `alfred` en Z=90 grados,
+  `Neck_alfred.rotation_euler.x=-30 grados` y las acciones de ojos.
+- Las 19 poses originales se proyectaron sobre la redistribución temporal real
+  de V4/V6 para identificar correctamente cada transición.
+- Elastic In-Out se limitó a cuatro entradas de énfasis con duración duplicada:
+  frames 15-27 (12 frames, «Es peligroso»), 79-101 (22 frames, «No podemos
+  seguir»), 167-191 (24 frames, «Es mejor retroceder») y 265-283 (18 frames,
+  insistencia final). Las demás transiciones conservan la V6.
+- La curva se horneó por frame usando `apply_interp(t, "ELASTIC_IN_OUT")`.
+  Se conservó un 35% del residuo orgánico previo para evitar perder respiración
+  y microgestos. Los valores exportados permanecen en Euler XYZ.
+- Fuera de los cuatro intervalos de énfasis las curvas coinciden con V6; las
+  piernas tampoco reciben diferencias dentro de esos intervalos.
+- Tras duplicar las duraciones, se revisaron visualmente los frames 90, 179 y 274
+  en Blender 5.2.1. La
+  exportación se reimportó sobre `estructura_lista/alfred.blend`: 22 bones,
+  dos ojos, 360 frames, cuello X=-30 grados y mallas visibles.
+
+Usar `ELASTIC_IN_OUT` solo en poses con énfasis narrativo claro. Mantener
+las curvas propias de parpadeos y expresiones de ojos separadas; no sustituirlas
+automáticamente por Elastic In-Out.
+
+## Registro para próximas animaciones
+
+Añadir una entrada con:
+
+```text
+Fecha / nombre / versión:
+Petición y contexto de actuación:
+Archivo y escena revisados:
+Pose inicial y orientación del Empty:
+Huesos y canales modificados, valores relevantes:
+Duración, fps, anticipaciones, énfasis y pausas:
+Comprobación visual de poses, transiciones, mirada y apoyos:
+Feedback literal del usuario:
+Qué está aprobado y qué falta ajustar:
+Archivos guardados / cambios solo en memoria:
+Aprendizaje reutilizable (si lo hay):
+```
+
+## Persecucion zombie -> salto al agua (2026-09-29, primera version sin aprobar)
+
+Guion: `configuraciones/mi_configuracion_ia_persecucion.json`. Escena: `capitulos/capitulo_4/base.blend` (respaldo previo en `capitulos/capitulo_4/respaldos_ia/`). Solo se anima a Alfred; los zombies quedan fuera.
+
+- Peticion: huida de los zombies, parada al borde mirando atras, salto teatral que cae boca abajo sobre la piedra, rodar al agua, quedar con medio cuerpo bajo el agua y voltear a mirar el acantilado.
+- Recorrido (Pasos 1-2): se quitaron los 2 ultimos puntos de agua; PARADA en el punto 13 (90 f) y en el ultimo (300 f); tramos de caminar en estilo CORRER. Resultado: 5 segmentos (1-82 correr, 83-172 parada, 173-178 un paso, 179-261 salto, 262-561 parada final). El segmento 3 queda solo con la base.
+- Terreno medido por raycast: piedra seca en x -117..-114, y -118..-117, tope z=8.0; agua en z=7.889; lecho de piedra z=7.0 (y -121..-118) y z=6.0 (y -122..-121). De pie sobre el lecho z=7.0 el agua llega justo a la cadera de Alfred (hips = root + 0.873): ahi queda "medio cuerpo".
+- Poses nuevas `ia_*` (27) en `poses/`, con clave `root` (posicion y rotacion ABSOLUTAS del Empty). El root se calcula con `ai_api.root_por_suelo` (cuerpo apoyado en el suelo) y `ai_api.offset_cadera` (trayectoria de la cadera en el aire).
+- Ejes del rig (verificados contra `susto_pico`, `correr_zancada_der`): Hips X+ inclina el cuerpo entero hacia adelante (boca abajo con X=90), Hips Z rueda sobre el eje adelante (Z negativo rueda hacia la izquierda de Alfred), Hips Y gira a la izquierda; Neck X- mira arriba; brazos: abduccion = X = 90 - a, avance derecho Y+ e izquierdo Y-; rodilla flexiona con X negativo; codo derecho flexiona con Z negativo e izquierdo con Z positivo.
+- Rodar: Hips Z de 0 a -360 con el root a 90 grados; el resto de poses conserva Z=-360 para que Euler no deshaga el giro.
+- Bloqueos: segmento 1 con cadera, brazos y piernas bloqueados (conserva la carrera base); segmentos 2, 4 y 5 con el root desbloqueado (`filter_main_bone` falso) porque las poses llevan su posicion.
+- Ojos por segmento: SORPRESA, TRISTE, CERRADO, SUENO_2, CANSADO. Filtros organicos solo respiracion/cabeza en segmentos 1 y 2.
+- Pendiente de tu revision visual: transiciones entre segmentos (el primer frame de cada segmento arranca en su primera pose), lectura del salto, ritmo del rodar y el hundimiento.
+
+## zombie_1 v3 (2026-09-29, sin aprobar): 7.3 m, filtros organicos y ojos rojos siempre -- REEMPLAZA v2
+
+Pedido: distancia a la mitad (~7.5 m), enfocar filtros organicos y ojos rojos brillando en todo momento. Ruta: (-116.5,-95.5) -> (-113.5,-115.5), 24 puntos, ZOMBIE_ASIM, 448 frames (LENTO salia MAS rapido: 388); se queda quieto hasta el 561 (`ai_export.exportar(..., mantener_hasta=561)`).
+- Organicos por segmento (`zombie_1seg`): respiracion .05, cabeza .07, peso .03, movimiento secundario (lag 4), espasmos de brazo .06, hombros .05, micro-escala .006, suavizado; sin ruido de root.
+- Ojos rojos: sistema propio del zombie (luces de control ocultas `<ojo>_luz` + emision por drivers). Un solo `eye_color_intervals` (-60..2000, color (0.8,0.015,0.01)) y `eye_light_base_energy=25` para que no se apague nunca; parpadeo desactivado (intervalo apagado). Comprobado: energia 25 y emision 1 en los frames 1, 100, 250, 400 y 448. El resultado IA lleva `brillo_ojos` (emision constante para camara) y el `.py` autonomo lo aplica.
+- Trampa: `zombie_1pr.preview_path` y `zombie_1seg.concatenate_all` bloquean Blender minutos y agotan el tiempo del MCP: lanzarlos con `bpy.app.timers.register` y esperar. Un PARADA en el ultimo punto no genera tramo de parada.
+- Restaurado al terminar: ruta (32 puntos), 13 segmentos, ajustes de ojos y rango (respaldos `zombie_1_*_respaldo_20260929.json`).
+
+- **Ojos desfasados (corregido):** las mallas `ojo_*_zombie_1` se colocan con su transformacion de OBJETO (izq loc (-0.1257,0.2328,1.7271), der (0.1245,0.22,1.7288), ambas rot (-90,-90,0) grados, escala 1, valores de `estructura_lista/zombie_1.blend`) y se deforman con el armature. Al limpiar `animation_data.action` de los ojos entre regeneraciones, esa transformacion quedo en (0,0,0) y los ojos flotaban ~1.4 m fuera del rostro (desde la v2). Restaurada y reexportada; comprobado que los centros de los ojos siguen a la cabeza en los frames 1, 300, 500, 562 y 640. Al regenerar, verificar/restaurar la transformacion de los ojos antes de exportar.
+
+- **Alfred nada hacia las piedras (continuacion, sin aprobar):** `alfred/refinar/animaciones_ia/alfred_nada_hacia_piedras/` (frames 562-730). Al ver caer y levantarse al zombie (sube a hands-and-knees hacia el 590-612), Alfred se asusta (598-616 gira 90 grados al este con brazos defensivos), se lanza al agua (616-640, cadera 0->90) y nada en crol por la superficie hacia las piedras (x -115.4 -> -112.4, y -119.75 -> -118.55; cadera a 7.86, medio cuerpo bajo el agua); al final estira los brazos hacia la piedra. Crol: brazos Y=95±75 en oposicion (periodo 24 f), codos que flexionan en el recobro, batido de piernas ±22, balanceo del tronco ±9 (Hips Z), cuello -58. Ojos abiertos fijos (escala 2.45 x 5.3). El zombie sigue a Alfred: su ultimo tramo (660-712) se dirige hacia el, se queda a ~2 m y se mantiene hasta el 730. Rango de escena ampliado a 1-730.
+- Trampa al editar un `.animacion.json` a mano: las listas de 3 ejes con constantes NO son listas por frame; extender solo las de longitud N. Una extension mal hecha corrompe el archivo (error "internal error setting the array" al importar).
+
+- **Jerry tambien huye nadando (sin aprobar):** `jerry/refinar/animaciones_ia/jerry_nada_hacia_piedras/` (frames 562-860), personaje `ex.JERRY`. Cuando el zombie se levanta Jerry se asusta (606-630), gira al este por el sur (rz 96 -> 270 grados) y nada a chapoteo de perro en la misma direccion que Alfred: patas delanteras/traseras alternas (periodo 16 f, +-24/18 grados), cola, cabeza arriba; carril y=-119.2, 0.05 m/f; termina a ~1.7 m de Alfred (que va por y=-120.3). Alfred y Jerry: x desde -115.4 y -112.5, ambos hacia +x.
+- **Trampa importante (perdida de animacion):** la animacion de Jerry vivia como accion ACTIVA (`_jerry_preview_arm/_root`), no como pista NLA. La accion activa se evalua ENCIMA del NLA, y `aplicar` asignaba/desasignaba `ad.action`, asi que mis pistas quedaban tapadas y la base de Jerry se perdio (quedo con 0 usuarios). Se restauro pasandola a una pista NLA `Jerry_base` (HOLD_FORWARD) debajo de la pista nueva. `ai_export.RUNTIME` ahora hace lo mismo automaticamente (`_conservar_base`). Antes de tocar un personaje: comprobar `animation_data.action` y `nla_tracks`.
+
+- **Cadera girando 360 grados (corregido):** al final de la persecucion `Hips_alfred` queda en Z=-360 deg (el rodar se dejo en -360 para que Euler no lo deshaga). La continuacion mezclaba esa pose con poses de Z=0 y la cadera daba una vuelta completa en cada mezcla. Regla: al continuar desde una pose horneada, normalizar TODOS los angulos base a (-pi, pi] antes de mezclar (son orientaciones equivalentes). Verificado: en la continuacion Hips Z se mantiene entre -10 y 10 grados y ningun hueso pasa de 170 grados ni salta mas de 0.47 rad entre frames.
+
+- **Transiciones del zombie suavizadas:** (1) el escalon de la repisa al agua (root z 7.92 -> 6.92) era 1 m en un frame; ahora baja con curva suave (max 0.055 m/frame). (2) el ciclo de marcha del tramo final se repetia con salto de 0.69 rad en el brazo; se busco el mejor ciclo dentro de la marcha ya horneada (frames 128-211, 84 frames, diferencia de costura 0.2 rad, repartida en 4+4 frames: 0.05 en las costuras 744 y 828). (3) de levantarse a caminar se mezcla en 30 frames (antes 6; salto de 0.46 rad en el brazo izquierdo). Lo que queda (>0.3 rad por frame) es la caida por gravedad y el latigazo del impacto, a proposito.
+
+## (v2, reemplazada) zombie_1 camina hacia el acantilado (2026-09-29)
+
+Correccion del usuario: debe CAMINAR (no correr), salir a ~15 m de Alfred y esquivar los arboles. Salida: `zombie_1/refinar/animaciones_ia/zombie_1_camina_acantilado/` (ruta: `configuraciones/zombie_1_ia_ruta_camina.json`).
+- Ruta por A* (4 vecinos, desnivel <= 1 m, penalizacion junto a obstaculos y por giros) sobre una grilla del terreno: suelo = primer bloque de suelo bajo hojas/lluvia/troncos; bloqueado = tronco u hoja a la altura del cuerpo (rayo hacia abajo desde suelo+2.3 y rayos laterales). El tronco que atravesaba la ruta v1 estaba en (-113.5,-94.5).
+- Sale de (-113.5,-87.5): 15.0 m de Alfred en el frame 1. Estilo ZOMBIE_ASIM, 35 puntos, 700 frames (≈20 frames por metro), llega a (-113.5,-115.5) en el 700; en el 561 esta a ~9.6 m de Alfred, acercandose. Distancia minima a un obstaculo en toda la animacion: ver bitacora del turno.
+- Se descarto la ruta v1 (extension de la ruta del usuario con carrera RAPIDO) y su carpeta.
+
+## (v1, descartada) zombie_1 persigue hacia el acantilado (2026-09-29)
+
+Flujo IA con `ai_export.zombie(1)`. Salida: `zombie_1/refinar/animaciones_ia/zombie_1_persecucion_acantilado/`; ruta: `zombie_1/refinar/configuraciones/zombie_1_ia_ruta_persecucion.json`.
+- La ruta grabada por el usuario en `scene.zombie_1_path` (32 puntos, y=-30.5..-60.5, 13 segmentos sin poses) se respaldo en `zombie_1_ruta_usuario_respaldo_20260929.json` y se restauro al terminar (`zombie_1pr.preview_path` sobrescribe la ruta y el rango de frames). Se uso como primer tramo.
+- Extension medida por raycast (hay que saltarse hojas, lluvia y troncos): lateral a x=-113.5 y carrera al sur hasta y=-115.5; estilos NORMAL (ruta del usuario), ZOMBIE_ASIM (lateral) y RAPIDO (resto). Base de 1069 frames; exportada con `desfase=-524` (rango -523..545) para que llegue al borde en el frame 545, cuando Alfred lo ve. En el frame 1 esta a ~40 m detras de Alfred (y=-63.8); en el 450 pasa por el punto de partida de Alfred.
+- `ai_export.hornear/exportar(desfase=)` desplaza toda la animacion (frames negativos permitidos) y `suavizar` ahora envuelve los saltos de rotacion (un giro de 90 grados aparecia como 270).
+- El escenario termina en y~-89 hacia el norte a cierta altura (rayos desde arriba fallan): probar siempre con raycast que atraviese objetos que no son suelo.
+
+## API para IA (`ai_api.py`)
+
+Modulo aditivo del add-on (no registra clases). `from alfred_animation_studio import ai_api`. La IA solo escribe el guion (.json) y poses; Blender ejecuta con el motor de siempre: `estado()`, `guion_desde_escena/leer/escribir/aplicar/aplicar_segmentos`, `validar_guion`, `guion_recorrido`, `seg_poner_poses`, `seg_bloquear`, `pose_item`, `crear_pose`, `ver_pose`, `cuerpo_min_z`, `offset_cadera`, `medir`, `chequear_frames`, `concatenar`, `encuadrar`.
+
+- **Dos flujos** (manual e IA) y como no pisarse entre IA: `FLUJOS_MANUAL_E_IA.md`. La IA guarda su resultado completo en `animaciones_ia/<nombre>/` con `ai_export.exportar` (`.animacion.json` + `.py` autonomo + `manifest.json`), sin depender del guion. Ejemplo: `animaciones_ia/persecucion_zombie_agua/`.
+- CORREGIDO 2026-09-29 en `config_ops.py`: en Blender 5.2 el cargador perdia las PARADA al importar (validaba contra `enum_items`, vacio en ese enum dinamico). Ahora asigna directo y solo cae a AUTO ante un TypeError. Verificado recargando el paso 1 con el cargador original. `ai_api.guion_aplicar` conserva su reasignacion por si el add-on instalado es una copia vieja. El add-on instalado toma el arreglo al reiniciar Blender o reinstalar con el `.bat`.
+- `ai_api.seg_bordes(data, idx, entrada, salida)` suaviza las uniones: el motor arranca cada segmento exactamente en su primera pose. Con hueco de entrada/salida las poses se mezclan desde/hacia la base. En la persecucion: 82->83 y 172->173 bajaron de ~0.1 m a ~0 m, 178->179 de 0.28 a 0.17 m (el resto es de la propia base: paso corriendo -> inicio del salto). 261->262 ya era continuo a proposito.
+- `ai_export.exportar(..., suavizar_en=[frames de union], ventana=8)` reparte el salto de cada union (motor: cada segmento arranca en su primera pose) en 8 frames antes y 8 despues con una curva suave. Solo actua sobre el resultado del flujo IA (root y huesos); la escena y el guion manual no cambian. Persecucion: salto maximo entre frames vecinos en las uniones 83/173/179/262 bajo de 1.08 a 0.04 (unidades del canal: metros o radianes).
+- `alfredseg.concatenate_all` arranca la reproduccion al terminar (a veces con retraso): cancelarla antes de revisar cuadros.
+- Importar una config dispara CONCATENAR_2 (ojos) automaticamente.
+
+## zombie_2 en paralelo a zombie_1 (2026-09-29, sin aprobar)
+- Artefacto: `zombie_2/refinar/animaciones_ia/zombie_2_camina_acantilado/` (frames 1-860). Ruta A* propia en
+  `zombie_2/refinar/configuraciones/zombie_2_ia_ruta_camina.json` (esquiva arboles, ~1 m al lado de zombie_1).
+- **Derivado de la animacion de zombie_1**, no generado con el add-on de zombie_2: `zombie_2_animation_studio` es una copia mal
+  renombrada (aun usa `ZMB1ST_*` y `scene.zmb1st`) y al activarlo desregistra el de zombie_1. **No activarlo** hasta renombrarlo.
+- Variaciones (solo en la marcha, fundidas hacia 0 en la caida): fase del paso +17 frames, brazos/codos x1.3, piernas x0.88,
+  cadera x1.25, cuello x1.5 con inclinacion, tronco inclinado; giro de cadera de 28 grados al caer; carril 0.6 m mas al norte al
+  seguir a Alfred; ojo izquierdo x1.12. Ojos rojos siempre encendidos. Altura en el agua ajustada a la de zombie_1 (frames 680-740).
+- Objetos: se anexaron desde `estructura_lista/zombie_2.blend` (18 objetos, sufijo `_zombie_2`) y se aplico con
+  `ai_export.importar("zombie_2_camina_acantilado", personaje=ai_export.zombie(2))`.
+
+### zombie_2: estilos de caminata propios (2026-09-29)
+Pedido: que zombie_2 no vaya sincronizado con zombie_1 y parezca otro personaje. zombie_1 usa ZOMBIE_ASIM; zombie_2 ahora usa
+BRAZO_ABAJO (1-160) -> ESPASMOS (160-476, rodilla danada, cabeza fija) y tras levantarse LENTO (660-760) -> BRAZO_ABAJO (760-860),
+con fundidos de 24 frames. Metodo (sin activar el add-on): importar `generate_slots_zombie_2.py` con `importlib`, `generate_caminar(...)`
+con puntos que lleven `texture` y `face_index`, `exec` del codigo, `execute_animation`, leer `pose.bones[].rotation_euler` por frame
+(datos en el scratchpad), quitar las acciones temporales y mezclar sobre el artefacto con el peso de "marcha" (0 en la caida).
+La ruta de zombie_2 no tiene saltos de subir/bajar; si se anade alguno, usar `generate_saltar_subir/bajar` con distinto instante que zombie_1.
+
+### zombie_2 v3: caminata NORMAL y sin sincronia (2026-09-29)
+Correccion a lo anterior: zombie_2 camina en estilo NORMAL (ciclo 20 frames, espalda recta, cabeza al frente); zombie_1 sigue en ZOMBIE_ASIM
+(ciclo 28), asi las cadencias no coinciden. La secuencia de llegada al borde, caida al agua y levantarse de zombie_2 va retrasada
+15 frames (deformacion temporal de todos los canales desde el 430, reincorporada hacia el 800). Altura en el agua = la de zombie_1 (f>=700).
+
+### zombie_2 v4: sin balanceo y cae al agua (2026-09-29)
+El balanceo lateral venia de la LOCATION del hueso `Hips` (de -0.16 a +0.32 m, heredada de ZOMBIE_ASIM de zombie_1), no de las rotaciones:
+ahora se anula al caminar (cadera fija, cuello fijo). La caida sale del borde de piedra y termina 1.9 m mas al sur, dentro del agua, sobre el lecho
+(z 6.95), en vez de sobre la piedra donde cae zombie_1 (y=-117.5). Para cualquier zombie derivado: revisar tambien `location` de Hips al quitar/cambiar estilos.
+
+### zombie_2 v5: cae lejos de Alfred y no a la vez que zombie_1 (2026-09-29)
+El retraso de zombie_2 pasa de 15 a 45 frames (rampa suave 330-490 para no invertir el tiempo): zombie_1 cae hacia el 550, zombie_2 hacia el 600.
+Aterriza en el canal de agua (x=-120.6, y=-119.9, lecho z 6.95) a ~5.2 m de Alfred (que espera en -115.4,-119.75); antes caia a <1 m. Canal medido:
+agua y=-118..-122, lecho 7 (6 hacia el sur); al sur del -122 no hay lecho. Pipeline completo reproducible desde `z2_antes_estilos` (warp -> caminata NORMAL -> cadera/cuello fijos -> desplazamiento de caida).
+
+### zombies 3-5: NORMAL y sin atravesar arboles (2026-09-29)
+Estilo NORMAL para todos (frente, brazos al frente) con fase de ciclo distinta (6/13/3) para no sincronizarse. La aproximacion se rehizo con A* (`docs/datos_zombies/rutas_sin_arboles.py`) sobre los puntos de obstaculo medidos por raycast horizontal (`arboles_puntos.json`): la grilla vieja (22 celdas) NO incluia los troncos (`Oak_Log`, `Spruce_Log`); medir siempre con rayos horizontales a la altura del cuerpo.
+
+### Zombies 1-5: caminaban de lado (2026-09-30)
+Causa: al mover x,y del root (rutas A*, carriles, colas, desvio de caida) la rotacion Z del root seguia siendo la de la ruta original. Solucion: `docs/datos_zombies/orientar_al_avanzar.py` (rz = atan2(-vx, vy) donde hay avance >0.02 m/f, con fundido, suavizado y limite de giro 0.09 rad/frame; respaldo `<nombre>.antes_rumbo.json`). Regla: cada vez que se cambie la trayectoria xy de un artefacto, volver a orientar el root. Verificado en Blender: <=5 de ~160 muestras en marcha con mas de 34 grados de desvio.
+
+### Zombies 2-5: caen cerca del borde (2026-09-30)
+Pedido: no caer tan lejos. Aterrizajes ahora a 1.5-3 m del borde de piedra, cada uno desde su punto de llegada: zombie_2 (-118.4,-119.0), zombie_3 (-111.6,-118.7), zombie_4 (-116.6,-119.2), zombie_5 (-114.4,-118.8); a 2.7-4.7 m de Alfred. Tras levantarse, carriles distintos (z2 baja 1.6 m al sur para no pisar a los caidos). Pipeline: `derivar_zombie.py` -> `rutas_sin_arboles.py` -> `orientar_al_avanzar.py`. Separacion minima entre pares f560-860: >=0.98 m (z1-z3 en f647 y z1-z2 en f846 ~1.0-1.1 m).
+
+### Zombies 3-5: caida desde el borde real y ojos rojos (2026-09-30)
+- Perfil del alcantilado medido por raycast: tope de tierra z=13 hasta y=-116.9 (x -117.5..-109.5); debajo un saliente de piedra z=8 hasta y~-118.3; agua mas al sur. Los zombies 3-5 esperaban 1-4 m antes del borde y caian atravesando la tierra. Ahora `rutas_sin_arboles.py` (EDGE) los lleva al borde (z3 -112.0, z4 -115.6, z5 -113.4, y=-116.7), esperan alli y salen por delante de la caida vertical (avance horizontal = fraccion de caida^0.55) para librar el saliente de piedra: aterrizan en y=-119.1. Penetracion maxima medida por raycast en la caida: 0.12 m (zombie_1: 0.32, zombie_2: 0.22).
+- Ojos: en zombie_2..5 el material tenia `diffuse_color` gris (vista solida = ojos sin color); `ai_export._brillo` ahora tambien fija `diffuse_color` al color del brillo (ya estaba la emision constante para camara). Las curvas de ojos (visibilidad, Closed=0) estan siempre encendidas.
+
+### zombie_3 ya no cae sobre Jerry (2026-09-30)
+Jerry espera en (-112.5,-119.5) hasta ~f630 y nada al este por el carril y=-119.2; Alfred (y=-120.3) y zombie_1 (y=-120.2) tambien cruzan x -114..-108 entre f650 y 780. zombie_3 caia en (-111.6,-119.1) a 0.6 m de Jerry. Ahora: aterrizaje (-112.5,-118.9), retraso 85->97 (cae en f650, aterriza f680; hueco con zombie_4 de 23 frames). Distancias minimas xy medidas en Blender f600-860: Jerry 1.4, Alfred 1.26, z1 1.1, z2 1.57, z4 3.5, z5 1.37. Antes de fijar un aterrizaje, medir contra las trayectorias de Jerry/Alfred/zombies (script en la sesion: rejilla de candidatos vs tracks por frame).
+
+### Camara_Cinematica (2026-09-30)
+Camara nueva `Camara_Cinematica` + objeto `Cam_Foco` (Track To), keyframes cada 10 frames (posicion, lente, foco), sin renders de video. Diseno: la camara va SIEMPRE al sur del grupo mirando al norte con desplazamiento casi constante (-1,-13,+5) que pasa a (-1,-11,+4) entre f250-310, para minimizar giros y evitar troncos (el 97 % de las cabezas/puntos del grupo tienen linea de vista libre con ese desfase; calculado por raycast). Foco = centro ponderado (Alfred y Jerry x3, zombies x0.35); entre f290-540 el foco pasa a Alfred/Jerry. Lente: contiene siempre a Alfred y Jerry (comprobado por `world_to_camera_view` cada 15 frames) y a los zombies cuando cabe (chase, borde antes del salto, caida). Nota: `Camera.001` ya no existe en la escena (no la borro este trabajo).
+
+## PARTE 2 v2 (2026-09-30, sin aprobar): discusion en el agua, zombies acercandose, huida frenetica a la costa y escalera oriental
+Escena `capitulos/capitulo_4/base_parte_2.blend` (frame 1 = estado del frame 860 de la parte 1). **900 frames.** Ruta segun la descripcion del usuario (capturas de las coordenadas: Alfred (-84.5,-120.32), Jerry (-82.5,-119.44)).
+- Terreno medido (`docs/parte2/grilla_p2.json`, raycast): al este del canal no hay tierra (agua hasta x=-77); la costa norte es una rampa de bloques que sube en escalones de +1. La escalera usada: **oriental**, y=-104.5, x -83.5 -> -89.5 (z 8,9,10,11,12,13,14) desde el agua de x=-82.5; la orilla de x=-84 en y -118..-120 es tierra baja, por eso Alfred sale en diagonal a x=-82.5 antes de ir al norte (la ruta de la version anterior, x=-91.5, queda descartada).
+- Linea de tiempo: 1-337 Alfred nada al este y frena en (-84.5,-120.32) (Jerry ya paro en f275 en (-82.5,-119.44), 30 frames antes de la coordenada de Alfred; Jerry es el primero en girar la cabeza: f278-300 y en girar el cuerpo hacia Alfred f284-306); 305-480 quedan de pie sobre el lecho (agua a la cintura): Alfred discute con las manos abiertas y niega con la cabeza, Jerry ladra hacia Alfred (f352,380,414,442) y mira alrededor; **482-518 ambos miran atras (al oeste) y ven a los zombies cerca (susto: brazos defensivos en Alfred, ojos x1.35, boca abierta en Jerry)**; 540 empieza la nadada frenetica (crol x1.7 Alfred / x1.5 Jerry) hacia el norte por x=-82.5; llegan al pie de la escalera (Alfred f706, Jerry f662), suben (tramo de tierra del motor base: saltar_subir + CORRER; Alfred termina en (-95.9,-103.1,14), Jerry en (-97,-101.8,14)).
+- Zombies (`docs/parte2/compose_zombies_parte2.py`): vadean por el lecho en fila (>=1.4 m) acercandose lentamente (0.028-0.032 m/f) mientras discuten; el primero (zombie_1) llega a ~10 m de Alfred hacia el 480; desde el 540 aceleran (0.085 m/f) y giran por el agua hacia el pie de la escalera. Al f900: zombie_1 sube (z 14), zombie_2 z 12.4, zombie_3 z 8.8, los demas en el agua tras ellos.
+- Scripts: `docs/parte2/compose_parte2.py` (Alfred y Jerry: ciclos exactos de nado de la parte 1, 24 f / 16 f) y `compose_zombies_parte2.py`; el tramo de tierra se genero con el motor base (`alfredpr/jerrypr.preview_path`, respaldos: `jerry/refinar/configuraciones/jerry_ruta_al_iniciar_parte2_respaldo.json`, `alfred/refinar/configuraciones/alfred_parte1_guion_al_iniciar_parte2.json`) y se exporto como `parte2_alfred_tramo_tierra` y `parte2_jerry_tramo_tierra`. Requiere el add-on de Jerry activado. Separacion minima entre personajes (xy, cada 10 frames): z1-z2 1.17 (f1), Alfred-Jerry 1.69 (f881), resto >= 2.0.
+- Limitaciones: primer borrador sin ver en el visor (las capturas son grises); Alfred y Jerry cruzan la orilla de x=-84 solo en diagonal por agua; los zombies no usan animacion de escalera; `Camara_Cinematica` no esta adaptada a la parte 2.
+
+### Parte 2: zombies con velocidad constante y flotacion (2026-09-30)
+Correccion del usuario: los zombies aceleraban al ver Alfred (mi "caza" desde f540) -> eliminada. Ahora cada zombie avanza con UNA velocidad constante durante los 900 frames (z1 0.033, z2 0.032, z3 0.031, z5 0.030, z4 0.029 m/f; medidas en Blender: variacion <= 0.003 m/f, solo por curvas de la ruta). Como no aceleran, en 900 frames no llegan a la escalera (z1 termina en (-82.5,-113.3)); el primero pasa por el punto de espera de Alfred hacia el 700. Flotacion: en el agua la cadera queda 0.22 m sobre el nivel del lecho (z 7.2) con oleaje (bob 0.055 m periodo 52 f + 0.02 m periodo 19 f, fase distinta por zombie); en tierra vuelven a la altura del terreno. Huesos en el agua: cabeceo y balanceo de cadera/columna/cuello (+-4-7 grados), brazos chapoteando (+-9 grados) y codos, piernas con pateo extra, ademas de la marcha NORMAL. Script: `docs/parte2/compose_zombies_parte2.py`. Separacion minima entre zombies 1.17 m (z1-z2, f1).
+
+### Parte 2: susto de Alfred = ojos abiertos y brazos en V (2026-09-30)
+Frames ~496-526 (al ver a los zombies): brazos en V (abduccion 140 grados el derecho / 170 el izquierdo -> X=-50 / -80; codos estirados a ~6 grados; temblor leve +-6 %), sin flexion de codos ni brazos al frente. El brazo izquierdo del rig cuelga mas bajo (hombro asimetrico: a X=-90 el codo izquierdo llega a +0.84 m sobre el cuello, el derecho a +1.11), por eso `V_LEFT_EXTRA=30` en `compose_parte2.py`. Medido en Blender (f512): manos +1.00 m / +0.77 m sobre el cuello, a -0.83 / +0.73 m a los lados, separacion 1.6 m. Ojos: mallas visibles y `Closed`=0 en f480-550 (se anula el parpadeo del tramo base), escala x1.35 / x1.30 (ojos muy abiertos).
+
+### Parte 2: descanso en la meseta y Jerry habla del refugio (2026-09-30) -- escena ampliada a 1100 frames
+- Alfred sube la escalera oriental y camina por la meseta hasta **(-93.5,-108.5,14)** (coordenada dada por el usuario; el motor base terminaba a 0.12 m y se corrige suavemente en los ultimos 30 frames). Llega hacia el frame 864. Tramo regenerado con el motor base (`parte2_alfred_tramo_tierra`, 159 f). Jerry sube antes y llega hacia el 840 a (-95.0,-107.6,14), a 1.75 m de Alfred, y se encara con el (`parte2_jerry_tramo_tierra`, 179 f).
+- Alfred (f844-970): descansa inclinado (cadera +24 grados, columna +10, cuello +12, manos en las rodillas: brazos adelante +-34 grados y codos flexionados), jadeando (+-2.5 grados a 0.33 rad/f). f970-1100: de pie cansado (columna +6), escucha, cabeza hacia Jerry, asiente (cuello +4..+10 grados) y en f1069-1105 mira a los lados un momento. Se encara con Jerry (rz 59 grados) al parar.
+- Jerry (f900-1090): habla en rafagas (cada 34 frames, 22 de duracion: mandibula abre/cierra hasta 0.42 rad y cabeceo), mueve la cola (tail_1-3, eje Z) mientras habla, y entre f990-1055 gira la cabeza +-0.55 rad como senalando donde levantar el refugio.
+- Zombies: mismo script con N=1100 (siguen a velocidad constante; al 1100 el primero esta en (-82.5,-106.7), aun en el agua al pie de la escalera).
+- No hecho: expresion de ojos cansados en Alfred (existe la shape key `Cansado`), gesto de patas de Jerry, camara de la parte 2.
+
+### Parte 2: descanso de Alfred rehecho -- "persona que corrio mucho" (2026-09-30)
+Alfred (llega ~f864, descanso f858-~990): se dobla por la cintura en ~20 frames (cadera +26, columna 14/11/11 = torso ~56 grados, cuello 22 grados colgando), piernas casi rectas (muslo X=26 para llevar los pies bajo la cadera, rodilla -4; root +0.09 m para que los pies no atraviesen el suelo), brazos rectos con las manos en las rodillas (`UpArm` X=105, Y=+-45, codos a 0; mano a ~0.2-0.3 m de la articulacion de la rodilla, medido en Blender). Respiracion de jadeo: periodo 24 f al llegar -> 40 f al calmarse, amplitud de cuello ~10 cm -> ~6 cm, hombros/columna/rodillas que suben y bajan con cada respiracion, leve balanceo de cadera. f~975-1030 se incorpora con una inhalacion profunda (cuello -14, columna -6, brazos algo abiertos) y sigue de pie cansado escuchando a Jerry. Ojos: `Cansado` 0.8, parpados a 82 % de altura y un cierre corto (`Closed` hasta 0.35) en cada exhalacion.
+**Trampa de calibracion:** modificar `pose.bones[...].rotation_euler` desde Python y llamar a `view_layer.update()` NO da mediciones fiables cuando hay animacion (se reevalua); calibrar poniendo los parametros en el artefacto (`REST_P` en `compose_parte2.py`, variable de entorno) y midiendo tras `sc.frame_set()`.
+
+### Parte 2: susto -- rotacion Y de Neck/Spine1/Spine2 = 0 (2026-09-30)
+Peticion del usuario (frame 501): para que Alfred mire a los zombies, `Neck_alfred`, `Spine2_alfred` y `Spine1_alfred` deben tener rotacion Y = 0 (Neck X queda en ~7.4 grados, el resto 0). El cuerpo ya mira al oeste por el giro del root (rz 90 desde f496); la torsion de cuello/columna hacia atras (antes 55/45/30 grados) ahora solo existe mientras el cuerpo gira (f478-498) y se anula en f496-530. Verificado en Blender: f496/501/515 -> Neck (7.4, 0, 0), Spine2 (0, 0, 0), Spine1 (0, 0, 0), root rz 90.
+
+### REGLA DEL USUARIO: transiciones expresivas con Elastic In-Out (2026-09-30)
+Sustos, risas, golpes y reacciones parecidas usan **Elastic In-Out** (menu de interpolacion de Blender; en el add-on `ELASTIC_IN_OUT`, `interpolation.py`). En segmentos manuales: `interp_type="ELASTIC_IN_OUT"` en la pose a la que se llega. En artefactos compuestos por script: `ela()` / `epulse()` de `docs/parte2/compose_parte2.py` (misma formula, sobreoscila ~+-10 %); no usarla donde un hueso deba quedar EXACTAMENTE en 0 (p. ej. la anulacion de Neck/Spine Y del susto sigue con smoothstep). Aplicada al susto de la parte 2: brazos en V de Alfred (frames ~490-526: anticipa 90->96 grados, salta a -52 y oscila ~+-8 grados antes de asentarse), apertura de ojos y reaccion de Jerry. `FLUJO_DE_TRABAJO.md` / `TABLERO_TAREAS_IA.md`: cualquier IA debe seguir esta regla.
+
+### Parte 2: Alfred resbala a Z=13, rueda por los escalones y flota boca abajo (2026-09-30)
+Peticion del usuario (flecha roja: hacia el agua). `compose_parte2.py` con `SLIP=1` (por defecto; `SLIP=0` regenera la version anterior: llegar a (-93.5,-108.5) y descansar; copia en `compose_parte2_v_descanso.py`). Alfred sube la escalera oriental corriendo y al llegar a x=-88.5 (Z=13, frame ~811):
+1. **Resbalon (f811-827):** se echa hacia atras (cadera -35 grados, brazos arriba, piernas pataleando) y cae hacia delante (cadera +90, prono) con transiciones **Elastic In-Out** (regla del usuario); el root gira a rz 180 (mira al sur) para rodar hacia el este (Z negativo = rueda a su izquierda = este).
+2. **Rodar (f827-917):** 90 frames, 5 vueltas completas (Hips Z 0 -> -1800 grados) con brazos/piernas/cuello sueltos; baja del x=-88.2 al -83.0 por los 6 escalones (z 13->8): en cada escalon rebota (hop 0.35 m despues de aterrizar y caida de 1 m al salir del borde); la altura del root = escalon - 0.42 (el eje del cuerpo tumbado va a 0.45 m del escalon).
+3. **Al agua y flotar (f917-1100):** entra con un hundimiento de 0.25 m que rebota (flotacion), queda boca abajo (Hips X=90, Z=-1800 = cara abajo) con el eje de la cadera a 0.11 m bajo la superficie (z root 6.91, superficie 7.89), brazos y piernas colgando, cabeza caida, vaiven suave y deriva de 0.9 m hacia el este (x -83.0 -> -82.1); ojos cerrados desde f829.
+- Jerry (ya arriba): llega a (-95,-107.6) hacia el 840, se encara hacia la escalera/agua (rz -76 grados) y ladra preocupado en rafagas cada 30 frames con cola agitada y cabeza baja; no hay escena de descanso/refugio en esta version (se puede retomar despues de que Alfred salga del agua).
+- OJO: el objeto del esqueleto de Alfred en la escena se llama ahora `a` (antes `Armature`); `ai_export` lo encuentra igual, pero mi codigo de medicion debe buscar el armature como hijo de `alfred`.
+
+### Parte 2: resbalon con vueltas de campana (2026-09-30, reemplaza "rodar lateral")
+Alfred resbala al subir (mira al oeste), pierde los pies (cadera -35 grados, brazos al aire, elastico), cae de ESPALDAS sobre el escalon (f~819-826) y rueda cuesta abajo (este) en **vueltas de campana hacia atras**: Hips X de -90 a -2070 grados en 105 frames (f826-931) = 6 vueltas (~1 por escalon, 17.5 f cada una), terminando boca abajo (-2070 = prono). Cuerpo flojo en cada vuelta (barbilla al pecho, brazos que se agitan, rodillas dobladas, columna que se enrosca). La altura sale del punto mas bajo del cuerpo en cada angulo (`hclear`: pies 0.873, cabeza 1.16, grosor 0.30 bajo/sobre la cadera) + escalon (z 13->8, rebote 0.25 m al aterrizar y caida de 1 m al salir del borde), asi que el centro sube/baja como una persona de verdad. Entra al agua en f931 y flota boca abajo (como antes). Version anterior (rodar de lado): `compose_parte2_v_rodar_lateral.py`.
+**IMPORTANTE (armature renombrado):** el esqueleto de Alfred se llama `a`, no `Armature`. `ai_export.importar(nombre, personaje=ex.ALFRED)` busca "Armature" y SALTA los huesos sin avisar (solo anima root y ojos): usar `ex.importar(nombre, personaje=ex.ALFRED, armature_name="a")`. Mis importaciones desde la que se renombro (resbalon/rodar lateral) tenian a Alfred sin animar los huesos; con esta ya se aplican (verificado: Hips X -35, -57, -165, ... -2069).
+
+### Parte 2: caida por la escalera = UNA vuelta lateral por escalon, todas distintas (2026-09-30, reemplaza las vueltas de campana hacia atras)
+Peticion del usuario: el cuerpo tumbado PARALELO AL SUELO (rueda de lado), solo 1 vuelta por cada Z que baja hasta el agua, y cada caida diferente. Resbalon (f811-827: cadera -35 grados elastico, cae de bruces: Hips X=90 prono, root rz 90->180 para rodar al este) y 6 vueltas completas (Hips Z 0 -> -2160 grados, una por escalon z 13->12->...->7), f827-926. Cada escalon tiene sus parametros en `STEPS` de `compose_parte2.py` (duracion 12/19/14/17/15/21 f, rebote 0.22-0.50 m, inicio de la caida 0.50-0.62, sesgo del perfil de giro -0.45..+0.55, desvio lateral +-0.24 m, guinada del cuerpo 5-14 grados, sacudida de impacto 5-10 grados, amplitud de brazos 55-80, piernas 16-30, giro de cuello 10-25, fases distintas). Root z = escalon - 0.42 (eje del cuerpo tumbado) + rebote; medido en Blender: cuello_z - cadera_z entre -0.10 y +0.04 m en toda la caida (cuerpo horizontal) y Hips Z exacto -360 por escalon. Despues entra al agua (f926), flota boca abajo (Hips Z = -2160 = cara abajo) hasta el 1100. Versiones anteriores: `compose_parte2_v_vueltas_campana.py` (hacia atras) y `compose_parte2_v_rodar_lateral.py`. Importar Alfred con `armature_name="a"`.
+
+### Parte 2: resbalon conectado al contexto (2026-09-30)
+Contexto: Alfred huye de los zombies, sale agotado del agua y sube corriendo una escalera de piedra MOJADA. El resbalon ahora cuenta eso: (1) f794-813 sube corriendo y **gira la cabeza hacia los zombies** (sur; cuello Y 55, columna Y 18) sin mirar donde pisa; (2) f810-818 el **pie delantero patina** hacia delante sobre la piedra mojada (pierna izquierda X +58, casi recta) y la de apoyo cede (rodilla -75, cadera baja 0.20 m), el torso se va hacia atras (cadera -22, elastico), brazos en V por el susto (elastico) y la cabeza vuelve de golpe; (3) f815-822 **estira las manos para agarrarse del escalon** (brazos adelante-abajo), no lo consigue y (4) f819-826 cae de bruces (cadera hasta 90, prono) y arranca la vuelta lateral del primer escalon. Ojos muy abiertos (x1.35/1.30, elastico) desde f802 hasta el rodar, luego cerrados. Version anterior: `compose_parte2_v_resbalon_simple.py`.
+
+### Parte 2: root Y = -104.8 durante las vueltas (2026-09-30)
+Pedido del usuario (captura vista desde arriba: las mallas de los pies se solapaban con el suelo/pared al rodar): el root de Alfred pasa de y=-104.5 a **y=-104.8** durante el resbalon final y todas las vueltas (f822-926) y se mantiene al flotar (y=-104.8 +-0.05). La deriva lateral de cada vuelta se redujo a un 30 % (rango medido -104.87..-104.73) para no perder esa separacion. Constante `Y_ROLL` en `compose_parte2.py`.
+
+### Parte 2: Jerry ve caer a Alfred y se tapa la cara decepcionado (2026-10-01)
+Sustituye los ladridos preocupados. Jerry (arriba, z=14) se detiene cuando Alfred resbala (frame 816, freno de 8 frames, en (-93.15,-106.68)), se encara hacia la escalera (rz hacia (-86,-104.8)) y pasa a la pose de pie (`parado.json`). **En cada golpe de Alfred** (caida de bruces f826 + los 6 aterrizajes en escalones, `SLIP_INFO["starts"]`) se sobresalta con **Elastic In-Out** (regla del usuario): cabeza hacia atras y abajo (scull_1 X +0.20 rad x intensidad), giro de cabeza alternado, mandibula abierta (hasta -0.3 rad, mas con los golpes fuertes) y cola que tiembla. Tras el ultimo golpe (f926) **levanta la pata derecha y se tapa la cara** (front_shoulder.R X30/Z20, shin X60, foot X40; calculado en Blender: la punta de la pata queda a 5 cm del centro de la cara, medido 0.04-0.08 m) y desde f956 **niega con la cabeza a derecha e izquierda** (scull_1 Y +-35 grados, periodo ~30 f), cabeza algo baja y un suspiro (mandibula). Version anterior (ladridos): `compose_parte2_v_jerry_ladra.py`. Script de busqueda de la pose: se probaron 4 articulaciones del brazo derecho con la animacion desactivada (`animation_data.use_nla=False`).
+
+### Parte 2: Jerry vuelve al borde de la subida a observar (2026-10-01)
+Cambio sobre la entrada anterior: en vez de quedarse parado donde estaba (-93.15,-106.68) al caer Alfred, Jerry **gira en seco** al resbalar Alfred (kS+2 = f812), **corre de vuelta** (ciclo de carrera x1.5, ~0.17 m/f, arranque y frenada suaves) y llega al **borde superior de la escalera en (-89.7,-104.3), z=14** hacia el f840 (z fijo en 14.0 en todo el recorrido, medido), encarado hacia donde rueda Alfred (rz ~-98 grados). Desde alli reacciona a los golpes que quedan (aterrizajes de f857 en adelante; los de f826 y f838 los ve llegando), y se tapa la cara con la pata derecha y niega con la cabeza como antes. Constante `EDGE_J` en `compose_parte2.py`. Version anterior: `compose_parte2_v_jerry_en_su_sitio.py`.
+Medido en Blender (f808-1000): Jerry en z=14.00 todo el rato, llega a (-89.7,-104.3) en f840 y desde el 860 mira a Alfred con 1-4 grados de error; la pata queda a 5 cm de la cara a partir del ~f950. **Nombres de objetos de Alfred en la escena (renombrados fuera de mis cambios):** root = `Object` (antes `alfred`), esqueleto = `a` (antes `Armature`). Para reimportar a Alfred hay que pasar `root_name="Object", armature_name="a"` a `ex.importar`.
+
+### Parte 2: Jerry avanza poco al subir (2026-10-01)
+Peticion: que Jerry no avance tanto al subir para que el retorno a ver caer a Alfred sea corto. Su tramo de tierra (motor base, 122 f) ahora termina en **(-90.8,-105.2,14)**, solo 1.3 m pasado el borde (antes (-95,-107.6), ~5 m); llega hacia el f783 y **espera** a Alfred mirando la subida (se gira al este, asoma la cabeza, jadea y mueve la cola; `wait_row`). Al resbalar Alfred (f812) retrocede **1.46 m** (antes 3.5 m) al borde (-89.7,-104.3) y llega antes del primer golpe de las vueltas (f826). Resto igual (sobresalto en cada golpe, pata en la cara, niega con la cabeza). Version anterior: `compose_parte2_v_jerry_avanza_mucho.py`.
+
+### Jerry: la guinada de la cabeza (`scull_1`) es el eje **Z**, no Y (2026-10-01)
+Correccion del usuario: la oscilacion de la cabeza de Jerry (negar con la cabeza tras ver caer a Alfred) va en la rotacion Z de `scull_1`. Comprobado midiendo con la animacion desactivada: +30 grados en Z mueve el hocico 0.14 m a un lado (guinada), +30 en Y solo 0.07 m (casi un balanceo) y +30 en X lo sube/baja 0.14 m (cabeceo). Se movieron a Z TODOS los giros laterales de cabeza de `compose_parte2.py` (mirar alrededor, vistazos al esperar, giro del sobresalto, negar con la cabeza, mirar a los lados): rango de la negacion medido en Blender +-36 grados en Z (Y = 0). **Regla:** en Jerry, `scull_1` X = cabeceo, Z = guinada (izq/der), Y = balanceo; `jaw_bot` X negativo abre la boca. Version anterior (eje Y): `compose_parte2_v_scull_y.py`.
+
+### Jerry: saltos de subida mejorados (2026-10-01)
+Problema del motor base (`jerrypr`, saltar_subir): casi no movia los huesos (cambios de 1-10 grados con ruido), y por escalon hacia salto de ~9 f + una pausa de ~6 f parado. Ahora `compose_parte2.py` (bloque `JK`, `jc_pose`, `jc_x`, `jc_z`) sustituye los 7 saltos (frames 1-105 del tramo, f662-766) por 7 saltos CONTINUOS de 15 f cada uno: **agacharse** (f0-0.2: cuartos traseros y pecho comprimidos con muslo +28 / tibia -28 para que los pies casi no se muevan, cabeza mirando al escalon), **impulso** (0.2-0.36: traseras empujan hacia atras, delanteras suben, cuerpo se levanta, cola arriba, orejas atras), **vuelo** (parabola con altura extra 0.36-0.50 m segun el salto, delanteras al frente, traseras recogidas, boca entreabierta), **aterrizaje** (0.8: delanteras amortiguan, cabeza baja, orejas al frente) encadenado con el siguiente agachado. Cada salto varia (amplitud 0.90-1.10, altura, meneo de cola, patas derecha/izquierda desfasadas, orejas aleteando). Ejes medidos con la animacion desactivada (Jerry mira a +fw): `thigh` X+ = pata trasera adelante/arriba; `front_shoulder` X+ = pata delantera arriba; `front_thigh` X+ = atras/arriba; `spine_6` X+ = levanta el pecho/cabeza, `spine_4/2/1` y `scull_1` X+ = cabeza abajo; `tail_1..3` X- = cola arriba, Z = meneo lateral. Medido en Blender: pies a -0.10..+0.06 m del escalon durante las fases de apoyo (con +0.07 m al agacharse; el hueso del dedo ya esta 0.10 m bajo el suelo en reposo), vientre >= 0.47 m sobre el escalon. Version anterior: `compose_parte2_v_salto_motor.py`.
+
+### Parte 2 (cont.): Alfred se levanta, ve a los zombies, se asusta y vuelve a subir -- escena ampliada a 1280 frames (2026-10-01)
+Constantes `KW=1000`, `KC=1100`, `JJ_END=128` en `compose_parte2.py`. Alfred flota boca abajo hasta el f1000; entonces:
+- **f1000-1032 levantarse:** la cadera pasa de prono (X 90) a vertical (X 0) con esfuerzo; la cabeza cuelga y se levanta, abre los ojos (Closed 1->0.25->0 en f1004-1014), brazos y piernas empiezan a nadar en el sitio (root z 6.9 -> 6.52: cadera justo bajo la superficie 7.89). **Truco:** Hips Z sigue en -2160 (6 vueltas = misma orientacion que 0) mientras se endereza y pasa a 0 en f1034 (salto de 2160 grados invisible); asi no se ven 6 giros de desenrollado.
+- **f1038-1056 tose y escupe agua** (dos accesos, cabeza y pecho se encogen, elastico) y **f1052-1080 mira a los lados desorientado** (cuello Y +-48 grados).
+- **f1070-1098 SUSTO al ver a los zombies** (el mas cercano a 2.8 m): brazos en V (X -50 / -80), cuerpo hacia atras (cadera -10), ojos enormes (x1.35/x1.30) con **Elastic In-Out**.
+- **f1080-1100 se gira** de cara a la escalera (rz 180 -> 90), sube al arranque (-82.5,-104.5) y desde el **f1100** vuelve a subir con el motor base (tramo `parte2_alfred_tramo_tierra`, jj 1-128, corriendo): esta vez no resbala. Llega arriba (-89.6,-104.6,14) hacia el f1227 y, agotado, se dobla con las manos en las rodillas jadeando hasta el 1280 (`land_rest`). Parpadeos naturales en f1052, 1135, 1188 y 1252.
+- **Zombies** (misma velocidad constante, N=1280): el mas cercano a Alfred esta a 5.2 m en f1000, 2.8 en f1072, 2.2 en f1100-1130 y vuelve a 4-5 m mientras sube. zombie_1 empieza a subir los escalones hacia el f1170-1280 (a (-86.2,-104.5,10.6) al final).
+- **Jerry:** se destapa la cara en f1062 (pata abajo, deja de negar) y ladra urgente (rafagas de 14 f cada 24, cabeza arriba, cola agitada) hasta el final.
+- Version anterior a 1100 frames: `compose_parte2_v_hasta_1100.py`. Importar Alfred con `root_name="Object", armature_name="a"`.
+
+### Parte 2 (cont.): tras subir, Alfred cruza la meseta y descansa en (-96.5,-109.5); Jerry le habla del refugio -- 1600 frames (2026-10-01)
+- Alfred llega arriba (-89.6,-104.6,14) en f1227 y, **sin descansar alli**, camina cansado (ciclo de carrera a ritmo 0.6, 0.07 m/f, arranque y frenada suaves) por (-91,-105.8) -> (-93,-107.6) -> (-95,-108.8) hasta **(-96.5,-109.5,14)** (coordenada del usuario) donde llega en f1357, se encara con Jerry y **recien ahi descansa**: doblado con las manos en las rodillas jadeando (`land_rest`, calibrado en la entrada "descanso de Alfred rehecho"), inhalacion profunda hacia f1475 y de pie cansado escuchando. `WALK_A` / `kTop` / `Dw` en `compose_parte2.py`.
+- Jerry (ladrando urgente en el borde hasta f1223) **corre a (-94.9,-108.3)** (1.9 m de Alfred, antes de que llegue: f1290) y cuando Alfred se dobla a descansar le **habla del refugio** (rafagas de mandibula cada 34 f desde f1417, cabeceo, mira a los lados f1507-1572, cola). Medido: mandibula -0.14 / -0.37 rad en f1420 / f1500.
+- Zombies: misma velocidad constante; recorrido terminado en (-96,-103) (los primeros llegan arriba de la escalera y se detienen); el mas cercano a Alfred queda a 6.4-9.1 m durante el descanso.
+- **INCIDENTE (por que cambiaron los nombres):** `alfredpr.preview_path`, `jerrypr.preview_path` y `ai_api.guion_aplicar` **reimportan al personaje desde su .blend** si no encuentran los objetos por su nombre original, y eso duplicaba/renombraba objetos (`alfred` -> `Object`, `Armature` -> `a`, y en la ultima ejecucion `Dog_001_rig` quedo como `alfred`, con duplicados `alfred.001/.002`, `Object.001`). Se hizo copia de la sesion rota (`capitulos/capitulo_4/respaldos_ia/sesion_parte2_antes_de_restaurar_20261001.blend`, 985 MB) y se recargo `base_parte_2.blend` (que tenia los nombres `Object`/`a`/`Dog_001_rig`/`jerry` sanos). **No volver a ejecutar esos operadores en esta escena**: el tramo de subida de Alfred sale de `parte2_alfred_tramo_tierra` (ya exportado, 159 f) y el paseo final lo calcula `compose_parte2.py`. Importar siempre con `root_name="Object", armature_name="a"` para Alfred.
+- Versiones anteriores: `compose_parte2_v_sube_y_descansa_arriba.py` (descansaba arriba de la escalera).
+
+### Parte 2: Alfred y Jerry ya no se solapan al llegar arriba (2026-10-01)
+Reporte del usuario (f1224): los empties de Alfred y Jerry coincidian. Causa: Jerry esperaba en el borde (-89.7,-104.3), a 0.2 m de la linea de subida de Alfred (y=-104.5), y se iba justo al llegar este (KJ2 = kTop-4). Ahora Jerry sale 34 frames antes (KJ2 = kTop-34, f1193, cuando Alfred esta en el 6o escalon) y su sitio de espera paso de (-94.9,-108.3) a **(-95.7,-107.5)**, a 1.5 m de la linea por donde camina Alfred. Medido en Blender: distancia xy Alfred-Jerry 4.3 m en f1224 (antes 0.3), minimo de f1100 a f1600 = 1.47 m (f1321, cuando Alfred pasa a su lado) y 2.15 m durante el descanso/charla.
+
+### Jerry: trote al desplazarse (2026-10-01)
+Reporte del usuario: desde ~f1139 Jerry se mueve sin animacion de caminar. Causa: sus carreras de vuelta al borde (f812) y hacia Alfred (f1193-1245) pedian filas de carrera del tramo base `TR.row(130+...)`, pero el tramo de Jerry se acorto a 122 frames, asi que `Art.idx` las recortaba al ultimo frame y las patas quedaban congeladas mientras la raiz se movia. Ahora `compose_parte2.py` (bloque "TROTE DE JERRY", segunda pasada) suma un **trote diagonal** procedural a cualquier frame posterior al fin del tramo (k > kEnd) en que el root se desplace (>0.015 m/f; peso `ss((v-0.015)/0.05)`): traseras X +-30 grados (muslo) con tibia -18 en el vuelo, delanteras en contrafase (muslo +-26, tibia +22 al recoger, hombro +-8), columna +-3 a doble frecuencia, cabeza +-2.5, cola arriba (-8) con meneo lateral +-10/12/14, orejas +-5; la fase avanza con la distancia recorrida (zancada de 1.9 m), asi que arranca, acelera y frena con el movimiento. Medido en Blender (f1196-1238): muslo trasero D entre -45 y +30 grados, delantero entre -28 y +39, punta de la pata trasera entre -0.04 y +0.13 m sobre el suelo. Aplica a las dos carreras (f812-840 y f1193-1245). Version anterior: `compose_parte2_v_sin_trote.py`.
+
+### Jerry: pata delantera derecha rigida y silencio mientras Alfred sube (2026-10-01)
+1. **Pata delantera derecha rigida:** el tramo base de Jerry (`parte2_jerry_tramo_tierra`, motor `jerrypr`) deja `front_shoulder.R` FIJO en X=30, Z=20 en todos sus frames (pose sobrante; el izquierdo esta en 0), asi que esa pata quedaba levantada hacia delante y el trote solo la movia sobre esa base. `compose_parte2.py` ahora pone ese hombro a (0,0,0) en las filas del tramo (el hombro derecho del gesto de taparse la cara sigue usando X30/Z20 a proposito). Resultado en el trote (f1196-1240): muslo delantero D entre -27 y +37, I entre -40 y +24 en contrafase, hombro D +-10: las cuatro patas trabajan.
+2. **Jerry callado cuando Alfred sube:** sin ladridos en f1062-1193 (segunda subida) ni jadeo con la boca abierta mientras espera en la primera; solo **mira a Alfred subir**: cabeza hacia abajo siguiendo su posicion (scull_1 X ~ +31..37 grados = cabeza abajo, calculada con la posicion real de Alfred en cada frame), mandibula en 0 (medido), cola casi quieta. Habla solo cuando Alfred descansa (desde f1417). Los sobresaltos con la boca abierta ante los golpes de la caida (f826-924) se mantienen: son reacciones, no habla. Version anterior: `compose_parte2_v_jerry_ladra_al_subir.py`.
+
+### Jerry: trote rehecho, las cuatro patas se mueven de verdad (2026-10-01)
+Problema: las patas parecian rigidas. Causas medidas: (1) la base sobre la que sumaba el trote era la ULTIMA fila del tramo base (el tramo de Jerry ya solo dura 122 f, las filas de carrera 130+ se recortaban), es decir una pose congelada a media zancada y asimetrica (pata trasera I a -0.5 m, delantera D a +0.6 m fijas); (2) las amplitudes eran pequeñas (excursion de la punta ~0.1-0.27 m). Ahora, en las carreras (f812-840 y f1193-1245), la base es la pose de pie NEUTRA (`parado.json`) y el trote es mas grande y simetrico: muslo trasero +-38 grados (tibia +16/pie +5 al adelantar la pata para que la punta suba), muslo delantero -36 (invertido tras medir: con la fase anterior se movian en "paso lateral"), tibia delantera +32, hombro +-12. Medido en Blender (f1200-1240): punta trasera D entre -0.46 y +0.13 m de avance y -0.08..+0.31 m de altura; delantera entre +0.28 y +0.63 y -0.07..+0.15; correlacion trasera D~trasera I = -0.93 (alternan), trasera D~delantera I = +0.48 y trasera D~delantera D = -0.35 (trote en diagonal). Version anterior: `compose_parte2_v_trote_suave.py`.
+
+### Jerry: pata delantera izquierda rigida en el paseo tras los saltos (2026-10-01)
+Hallazgo: en el trote de las carreras (f1195-1245 y f814-836) la delantera izquierda ya se movia (muslo +-45 grados, punta +0.28..+0.62 m); la rigidez estaba en el **paseo de 17 frames al terminar los 7 saltos** (f767-783, de (-89.5,-104.5) a (-90.8,-105.2)) y en la espera posterior, que usaban las filas del tramo base del motor `jerrypr`, cuyas patas DELANTERAS no se animan (muslo, tibia y hombro izquierdos fijos a 0; el derecho estaba fijo a X30/Z20, ya corregido). Ahora, pasados los saltos, la base es la pose neutra (`STAND`) y el trote se aplica desde el frame 767 (en vez de desde 783): en f767-783 las dos delanteras recorren +0.19..+0.60 (D) y +0.29..+0.53 (I) m de avance y las traseras -0.42..+0.12 / -0.36..+0.11. En la comprobacion de f700-1300 solo quedan 5 frames con Jerry en movimiento y la delantera I a ~0 grados (cruces por cero de la oscilacion). Version anterior: `compose_parte2_v_trote_diagonal.py`. Los huesos `front_foot.*` y `front_toe.*` no se animan en ningun frame (pie rigido a proposito).
+
+### Jerry: pata delantera izquierda con TODOS sus huesos animados (2026-10-02)
+Peticion: `front_shoulder.L`, `front_thigh.L`, `front_shin.L`, `front_foot.L`, `front_toe.L` rigidos. Se comprobo en Blender (sin constraints, sin drivers, rotation_mode XYZ, pesos de malla simetricos con la derecha, y renders laterales en f1205-1214 mostrando las 4 patas en poses distintas) que hombro, muslo y tibia ya se movian en el trote, pero **`front_foot.*` y `front_toe.*` no se animaban en ningun frame**, en el **nado** (f1-662) la tibia, pie y dedo delanteros estaban fijos (solo hombro y muslo) y a **baja velocidad** (arranque/frenada) el peso del trote era casi 0. Cambios en `compose_parte2.py`: (1) el trote suma pie delantero +18 x amp y dedo +12 (traseras: dedo +10) al levantar la pata; hombro +-16; umbral de velocidad 0.004 m/f (antes 0.015) y amplitud minima 0.65 (antes 0.4) para que arranque y frene con zancada completa; (2) en el nado la tibia (x2.4), el pie (x1.2) y el dedo (x0.8) delanteros se acoplan al muslo (se recogen cuando el muslo va hacia delante). Medido en Blender (X, grados, pata izquierda): trote f1196-1246: hombro -21..20, muslo -47..46, tibia 0..42, pie 0..23, dedo 0..15; paseo f767-783: igual; nado f60-120: hombro -27..17, muslo -9..11, tibia -2..20, pie 3..14, dedo 0..8. Version anterior: `compose_parte2_v_pata_izq_rigida.py`. Si aun se ve rigida en un tramo concreto, anotar el frame: los unicos frames con Jerry quieto (f275-540, 842-1190, 1250-1600) no mueven las patas a proposito.
+
+### Jerry: pata delantera DERECHA (2026-10-02)
+Peticion: `front_shoulder.R`, `front_thigh.R`, `front_shin.R`, `front_foot.R`, `front_toe.R` rigidos. Verificado en Blender (NLA unica sin silenciar, sin accion activa encima, 30 curvas front_*.R/.L con 1600 claves, sin constraints/drivers): la pata derecha se movia igual que la izquierda en el trote (X: hombro -21..20, muslo -47..46, tibia 0..42, pie 0..23, dedo 0..15). El unico tramo con pie y dedo delanteros fijos eran los **7 saltos de subida** (f662-767; `jc_pose` solo movia hombro, muslo y tibia); ahora tambien pie (-0.6 x tibia) y dedo (-0.3 x tibia + 0.2 x hombro) y el dedo trasero. Resultado (amplitud X en grados, f662-767): D hombro 48 / muslo 43 / tibia 29 / pie 18 / dedo 7; I 45 / 46 / 34 / 18 / 7. Entre f842-1190 y f1250-1600 Jerry esta quieto a proposito (y con la pata derecha sobre la cara en f934-1072: gesto de decepcion). Version anterior: `compose_parte2_v_pata_der_rigida.py`. Si se sigue viendo rigida, indicar el frame exacto.
+
+### Jerry: articulaciones inferiores de las patas se doblan hacia ATRAS (2026-10-02)
+Peticion (captura): en el trote (f1196-1246) las articulaciones se doblaban hacia delante, deberian doblarse hacia atras. Causa: signo equivocado en la **tibia delantera** (+32 en vez de -32) y en el pie/dedo/tibia traseros de versiones anteriores, por medir mal el "adelante" (usaba el eje y del mundo en vez del vector delantero real de Jerry). **Convencion VERIFICADA con la animacion desactivada y el vector adelante de Jerry:** en `front_shin`, `front_foot`, `front_toe`, `shin`, `foot` y `toe` (ambos lados) **X+ lleva la punta hacia ADELANTE (y arriba) y X- hacia ATRAS**. Por tanto el plegado natural al levantar la pata es X NEGATIVO. Corregido en `compose_parte2.py`: trote (tibia delantera -32, pie -18, dedo -12; tibia trasera -34, pie -10, dedo -10), nado (tibia delantera -2.4 x muslo adelante, pie -1.2, dedo -0.8), saltos (tibia delantera de impulso +6 -> -6). Medido en Blender (trote f1196-1246): las 12 articulaciones inferiores quedan entre X-44 y 0 (nunca >0): maximo a ADELANTE = 0 en todas, maximo a ATRAS: tibia D/I -41/-42, pie -23, dedo -16; trasera tibia -44, pie/dedo -13. Version anterior: `compose_parte2_v_tibia_delantera_adelante.py`. **Cuidado:** el muslo (`thigh`, `front_thigh`) tiene su propia convencion (ver mediciones anteriores) y no se toco.
+
+### Parte 2 - Jerry ve venir a Alfred antes de hablarle (2026-10-01)
+- Al llegar a (-95.7,-107.5,14) (~f1290) Jerry ya no se queda con un rumbo fijo: gira (max 0.07 rad/f) para encarar la posicion real de Alfred y lo sigue mientras este camina cansado hasta (-96.5,-109.5) (error de mirada 0 desde f1290).
+- Mandibula cerrada hasta que Alfred llega y descansa (f1357); la primera apertura al hablar del refugio es en f1411.
+- Respaldo previo: `parte2/compose_parte2_v_jerry_mira_destino.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Giro de Jerry rapido y animado (2026-10-01)
+- Antes solo rotaba el root (0.07 rad/f). Ahora gira hasta 0.24 rad/f (~14 grados/f, unos 12 frames para el giro completo) y los huesos acompanan: cabeza (scull_1 Z) se adelanta, columna (spine_6/4/2 Z) se tuerce, 4 patas dan pasitos de pivote diagonales (tibia/pie plegando hacia atras), cola se va al lado contrario. Con giros lentos (seguimiento) solo cabeza/torso.
+- Respaldo: `parte2/compose_parte2_v_giro_solo_root.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Zombies suben la escalera en abanico y pisando los escalones (2026-10-01)
+- Antes todos usaban el mismo carril (y=-104.5) y la altura se promediaba +-12 frames, asi que atravesaban los bloques. Ahora cada zombie tiene su carril en la escalera (`SUBE_Y`: z1 -104.6, z2 -106.2, z3 -103.3, z5 -107.2, z4 -105.4) y su destino en la meseta (`FIN_P`).
+- Altura: max(bloque bajo el zombie, bloque 0.9 m por delante), tope 14; sube a max 0.09 m/f (~12 f por escalon) y suavizado +-3 f, de modo que empieza a subir antes del borde. Hundimiento maximo medido contra la grilla: 0.1 m.
+- Respaldo: `parte2/compose_zombies_parte2_v_fila_india.py`. Sin aprobar; .blend sin guardar. Velocidades constantes sin cambios; zombie_4 (el mas lento) termina en el escalon z=10 al frame 1600.
+
+### Parte 2 - Zombies suben con la animacion base saltar_subir (2026-10-01)
+- Pedido de Kebyn: usar las animaciones base del zombie (saltar/subir) para subir por coordenadas. `compose_zombies_parte2.py` lee `KEYFRAMES_SALTAR_SUBIR` (12 frames, 14 huesos) de `zombie_1/refinar/zombie_1_animation_studio/generate_slots_zombie_1.py` (ast, sin importarlo) y la aplica en cada escalon (subida de bloque >0.3 m en la ruta, incluido el primero desde el agua).
+- Cada salto: despega 0.45 m antes del borde (p0) y cae 0.45 m despues (p1); horizontal ease-in y vertical ease-out (igual que el slot base, para no atravesar la esquina); entre saltos camina con su marcha normal a velocidad constante. Carriles propios `SUBE_Y` mantenidos.
+- Verificado contra grilla: hundimiento max 0.12 m, paso max 0.32 m/f (arco del salto). Respaldo: `parte2/compose_zombies_parte2_v_escalon_suave.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Zombies trepan lento y por direcciones distintas (2026-10-01)
+- Salto base estirado de 12 a 30 frames (`JF=30`, interpolando los 12 keyframes) y en tierra avanzan a la mitad de velocidad (`LENTO=0.5`): trepan pesados, como zombies.
+- Cada uno sube en diagonal distinta (`SUBE_Y` = (y al pie, y arriba), `FIN_P` destino en la meseta): z1 -103.6->-106.8, z2 -107.0->-103.4, z3 recto -105.2, z5 -106.2->-102.6, z4 -104.0->-107.4. Se cruzan, no van en fila.
+- Verificado: hundimiento max 0.14 m. Llegan arriba (z=14): z1 f1503, z2 f1477, z3 f1588; z5 (z=11) y z4 (z=8) siguen subiendo al f1600. Respaldo: `compose_zombies_parte2_v_salto_base_rapido.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Alfred construye el refugio 4x4 + techo (2026-10-01)
+- Pedido de Kebyn: tras descansar, Alfred construye un refugio de 4x4 mas techo con `bloques_dinamicos/bloque_de_roble.blend` (objeto `oak_planks`, 1 m, origen en la base), usando el principio de "Crear pared NxN bloques".
+- Script nuevo `parte2/compose_refugio_parte2.py` (extension; NO modifica compose_parte2): lee los artefactos de 1600 f y escribe `parte2_alfred_refugio` y `parte2_jerry_refugio` (3696 f) + `parte2/refugio_bloques.json`. Importar en Blender: `ex.importar("parte2_alfred_refugio", root_name="Object", armature_name="a")`, `ex.importar("parte2_jerry_refugio", personaje=ex.JERRY)` y `exec(importar_refugio.py)` (crea coleccion `refugio_parte2`, 50 objetos ligados a una malla, ocultos hasta su frame; frame_end 3696).
+- Principio del add-on aplicado: Alfred fijo 1 m detras de cada celda, ciclo agachar->colocar->parar de KEYFRAMES_COLOCAR_MESA_CRAFTEO (30 f) reescalado a 24 f, el bloque aparece en el frame agachado (mid). Entre puntos camina por un anillo exterior (ciclo de carrera del tramo tierra a 0.07 m/f).
+- Refugio: celdas x -93.5..-90.5, y -108.5..-105.5, base z=14 (meseta); muros de 3 capas + techo (capa 3) = 50 bloques; puerta de 2 de alto en (-92.5,-108.5) (muro sur). Orden: muro sur, este, norte, oeste (por columnas, de abajo arriba), techo interior desde dentro, sale por la puerta al final y entra. Alfred empieza a levantarse en f1641; primer bloque f1744, ultimo f3577.
+- Jerry: mandibula cerrada y cabeza siguiendo a Alfred mientras construye. Zombies NO extendidos: quedan congelados en su ultima pose tras f1600.
+- Verificado: cada bloque queda a 1 m delante de Alfred en su frame de aparicion. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Refugio envolvente y sin entradas (2026-10-01, reemplaza la version con puerta)
+- Pedido de Kebyn: el refugio rodea el lugar donde Alfred descansaba y envuelve a Alfred y a Jerry, sin entradas. Ahora el INTERIOR es 4x4 (celdas x -96.5..-93.5, y -109.5..-106.5; incluye el descanso de Alfred (-96.5,-109.5) y a Jerry (-95.7,-107.5)), rodeado por un anillo de muros de 3 de alto (x -97.5..-92.5, y -110.5..-105.5) y un techo 6x6 (capa 3). 97 bloques (80 del anillo+techo, 16 de techo interior, 1 de relleno en la celda baja (-97.5,-110.5), z=13).
+- Alfred construye DESDE DENTRO: recorre las 12 celdas del borde del interior (antihorario, desde donde descansaba) y coloca los bloques del anillo que tiene delante (a 1 m; a sqrt(2) en las diagonales de las esquinas); segunda vuelta para el techo interior; termina sellado dentro y mira a Jerry (a 0.8 m de el, sin atravesarlo). Verificado: sin huecos ni sobrantes, cada bloque a su alcance exacto en su frame de aparicion.
+- N2 = 4838 f (ultimo bloque f4751). Respaldo de la version con puerta: `compose_refugio_parte2_v_con_puerta.py`, `refugio_bloques_v_con_puerta.json`. Sin aprobar; .blend sin guardar. Zombies siguen sin extender tras f1600.
+
+### Parte 2 - Refugio 4x4 (interior 2x2) y Jerry entra (2026-10-01, reemplaza la version 6x6)
+- Pedido de Kebyn: que sea 4x4 y que Jerry se mueva para entrar. Ahora el refugio completo es 4x4 (x -97.5..-94.5, y -110.5..-107.5), interior 2x2 (x -96.5..-95.5, y -109.5..-108.5, incluye el descanso de Alfred), muros de 3 + techo = 53 bloques (4 capas x 12 celdas del anillo + 1 relleno en (-97.5,-110.5) z=13 + 4 de techo interior).
+- Alfred construye desde dentro: SW, NW, SE (3 bloques por celda: 2 frontales a 1 m y la diagonal a sqrt(2)), luego ESPERA 80 f (f2688-2768) mientras Jerry entra, pasa a NE, pone E, NE y por ultimo cierra el hueco norte (-95.5,-107.5); techo interior desde SE/SW. Sin puertas al final.
+- Jerry: mira girando hacia Alfred; a f1700 sale del hueco norte (-95.7,-107.5) a (-95.5,-105.5) a mirar construir; en f2692 entra por el hueco (-95.5,-107.0 -> -108.5) y llega a (-96.5,-108.5) en f2740 (trote diagonal + giros con pasitos y cabeza por delante). Verificado: dist min Alfred-Jerry 1.0 m, nunca dentro de un bloque, sin huecos.
+- N2 = 3348 f (ultimo bloque f3277). Respaldos: `compose_refugio_parte2_v_6x6.py`, `refugio_bloques_v_6x6.json`. Zombies siguen sin extender tras f1600. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Refugio sin columnas de esquina y construccion rapida (2026-10-01)
+- Pedido de Kebyn (captura con las 4 esquinas marcadas): sin las columnas de las esquinas (celdas (-97.5,-110.5), (-94.5,-110.5), (-97.5,-107.5), (-94.5,-107.5); ni muro ni techo) y rapido. Quedan 8 celdas de anillo x 4 capas + 4 de techo interior = 36 bloques; ya no hay diagonales (todo a 1 m) ni relleno.
+- Rapidez: 12 f por bloque (antes 24; el ciclo base del add-on se reescala, minimo 6), Alfred camina a 0.14 m/f, se incorpora en 12 f, giros de 5 f, espera de 36 f (JW) a Jerry, que trota a 0.17 m/f (sale f1630, entra f1968, llega f1997). Corregido `mid` (frame del bloque) para que dependa de FPB.
+- N2 = 2256 f (ultimo bloque f2211). Verificado: sin diferencias con el diseno, alcance exacto, dist min Alfred-Jerry 1.0 m, Jerry nunca dentro de un bloque. Respaldos: `compose_refugio_parte2_v_con_esquinas.py`, `refugio_bloques_v_con_esquinas.json`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Refugio de 3 bloques de altura con techo (2026-10-01)
+- Pedido de Kebyn: altura de 3 bloques con techo. `LAYERS = 3`: muros de 2 bloques (z 14-16) + techo (capa 2, hasta z=17) -> 3 en total. 28 bloques (8 celdas de anillo x 3 capas + 4 de techo interior); sin esquinas. Verificado sin diferencias con el diseno, dist min Alfred-Jerry 1.0 m.
+- N2 = 2160 f (ultimo bloque f2115; Jerry entra f1896-1925). Respaldos: `compose_refugio_parte2_v_4_capas.py`, `refugio_bloques_v_4_capas.json`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Descanso de Alfred reducido a la mitad (2026-10-01)
+- Pedido de Kebyn. El descanso (llega inclinado f1357, empezaba a levantarse f1608 = 251 f) pasa a ~125 f: ahora Alfred se levanta en f1482 (`K_REST0`, `REST_FULL`, `N0` en `compose_refugio_parte2.py`). Los artefactos base (Alfred y Jerry) se recortan en f1482 (`trunc`), asi que Jerry deja de hablar donde corta (hablaba f1411-1588; ahora solo hasta ~f1482). Los zombies no se tocan: ahora siguen subiendo durante la construccion hasta f1600 (despues congelados).
+- Constructor: bloques desde ~f1500; ultimo bloque f1989; Jerry sale f1512 (hold 30), entra f1770 y llega f1799; N2 = 2034 f. Verificado: dist min 1.0 m, alcance exacto. Respaldos: `compose_refugio_parte2_v_descanso_completo.py`, `refugio_bloques_v_descanso_completo.json`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Bloque del refugio: tablones de roble (2026-10-01)
+- Pedido de Kebyn: se reemplaza `bloque_de_roble.blend` por `bloques_dinamicos/bloque_de_tablones_de_roble.blend` (mismo objeto `oak_planks`, 1 m, origen en la base; malla `oak_planks_mesh`). Cambiado en `parte2/importar_refugio.py` (ahora siempre reimporta la fuente, asi un cambio de bloque surte efecto) y en la metadata `fuente` de `refugio_bloques.json`. La animacion no cambia. Se reimportaron los 28 bloques y se limpiaron mallas huerfanas del bloque anterior. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Descanso de Alfred reducido otra vez a la mitad (2026-10-01)
+- Pedido de Kebyn: descanso 125 f -> ~62 f (`N0 = K_REST0 + REST_FULL // 4`): Alfred se levanta en f1419 (llega inclinado f1357). Los artefactos base se cortan ahi; Jerry solo alcanza a abrir la mandibula una vez (f1411) antes del corte. Constructor: ultimo bloque f1926, Jerry sale f1519 / entra f1707-1736, N2 = 1971 f. Verificado: dist min 1.0 m, alcance exacto. Respaldos: `compose_refugio_parte2_v_descanso_125.py`, `refugio_bloques_v_descanso_125.json`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Primero los muros que miran a los zombies (2026-10-01)
+- Pedido de Kebyn. Los zombies llegan por la escalera (este/noreste), asi que se construyen primero el muro ESTE (x=-94.5, desde SE y NE) y el NORTE (celda (-96.5,-107.5) desde NW, mas el oeste de esa estacion), y despues sur y oeste. Orden real (frame de inicio de cada tramo): E 1452, N 1562, W 1603, S 1653, W 1694, S 1749, N (cierre del hueco) 1799, techo 1854.
+- Jerry ya no obliga a Alfred a esperar: entra por el hueco (f1636-1665) mientras Alfred sigue con sur y oeste desde SW/SE (nunca pisa NE/NW durante la entrada); el hueco norte lo cierra al final (f1799), cuando Jerry ya esta dentro (llego f1666). Se elimina la espera `JW`.
+- N2 = 1964 f (ultimo bloque f1919). Verificado: dist min 1.0 m, Jerry nunca dentro de un bloque, alcance exacto. Respaldos: `compose_refugio_parte2_v_orden_sw_primero.py`, `refugio_bloques_v_orden_sw_primero.json`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Jerry habla en cuanto Alfred se pone a descansar (2026-10-01)
+- Pedido de Kebyn: apenas Alfred descansa, Jerry le habla del refugio moviendo la mandibula `jaw_bot` X ~ -25 grados. En `compose_parte2.py` (rama Jerry de `land_rest`, tras `kET = KEA` ~f1350) la charla ahora empieza en kET+2 (antes kET+55..250): 3 rafagas (kET+2, +22, +42) de 18 f, ritmo de silaba ~7 f, mandibula `-radians(25) * bur * (0.5+0.5 sin)` (pico -25 grados, medido -24.6 grados en el artefacto y en Blender), cabeceo, vaiven de cabeza, mirada a los lados (kET+30..56) y cola. Cabe en el descanso reducido (~62 f, Alfred se levanta f1419). Respaldo: `compose_parte2_v_habla_tarde.py`. Se regenero compose_parte2 + refugio y se reimportaron Alfred y Jerry. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Zombies se acercan al refugio mientras Alfred construye (2026-10-01)
+- Pedido de Kebyn: sincronizar a los zombies con la construccion; en el agua mantienen su velocidad y al salir ACELERAN; cada uno por una ruta distinta. `compose_zombies_parte2.py` ahora dura lo mismo que la construccion (N se lee de `refugio_bloques.json`, 1964; ejecutar `compose_refugio_parte2.py` ANTES), en tierra van x2.2 (`LAND`, ~0.088 m/f frente a 0.03 en el agua), el salto base de escalon baja de 30 a 20 f (`JF`), y el salto toma las alturas reales bajo el despegue/aterrizaje (si dos escalones quedan a menos de 0.9 m no pisa en falso).
+- Cada zombie tiene su destino pegado a un lado distinto del refugio y su ruta por la meseta (`FIN_P`, `EXTRA`): z1 este (-93.3,-109), z2 norte junto al hueco (-95.2,-106.2), z3 noroeste (-96.9,-106.2), z5 oeste (-98.7,-108.9) rodeando por el norte, z4 sur (-96,-111.9) rodeando por el este. Rutas evitan el hueco (-96,-105) y el borde sin datos y no cruzan el refugio. Al llegar se detienen (V recalculada tras recortar S; antes seguian pisando).
+- Sincronizacion: al llegar arriba z1 y z2 se paran `HOLD_TOP` 110 y 140 f (z3 20) para no llegar antes de empezar a construir. Llegan a su sitio en f1524 (z1), 1572 (z2), 1616 (z3), 1791 (z5), 1875 (z4); la construccion va de f1452 a f1919. Verificado: hundimiento max 0.12 m, ningun zombie dentro de un bloque, dist min entre zombies 0.88 m, paso max 0.2 m/f. Respaldo: `compose_zombies_parte2_v_hasta_1600.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Zombies siempre caminando, rutas largas y rondando el refugio (2026-10-01, reemplaza las pausas)
+- Pedido de Kebyn: los zombies no se detienen ni se congelan; caminan siempre y toman coordenadas mas largas para subir y llegar al refugio. En `compose_zombies_parte2.py`: se eliminan `HOLD_TOP`/pausas y los destinos fijos. Cada zombie hace un RODEO MAS LARGO por el agua (zigzag de `ZIGN[n]` cruces y amplitud `w` hacia el este, calculada por biseccion para que llegue al refugio en su frame `ENTRY_F`: z1 1600, z2 1680, z3 1760, z5 1820, z4 1945; w entre 0.4 y 3.9 m), sale a tierra (aceleran x2.2, 0.03 -> 0.088 m/f), sube la escalera con el salto base de 20 f y entra a un ANILLO alrededor de los muros (`RING` 1.0 o 1.6 m, antihorario, 3 vueltas con esquinas achaflanadas) por un punto distinto del lado este (`ENTRY_Y`); al llegar siguen rondando el refugio hasta el ultimo frame (f1964), asi nunca se congelan. Los bajones del anillo (celdas de z=13 al suroeste) se hacen de a poco (0.09 m/f).
+- Verificado: nunca bajo ~0.09 m/f tras el primer frame salvo los primeros 2-3 f de cada salto de escalon (ease-in del salto base), ningun zombie dentro de un bloque, dist min entre zombies 0.79 m, hundimiento max 0.18 m, ruta de agua solo sobre terreno de agua. Respaldo: `compose_zombies_parte2_v_con_pausas.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Jerry salta y empuja a los zombies que se acercan al refugio; caen boca arriba (2026-10-01)
+- Pedido de Kebyn. Orden de ejecucion NUEVO (N = 2100 en ambos scripts): 1) `compose_zombies_parte2.py` (escribe artefactos + `parte2/empujes_zombies.json` con frame del golpe, posicion, normal y tangente de cada empujon), 2) `compose_refugio_parte2.py` (lee ese json; Alfred + Jerry + bloques), 3) importar Alfred (`root_name="Object", armature_name="a"`), Jerry, zombies (`ex.zombie(n)`) y `exec(importar_refugio.py)`.
+- Zombies: tras entrar al anillo (12 f) el zombie frena en 10 f, se gira a mirar a Jerry, y en el frame del golpe cae hacia atras: Hips X -90 (medido en Blender: con -90 los ojos quedan por encima de las caderas = boca arriba; zmin del cuerpo 0.6 m sobre el root -> root dz -0.6), lanzado 1.2 m hacia fuera del muro, rebota (elastico), yace 40 f y se levanta en 30 f; su avance se congela mientras tanto y despues vuelve caminando a su ruta (`FALL_F/BOUNCE_F/LIE_F/RISE_F`, `KNOCK`, `KH_AFTER`). Siguen rondando el anillo despues. Los 5 empujones son en el lado ESTE (meseta firme hacia el este), de norte a sur en orden de llegada (`ENTRY_Y`, carriles `SUBE_Y` alineados con cada entrada); `RING` 1.4/1.85 m; `ENTRY_F` z1 1570, z2 1640, z3 1700, z5 1750, z4 1912; zigzag `ZIGN/ZIGX` elegido por busqueda para que no se pisen (dist min entre zombies 0.4 m).
+- Jerry (compose_refugio): ya no entra al refugio al principio: espera fuera del hueco norte, y por cada zombie corre por el corredor exterior (0.5 m de los muros), se coloca DELANTE del zombie (tangente), agacha (5 f), SALTA 14 f (arco 0.9 m, patas traseras atras, delanteras adelante/arriba, pecho arriba, cola arriba, mandibula -25) y lo empuja de frente en el frame del golpe (dist 0.9 m al root del zombie, medido 0.99 en Blender); rebote 12 f y sigue al siguiente. Golpes en f1583, 1653, 1713, 1763, 1924. Tras el ultimo vuelve a entrar por el hueco (llega f2003) y Alfred cierra el hueco al final (f2065; antes lo cerraba a mitad) con el techo interior ya puesto.
+- Verificado: ningun zombie ni Jerry dentro de bloques, Alfred-Jerry min 0.71 m, Jerry-zombie fuera de golpes min 0.5 m, paso max de Jerry 0.19 m/f. Respaldos: `compose_zombies_parte2_v_sin_empujes.py`, `compose_refugio_parte2_v_sin_empujes.py`, `refugio_bloques_v_sin_empujes.json`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Zombies caidos ya no atraviesan el suelo (2026-10-01)
+- Reporte de Kebyn (captura: piernas del zombie tendido bajo el suelo). Medido en Blender (frame golpe+30): el punto mas bajo del zombie quedaba ~0.5 m bajo el suelo. Causas: se arrastraban restos de la marcha (UpLeg 38/-53 grados, rodillas, columna +18) sobre la pose tendida, rodillas dobladas que bajaban las pantorrillas, el rebote pasaba de -90 a -97 grados (piernas hacia abajo) y el root bajaba un 0.6 fijo.
+- Arreglo en `compose_zombies_parte2.py`: mientras cae/yace, todos los huesos se llevan a la pose de reposo del rig (mezcla `lw = ss(2.5*lam)`) salvo Hips X -90*lam, Neck X -0.3*lam y un leve vaiven de brazos; el rebote ahora solo es hacia arriba (lam <= 1); y la altura del root sale de una TABLA medida (`LIE_TAB`: punto mas bajo de la malla evaluada por cada 0.1 de lam; `lie_dz`), no de un -0.6 fijo, tambien durante la caida y el levantarse.
+- Verificado en Blender recorriendo la caida, el yacer y el levantarse de zombie_1 y zombie_3 (f golpe..+96, cada 6 f): peor penetracion 2.8 cm / 1.4 cm. Respaldo: `compose_zombies_parte2_v_pierna_atraviesa.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Caidas distintas por zombie y Jerry siempre vigilante y en movimiento (2026-10-01)
+- Pedido de Kebyn. Zombies (`compose_zombies_parte2.py`, tabla `FALLV` por zombie): cada uno cae distinto en duracion de caida (11-18 f), rebote (amplitud 0.03-0.08, 1-3 rebotes), tiempo tendido (34-46 f), levantarse (26-36 f), distancia lanzado (0.95-1.5 m), DIRECCION de caida (giro `yaw` -0.6..+0.5 rad respecto al empujon: el cuerpo queda orientado distinto), manoteo de brazos (amplitud/frecuencia/fase), piernas (levantadas `legup`, abiertas `splay` por UpLeg Z, rodillas `knee` hacia arriba, pataleo `wig`) y giro de cuello. Medido en Blender (pose tendida): UpLeg X+, knee X+ y UpArm X/Y no hunden nada; UpLeg X-, knee X- y UpArm Z+ SI hunden, asi que las variantes solo suben/abren. Cuello: X -0.12*lam (no -0.3) y Y x0.6 para que la cabeza no se hunda. Peor penetracion recorriendo caida-yacer-levantarse de los 5: 2-4 cm. `empujes_zombies.json` ahora incluye la direccion de caida (`cae`).
+- Jerry (`compose_refugio_parte2.py`): ya no hay esperas con `hold`. `jerry_schedule` hace que PATRULLE el corredor exterior (tramos de 2.5 m ida y vuelta a 0.09 m/f, `patrol_leg`) mientras llegan los zombies y ajusta el ultimo tramo (`jsim_fit`) para llegar justo a tiempo a su posicion de salto; tras cada empujon sigue patrullando hacia el siguiente. Dentro del refugio (`jerry_inside`) pasea en su celda hasta que Alfred cierra y luego patrulla NW<->SW. Siempre mira al zombie MAS CERCANO (posicion real por frame, cabeza y cuerpo). Medido: 0 frames con Jerry casi quieto fuera de los saltos, velocidad media 0.072 m/f, Alfred-Jerry min 0.75 m.
+- Nota: "boca abajo" en el pedido; se mantiene BOCA ARRIBA (Hips X -90) como se pidio al empezar los empujones y como muestra la captura. Respaldos: `compose_zombies_parte2_v_caida_igual.py`, `compose_refugio_parte2_v_jerry_quieto.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Alfred se levanta mejor tras caer rodando (f1000, 2026-10-01)
+- Pedido de Kebyn. Antes (`wake_pose` en `compose_parte2.py`): Hips X 90 -> 0 en 32 f con un solo smoothstep (giraba rigido de tumbado a de pie). Ahora 4 tiempos con las poses clave mezcladas: P0 tumbado cara abajo -> P1 (u=12) recoge: cabeza levantada (Neck -12), brazos pegados al cuerpo, rodillas recogidas (UpLeg 42, knee -58), Hips 76 -> P2 (u=28) se empuja hasta quedar INCLINADO con las manos en las rodillas (pose de descanso calibrada `REST_P`, con respiracion) -> tose a u=40 y 53 (cabeza/pecho se encogen), tambaleo (Hips Z +-5 grados y cuello +-8 mientras recobra el aire) -> P4 (u=50..70) se endereza despacio a la pose nadando en el sitio; mira a los lados u=58..82; el susto elastico a f1070 y la subida a f1100 no cambian. La raiz baja con mas calma (ss(u/48)) y se hunde 5 cm al empujarse.
+- Medido en Blender (f999-1080): cabeza sube de 7.78 a 8.08 (u=10) y luego baja a ~7.7-7.9 inclinado; cadera 7.79 -> 7.44; pies 7.77 -> 6.47 al apoyarse; manos 7.65 -> 7.42 en las rodillas. Respaldo: `compose_parte2_v_levantarse_simple.py`. Sin aprobar; .blend sin guardar. No verificado visualmente (el visor mostraba el escenario tapado).
+
+### Parte 2 - Empujon de Jerry mas organico y dirigido al zombie (2026-10-01)
+- Pedido de Kebyn. En `compose_refugio_parte2.py` el empujon deja de ser 3 poses aditivas y pasa a 3 fases con curvas propias (`WIND=8`, `FL=14`, `REC=18` f): 1) ANTICIPACION (8 f): cuarto trasero se encoge (thigh/shin/foot/toe), peso hacia atras (la raiz retrocede 0.16 m), pecho y cabeza bajan mirando al zombie, cola baja con temblor, orejas atras; 2) SALTO: arco asimetrico (sube rapido, apex temprano, golpea aun en el aire a ~0.44 m), las patas traseras empujan primero y la columna se extiende en onda (spine_1 -> spine_6 con retardos), las delanteras alcanzan al zombie y GOLPEAN en el frame del contacto (front_thigh -80 grados, shoulder arriba), mandibula -25, cola/orejas al aire; 3) RECUPERACION (18 f): el golpe lo hace retroceder 0.2 m, aterriza amortiguando con las delanteras (squash en columna y patas), se sacude (cabeza Z y cola) y vuelve a la postura de trote.
+- HACIA el zombie: durante anticipacion, salto y recuperacion Jerry apunta su cuerpo y cabeza a la posicion REAL del zombie en cada frame (los eventos ahora llevan `z`, el id del zombie, en `empujes_zombies.json`); error de punteria medido 0.0 grados a 8, 3 y 0 f del golpe en los 5 empujones, distancia 0.9 m en el contacto. Paso max de Jerry 0.217 m/f. Respaldos: `compose_refugio_parte2_v_empujon_basico.py`, `compose_zombies_parte2_v_antes_organico.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Suavizado de la tos entre f1040 y f1041 (2026-10-01)
+- Reporte de Kebyn: salto brusco entre f1040 y f1041 (Alfred flotando "se hunde"). Causa: la primera tos (`uc=40`) usaba `epulse` con `ela` y rampa de 3 f, que encoge columna y cuello de golpe (Spine +12, Spine1 +8, Neck +22 grados, ~12-22 grados en un frame; la raiz no se movia, z +-0.002). Ahora la tos usa `pulse` suave (rampa de subida 8 f desde KW+uc-9, bajada 10 f): entre f1040 y f1041 el cambio es de 0-1 grado. Mismo cambio en la segunda tos (uc=53). Medido: sin saltos > 3 grados por frame en f1000-1073 (excepto el susto elastico de f1074-1075, intencional, y el giro invisible Hips Z -2160 -> 0 en f1034, que es la misma orientacion). Respaldo: `compose_parte2_v_tos_brusca.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Alfred coloca una antorcha al llegar al descanso (2026-10-01)
+- Pedido de Kebyn (sistema "Colocar antorcha"). `compose_refugio_parte2.py`: al llegar Alfred al punto de descanso (`K_ARR` = f1349) se inserta un hueco de `TORCH_INS` = 42 f en los artefactos de Alfred y Jerry (`ins`: todo lo posterior se corre 42 f; Jerry espera quieto y su charla empieza 42 f despues, f1394): 6 f para ponerse de pie y girar hacia el punto, el ciclo `KEYFRAMES_COLOCAR_ANTORCHA` del add-on leido sin importarlo (30 f; agachado en el f15 con Hips X 62 grados), y 6 f para volver a su postura de descanso. El descanso reducido (~62 f) sigue igual, desde f1391; `N0` = 1461 y `N_TOTAL` = 2150 f (`compose_zombies_parte2.py` N = 2150).
+- Antorcha: la coloca en `TORCH_XY` = (-96.0,-109.0,14), el centro del interior 2x2 (a 0.5 m de todos los recorridos de Alfred y Jerry; la unica diagonal SW<->NE de Alfred ahora rodea por SE). Aparece en f1371 (frame agachado, `parte2/antorcha_parte2.json`). `importar_refugio.py` la importa con las utilidades del propio add-on (`object_import_utils.import_bloque_dinamico_full` + `hide_until_frame`) desde `bloques_dinamicos/antorcha_1.blend` (antorcha 0.13x0.13x0.62 m de z=14.0 a 14.62, con llama, humo y luz), oculta hasta ese frame; objetos y colecciones marcados `refugio_antorcha` para reimportar sin duplicar. NO se usaron los operadores del add-on (re-importan personajes).
+- Verificado: Alfred y Jerry nunca a menos de ~0.5 m de la antorcha tras colocarla; golpes de Jerry en los mismos frames; ultimo bloque f2070. Respaldos: `compose_refugio_parte2_v_sin_antorcha.py`, `compose_zombies_parte2_v_N2100.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Los zombies que no pueden entrar atacan los muros (2026-10-01)
+- Pedido de Kebyn. `compose_zombies_parte2.py`: tras ser empujados por Jerry y levantarse, cada zombie ya no da vueltas al anillo: rodea el refugio hasta un muro distinto (`SPOT`/`WAYS`) y lo ATACA sin parar hasta el final, de frente al muro y a ~0.7 m del plano (el brazo mide 0.76 m): z1 muro SUR (-96,-111.72) por el lado este, z2 muro OESTE (-98.72,-109) rodeando por el norte ("por atras del refugio"), z3 muro NORTE (-96.5,-106.27) (evita el hueco hasta que se cierre), z5 y z4 muro ESTE (-93.28,-108.5 / -109.6). Llegan (`llegada` en `empujes_zombies.json`) en f1809, ~1865, ~1872, ~1865 y ~2034.
+- Ataque (`atk_pose`, patron `ATK` por zombie, se repite): 'hit' = punetazos alternos cada 26 f (brazo arriba UpArm X -0.95, golpe hacia abajo con inclinacion de cadera/columna/cuello y pateo de piernas) y 'climb' = intento de trepar de 70 f (se agacha, SALTA contra el muro con el salto base `saltar_subir`, la raiz sube 0.55 m, se agarra con los brazos arriba (UpArm X -1.15), patalea y resbala hasta el suelo, se sacude y recupera). Medido en Blender: las manos quedan a ~0-5 cm del muro al golpear.
+- Mecanica de ejes medida en Blender para el zombie (T-pose en reposo): UpArm Z -90 = brazos adelante, UpArm X + baja el brazo / X - lo sube; UpLeg X + adelanta y sube el muslo.
+- Ajustes derivados: bultos estrechos del terreno sin salto ya no hacen "pop" (subida max 0.25 m/f), Jerry elige su espera 2 m antes por el corredor del muro (perpendicular a la normal) en vez de por la tangente del zombie, corredor exterior de Jerry mas ancho (`EX0..EY1` 1.3-1.7 m de los muros) y `jerry_avoid` (nunca a menos de 1 m de un zombie salvo en sus saltos). Verificado: Jerry-zombie min 0.73 m fuera de golpes, ningun zombie/Jerry dentro de bloques, dist min entre zombies 0.4 m (agua), puntería de Jerry 0.0 grados en los 5 golpes. Respaldos: `compose_zombies_parte2_v_rondan_anillo.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Alfred discute la ruta con gestos variados (f306-474, 2026-10-01)
+- Reporte de Kebyn (captura f367): movimientos repetitivos de Alfred mientras discute con Jerry. Antes (`alfred_stand`, `compose_parte2.py`): un unico gesto de manos abiertas con un seno (`g1`) y la cabeza oscilando con otro seno. Ahora una SECUENCIA de gestos distintos, con tiempos irregulares y poses medidas en Blender (modelo del brazo: X = elevacion (X<0 sube), Z = azimut horizontal (derecho Z=-az, izquierdo Z=+az; az 0 = afuera, 90 = adelante), codo X<0 sube el antebrazo, codo Z lo dobla hacia dentro; Neck Y+ = mira a su IZQUIERDA, Z = ladea, X+ = baja):
+  1) 306-350: escucha a Jerry (asiente, mano derecha al pecho/rostro, ladea la cabeza); 2) 352-392: SEÑALA el horizonte al este con el brazo derecho extendido y lo barre de izquierda a derecha (cabeza sigue la mano, hacia su derecha); 3) 398-412: ENCOGE los hombros (ambos brazos abiertos con antebrazos arriba, cabeza ladeada); 4) 416-438: SEÑALA al norte con el brazo izquierdo (cabeza a la izquierda); 5) 446-470: INSISTE con dos golpes de mano distintos (brazo derecho adelante, golpe corto y otro mas corto/alto, ambos con asentimiento de cabeza; el izquierdo acompana a medias). Cada brazo es una lista de waypoints (frame, peso, elevacion, azimut, codo adentro, codo arriba, giro Y) con holds y rampas distintas (`ARM_R`, `ARM_L`), mas una deriva lenta no periodica (senos de frecuencias inconmensurables) para que nunca quede clavado.
+- Cuerpo: balanceo lento de cadera/espalda no periodico y pataleo suave para flotar con amplitud y ritmo variables. El susto, la mirada hacia atras y la huida (f478+) no cambian. Verificado: salto max entre frames 25 grados (el golpe intencional a f453), medido en Blender: f372 brazo der apunta (0.44,0.87,0.21) adelante-derecha, f388 (0.04,0.98,0.20) adelante, f406 ambos abiertos (+-0.9,0.37,0.13), f430 izquierdo (-0.87,0.46,0.16) hacia el norte; captura del visor en f388 confirma el brazo extendido. Respaldo: `compose_parte2_v_discusion_repetitiva.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Expresiones de los ojos de Alfred, f1 a f2150 (2026-10-01)
+- Pedido de Kebyn: animar los ojos de Alfred desde el frame 1 hasta el final, transmitiendo sus situaciones. Script nuevo `parte2/compose_ojos_alfred_parte2.py` (ejecutar DESPUES de `compose_refugio_parte2.py`; reescribe la seccion `ojos` de `parte2_alfred_refugio`, repetible). `compose_parte2.py` ahora tambien escribe `parte2/eventos_alfred.json` (frames de los eventos de Alfred) que usa el script. Pipeline completo: compose_parte2 todos -> compose_zombies -> compose_refugio -> compose_ojos_alfred -> importar en Blender (ver notas de importacion mas arriba).
+- Los ojos (medido con hoja de contacto en Blender): dos rectangulos blancos altos sobre cara negra; shape keys Feliz (altos con muescas), Triste (puntiagudos, caidos), Enojado (inclinados), Sospecha (asimetrico), Cerrado (cuadrados chicos), Cansado (parpado caido), Sorpresa (altos y anchos), Closed (linea = parpadeo); ademas escala y location (mirada). Se usan todos.
+- Estados de animo (55 waypoints, interpolados con smoothstep): f1-272 nada atento y cada vez mas cansado/esforzado; 284 Jerry avisa: sorpresa y mira a Jerry; 306-350 escucha PREOCUPADO (Triste); 362-390 SOSPECHA mirando el horizonte; 400-412 encoge hombros RESIGNADO (Triste+Cansado); 420-436 IDEA al norte (Feliz+Sorpresa, mira a la izquierda); 446-470 INSISTE (Enojado); 478-518 MIEDO (Sorpresa 0.95 + ojos ensanchados, mirada clavada); nado frenetico PANICO/esfuerzo (Sorpresa+Enojado, cierres rapidos por salpicaduras); sube los escalones saltando URGENCIA; f810 resbala: ojos enormes; f826 golpe y INCONSCIENTE (Closed) hasta f1000; despierta con parpados pesados, aleteo de parpados, aprieta los ojos en las 2 toses, desorientado (Sospecha, mira a los lados); f1070 ve a los zombies (Sorpresa 1.0, ensancha); vuelve a subir con miedo y determinacion; camina AGOTADO (Cansado); llega: alivio, concentrado en el suelo al poner la antorcha (f1371) y parpadeo largo de satisfaccion; descanso jadeando (Cansado+Cerrado, cierra al exhalar) mirando a Jerry cuando habla; escucha el plan y se DECIDE (Enojado); construye concentrado (cada bloque: entrecierra y frunce); sobresalto elastico con cada empujon de Jerry (f1583,1653,1713,1763,1924) y cada zombie que llega al muro (f1783-2034); cautela/preocupacion con los zombies golpeando; al cerrar el ultimo bloque la tension cede y termina con ALIVIO (Feliz+Cansado, cierre lento).
+- Parpadeos naturales irregulares (cada 46-150 f, mas seguidos si esta cansado, dobles a veces, ninguno en el miedo ni inconsciente) y mirada con micro-sacadas y deriva; la mirada sigue la situacion (hacia Jerry, horizonte este, norte, abajo al andar cansado, arriba al subir). Se quito el parpadeo de visibilidad (hide_* = 0 siempre). Verificado en Blender con hoja de contacto de frames 330, 376, 436, 495, 1075, 1560, 1950: Triste, Sospecha, Feliz, Sorpresa, Sorpresa, Enojado/Cansado y cauteloso se leen distintos. Respaldo: `compose_parte2_v_antes_ojos.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Ojos de Alfred: intensidades calibradas expresion por expresion (2026-10-01)
+- Reporte de Kebyn (captura f333): las expresiones eran demasiado intensas (Triste con espinas). Se calibro CADA shape key con renders de la cara (frame 333, Alfred de frente) a 0.1/0.2/0.3/0.45 y se evaluo el resultado antes de pasar a la siguiente: Triste 0.1-0.2 ya es claro (0.3 aparecen muescas, 0.45 espinas); Sospecha 0.1-0.2 = escepticismo (0.3+ ceno furioso en V); Enojado 0.2-0.3 = decision (0.45 rabia); Feliz 0.2-0.3 (0.45 toca la diadema); Sorpresa (la key es sutil, el efecto fuerte viene de ensanchar; tope 0.28); Cansado y Cerrado se leen bien en todo el rango.
+- En `compose_ojos_alfred_parte2.py`: tabla `CAL` = (factor, tope) por expresion (Triste 0.45/0.24, Sospecha 0.40/0.22, Enojado 0.65/0.30, Feliz 0.70/0.32, Cerrado tope 0.60), `WIDE_MAX` 0.28 y el ensanchado vertical 0.55 -> 0.40 (ya no sobrepasa la diadema). Evaluado en Blender frame a frame: f333 preocupado, f376 sospecha, f436 idea, f458 decidido, f495 miedo, f600 panico, f760 urgencia, f1010 despierta con parpados pesados, f1075 ve zombies, f1300 agotado, f1560 construye concentrado, f1950 cauteloso. Pendientes de mirar mejor (camara dentro de la cabeza/bloque): f1045 (tos), f1371 (antorcha), f2090 (alivio). Nota: un parpadeo a medias con Sospecha (f1470) se ve como ceno; es de 1 frame. Respaldo: `compose_ojos_alfred_parte2_v_intensidad_alta.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Intensidad de las expresiones de los ojos fija en 0.06 (2026-10-01)
+- Pedido de Kebyn (captura de la lista de intervalos del add-on: Expresion 1, Triste, Intensidad 0.060): las expresiones de los ojos de Alfred se mantienen en 0.06. En `compose_ojos_alfred_parte2.py` (`EXPR_INT = 0.06`): cada shape key de expresion (Feliz, Triste, Enojado, Sospecha, Cerrado, Cansado, Sorpresa) vale 0.06 cuando su estado de animo esta activo, con una rampa suave de entrada y salida (`0.06 * smoothstep(peso / 0.22)`, el peso viene del estado de animo), maximo medido en el artefacto 0.06 en todas; solo `Closed` (parpadeo/cierre de ojos) conserva su rango 0-1 porque es el parpadeo, no una expresion. El ensanchado/estrechado de los ojos por escala (miedo, cansancio) y la mirada se mantienen. Se elimino la tabla `CAL` (ya no aplica).
+- Evaluado en Blender (f333 Triste, f376 Sospecha, f436 Feliz, f495 Sorpresa a 0.06): se lee sutil pero distinto en cada caso. Respaldo: `compose_ojos_alfred_parte2_v_cal_visual.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Expresiones de los ojos de Alfred reconstruidas con el sistema del add-on (2026-10-01)
+- Pedido de Kebyn (captura de "Expresiones de ojos - Lista de intervalos": Intensidad 0.060, Inv V, Zona Superior, Curva Cuadratica, Feliz/Triste/Enojo/Sospecha 0.180): entender el sistema del add-on (`eye_system.py`), probar y corregir las expresiones de Alfred.
+- Sistema entendido: `build_expression_shape_keys` crea un shape key por expresion con `_eye_compute_vertex(co, h, v, bounds, expresion, settings, mirror_h)`: Feliz/Triste mueven los vertices en el eje vertical `+/-intensidad * curva(|h|) * v_factor`, Enojado/Sospecha inclinan el borde con pendiente lineal en h (opuestas entre si), Cerrado/Cansado/Sorpresa son fracciones fijas de la altura (-0.85, -0.4, +0.15) SIN intensidad propia. `affect_zone` (UPPER/LOWER/BOTH) limita el efecto a la mitad superior/inferior de la malla, `invert_vertical` invierte el signo vertical, `invert_horizontal` invierte la pendiente de Enojado/Sospecha, `curve_mode` (lineal/cuadratica/cubica) da la curva en h y `swap_axes` intercambia ejes. El valor del shape key en la animacion es la "Intensidad" del intervalo (0.06) y la geometria lleva la intensidad 0.18 (por eso 0.06 mueve ~27 % de la altura del ojo). Los ojos de Alfred (1538 vertices) tenian TODOS los shape keys con Zona Superior, sin inversiones, cuadratica, 0.18 (verificado reconstruyendo cada uno: error 0).
+- Pruebas (render de la cara a 0.06, 4 combinaciones Zona x Inv V por expresion): Feliz INFERIOR+Inv V = arco sonriente en el borde inferior (^); Triste INFERIOR+Inv V = bordes inferiores caidos y redondeados (ojos de cachorro); SUPERIOR sin inv deja un pico/arco arriba y SUPERIOR+Inv V "cuernos" arriba (no se leen como tristeza). Enojado/Sospecha: sin Inv H el add-on da en los ojos de Alfred las esquinas internas ALTAS para Enojado y BAJAS para Sospecha (el eje x local de la malla del ojo esta invertido), o sea los nombres al reves; con Inv H queda Enojado = esquinas internas BAJAS (ceno, determinacion) y Sospecha = ALTAS (preocupacion/duda/miedo).
+- Reconstruccion: `parte2/construir_expresiones_ojos_alfred.py` (se ejecuta en Blender con exec; usa `eye_system._eye_compute_vertex` del propio add-on; ojo derecho con espejo): Feliz y Triste = INFERIOR + Inv V; Enojado y Sospecha = SUPERIOR + Inv H; Cansado (comprime la mitad superior 45 %), Cerrado (entrecierra 30 %) y Sorpresa (expande la mitad superior 25 %) llevan su formula del add-on amplificada para que el valor 0.06 produzca ese efecto (con 0.06 y la formula original quedaban invisibles). `Closed` no se toca. Cambia datos del .blend abierto (shape keys de los 2 ojos): guardar el .blend para conservarlos; para otra escena basta ejecutar el script.
+- Animacion (`compose_ojos_alfred_parte2.py`): sigue a 0.06 por expresion; el miedo y el susto llevan ahora tambien Sospecha (cejas internas arriba) + Sorpresa + ensanchado; preocupacion = Triste+Sospecha, determinacion = Enojado, idea/alivio = Feliz. Evaluado en Blender en f333 (preocupado, ojos caidos), f376 (duda), f436 (idea: arcos sonrientes), f458 (insiste: ceno), f495 (miedo), f760 (urgencia), f1075 (ve zombies), f1300 (agotado). Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Ojos de Alfred: neutro por defecto, sin cara de amargado (2026-10-01)
+- Reporte de Kebyn (captura con ceno marcado): "por que siempre tiene la expresion de amargo por defecto". Diagnostico medido en el artefacto: `Enojado` (esquinas internas bajas = ceno) estaba activo (>0.03) en el 53 % de los frames y NINGUN frame era neutro (Cansado activo en el 72 %). Causas: (1) el estado de animo base mezclaba Enojado/Sospecha/Cansado desde el frame 1 (nadando) y como determinacion en tramos de 100-600 f; (2) el esfuerzo por bloque sumaba `Enojado +0.18` con un pulso de ~16 f cada 12 f (un bloque cada 12 f), asi que durante toda la construccion el ceno quedaba puesto; (3) el ruido de vida se aplicaba desde valores muy bajos.
+- Arreglo en `compose_ojos_alfred_parte2.py`: el estado base es NEUTRO (todas las expresiones a 0: f1-200 neutro, Cansado leve solo al final del nado); las expresiones aparecen en su momento y vuelven a neutro. Enojado solo en los ~20 f en que insiste en la discusion (f450-468) y ~35 f cuando se decide a construir (f1497-1531); el panico/urgencia ahora usan Sospecha+Sorpresa (cejas internas arriba) en vez de Enojado; construir = neutro (Cansado leve) y el esfuerzo por bloque solo entrecierra un 6 % por escala (sin expresion); el ruido solo actua sobre expresiones ya activas (>0.15). Resultado: Enojado activo en el 5 % de los frames (antes 53 %). Sigue a 0.06. Evaluado en Blender: f1 y f150 neutros (rectangulos sin inclinacion), f1560 y f1700 construyendo con ojos calmados, f1850 cauteloso con los zombies en los muros. Respaldo: `compose_ojos_alfred_parte2_v_amargo.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Escala de los ojos de Alfred: solo crece con Sorpresa (2026-10-01)
+- Pedido de Kebyn (captura: ojos grandes tapan las expresiones): la escala de las mallas de los ojos solo aumenta cuando hay que mostrar sorpresa; en el resto de situaciones se mantiene la escala por defecto (2.45, 0.496, 5.3). En `compose_ojos_alfred_parte2.py`: se quitan el estrechado por cansancio (-16 %), el entrecerrado por esfuerzo al construir (-6 %) y el ensanchado de otros estados; el ensanchado (`wide`) se multiplica por la activacion REAL de la expresion Sorpresa de ese frame (`series["Sorpresa"][-1] / EXPR_INT`: 0 = sin sorpresa), asi que sin Sorpresa la escala es exactamente la de por defecto (verificado: 0 frames con escala aumentada sin Sorpresa). `WIDE_MAX` baja de 0.28 a 0.22: con sorpresa plena la escala llega a X 2.557 / Z 5.766 (+4 % / +9 %), antes +20 % / +33 %.
+- Evaluado en Blender: f333 (sin sorpresa, escala por defecto: la expresion de ojos caidos se ve completa), f495 y f1075 (sorpresa: ojos algo mas grandes que no tapan), f1850 (cautela con sorpresa leve). Respaldo: `compose_ojos_alfred_parte2_v_escala_variable.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Escala y posicion POR DEFECTO de los ojos de Alfred (dadas por Kebyn, 2026-10-01)
+- Capturas del panel Transform: `ojo_izquierdo_alfred` Location (0.10665, 0.27046, 1.7008), Rotation 0, Scale (1.555, 0.496, 3.550); `ojo_derecho_alfred` Location (-0.1053, 0.25633, 1.7004), Rotation 0, Scale (1.555, 0.496, 3.550). Yo estaba usando 2.45 / 0.496 / 5.3 (la de las animaciones de la parte 1 importadas) y Z 1.731: los ojos iban ~58 % mas grandes de lo debido, de ahi que taparan las expresiones.
+- `compose_ojos_alfred_parte2.py`: `SC0 = (1.555, 0.496, 3.55)` y `LOC0` por ojo con esos valores; la escala solo aumenta con Sorpresa (+4 % ancho / +9 % alto como maximo, relativo a la de por defecto) y la mirada se suma a la posicion por defecto (+-0.008). Verificado en el artefacto (f1: escala 1.555/0.496/3.55 y localizacion 0.1071/0.2705/1.7018 con la mirada) y en Blender (f333, 436, 458, 495): ojos mas estrechos, las expresiones (ojos caidos, arcos sonrientes, ceno, miedo con ceja interna) se ven completas y sin taparse. Respaldo: `compose_ojos_alfred_parte2_v_escala_2_45.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Ojos de Alfred al caer rodando: dolor en cada golpe (2026-10-01)
+- Reporte de Kebyn (captura de los ojos como una "M" al caer al agua): era el shape key `Closed` (linea) deformado por `Triste` (bordes inferiores caidos) que seguia activo, y los ojos permanecian cerrados todo el tramo sin mostrar los golpes. Arreglos en `compose_ojos_alfred_parte2.py`:
+  1) Con los ojos cerrados las demas expresiones se multiplican por (1 - Closed): la linea queda plana (ya no sale la "M").
+  2) DOLOR en cada impacto de la caida rodando (golpes en f826, 838, 857, 871, 888, 903, 924, de `eventos_alfred.json`): cierra los ojos con fuerza 6 f (Closed 0.74-1 desde h-1 hasta h+5) y los reabre.
+  3) Entre golpe y golpe, en el aire, los ojos se abren de SORPRESA (Sorpresa 0.06 + escala aumentada, que es lo unico que la agranda) y mientras dura la caida el estado de animo de fondo es dolor/aturdimiento: Sospecha (cejas internas arriba) + Triste (ojos caidos) a 0.06; los ojos enormes del resbalon (f810-824) se mantienen.
+  4) Tras el ultimo golpe (f924) y al caer al agua (f~930) quedan cerrados (inconsciente) hasta despertar (f1000), linea plana.
+- Verificado en el artefacto: f826 Closed 0.74, f828 1.0 (sin expresiones), f832 abiertos con Sorpresa 0.06 y escala Z 3.86 (+9 %), f836 abiertos, f838 Closed 0.74..., f960 Closed 1.0 sin expresiones, escala por defecto 3.55 cuando no hay sorpresa. No pude comprobar la cara en el visor durante los golpes (la camara queda dentro de la cabeza/bloques al rodar). Respaldo: `compose_ojos_alfred_parte2_v_sin_dolor.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Sorpresa evidente al resbalar y al ver a los zombies (2026-10-01)
+- Reporte de Kebyn (captura f817, resbalon): en el resbalon y al ver acercarse a los zombies la malla de los ojos debe pasar a Sorpresa Y aumentar su escala; antes el efecto era casi invisible (shape key Sorpresa solo expandia 25 % de la mitad superior con valor 0.06 y la escala subia +4 %/+9 %).
+- `construir_expresiones_ojos_alfred.py`: Sorpresa expande la mitad superior un 50 % (antes 25 %) con el valor 0.06; hay que volver a ejecutarlo en Blender (ya hecho en esta escena). `compose_ojos_alfred_parte2.py`: la escala con sorpresa plena sube a X x1.27 / Z x1.36 (1.555/3.55 -> 1.97/4.83; `WIDE_MAX` 0.45, factores 0.60 en X y 0.80 en Z), y sigue siendo la de por defecto sin Sorpresa (f333: 1.555/3.55). Los momentos de sorpresa plena: resbalon (f810-824, elastico), miedo al mirar atras y ver a los zombies (f482-526), al reconocerlos tras despertar (f1070-1100); sorpresas menores (golpes de Jerry, zombies que llegan, entre golpes de la caida) escalan menos.
+- Verificado: f817 y f1075 Sorpresa 0.06 con escala 1.97/4.83; render de la cara: ojos claramente mas altos y grandes que los de por defecto. Respaldos: `compose_ojos_alfred_parte2_v_sorpresa_suave.py`, `construir_expresiones_ojos_alfred_v_sorpresa_25.py`. Sin aprobar; .blend sin guardar.
+
+### Parte 2 - Camara cinematografica continua con keyframes (2026-10-01)
+- Pedido de Kebyn: una grabacion continua cinematografica enfocada en Alfred y Jerry, SOLO keyframes de la camara (no se renderizo nada). Escena abierta: `capitulos/capitulo_4/base_ruta_N.blend` (f1-2150, tiene la parte 2 completa; `Camara_Cinematica` con TRACK_TO a `Cam_Foco`, sin animacion previa).
+- `parte2/compose_camara_parte2.py` genera `parte2/camara_parte2.json` (539 muestras, una cada 4 f, f1-2150) a partir de las posiciones reales de Alfred y Jerry en sus artefactos: balizas de toma (frame, azimut, elevacion, distancia, focal, peso de Jerry en el punto de mira, altura) interpoladas con Catmull-Rom sin sobreimpulsos y suavizadas; la distancia crece sola para que los DOS quepan siempre segun la focal. `parte2/importar_camara.py` (exec en Blender) ajusta con raycast cada muestra (agua y personajes no tapan; los bloques del refugio solo desde su frame de aparicion; arboles/terreno/bloques si): sube la elevacion, gira alrededor de los personajes hasta +-72 grados o acerca la camara; evita que quede bajo el suelo o dentro del volumen del refugio; e inserta keyframes Bezier auto-limitados de ubicacion de `Camara_Cinematica`, ubicacion de `Cam_Foco` y focal (24-40 mm). Idempotente.
+- Tomas: f1-274 travelling bajo desde el sur que pasa al frente mientras nadan; f275-475 discusion: plano medio y orbita lenta con empuje (focal 40) en los gestos; f476-540 la camara pasa al este y muestra sus caras con los zombies detras; f540-706 persecucion desde detras; f706-1227 escalera, resbalon, rodada, despertar y segunda subida desde el ESTE sobre el agua (el sur es bosque que tapa); f1227-1349 camina agotado y Jerry a su lado: la camara pasa delante; f1349-1391 primer plano de la antorcha; f1391-1461 descanso y charla; f1461-1860 construccion: vista cenital en orbita lenta (el interior sigue abierto) con Jerry fuera; f1860-2005 baja y sigue a Jerry y a los zombies contra los muros; f2005-2150 con los dos dentro, mira al refugio sellado y se aleja.
+- Verificado: 539 keyframes de ubicacion, mira y focal; velocidad max 0.56 m/f (f547, el giro de la huida) y giro max de mirada 4.5 grados/f; solo 12 de 539 muestras con la vista aun parcialmente tapada (tramos f1489, 1517-1545 durante la obra, 1721, 1849, 1981-1985); revisado en el visor (vista de camara, sin render) en f60, 380, 500, 870, 1150, 1300, 1371, 1700, 1960, 2100. Limitaciones: Alfred queda oculto dentro del refugio desde ~f1860 (techo) y ambos desde f2005; en el ultimo tramo hay hojas de arbol en primer plano. No guardado el .blend (base_ruta_N.blend sigue modificado). Respaldos de versiones: `compose_camara_parte2_v_1/2/3.py`, `importar_camara_v_1/2.py`.

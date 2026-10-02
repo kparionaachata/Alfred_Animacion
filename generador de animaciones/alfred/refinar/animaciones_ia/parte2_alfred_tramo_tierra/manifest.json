@@ -1,0 +1,34 @@
+{
+  "formato": "alfred_ia_anim/1",
+  "flujo": "IA",
+  "nombre": "parte2_alfred_tramo_tierra",
+  "agente": "claude",
+  "creado": "2026-09-30T04:57:56",
+  "blender": "5.2.1 LTS",
+  "fps": 24,
+  "frames": [
+    1,
+    159
+  ],
+  "objetos": [
+    "alfred",
+    "Armature",
+    "ojo_izquierdo_alfred",
+    "ojo_derecho_alfred"
+  ],
+  "canales_armature_y_root": 204,
+  "guion_fuente": "(recorrido en escena)",
+  "notas": "Parte 2 v3: sube la escalera oriental y camina por la meseta hasta (-93.5,-108.5,14) donde descansa.",
+  "suavizado": null,
+  "archivos": [
+    "parte2_alfred_tramo_tierra.animacion.json",
+    "parte2_alfred_tramo_tierra.py"
+  ],
+  "aplicar": "blender <personaje>.blend --python parte2_alfred_tramo_tierra.py   |   ai_export.importar('parte2_alfred_tramo_tierra', personaje=...)",
+  "limitaciones": [
+    "Solo incluye root, huesos, objetos de ojos y los `extras` listados en el personaje; no incluye otros props, invisibilidad de mallas ni objetos ajenos.",
+    "Los extras que falten al reproducir se importan de `extras_fuente` (si esta definido).",
+    "Fotograma a fotograma (interpolacion LINEAL): es un resultado final, no una receta editable.",
+    "Las pistas se crean como IA_<nombre>__*; reimportar reemplaza solo esas pistas."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "formato": "alfred_ia_anim/1",
+  "flujo": "IA",
+  "nombre": "jerry_antorcha_salto_agua",
+  "agente": "claude",
+  "creado": "2026-09-29T08:04:40",
+  "blender": "5.2.1 LTS",
+  "fps": 24,
+  "frames": [
+    1,
+    561
+  ],
+  "objetos": [
+    "jerry",
+    "Dog_001_rig",
+    "ojo_izquierdo_jerry",
+    "ojo_derecho_jerry",
+    "pupila_izquierda_jerry",
+    "pupila_derecha_jerry",
+    "antorcha_jerry"
+  ],
+  "canales_armature_y_root": 393,
+  "guion_fuente": null,
+  "notas": "Jerry: habla a Alfred (mandibula hasta 62 grados) mirandolo a el; expresiones por cejas. Sin aprobar.",
+  "suavizado": {
+    "cortes": [
+      39,
+      75,
+      82,
+      127
+    ],
+    "ventana": 6,
+    "salto_max_antes": 0.1234,
+    "salto_max_despues": 0.0068
+  },
+  "archivos": [
+    "jerry_antorcha_salto_agua.animacion.json",
+    "jerry_antorcha_salto_agua.py"
+  ],
+  "aplicar": "blender <personaje>.blend --python jerry_antorcha_salto_agua.py   |   ai_export.importar('jerry_antorcha_salto_agua', personaje=...)",
+  "limitaciones": [
+    "Solo incluye root, huesos, objetos de ojos y los `extras` listados en el personaje; no incluye otros props, invisibilidad de mallas ni objetos ajenos.",
+    "Los extras que falten al reproducir se importan de `extras_fuente` (si esta definido).",
+    "Fotograma a fotograma (interpolacion LINEAL): es un resultado final, no una receta editable.",
+    "Las pistas se crean como IA_<nombre>__*; reimportar reemplaza solo esas pistas."
+  ]
+}

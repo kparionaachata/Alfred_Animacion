@@ -1,0 +1,24 @@
+{
+ "k_parada": 337,
+ "k_miran_atras": 482,
+ "k_susto_fin": 518,
+ "k_nado_frenetico": 540,
+ "k_pie_escalera": 706,
+ "k_resbala": 810,
+ "k_golpe_caida": 826,
+ "k_ultimo_escalon": 924,
+ "k_levanta": 1000,
+ "k_reconoce_zombies": 1070,
+ "k_sube_otra_vez": 1100,
+ "k_llega_arriba": 1227,
+ "k_llega_descanso": 1349,
+ "golpes": [
+  826,
+  838,
+  857,
+  871,
+  888,
+  903,
+  924
+ ]
+}

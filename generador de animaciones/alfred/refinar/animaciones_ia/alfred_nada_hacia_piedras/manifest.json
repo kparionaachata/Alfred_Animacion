@@ -1,0 +1,34 @@
+{
+  "formato": "alfred_ia_anim/1",
+  "flujo": "IA",
+  "nombre": "alfred_nada_hacia_piedras",
+  "agente": "claude",
+  "creado": "2026-09-29T14:26:55",
+  "blender": "5.2.1 LTS",
+  "fps": 24,
+  "frames": [
+    562,
+    860
+  ],
+  "objetos": [
+    "alfred",
+    "Armature",
+    "ojo_izquierdo_alfred",
+    "ojo_derecho_alfred"
+  ],
+  "canales_armature_y_root": 204,
+  "guion_fuente": null,
+  "notas": "Continuacion de persecucion_zombie_agua: susto expresivo (590-610: recula, mano derecha en alto temblando, izquierda al pecho, ojos 2.85x6.1), gira al este (610-626), se lanza (626-648) y nada en crol hasta el 860. Angulos base normalizados a (-180,180] para que la cadera no gire vueltas de 360 al mezclar. Sin aprobar.",
+  "suavizado": null,
+  "archivos": [
+    "alfred_nada_hacia_piedras.animacion.json",
+    "alfred_nada_hacia_piedras.py"
+  ],
+  "aplicar": "blender <personaje>.blend --python alfred_nada_hacia_piedras.py   |   ai_export.importar('alfred_nada_hacia_piedras', personaje=...)",
+  "limitaciones": [
+    "Solo incluye root, huesos, objetos de ojos y los `extras` listados en el personaje; no incluye otros props, invisibilidad de mallas ni objetos ajenos.",
+    "Los extras que falten al reproducir se importan de `extras_fuente` (si esta definido).",
+    "Fotograma a fotograma (interpolacion LINEAL): es un resultado final, no una receta editable.",
+    "Las pistas se crean como IA_<nombre>__*; reimportar reemplaza solo esas pistas."
+  ]
+}

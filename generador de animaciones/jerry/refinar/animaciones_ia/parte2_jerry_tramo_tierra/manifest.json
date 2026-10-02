@@ -1,0 +1,36 @@
+{
+  "formato": "alfred_ia_anim/1",
+  "flujo": "IA",
+  "nombre": "parte2_jerry_tramo_tierra",
+  "agente": "claude",
+  "creado": "2026-10-01T00:32:25",
+  "blender": "5.2.1 LTS",
+  "fps": 24,
+  "frames": [
+    1,
+    122
+  ],
+  "objetos": [
+    "jerry",
+    "Dog_001_rig",
+    "ojo_izquierdo_jerry",
+    "ojo_derecho_jerry",
+    "pupila_izquierda_jerry",
+    "pupila_derecha_jerry"
+  ],
+  "canales_armature_y_root": 393,
+  "guion_fuente": "(recorrido en escena)",
+  "notas": "Parte 2 v4: Jerry sube la escalera oriental y solo avanza 1.3 m del borde, hasta (-90.8,-105.2,14), para volver rapido al borde a ver caer a Alfred.",
+  "suavizado": null,
+  "archivos": [
+    "parte2_jerry_tramo_tierra.animacion.json",
+    "parte2_jerry_tramo_tierra.py"
+  ],
+  "aplicar": "blender <personaje>.blend --python parte2_jerry_tramo_tierra.py   |   ai_export.importar('parte2_jerry_tramo_tierra', personaje=...)",
+  "limitaciones": [
+    "Solo incluye root, huesos, objetos de ojos y los `extras` listados en el personaje; no incluye otros props, invisibilidad de mallas ni objetos ajenos.",
+    "Los extras que falten al reproducir se importan de `extras_fuente` (si esta definido).",
+    "Fotograma a fotograma (interpolacion LINEAL): es un resultado final, no una receta editable.",
+    "Las pistas se crean como IA_<nombre>__*; reimportar reemplaza solo esas pistas."
+  ]
+}

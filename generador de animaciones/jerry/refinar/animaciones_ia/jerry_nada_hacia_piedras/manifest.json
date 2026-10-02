@@ -1,0 +1,36 @@
+{
+  "formato": "alfred_ia_anim/1",
+  "flujo": "IA",
+  "nombre": "jerry_nada_hacia_piedras",
+  "agente": "claude",
+  "creado": "2026-09-29T14:17:59",
+  "blender": "5.2.1 LTS",
+  "fps": 24,
+  "frames": [
+    562,
+    860
+  ],
+  "objetos": [
+    "jerry",
+    "Dog_001_rig",
+    "ojo_izquierdo_jerry",
+    "ojo_derecho_jerry",
+    "pupila_izquierda_jerry",
+    "pupila_derecha_jerry"
+  ],
+  "canales_armature_y_root": 393,
+  "guion_fuente": null,
+  "notas": "Continuacion de jerry_antorcha_salto_agua: susto expresivo al levantarse el zombie (594-628: sube la pata delantera derecha, ladra/abre la mandibula, cabeza atras, pequeno salto, ojos x1.35), gira al este (610-632) y nada por delante de Alfred hasta el 860. Sin aprobar.",
+  "suavizado": null,
+  "archivos": [
+    "jerry_nada_hacia_piedras.animacion.json",
+    "jerry_nada_hacia_piedras.py"
+  ],
+  "aplicar": "blender <personaje>.blend --python jerry_nada_hacia_piedras.py   |   ai_export.importar('jerry_nada_hacia_piedras', personaje=...)",
+  "limitaciones": [
+    "Solo incluye root, huesos, objetos de ojos y los `extras` listados en el personaje; no incluye otros props, invisibilidad de mallas ni objetos ajenos.",
+    "Los extras que falten al reproducir se importan de `extras_fuente` (si esta definido).",
+    "Fotograma a fotograma (interpolacion LINEAL): es un resultado final, no una receta editable.",
+    "Las pistas se crean como IA_<nombre>__*; reimportar reemplaza solo esas pistas."
+  ]
+}

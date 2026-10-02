@@ -1,0 +1,43 @@
+{
+  "formato": "alfred_ia_anim/1",
+  "flujo": "IA",
+  "nombre": "persecucion_zombie_agua",
+  "agente": "claude",
+  "creado": "2026-09-29T06:35:00",
+  "blender": "5.2.1 LTS",
+  "fps": 24,
+  "frames": [
+    1,
+    561
+  ],
+  "objetos": [
+    "alfred",
+    "Armature",
+    "ojo_izquierdo_alfred",
+    "ojo_derecho_alfred"
+  ],
+  "canales_armature_y_root": 204,
+  "guion_fuente": "configuraciones\\mi_configuracion_ia_persecucion.json",
+  "notas": "Expresiones de ojos por momento (escalas L/R, shape keys); ojos abiertos durante el salto y cierre al impacto. Uniones suavizadas. Sin aprobar.",
+  "suavizado": {
+    "cortes": [
+      83,
+      173,
+      179,
+      262
+    ],
+    "ventana": 8,
+    "salto_max_antes": 1.0885,
+    "salto_max_despues": 0.0373
+  },
+  "archivos": [
+    "persecucion_zombie_agua.animacion.json",
+    "persecucion_zombie_agua.py"
+  ],
+  "aplicar": "blender alfred.blend --python persecucion_zombie_agua.py   |   ai_export.importar('persecucion_zombie_agua')",
+  "limitaciones": [
+    "No incluye props importados/lanzados, cambios de visibilidad de mallas ni objetos ajenos a Alfred.",
+    "Fotograma a fotograma (interpolacion LINEAL): es un resultado final, no una receta editable.",
+    "Las pistas se crean como IA_<nombre>__*; reimportar reemplaza solo esas pistas."
+  ]
+}

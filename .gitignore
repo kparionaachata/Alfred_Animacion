@@ -1,0 +1,39 @@
+# Repo minimo para renderizar en la nube: solo scripts de render y los generadores/JSON de la parte 2.
+# Todo lo demas se ignora. Los .blend, texturas, mallas, audio y video NO se suben (limite de 100 MB por archivo en GitHub).
+
+/*
+!/.gitignore
+!/render_nube/
+!/generador de animaciones/
+
+/generador de animaciones/*
+!/generador de animaciones/alfred/
+!/generador de animaciones/jerry/
+
+/generador de animaciones/alfred/*
+!/generador de animaciones/alfred/refinar/
+/generador de animaciones/alfred/refinar/*
+!/generador de animaciones/alfred/refinar/docs/
+!/generador de animaciones/alfred/refinar/animaciones_ia/
+
+/generador de animaciones/jerry/*
+!/generador de animaciones/jerry/refinar/
+/generador de animaciones/jerry/refinar/*
+!/generador de animaciones/jerry/refinar/animaciones_ia/
+
+# dentro de lo incluido, solo texto
+*.blend
+*.blend1
+*.png
+*.jpg
+*.jpeg
+*.exr
+*.hdr
+*.mp4
+*.wav
+*.mp3
+*.fbx
+*.obj
+*.zip
+__pycache__/
+*.pyc
