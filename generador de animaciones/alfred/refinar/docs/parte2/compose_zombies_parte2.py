@@ -5,12 +5,16 @@ Uso (desde 'generador de animaciones'):  python alfred/refinar/docs/parte2/compo
 Entradas: artefactos de la parte 1 (ultimo frame = estado inicial), `estilos_zombie2.json` (caminata NORMAL), `grilla_p2.json` (alturas).
 Salida: zombie_N/refinar/animaciones_ia/parte2_zombie_N_sigue/*.animacion.json  (N=1600 frames, igual que Alfred/Jerry).
 """
-import ast, copy, json, math, os
+import ast, copy, json, math, os, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from zombie_levantarse_parte2 import RISE_EXTRA, lam_rise, rise_extra
 
 BASE = "generador de animaciones" if os.path.isdir("generador de animaciones") else "."
 HERE = os.path.join(BASE, "alfred/refinar/docs/parte2")
 N = 2150                                    # duracion de la parte 2 con el refugio (igual en compose_refugio_parte2.py); orden: compose_zombies -> compose_refugio
 GRID = json.load(open(os.path.join(HERE, "grilla_p2.json")))
+CORR = json.load(open(os.path.join(HERE, "levantarse_correccion.json"))) if os.path.exists(os.path.join(HERE, "levantarse_correccion.json")) else {}
 STY = json.load(open(os.path.join(BASE, "alfred/refinar/docs/datos_zombies/estilos_zombie2.json")))["NORMAL"]
 
 
@@ -66,10 +70,10 @@ KH_AFTER = {1: 12, 2: 12, 3: 12, 5: 12, 4: 12}   # el empujon llega estos frames
 #   arm = (amplitud X, amplitud Y, frecuencia, fase) del manoteo, legup = (UpLeg X der, izq), splay = (UpLeg Z der, izq), knee = (rodilla der, izq) (X+ sube la pantorrilla), neck = giro del cuello Y, wig = pataleo de piernas
 FALLV = {
     1: dict(fall=14, bnc=0.05, nb=1, lie=40, rise=30, knock=1.20, yaw=0.0, arm=(0.12, 0.18, 0.17, 0.0), legup=(0.0, 0.0), splay=(0.0, 0.0), knee=(0.0, 0.0), neck=0.0, wig=0.0),
-    2: dict(fall=18, bnc=0.08, nb=2, lie=46, rise=34, knock=1.50, yaw=-0.5, arm=(0.35, 0.40, 0.25, 1.0), legup=(0.5, 0.1), splay=(0.0, 0.2), knee=(0.6, 0.1), neck=0.5, wig=0.0),
-    3: dict(fall=11, bnc=0.03, nb=1, lie=36, rise=26, knock=0.95, yaw=0.45, arm=(0.05, 0.06, 0.10, 2.0), legup=(0.0, 0.0), splay=(-0.45, 0.45), knee=(0.3, 0.3), neck=-0.4, wig=0.0),
-    5: dict(fall=16, bnc=0.06, nb=3, lie=34, rise=28, knock=1.35, yaw=-0.3, arm=(0.30, 0.30, 0.22, 3.0), legup=(0.0, 0.7), splay=(-0.3, 0.0), knee=(0.0, 0.8), neck=0.3, wig=0.0),
-    4: dict(fall=13, bnc=0.07, nb=1, lie=42, rise=36, knock=1.10, yaw=-0.25, arm=(0.25, 0.25, 0.30, 4.0), legup=(0.35, 0.35), splay=(0.0, 0.0), knee=(0.45, 0.45), neck=-0.6, wig=0.25),
+    2: dict(fall=18, bnc=0.08, nb=2, lie=46, rise=34, knock=1.50, yaw=-0.5, arm=(0.35, 0.40, 0.25, 1.0), legup=(0.22, 0.05), splay=(0.0, 0.15), knee=(0.25, 0.05), neck=0.5, wig=0.0),
+    3: dict(fall=11, bnc=0.03, nb=1, lie=36, rise=26, knock=0.95, yaw=0.45, arm=(0.05, 0.06, 0.10, 2.0), legup=(0.0, 0.0), splay=(-0.25, 0.25), knee=(0.12, 0.12), neck=-0.4, wig=0.0),
+    5: dict(fall=16, bnc=0.06, nb=3, lie=34, rise=28, knock=1.35, yaw=-0.3, arm=(0.30, 0.30, 0.22, 3.0), legup=(0.0, 0.2), splay=(-0.2, 0.0), knee=(0.0, 0.25), neck=0.3, wig=0.0),
+    4: dict(fall=13, bnc=0.07, nb=1, lie=42, rise=36, knock=1.10, yaw=-0.25, arm=(0.25, 0.25, 0.30, 4.0), legup=(0.12, 0.12), splay=(0.0, 0.0), knee=(0.15, 0.15), neck=-0.6, wig=0.08),
 }
 # altura del punto mas bajo del cuerpo sobre el root (medido en Blender, malla evaluada, pose de caida: todos los huesos a 0 salvo Hips X=-90*lam y Neck X=-0.3*lam), lam = 0..1 en pasos de 0.1
 LIE_TAB = [0.0, -0.012, -0.002, 0.03, 0.082, 0.154, 0.243, 0.347, 0.465, 0.592, 0.467]
@@ -229,7 +233,7 @@ def main():
         def interp(arr, f_):
             i0 = int(math.floor(f_)); w_ = f_ - i0; a_ = arr[min(i0, N - 1)]; return a_ + (arr[min(i0 + 1, N - 1)] - a_) * w_
 
-        fv = FALLV[n]; FALL_F = fv["fall"]; FREEZE = FALL_F + 8 + fv["lie"] + fv["rise"]; RISE_F = fv["rise"]; BOUNCE_F = 8 * fv["nb"] if False else 8
+        fv = FALLV[n]; FALL_F = fv["fall"]; FREEZE = FALL_F + 8 + fv["lie"] + fv["rise"]; RISE_F = fv["rise"] + RISE_EXTRA; BOUNCE_F = 8 * fv["nb"] if False else 8
         idxs = [idx_map(k, kh, FREEZE) for k in range(N)]
         Sn = [interp(Sb, f_) for f_ in idxs]; Vn = [0.0] + [Sn[k] - Sn[k - 1] for k in range(1, N)]
         jw = [0 if kh <= k < kh + FREEZE else jwb[min(N - 1, int(round(f_)))] for k, f_ in enumerate(idxs)]
@@ -247,15 +251,22 @@ def main():
         px, py = pos_at(Sb[kb]); nx_, ny_ = knock_dir(px, py); qx, qy = pos_at(Sb[kb + 2]); rx_, ry_ = pos_at(Sb[kb - 2]); tl_ = math.hypot(qx - rx_, qy - ry_) or 1.0
         cy_, sy_ = math.cos(fv["yaw"]), math.sin(fv["yaw"]); kx_, ky_ = nx_ * cy_ - ny_ * sy_, nx_ * sy_ + ny_ * cy_                    # direccion en la que cae (la del empujon girada fv["yaw"])
         EVT[n] = {"z": n, "llegada": ka + 1, "frame_golpe": kh + 1, "frame_libre": kh + FREEZE + 1, "cae": [round(kx_, 4), round(ky_, 4)], "pos": [round(px, 3), round(py, 3)], "n": [round(nx_, 4), round(ny_, 4)], "t": [round((qx - rx_) / tl_, 4), round((qy - ry_) / tl_, 4)], "anillo": RING[n]}
-        lam = [0.0] * N; ek = [0.0] * N
+        lam = [0.0] * N; ek = [0.0] * N; k_r0 = kh + FREEZE - RISE_F
         for k in range(N):                                                                  # lam: 0 de pie, 1 tendido boca arriba (Hips X -90 * lam)
             if k < kh: continue
             if k < kh + FALL_F: t_ = (k - kh) / float(FALL_F); lam[k] = ss(t_); ek[k] = 1 - (1 - t_) * (1 - t_)
             elif k < kh + FALL_F + BOUNCE_F: u_ = (k - (kh + FALL_F)) / float(BOUNCE_F); lam[k] = 1.0 - fv["bnc"] * abs(math.sin(u_ * fv["nb"] * math.pi * 2 / 2.0 * 2)) * (1 - u_); ek[k] = 1.0     # rebote solo hacia arriba (si pasara de 90 grados las piernas se hundirian)
             elif k < kh + FREEZE - RISE_F: lam[k] = 1.0 - 0.012 * (0.5 + 0.5 * math.sin(k * 0.2)); ek[k] = 1.0
-            elif k < kh + FREEZE: lam[k] = 1.0 - ss((k - (kh + FREEZE - RISE_F)) / float(RISE_F)); ek[k] = 1.0
+            elif k < kh + FREEZE: lam[k] = lam_rise((k - (kh + FREEZE - RISE_F)) / float(RISE_F)); ek[k] = 1.0                                     # levantarse organico (zombie_levantarse_parte2.py)
             else: ek[k] = 1.0 - ss((k - (kh + FREEZE)) / 40.0)                             # al levantarse vuelve caminando a su ruta
         for k in range(N): xs[k] += kx_ * fv["knock"] * ek[k]; ys[k] += ky_ * fv["knock"] * ek[k]
+        xs0, ys0 = list(xs), list(ys)                                                       # trayectoria sin el desplazamiento de pies plantados (el rumbo se calcula con ella para que no gire por el ajuste)
+        COR = CORR.get(str(n)); k_r0 = kh + FREEZE - RISE_F                                  # tablas medidas en Blender (medir_levantarse.py): pies plantados (dx, dy) y altura (dz) durante la subida
+        if COR and COR["k0"] == k_r0:
+            nw = len(COR["rel"])
+            for k in range(k_r0, N):
+                i_ = min(k - k_r0, nw - 1); w_ = 1.0 if k - k_r0 < nw else ek[k]                  # tras la subida el desplazamiento final decae con el mismo envolvente que el empujon
+                xs[k] += COR["dx"][i_] * w_; ys[k] += COR["dy"][i_] * w_
         hs = [min(height(xs[k], ys[k]), 14.0) if jz[k] is None else jz[k] for k in range(N)]
         for k in range(1, N):                                                               # bajar un desnivel (anillo) lleva ~11 f, no cae de golpe
             if jz[k] is None and hs[k] < hs[k - 1] - 0.09: hs[k] = hs[k - 1] - 0.09
@@ -268,11 +279,14 @@ def main():
             zs.append(max(hs[k], 7.0 + (0.22 + bob) * wat[k]) if wat[k] > 0 else hs[k])       # flotan: cadera un poco sobre la superficie y suben/bajan con el oleaje
         rz = [rz_prev]; last_h = rz_prev
         for k in range(1, N):
-            a, b = max(0, k - 5), min(N - 1, k + 5); vx, vy = xs[b] - xs[a], ys[b] - ys[a]
+            a, b = max(0, k - 5), min(N - 1, k + 5); vx, vy = xs0[b] - xs0[a], ys0[b] - ys0[a]
             if math.hypot(vx, vy) > 0.02: last_h = math.atan2(-vx, vy)
             rz.append(rz[-1] + max(-0.05, min(0.05, wrap(last_h - rz[-1]))))
         ATKS = [atk_pose(n, k, ka) for k in range(N)]
         zs = [zs[k] + (z0 - zs[0]) * (1 - ss(k / 30.0)) + lie_dz(lam[k]) + ATKS[k][1] * ss((k - ka) / 10.0) for k in range(N)]
+        if COR and COR["k0"] == k_r0:
+            for q_, r_ in enumerate(COR["rel"]):                                             # zs = suelo + rel[fin] - rel[k] (suelo = hs[k], ya con el desplazamiento de pies plantados)
+                if k_r0 + q_ < N: zs[k_r0 + q_] += (COR["rel"][-1] - r_) - lie_dz(lam[k_r0 + q_])
         face = math.atan2(nx_, -ny_); face_f = math.atan2(kx_, -ky_)                          # primero se gira a mirar a Jerry; al caer rota hasta quedar cayendo en la direccion propia de este zombie
         for k in range(N):
             wf = ss((k - (kh - 12)) / 10.0) * (1 - ss((k - (kh + FREEZE - 6)) / 16.0)); fa = face + wrap(face_f - face) * ss((k - kh) / float(FALL_F))
@@ -316,6 +330,8 @@ def main():
                     elif short == "LeftUpLeg": r_[0] += (fv["legup"][1] - wg) * lw; r_[2] += fv["splay"][1] * lw
                     elif short == "Rightknee": r_[0] += fv["knee"][0] * lw
                     elif short == "Leftknee": r_[0] += fv["knee"][1] * lw
+                if k_r0 <= k < kh + FREEZE:                                                     # levantarse organico: fases con retardos entre huesos
+                    dd_ = rise_extra(short, (k - k_r0) / float(RISE_F), n, fv); r_ = [r_[a] + dd_[a] for a in range(3)]
                 if k >= ka:                                                                     # ataque al muro: puñetazos / intento de trepar (salto base + brazos arriba + patalear)
                     add_, dzk_, jmp_ = ATKS[k]; wa_ = ss((k - ka) / 10.0)
                     if jmp_ is not None:
