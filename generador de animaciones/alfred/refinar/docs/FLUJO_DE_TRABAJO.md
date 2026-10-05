@@ -92,3 +92,7 @@ Uso dentro de Blender: `from alfred_animation_studio import ai_api, ai_export`. 
 ## 8. Reglas del usuario
 Trabajo manual y sin depender de IA, salvo lo que se le pida. Cambios visibles y con feedback rapido. No sobrescribir su trabajo.
 Todo lo de documentacion va en `refinar/docs/`. Sin aprobacion explicita, una animacion es una primera version.
+
+## 9. Guion 2.0 (2026-10-04)
+El guion del flujo manual tiene ahora una version **2.0** (superconjunto del anterior: audio, objetos y mundo, movimiento por tramos, sonidos, camara, anclas de tiempo). Formato, herramientas (paneles 6-10 del add-on) y flujo de trabajo en `GUION_V2.md`;
+plan y bitacora en `PLAN_PARTE3_AL_FLUJO.md` y `GUIA_ANIMACION_ALFRED.md`; pruebas en `../pruebas/LEEME.md`. El guion de Alfred de la parte 3 es `configuraciones/guion_alfred_parte3.json`.

@@ -1,0 +1,284 @@
+{
+ "inicio": "2026-10-05T00:17:33",
+ "blend": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\capitulos\\capitulo_4\\base_parte_3.blend",
+ "pasos": {
+  "preparar": {
+   "ok": true,
+   "seg": 0.5,
+   "detalle": {
+    "stone_shovel": "importado",
+    "stone_axe": "ya existia",
+    "wooden_pickaxe": "ya existia",
+    "wooden_axe": "ya existia",
+    "tierra_item": "importado",
+    "tablon_item": "copiado",
+    "pozo_tierra": "creado"
+   }
+  },
+  "movimiento": {
+   "ok": true,
+   "seg": 0.6,
+   "detalle": {
+    "frames": 1160,
+    "migrados": 340,
+    "tramos": [
+     "S01_sentarse",
+     "S02_descansa",
+     "S03_lanza_herramientas"
+    ]
+   }
+  },
+  "audio": {
+   "ok": true,
+   "seg": 4.6,
+   "detalle": {
+    "ok": true,
+    "voces": 7,
+    "mensaje": "7/7 voces sincronizadas"
+   }
+  },
+  "objetos": {
+   "ok": true,
+   "seg": 90.0,
+   "detalle": {
+    "objetos_animados": 6,
+    "visibilidad": [
+     "lid_cesped_cavar",
+     "refugio_bloque_03"
+    ]
+   }
+  },
+  "sonidos": {
+   "ok": true,
+   "seg": 0.1,
+   "detalle": {
+    "creados": 66,
+    "movidos": 0,
+    "iguales": 0,
+    "quitados": 0,
+    "adoptados": 0
+   }
+  },
+  "camara": {
+   "ok": true,
+   "seg": 0.2,
+   "detalle": {
+    "claves": 4,
+    "movimientos": 3,
+    "objetos": [
+     "Camera.001",
+     "Foco_Conversacion"
+    ]
+   }
+  }
+ },
+ "addon": {
+  "modulo": "C:\\Users\\user\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\scripts\\addons\\alfred_animation_studio\\__init__.py",
+  "version": [
+   2,
+   2,
+   0
+  ],
+  "operadores": {
+   "guion_reproducir": true,
+   "guion_cargar_archivo": true,
+   "audio_importar": true,
+   "audio_sincronizar": true,
+   "obj_aplicar": true,
+   "mov_hornear": true,
+   "mov_comparar": true,
+   "snd_aplicar": true,
+   "cam_aplicar": true
+  },
+  "paneles": {
+   "ALFST_PT_audio": true,
+   "ALFST_PT_objetos": true,
+   "ALFST_PT_movimiento": true,
+   "ALFST_PT_escena_guion": true,
+   "ALFST_PT_reproducir": true
+  }
+ },
+ "limpia": {
+  "objetos_borrados": [
+   "stone_shovel",
+   "tierra_item",
+   "tablon_item",
+   "pozo_tierra"
+  ]
+ },
+ "validacion": {
+  "errores": [],
+  "avisos": [
+   "audio[aud_voy_a_necesitar_solo_uno] se solapa con aud_a_ver_como_eres_tu (mismo personaje)"
+  ]
+ },
+ "seg_reproducir": 96.0,
+ "comparacion": {
+  "alfred_pose": {
+   "rot_max_grados": 0.01296,
+   "peor": [
+    300,
+    "face_alfred"
+   ],
+   "hips_loc_max_m": 1e-07,
+   "root_max": 0.0,
+   "frames": 84
+  },
+  "camara": {
+   "dif_max": [
+    0.0,
+    0.0,
+    2e-06,
+    1e-06,
+    0.0,
+    0.0,
+    0.0,
+    2e-06
+   ],
+   "peor_frame": [
+    null,
+    null,
+    190,
+    24,
+    116,
+    null,
+    null,
+    277
+   ],
+   "canales": [
+    "cam.x",
+    "cam.y",
+    "cam.z",
+    "lente",
+    "apertura",
+    "foco.x",
+    "foco.y",
+    "foco.z"
+   ]
+  },
+  "objetos": {
+   "stone_shovel": {
+    "loc_max_cm": 3.36,
+    "peor_frame": 691,
+    "escala_max": 0.0
+   },
+   "stone_axe": {
+    "loc_max_cm": 16.56,
+    "peor_frame": 254,
+    "escala_max": 0.0
+   },
+   "tierra_item": {
+    "loc_max_cm": 0.0,
+    "peor_frame": 938,
+    "escala_max": 0.0
+   },
+   "tablon_item": {
+    "loc_max_cm": 0.03,
+    "peor_frame": 1090,
+    "escala_max": 0.0
+   },
+   "wooden_pickaxe": {
+    "loc_max_cm": 7.28,
+    "peor_frame": 215,
+    "escala_max": 0.0
+   },
+   "wooden_axe": {
+    "loc_max_cm": 4.85,
+    "peor_frame": 231,
+    "escala_max": 0.0
+   }
+  },
+  "voces": {
+   "antes": [
+    [
+     50,
+     "VozSync_ALFRED_fdfdfdfff"
+    ],
+    [
+     206,
+     "VozSync_ALFRED_ya_pero_no_tengo_sueno"
+    ],
+    [
+     358,
+     "VozSync_ALFRED_que_borrio_quieres"
+    ],
+    [
+     430,
+     "VozSync_ALFRED_espera_tengo_una_idea"
+    ],
+    [
+     632,
+     "VozSync_ALFRED_a_ver_como_eres_tu"
+    ],
+    [
+     664,
+     "VozSync_ALFRED_voy_a_necesitar_solo_uno"
+    ],
+    [
+     1064,
+     "VozSync_ALFRED_que_estara_pasando_afuera"
+    ]
+   ],
+   "despues": [
+    [
+     50,
+     "VozSync_ALFRED_fdfdfdfff"
+    ],
+    [
+     206,
+     "VozSync_ALFRED_ya_pero_no_tengo_sueno"
+    ],
+    [
+     358,
+     "VozSync_ALFRED_que_borrio_quieres"
+    ],
+    [
+     430,
+     "VozSync_ALFRED_espera_tengo_una_idea"
+    ],
+    [
+     632,
+     "VozSync_ALFRED_a_ver_como_eres_tu"
+    ],
+    [
+     664,
+     "VozSync_ALFRED_voy_a_necesitar_solo_uno"
+    ],
+    [
+     1064,
+     "VozSync_ALFRED_que_estara_pasando_afuera"
+    ]
+   ],
+   "iguales": true
+  },
+  "sonidos": {
+   "antes_del_guion": 66,
+   "despues_del_guion": 66,
+   "iguales": true,
+   "distintos": []
+  },
+  "pistas_nla": {
+   "antes": [
+    "Base_ArmatureAction.030",
+    "VozSync_ALFRED_a_ver_como_eres_tu",
+    "VozSync_ALFRED_espera_tengo_una_idea",
+    "VozSync_ALFRED_fdfdfdfff",
+    "VozSync_ALFRED_que_borrio_quieres",
+    "VozSync_ALFRED_que_estara_pasando_afuera",
+    "VozSync_ALFRED_voy_a_necesitar_solo_uno",
+    "VozSync_ALFRED_ya_pero_no_tengo_sueno"
+   ],
+   "despues": [
+    "Base_ArmatureAction",
+    "VozSync_ALFRED_a_ver_como_eres_tu",
+    "VozSync_ALFRED_espera_tengo_una_idea",
+    "VozSync_ALFRED_fdfdfdfff",
+    "VozSync_ALFRED_que_borrio_quieres",
+    "VozSync_ALFRED_que_estara_pasando_afuera",
+    "VozSync_ALFRED_voy_a_necesitar_solo_uno",
+    "VozSync_ALFRED_ya_pero_no_tengo_sueno"
+   ]
+  }
+ },
+ "total_seg": 109.4
+}
