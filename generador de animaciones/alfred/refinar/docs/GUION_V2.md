@@ -23,7 +23,7 @@ Los parametros de un tramo de movimiento cuyo nombre empieza por `t_` son tiempo
 | `audio` | voces: `{id, personaje, archivo, inicio, emocion, texto, cara, emocion_json, duracion_f}` | `audio_import.py` |
 | `sonidos` | `{modo, manuales:[{id, etiqueta, grupo, archivo, t, volumen, canal, pan}]}` | `sonidos_guion.py` |
 | `camara` | `claves` (animacion hecha de un canal) y `movimiento` (desde, hasta, destino) | `camara_guion.py` |
-| `movimiento` | `referencia_numerica`, `yaw_base_deg`, `organico` (filtros del estudio), `tramos` | `motor_alfred.py` |
+| `movimiento` | `referencia_de_pruebas` (ya no se necesita para generar), `ajuste_hips`, `yaw_base_deg`, `organico` (filtros del estudio), `tramos` | `motor_alfred.py` |
 
 ### Eventos de objeto (`objetos[*].eventos`)
 `aparece`, `toma` (a la mano), `mantiene` (cambia de agarre), `guarda` (a la espalda), `lanza` / `rebota` / `cae_sobre` (vuelo parabolico; `cae_sobre` deja el objeto pegado a un hueso de OTRO personaje), `absorbe`, `oculta`, `muestra`.
@@ -64,3 +64,8 @@ Funciones sin Blender (para scripts y pruebas): `guion_v2` (`cargar`, `guardar`,
 ## 6. Instalacion
 Fuente: `refinar/alfred_animation_studio/`. Instalada (Blender 5.2): `%APPDATA%\Blender Foundation\Blender\5.2\scripts\addons\alfred_animation_studio\` (copia de los `.py` de la fuente). Distribucion: `refinar/alfred_animation_studio.zip`
 (carpeta `alfred_animation_studio/` con los `.py`). Respaldo de lo anterior en `refinar/cambios/alfred_animation_studio_instalado_antes_*.zip`. `start_animation_studio.bat` apunta a Blender 4.5.
+
+
+## Eventos de objeto añadidos al terminar la migración
+`en_mano` (sale en la mano con pop y la sigue), `asienta` (cae/se acomoda en un sitio; `vivo`, `squash`), `encoge`, `bezier` (curva de la mesa). `lanza|rebota|cae_sobre` aceptan `a.centro`, `arco.ref:"origen"` y `giro.curva:"suave"`. Mundo: `luz` (energía de las luces de un objeto por claves). `preparar_escena` crea objetos con `copia_de`, `copia_jerarquia_de` (antorcha con su luz), `fuente_extra` y `coleccion`.
+Tramos de movimiento: tipo `cuerpo` (S03 lleva los parámetros de todo el cuerpo; S04–S14 los usan con `usa`).

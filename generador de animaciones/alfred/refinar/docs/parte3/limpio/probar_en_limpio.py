@@ -39,7 +39,8 @@ ad = sys.modules["alfred_animation_studio"]
 from alfred_animation_studio import audio_import as ai, guion_v2 as gv, motor_alfred as ma, reproducir_guion as rg, sonidos_guion as sg
 
 sc = bpy.context.scene; ctx = bpy.context
-A, O = ma._rig(); C = bpy.data.objects["Camera.001"]; F = bpy.data.objects["Foco_Conversacion"]; OBJS = ("stone_shovel", "stone_axe", "tierra_item", "tablon_item", "wooden_pickaxe", "wooden_axe")
+A, O = ma._rig(); C = bpy.data.objects["Camera.001"]; F = bpy.data.objects["Foco_Conversacion"]; NUEVOS = ("stone_shovel", "tierra_item", "tablon_item", "stick_1", "stick_2", "cobblestone", "plank_1", "plank_2", "plank_3", "slab_1", "slab_2", "slab_3", "slab_4", "slab_5", "slab_6", "antorcha_2", "mesa_de_crafteo_1")
+OBJS = ("stone_axe", "wooden_pickaxe", "wooden_axe") + NUEVOS
 VUELO = {"wooden_pickaxe": (220, 229), "wooden_axe": (238, 247), "stone_axe": (256, 265)}                  # frames del vuelo de cada herramienta (suelta + 9)
 FRAMES = sorted(set(range(1, 1161, 23)) | {50, 52, 100, 190, 191, 201, 206, 215, 221, 226, 230, 240, 250, 260, 270, 300, 340, 341, 500, 686, 700, 865, 912, 938, 984, 1000, 1026, 1038, 1062, 1070, 1090, 1100, 1120, 1160})
 
@@ -77,9 +78,11 @@ def limpiar():
     for n in ("stone_axe", "wooden_axe", "wooden_pickaxe"):         # las herramientas existen en la base; se quita su animacion (el guion las anima: espalda, lanzamiento y, el hacha de piedra, desde f984)
         ob = bpy.data.objects[n]
         if ob.animation_data: ob.animation_data_clear()
-    for n in ("stone_shovel", "tierra_item", "tablon_item", "pozo_tierra"):
+    for n in NUEVOS + ("pozo_tierra",):                                # lo que el guion crea: se borra con sus hijos (mesa, antorcha 2 con su luz)
         ob = bpy.data.objects.get(n)
-        if ob: bpy.data.objects.remove(ob)
+        if ob:
+            for h in list(ob.children_recursive): bpy.data.objects.remove(h)
+            bpy.data.objects.remove(ob)
     ed = sc.sequence_editor
     for s in list(ed.strips_all):
         if s.name.startswith("VozSync_ALFRED") or (s.name.startswith("SND_") and not s.get("mcsnd_auto") and any(s.name.startswith("SND_%s_" % e) for e in plan)): ed.strips.remove(s)
@@ -118,7 +121,6 @@ for n in OBJS:
         a = antes["obj"][k].get(n); b = desp["obj"][k].get(n)
         if a is None or b is None or (a[1] < 0.002 and b[1] < 0.002) or a[2] or b[2]: continue          # oculto en uno de los dos (el motor oculta la pala hasta que aparece; el generador la dejaba a escala 0.001)
         if n in ("stone_axe", "wooden_axe", "wooden_pickaxe"):
-            if 450 <= k < (984 if n == "stone_axe" else 99999): continue    # el barrido sobre Jerry (tramo S05) todavia no esta migrado: entre f450 y la toma del hacha (f984) las herramientas siguen en el montoncito
             if VUELO[n][0] <= k <= VUELO[n][1]: continue                    # el generador teletransportaba la herramienta ~1.3 m al soltarla (error de variable: el vuelo partia de la posicion de la vuelta desde Jerry); el motor la lanza desde la mano
         e = math.dist(a[0], b[0]) * 100
         if e > mx: mx, pk = e, k

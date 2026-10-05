@@ -1,15 +1,29 @@
 {
- "inicio": "2026-10-05T00:17:33",
+ "inicio": "2026-10-05T09:10:58",
  "blend": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\capitulos\\capitulo_4\\base_parte_3.blend",
  "pasos": {
   "preparar": {
    "ok": true,
-   "seg": 0.5,
+   "seg": 1.6,
    "detalle": {
     "stone_shovel": "importado",
     "stone_axe": "ya existia",
     "wooden_pickaxe": "ya existia",
     "wooden_axe": "ya existia",
+    "stick_1": "importado",
+    "stick_2": "copiado",
+    "cobblestone": "importado",
+    "plank_1": "importado",
+    "plank_2": "copiado",
+    "plank_3": "copiado",
+    "slab_1": "importado",
+    "slab_2": "copiado",
+    "slab_3": "copiado",
+    "slab_4": "copiado",
+    "slab_5": "copiado",
+    "slab_6": "copiado",
+    "antorcha_2": "copiado (jerarquia)",
+    "mesa_de_crafteo_1": "importado",
     "tierra_item": "importado",
     "tablon_item": "copiado",
     "pozo_tierra": "creado"
@@ -17,20 +31,31 @@
   },
   "movimiento": {
    "ok": true,
-   "seg": 0.6,
+   "seg": 0.9,
    "detalle": {
     "frames": 1160,
-    "migrados": 340,
+    "migrados": 1160,
     "tramos": [
      "S01_sentarse",
      "S02_descansa",
-     "S03_lanza_herramientas"
+     "S03_lanza_herramientas",
+     "S04_manos_nuca",
+     "S05_barrido",
+     "S06_rodillas_antorcha",
+     "S07_mesa_crafteo",
+     "S08_craftea_pala",
+     "S09_tablones_slabs",
+     "S10_levanta_cava",
+     "S11_pozo_guarda_pala",
+     "S12_toma_hacha",
+     "S13_corta_bloque",
+     "S14_guarda_asoma"
     ]
    }
   },
   "audio": {
    "ok": true,
-   "seg": 4.6,
+   "seg": 5.7,
    "detalle": {
     "ok": true,
     "voces": 7,
@@ -39,18 +64,19 @@
   },
   "objetos": {
    "ok": true,
-   "seg": 90.0,
+   "seg": 107.8,
    "detalle": {
-    "objetos_animados": 6,
+    "objetos_animados": 20,
     "visibilidad": [
      "lid_cesped_cavar",
-     "refugio_bloque_03"
+     "refugio_bloque_03",
+     "luz:torch1.light.002_a2"
     ]
    }
   },
   "sonidos": {
    "ok": true,
-   "seg": 0.1,
+   "seg": 0.3,
    "detalle": {
     "creados": 66,
     "movidos": 0,
@@ -103,6 +129,20 @@
    "stone_shovel",
    "tierra_item",
    "tablon_item",
+   "stick_1",
+   "stick_2",
+   "cobblestone",
+   "plank_1",
+   "plank_2",
+   "plank_3",
+   "slab_1",
+   "slab_2",
+   "slab_3",
+   "slab_4",
+   "slab_5",
+   "slab_6",
+   "antorcha_2",
+   "mesa_de_crafteo_1",
    "pozo_tierra"
   ]
  },
@@ -112,7 +152,7 @@
    "audio[aud_voy_a_necesitar_solo_uno] se solapa con aud_a_ver_como_eres_tu (mismo personaje)"
   ]
  },
- "seg_reproducir": 96.0,
+ "seg_reproducir": 116.7,
  "comparacion": {
   "alfred_pose": {
    "rot_max_grados": 0.01296,
@@ -157,14 +197,24 @@
    ]
   },
   "objetos": {
-   "stone_shovel": {
-    "loc_max_cm": 3.36,
-    "peor_frame": 691,
-    "escala_max": 0.0
-   },
    "stone_axe": {
     "loc_max_cm": 16.56,
     "peor_frame": 254,
+    "escala_max": 0.0
+   },
+   "wooden_pickaxe": {
+    "loc_max_cm": 7.28,
+    "peor_frame": 215,
+    "escala_max": 0.0
+   },
+   "wooden_axe": {
+    "loc_max_cm": 4.85,
+    "peor_frame": 231,
+    "escala_max": 0.0
+   },
+   "stone_shovel": {
+    "loc_max_cm": 3.36,
+    "peor_frame": 691,
     "escala_max": 0.0
    },
    "tierra_item": {
@@ -177,14 +227,74 @@
     "peor_frame": 1090,
     "escala_max": 0.0
    },
-   "wooden_pickaxe": {
-    "loc_max_cm": 7.28,
-    "peor_frame": 215,
+   "stick_1": {
+    "loc_max_cm": 0.93,
+    "peor_frame": 645,
     "escala_max": 0.0
    },
-   "wooden_axe": {
-    "loc_max_cm": 4.85,
-    "peor_frame": 231,
+   "stick_2": {
+    "loc_max_cm": 0.92,
+    "peor_frame": 645,
+    "escala_max": 0.0
+   },
+   "cobblestone": {
+    "loc_max_cm": 0.0,
+    "peor_frame": 622,
+    "escala_max": 0.0
+   },
+   "plank_1": {
+    "loc_max_cm": 3.61,
+    "peor_frame": 714,
+    "escala_max": 0.0
+   },
+   "plank_2": {
+    "loc_max_cm": 3.54,
+    "peor_frame": 737,
+    "escala_max": 0.0
+   },
+   "plank_3": {
+    "loc_max_cm": 1.51,
+    "peor_frame": 760,
+    "escala_max": 0.0
+   },
+   "slab_1": {
+    "loc_max_cm": 0.0,
+    "peor_frame": 829,
+    "escala_max": 0.0
+   },
+   "slab_2": {
+    "loc_max_cm": 0.0,
+    "peor_frame": 829,
+    "escala_max": 0.0
+   },
+   "slab_3": {
+    "loc_max_cm": 0.0,
+    "peor_frame": 852,
+    "escala_max": 0.0
+   },
+   "slab_4": {
+    "loc_max_cm": 0.0,
+    "peor_frame": 829,
+    "escala_max": 0.0
+   },
+   "slab_5": {
+    "loc_max_cm": 0.0,
+    "peor_frame": 829,
+    "escala_max": 0.0
+   },
+   "slab_6": {
+    "loc_max_cm": 0.0,
+    "peor_frame": null,
+    "escala_max": 0.0
+   },
+   "antorcha_2": {
+    "loc_max_cm": 0.0,
+    "peor_frame": null,
+    "escala_max": 0.0
+   },
+   "mesa_de_crafteo_1": {
+    "loc_max_cm": 0.0,
+    "peor_frame": null,
     "escala_max": 0.0
    }
   },
@@ -280,5 +390,5 @@
    ]
   }
  },
- "total_seg": 109.4
+ "total_seg": 132.3
 }
