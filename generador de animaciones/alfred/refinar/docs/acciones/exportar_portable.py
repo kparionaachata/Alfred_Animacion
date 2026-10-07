@@ -3,7 +3,7 @@
 Para un rango de frames de la escena abierta escribe:
   poses/<nombre>_f<f0>_<f1>/<nombre>_f<k>.json     una pose por frame (22 huesos + root), con sha256 en el manifiesto
   objetos_portables/<nombre>_portable.blend         los objetos de la accion con sus animaciones (si hay)
-  configuraciones/configuracion_portable_<nombre>_f<f0>_<f1>.json     la configuracion (segmento, anclas, objetos, mundo, sonidos, camara, audio, portable)
+  configuraciones/guiones/configuracion_portable_<nombre>_f<f0>_<f1>.json     la configuracion (segmento, anclas, objetos, mundo, sonidos, camara, audio, portable)
 Se usa justo despues de ejecutar una accion (`colocar_objeto.py`) o de animar algo a mano, en el mismo Blender:
     ex = {"__name__": "exp", "SPEC": {...}}; exec(open(r"...\\exportar_portable.py", encoding="utf-8").read(), ex)
 SPEC (claves): nombre, f0, f1, titulo, descripcion, label (nombre del segmento), objetos_asset [objetos de la escena a guardar con sus hijos], anclas {}, objetos [cfg de guion v2], mundo [], sonidos {modo, manuales},
@@ -21,7 +21,7 @@ import bpy
 REFINAR = r"C:\Users\user\Desktop\Alfred_Animacion\generador de animaciones\alfred\refinar"; S = SPEC
 AA = next(o for o in bpy.data.objects if o.type == "ARMATURE" and "Hips_alfred" in o.pose.bones); OO = AA.parent; sc = bpy.context.scene
 nombre = S["nombre"]; f0 = int(S["f0"]); f1 = int(S["f1"]); n = f1 - f0 + 1; carpeta = "%s_f%d_%d" % (nombre, f0, f1)
-dir_poses = os.path.join(REFINAR, "poses", carpeta); dir_obj = os.path.join(REFINAR, "objetos_portables"); dir_cfg = os.path.join(REFINAR, "configuraciones")
+dir_poses = os.path.join(REFINAR, "poses", carpeta); dir_obj = os.path.join(REFINAR, "objetos_portables"); dir_cfg = os.path.join(REFINAR, "configuraciones", "guiones")
 for d_ in (dir_poses, dir_obj, dir_cfg): os.makedirs(d_, exist_ok=True)
 R = lambda v, n_=6: round(float(v), n_)
 xyz = lambda v, n_=6: {"x": R(v[0], n_), "y": R(v[1], n_), "z": R(v[2], n_)}

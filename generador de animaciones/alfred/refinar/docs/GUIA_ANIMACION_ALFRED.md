@@ -1294,3 +1294,7 @@ Hacha al cortar, valores corregidos por Kebyn (copia anterior `_v_68`): ubicacio
 ### 2026-10-06 · Exportador de portables (`docs/acciones/exportar_portable.py`)
 - Formato PRINCIPAL pedido: el portable (`configuracion_portable_*.json` + `poses/<accion>_fA_B/` + `objetos_portables/*.blend`) que el flujo carga y concatena en cualquier .blend; la receta de `docs/acciones/` es complementaria (para que otra IA la entienda).
 - `exportar_portable.py` escribe las poses por frame, el asset de objetos y la configuracion de un rango. Prueba: regenerar la antorcha f1160-1236 da 77 poses identicas a las existentes (0 diferencias en huesos y root) y una configuracion igual salvo nombres, rutas, hashes y `object_asset` (el portable existente lo llama `torch_asset`).
+
+### 2026-10-07 · Regla de trabajo: guiones portables en `configuraciones/guiones/`
+- Toda animacion nueva (Alfred y los demas personajes) se entrega como guion portable en `refinar/configuraciones/guiones/` (+ sus poses en `poses/` y su asset en `objetos_portables/`), como los ejemplos que ya estan ahi (antorcha, crafteo, pala, hacha, corte). El exportador escribe ahi por defecto.
+- Otros personajes: cada uno tiene su propio flujo (carpetas `jerry/`, `zombie_N/`...) y sus huesos; `exportar_portable.py` hoy solo conoce a Alfred (Hips_alfred). Se adapta cuando toque, mirando primero un ejemplo de pose / guion de ese personaje.
