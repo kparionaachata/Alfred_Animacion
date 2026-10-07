@@ -1290,3 +1290,7 @@ Hacha al cortar, valores corregidos por Kebyn (copia anterior `_v_68`): ubicacio
 - Pedido: guardar cada accion que se anima como un guion en JSON que cualquier IA entienda y pueda adaptar (otro objeto, otro lugar), sin depender del `.blend`. Formato `alfred_accion_v1` (receta con parametros con nombre, no poses horneadas).
 - Primera accion: `docs/acciones/colocar_objeto_exterior/accion.json` + ejecutor generico `docs/acciones/colocar_objeto.py` + `docs/acciones/LEEME.md`. Probado en base_parte_4.blend: reproduce la antorcha de f1160-1236 con diferencia 0 contra la animacion anterior (pose del brazo de Kebyn, sonidos f1173 / f1193, luz). `antorcha_exterior.py` queda como version especifica anterior.
 - De ahora en adelante cada accion nueva se registra asi.
+
+### 2026-10-06 · Exportador de portables (`docs/acciones/exportar_portable.py`)
+- Formato PRINCIPAL pedido: el portable (`configuracion_portable_*.json` + `poses/<accion>_fA_B/` + `objetos_portables/*.blend`) que el flujo carga y concatena en cualquier .blend; la receta de `docs/acciones/` es complementaria (para que otra IA la entienda).
+- `exportar_portable.py` escribe las poses por frame, el asset de objetos y la configuracion de un rango. Prueba: regenerar la antorcha f1160-1236 da 77 poses identicas a las existentes (0 diferencias en huesos y root) y una configuracion igual salvo nombres, rutas, hashes y `object_asset` (el portable existente lo llama `torch_asset`).

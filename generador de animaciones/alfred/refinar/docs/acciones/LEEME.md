@@ -25,3 +25,9 @@ cuerpo, sonidos); el ejecutor (un script de Blender) la convierte en animacion. 
 ## Para crear una accion nueva
 Describir primero la accion en palabras en `descripcion`, luego sacar los numeros de la escena (posiciones, poses de huesos, frames) y ponerlos en `parametros` / `tiempos`. Si la accion ya existe con otro objeto
 o lugar, copiarla y cambiar solo esos parametros. Probar con el ejecutor y comparar con lo que se queria.
+
+## Portables (lo que carga el flujo) y como se generan
+El formato que se carga y concatena en el flujo Alfred Animation Studio, en cualquier otro .blend, es el PORTABLE (`alfred_portable_clip_v1`): `configuraciones/configuracion_portable_<accion>_f<a>_<b>.json` + una pose por frame en
+`poses/<accion>_f<a>_<b>/` + los objetos en `objetos_portables/<accion>_portable.blend`. Es el formato principal; la receta (`accion.json`) es para que una IA entienda y adapte la accion.
+`exportar_portable.py` genera el portable de un rango de la escena abierta (SPEC con nombre, f0, f1, objetos, anclas, sonidos...). Verificado: regenera las 77 poses de la antorcha identicas (0 diferencias) a las del portable existente.
+Cada accion nueva se entrega como portable + receta.
