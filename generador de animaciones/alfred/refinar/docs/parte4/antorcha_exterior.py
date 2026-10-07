@@ -34,31 +34,36 @@ def pose_M(root, dyaw, lean, z=13.0):
     return fk(rot, LOC0), mundo((root[0], root[1], z), ROOT0[1] + math.radians(dyaw))
 
 
-# --- brazo derecho: tres posturas (reposo = la del f1160, espalda, alcance)
+# --- brazo derecho: tres posturas (reposo = la del f1160, espalda, alcance). El ALCANCE es la pose que dio Kebyn (captura de los huesos):
+# RightUpArm_alfred ubicacion (0.067931, 0.056313, -0.077894), rotacion XYZ Euler (408.29, 101.95, 316.43); Rightelbow_alfred ubicacion ~0, rotacion (5.6304, 21.687, 17.659)
+USER_UP_LOC = (0.067931, 0.056313, -0.077894); USER_UP_ROT = tuple(math.radians(a) for a in (408.29, 101.95, 316.43)); USER_EL_ROT = tuple(math.radians(a) for a in (5.6304, 21.687, 17.659))
+UP_LOC0 = LOC0["RightUpArm_alfred"]; EL_ROT0 = ROT0["Rightelbow_alfred"]
 q_rest = Euler(ROT0["RightUpArm_alfred"], 'XYZ').to_quaternion(); x_rest = ROT0["Rightelbow_alfred"][0]
 M0, Mw0 = pose_M(ROOT0[0][:2], 0, 0)
 back_pt = M0["Spine1_alfred"].translation; back_w = Mw0 @ back_pt
 BACK = Vector((back_w.x - 0.27, back_w.y - 0.12, back_w.z + 0.06))                              # sitio de la antorcha en la espalda (detras del omoplato derecho)
 q_back, qe_back, e_back, codo_back = resolver("Right", M0["Spine2_alfred"], Mw0, BACK, codo_hint=BACK + Vector((-0.05, -0.2, -0.2)), inicio=(q_rest, x_rest), iters=5000, semilla=3)
-M2, Mw2 = pose_M(ROOT2, DYAW, LEAN)
-q_reach, qe_reach, e_reach, codo_reach = resolver("Right", M2["Spine2_alfred"], Mw2, TARGET, inicio=(q_back, 2 * math.atan2(qe_back.x, qe_back.w)), iters=6000, semilla=2)
-x_back = 2 * math.atan2(qe_back.x, qe_back.w); x_reach = 2 * math.atan2(qe_reach.x, qe_reach.w)
-print("errores de la muneca (m): espalda %.3f, alcance %.3f" % (e_back, e_reach))
+q_reach = Euler(USER_UP_ROT, 'XYZ').to_quaternion(); x_back = 2 * math.atan2(qe_back.x, qe_back.w); EL_BACK = (x_back, 0.0, 0.0)
+print("error de la muneca en la espalda (m): %.3f" % e_back)
 
 
 def mezcla(a, b, u):
     return a.slerp(b if a.dot(b) >= 0 else -b, u)
 
 
+def lerp3(a, b, u):
+    return tuple(a[i] + (b[i] - a[i]) * u for i in range(3))
+
+
 def estado(k):
-    """-> (lean, dyaw, root_xy, q hombro, x codo) en el frame k."""
-    if k <= T["espalda"]: u = ss((k - F0) / (T["espalda"] - F0)); return 0.0, 0.0, 0.0, mezcla(q_rest, q_back, u), x_rest + (x_back - x_rest) * u
+    """-> (lean, dyaw, root_u, q hombro, loc hombro, euler codo) en el frame k."""
+    if k <= T["espalda"]: u = ss((k - F0) / (T["espalda"] - F0)); return 0.0, 0.0, 0.0, mezcla(q_rest, q_back, u), UP_LOC0, lerp3(EL_ROT0, EL_BACK, u)
     if k <= T["alcance"]:
-        u = ss((k - T["espalda"]) / (T["alcance"] - T["espalda"])); return LEAN * u, DYAW * u, u, mezcla(q_back, q_reach, u), x_back + (x_reach - x_back) * u
-    if k <= T["quieto"]: return LEAN, DYAW, 1.0, q_reach, x_reach
+        u = ss((k - T["espalda"]) / (T["alcance"] - T["espalda"])); return LEAN * u, DYAW * u, u, mezcla(q_back, q_reach, u), lerp3(UP_LOC0, USER_UP_LOC, u), lerp3(EL_BACK, USER_EL_ROT, u)
+    if k <= T["quieto"]: return LEAN, DYAW, 1.0, q_reach, USER_UP_LOC, USER_EL_ROT
     if k <= T["vuelve"]:
-        u = ss((k - T["quieto"]) / (T["vuelve"] - T["quieto"])); return LEAN * (1 - u), DYAW * (1 - u), 1 - u, mezcla(q_reach, q_rest, u), x_reach + (x_rest - x_reach) * u
-    return 0.0, 0.0, 0.0, q_rest, x_rest
+        u = ss((k - T["quieto"]) / (T["vuelve"] - T["quieto"])); return LEAN * (1 - u), DYAW * (1 - u), 1 - u, mezcla(q_reach, q_rest, u), lerp3(USER_UP_LOC, UP_LOC0, u), lerp3(USER_EL_ROT, EL_ROT0, u)
+    return 0.0, 0.0, 0.0, q_rest, UP_LOC0, EL_ROT0
 
 
 # --- extender el rango y la tira base del NLA
@@ -70,11 +75,11 @@ for t in AA.animation_data.nla_tracks:
 wa = cu.escritor_de(AA, 'pose.bones["Spine_alfred"].rotation_euler', 0, F0 + 1); wo = cu.escritor_de(OO, "location", 0, F0 + 1)
 prev = Euler(ROT0["RightUpArm_alfred"], 'XYZ')
 for k in range(F0 + 1, T["fin"] + 1):
-    lean, dyaw, ur, q, x = estado(k)
+    lean, dyaw, ur, q, upl, elr = estado(k)
     for b, w in (("Spine_alfred", .32), ("Spine1_alfred", .34), ("Spine2_alfred", .34)): wa.poner('pose.bones["%s"].rotation_euler' % b, 0, k, ROT0[b][0] + math.radians(lean * w))
     e = q.to_euler('XYZ', prev); prev = e
     for i in range(3): wa.poner('pose.bones["RightUpArm_alfred"].rotation_euler', i, k, e[i])
-    wa.poner('pose.bones["Rightelbow_alfred"].rotation_euler', 0, k, x)
+    for i in range(3): wa.poner('pose.bones["RightUpArm_alfred"].location', i, k, upl[i]); wa.poner('pose.bones["Rightelbow_alfred"].rotation_euler', i, k, elr[i])
     for i in range(2): wo.poner("location", i, k, ROOT0[0][i] + (ROOT2[i] - ROOT0[0][i]) * ur)
     wo.poner("location", 2, k, ROOT0[0][2]); wo.poner("rotation_euler", 2, k, ROOT0[1] + math.radians(dyaw))
 wa.cerrar(); wo.cerrar()
@@ -110,6 +115,16 @@ res = om.calcular(bpy.context, g, frames=list(range(1, 3)) + list(range(F0 - 2, 
 om.aplicar(bpy.context, res); om.aplicar_mundo_luces(bpy.context, g)
 ob = bpy.data.objects["antorcha_3"]; sc.frame_set(T["fin"]); bpy.context.view_layer.update()
 print("antorcha_3 en f%d: %s escala %.2f" % (T["fin"], [round(c, 3) for c in ob.matrix_world.translation], ob.matrix_world.to_scale().x))
+# --- sonidos (los mismos de la antorcha 2 de la parte 3: sale de la espalda / se coloca)
+SONIDOS = [{"id": "snd4_antorcha_sale_espalda", "etiqueta": "antorcha3_sale_espalda", "grupo": "objetos", "archivo": "item/armor/equip_generic4.ogg", "t": "espalda+1", "volumen": 0.3492, "canal": 22, "pan": 0.0},
+           {"id": "snd4_antorcha_puesta_suelo", "etiqueta": "antorcha3_puesta", "grupo": "objetos", "archivo": "dig/wood3.ogg", "t": "suelta+1", "volumen": 0.2631, "canal": 22, "pan": 0.0}]
+guion["anclas"]["suelta"] = T["suelta"]; guion["sonidos"] = {"modo": "manual", "techo_voces": True, "manuales": SONIDOS}
+ed = sc.sequence_editor or sc.sequence_editor_create(); sonp = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(REFINAR))), "sonidos", "sounds")
+for s_ in [x for x in ed.strips_all if str(x.get("guion_id", "")).startswith("snd4_")]: ed.strips.remove(s_)
+for m in SONIDOS:
+    fr_ = T["espalda"] + 1 if m["t"] == "espalda+1" else T["suelta"] + 1
+    st = ed.strips.new_sound("SND_%s_%d" % (m["etiqueta"], fr_), os.path.normpath(os.path.join(sonp, m["archivo"])), m["canal"], fr_); st.volume = m["volumen"]; st.pan = m["pan"]
+    st["mcsnd"] = m["grupo"]; st["mcsnd_ev"] = m["etiqueta"]; st["guion_id"] = m["id"]
 sc.frame_set(F0)
 import json
 os.makedirs(os.path.join(REFINAR, "configuraciones"), exist_ok=True)

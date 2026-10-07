@@ -1,0 +1,49 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "colocar_objeto_exterior",
+  "titulo": "Alfred saca un objeto de su espalda con la mano derecha y lo coloca fuera del refugio",
+  "tipo_accion": "colocar_objeto",
+  "ejecutor": "docs/acciones/colocar_objeto.py",
+  "estado": "sin aprobar",
+  "descripcion": "Alfred esta dentro de un pozo (z 13) mirando al este por una abertura del muro. Al ver el refugio rodeado de zombies lleva la mano derecha a la espalda, saca una antorcha encendida, se inclina hacia la abertura (gira 50 grados y se inclina 30) y la deja en el suelo fuera del refugio, en (-94.5, -107.5, 14). Despues recoge el brazo y vuelve a su postura.",
+  "origen": {"escena": "base_parte_4.blend", "frames": [1160, 1236], "fps": 24, "nota": "Continua despues de la parte 3 (se asoma, f1160). Los parametros marcados con (*) son los que se cambian para hacer una version distinta."},
+  "parametros": {
+    "armature": "Armature",
+    "lado": "Right",
+    "objeto": {
+      "nombre": "antorcha_3",
+      "copia_jerarquia_de": "antorcha_2",
+      "escala": 1.0,
+      "luz": {"energia_de": "torch1.light.002", "encendido_frames": 3},
+      "pop_frames": 3,
+      "asienta_frames": 3,
+      "nota": "(*) Para otro objeto: pon `nombre` y `copia_jerarquia_de` (un objeto de la escena con sus hijos) o `blend` + `fuente_objeto` (un .blend relativo a la raiz del proyecto, p. ej. bloques_dinamicos/mesa_de_crafteo_1.blend). Quita `luz` si no emite luz."
+    },
+    "origen": {"tipo": "espalda", "offset_mundo": [-0.27, -0.12, 0.06], "nota": "donde lleva el objeto: punto detras del omoplato, medido desde el hueso Spine1 al principio, en metros de mundo"},
+    "destino": {"loc": [-94.5, -107.5, 14.0], "rot_deg": [0, 0, 0], "nota": "(*) donde queda el origen del objeto. Si cambias el lugar tambien hay que revisar `cuerpo` para que el brazo llegue"},
+    "cuerpo": {"giro_deg": 50.0, "inclinacion_deg": 30.0, "root_xy": [-95.15, -108.25], "nota": "(*) como se acerca: giro del root (grados, + = a la izquierda), inclinacion hacia delante repartida en Spine / Spine1 / Spine2, y donde queda el root (x, y; la z no cambia)"},
+    "brazo": {
+      "alcance": {
+        "modo": "pose",
+        "hombro": {"loc": [0.067931, 0.056313, -0.077894], "rot_deg": [408.29, 101.95, 316.43], "hueso": "RightUpArm_alfred"},
+        "codo": {"rot_deg": [5.6304, 21.687, 17.659], "hueso": "Rightelbow_alfred"},
+        "nota": "pose final del brazo, copiada de la barra de huesos de Blender. Alternativa para otro destino sin posar a mano: {\"modo\": \"ik\", \"muneca_sobre_destino\": [0, 0, 0.25]} (el brazo se calcula solo)"
+      }
+    }
+  },
+  "tiempos": {
+    "inicio": 1160, "espalda": 1172, "alcance": 1190, "suelta": 1192, "quieto": 1198, "vuelve": 1216, "fin": 1236,
+    "nota": "frames absolutos. inicio = pose de partida; espalda = la mano llega a la espalda y sale el objeto; alcance = brazo extendido en el destino; suelta = el objeto se asienta; quieto = fin de la pausa; vuelve = brazo y cuerpo recogidos; fin = ultimo frame. Se pueden desplazar todos juntos."
+  },
+  "sonidos": [
+    {"etiqueta": "antorcha3_sale_espalda", "archivo": "item/armor/equip_generic4.ogg", "t": "espalda+1", "volumen": 0.3492, "canal": 22, "grupo": "objetos"},
+    {"etiqueta": "antorcha3_puesta", "archivo": "dig/wood3.ogg", "t": "suelta+1", "volumen": 0.2631, "canal": 22, "grupo": "objetos"}
+  ],
+  "notas_para_otra_ia": [
+    "Cambiar objeto: edita parametros.objeto (la accion es la misma para una antorcha, una mesa de crafteo, un bloque...).",
+    "Cambiar lugar: edita parametros.destino.loc y ajusta parametros.cuerpo (root_xy, giro_deg, inclinacion_deg) o usa brazo.alcance.modo = ik.",
+    "Cambiar de mano: parametros.lado = Left (el punto de la espalda se refleja solo; las poses de `pose` hay que volver a tomarlas).",
+    "Cambiar de momento: edita `tiempos` (todos son frames absolutos de la escena).",
+    "Los sonidos son archivos de la carpeta sonidos/sounds (Minecraft); `t` acepta un nombre de `tiempos` mas o menos N frames."
+  ]
+}

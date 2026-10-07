@@ -1285,3 +1285,8 @@ Hacha al cortar, valores corregidos por Kebyn (copia anterior `_v_68`): ubicacio
 - Continua DESPUES del f1160 (rango de la escena 1-1236; lo animado no se toca). Script: `docs/parte4/antorcha_exterior.py` (se ejecuta en Blender); el guion de la parte 4 queda en `configuraciones/guion_alfred_parte4.json` (antorcha_3 + su luz).
 - Alfred sigue en el pozo (z 13) y la coordenada (-94.5, -107.5, 14) esta FUERA del refugio, pasada la abertura del bloque cortado: se inclina hacia la abertura (giro +50, inclinacion 30, root a (-95.15, -108.25)) y el brazo derecho llega por cinematica inversa (error de la muneca 1.2 cm). f1172 saca la antorcha de la espalda, f1190 alcanza, f1192 la asienta (queda exactamente en (-94.5, -107.5, 14)), f1198-1216 vuelve a su postura.
 - Sin aprobar. La escena NO se guardo: los cambios estan solo en el Blender abierto. No anime el cuello ni la camara en este tramo.
+
+### 2026-10-06 · Acciones reutilizables (`docs/acciones/`)
+- Pedido: guardar cada accion que se anima como un guion en JSON que cualquier IA entienda y pueda adaptar (otro objeto, otro lugar), sin depender del `.blend`. Formato `alfred_accion_v1` (receta con parametros con nombre, no poses horneadas).
+- Primera accion: `docs/acciones/colocar_objeto_exterior/accion.json` + ejecutor generico `docs/acciones/colocar_objeto.py` + `docs/acciones/LEEME.md`. Probado en base_parte_4.blend: reproduce la antorcha de f1160-1236 con diferencia 0 contra la animacion anterior (pose del brazo de Kebyn, sonidos f1173 / f1193, luz). `antorcha_exterior.py` queda como version especifica anterior.
+- De ahora en adelante cada accion nueva se registra asi.
