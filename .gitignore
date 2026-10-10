@@ -4,6 +4,8 @@
 /*
 !/.gitignore
 !/render_nube/
+!/chats/
+!/README.md
 !/generador de animaciones/
 
 /generador de animaciones/*
@@ -37,3 +39,6 @@
 *.zip
 __pycache__/
 *.pyc
+
+# transcripciones de los chats (jsonl comprimido, sin imagenes)
+!/chats/*.zip
