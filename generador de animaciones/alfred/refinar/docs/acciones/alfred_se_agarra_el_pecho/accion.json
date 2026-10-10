@@ -1,0 +1,84 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "alfred_se_agarra_el_pecho",
+  "titulo": "Alfred se agarra el pecho como si le diera un ataque al corazon",
+  "tipo_accion": "agarrarse_pecho",
+  "ejecutor": "docs/acciones/agarrarse_pecho.py",
+  "estado": "sin aprobar",
+  "descripcion": "Durante los 50 frames en que la camara se queda quieta tras el zoom (f462-512), Alfred, que parte de la pose final del susto (alfred_f422.json), se lleva las dos manos al pecho, se encorva hacia delante, deja caer la cabeza y tiembla, como si le diera un ataque al corazon.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Parte de la pose del archivo poses/alfred_f422.json (la que Alfred tiene desde f422)."
+  },
+  "parametros": {
+    "pose_inicio": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\generador de animaciones\\alfred\\refinar\\poses\\alfred_f422.json",
+    "pecho": {
+      "mano_derecha": [
+        0.17,
+        0.09,
+        0.06
+      ],
+      "mano_izquierda": [
+        0.17,
+        0.02,
+        -0.02
+      ],
+      "sube_frames": 8,
+      "encorva_frames": 14,
+      "encorva_deg": 28.0,
+      "encorva_extra_deg": 6.0,
+      "cabeza_cae_deg": 10.0,
+      "tiembla_desde": 470,
+      "tremor_hz": 8.0,
+      "nota": "(*) manos: posicion del puno respecto a Spine2 (adelante, izquierda del personaje, arriba) en metros: la derecha cruza sobre el lado izquierdo del esternon; encorva = torso hacia delante (grados, repartido en Spine/Spine1/Spine2) y `extra` = lo que sigue encorvandose hasta el final; cabeza_cae = el cuello baja; tiembla_desde = frame desde el que tiembla (tremor_hz = temblores por segundo)"
+    },
+    "pose_final": {
+      "archivo": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\generador de animaciones\\alfred\\refinar\\poses\\se agarra el percho.json",
+      "desde": 462,
+      "hasta": 470,
+      "nota": "(*) pose de los huesos (y empty) que Alfred mantiene EXACTA desde f470 hasta f512 (50 frames desde f462); entre f462 y f470 se mezcla desde la animacion de las manos al pecho. Se aplica con fijar_pose_final.py sobre el portable generado por agarrarse_pecho.py."
+    }
+  },
+  "tiempos": {
+    "inicio": 462,
+    "fin": 540,
+    "nota": "frames absolutos: 462-470 las manos suben al pecho, 462-476 se encorva y deja caer la cabeza, desde 470 tiembla hasta 512. Desde f470 hasta f512 Alfred queda EXACTAMENTE en la pose de 'se agarra el percho.json' (sin temblor). Al terminar su dialogo (f514) la camara y el foco pasan a nuevas coordenadas en 24 frames (f514-538); Alfred se queda en la pose hasta f538. Alfred se queda en la pose hasta f638 (el bebe sigue intentando entrar hasta ahi). (El portable llega hasta f540; de f540 en adelante sigue 'alfred_golpea_con_stick'.)"
+  },
+  "camara": {
+    "mueve_a": {
+      "desde": 514,
+      "hasta": 538,
+      "destino": [
+        -95.716,
+        -109.16,
+        14.937
+      ],
+      "foco_destino": [
+        -92.941,
+        -106.86,
+        14.01
+      ],
+      "interp": "smooth",
+      "nota": "(*) despues de terminar el dialogo (f514) la camara y el foco pasan a estas coordenadas (24 frames, suave; valores de Kebyn)"
+    }
+  },
+  "sonidos": [],
+  "audio_pendiente": {
+    "nota": "sin respiracion/quejidos todavia (falta audio)"
+  },
+  "audio": [
+    {
+      "personaje": "ALFRED",
+      "archivo": "audios/alfred/espera_espera_mi_corazon.mp3",
+      "inicio": 462,
+      "emocion": "DUDA",
+      "texto": "Espera, espera. Mi corazón.",
+      "cara": "audios/alfred/espera_espera_mi_corazon.cara.json",
+      "emocion_json": "audios/alfred/espera_espera_mi_corazon.emocion.json",
+      "duracion_f": 52,
+      "id": "aud_espera_espera_mi_corazon",
+      "cuello_fijo": true
+    }
+  ]
+}

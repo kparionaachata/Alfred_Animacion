@@ -1,0 +1,91 @@
+{
+  "hueso": "Spine1_alfred",
+  "armature": "Armature",
+  "nota": "matriz de cada herramienta RELATIVA a la pose del hueso Spine1_alfred (cabeza del hueso); en alfred.blend estan emparentadas con parent_type BONE a Spine1_alfred, matrix_parent_inverse = identidad",
+  "herramientas": {
+    "stone_axe": {
+      "matriz": [
+        3.23e-05,
+        -0.5999792,
+        0.0050044,
+        -0.060745,
+        -0.5968593,
+        0.0004792,
+        0.0613091,
+        0.0295447,
+        -0.061311,
+        -0.0049815,
+        -0.5968384,
+        -0.183949,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "padre": "Armature",
+      "tipo_padre": "BONE",
+      "hueso": "Spine1_alfred",
+      "escala": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "wooden_axe": {
+      "matriz": [
+        0.5999998,
+        -0.0004594,
+        3.82e-05,
+        0.005184,
+        -1.05e-05,
+        -0.0633565,
+        -0.5966456,
+        0.2491497,
+        0.0004608,
+        0.5966454,
+        -0.0633565,
+        -0.285412,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "padre": "Armature",
+      "tipo_padre": "BONE",
+      "hueso": "Spine1_alfred",
+      "escala": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "wooden_pickaxe": {
+      "matriz": [
+        -0.4242523,
+        0.0002964,
+        0.4242759,
+        -0.226072,
+        -0.4232775,
+        0.040843,
+        -0.4232825,
+        0.2794207,
+        -0.0290903,
+        -0.5986082,
+        -0.0286705,
+        -0.232447,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "padre": "Armature",
+      "tipo_padre": "BONE",
+      "hueso": "Spine1_alfred",
+      "escala": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    }
+  }
+}

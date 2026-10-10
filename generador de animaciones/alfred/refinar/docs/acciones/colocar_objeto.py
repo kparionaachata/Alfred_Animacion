@@ -84,12 +84,12 @@ def estado(k):
 
 # --- rango de la escena y tira base del NLA
 sc.frame_end = max(sc.frame_end, FIN)
-for t in AA.animation_data.nla_tracks:
+for t in (AA.animation_data.nla_tracks if AA.animation_data else []):                      # sin animacion previa (p. ej. base_parte_5) no hay pistas que extender
     for s in t.strips:
         if t.name.startswith("Base") and s.frame_end < FIN: s.frame_end_ui = FIN
 # --- claves del cuerpo
 wa = cu.escritor_de(AA, 'pose.bones["Spine_alfred"].rotation_euler', 0, F0 + 1); wo = cu.escritor_de(OO, "location", 0, F0 + 1); prev = Euler(ROT0[UP], 'XYZ')
-for k in range(F0 + 1, FIN + 1):
+for k in range(F0, FIN + 1):                                                  # desde F0: la clave de partida queda escrita (con los valores de reposo)
     lean, dyaw, ur, q, upl, elr = estado(k)
     for b, w in (("Spine_alfred", .32), ("Spine1_alfred", .34), ("Spine2_alfred", .34)): wa.poner('pose.bones["%s"].rotation_euler' % b, 0, k, ROT0[b][0] + math.radians(lean * w))
     e = q.to_euler('XYZ', prev); prev = e
@@ -97,6 +97,11 @@ for k in range(F0 + 1, FIN + 1):
         wa.poner('pose.bones["%s"].rotation_euler' % UP, i, k, e[i]); wa.poner('pose.bones["%s"].location' % UP, i, k, upl[i]); wa.poner('pose.bones["%s"].rotation_euler' % EL, i, k, elr[i])
     for i in range(2): wo.poner("location", i, k, ROOT0[0][i] + (ROOT2[i] - ROOT0[0][i]) * ur)
     wo.poner("location", 2, k, ROOT0[0][2]); wo.poner("rotation_euler", 2, k, ROOT0[1] + math.radians(dyaw))
+for b_ in ("Spine_alfred", "Spine1_alfred", "Spine2_alfred"): wa.limpiar('pose.bones["%s"].rotation_euler' % b_, 0, FIN + 1)             # si antes duraba mas, se quitan las claves que sobran despues del fin
+for i in range(3):
+    for ruta_ in ('pose.bones["%s"].rotation_euler' % UP, 'pose.bones["%s"].location' % UP, 'pose.bones["%s"].rotation_euler' % EL): wa.limpiar(ruta_, i, FIN + 1)
+    wo.limpiar("location", i, FIN + 1)
+wo.limpiar("rotation_euler", 2, FIN + 1)
 wa.cerrar(); wo.cerrar()
 for ob in (AA, OO):
     if ob.animation_data: ob.animation_data.use_nla = False; ob.animation_data.use_nla = True
@@ -129,12 +134,12 @@ escala = float(OB.get("escala", 1.0)); Ts = t_("suelta")
 cfg = {"id": "obj_" + nombre, "nombre": nombre, "armature": P["armature"], "hueso": EL, "escala_mano": escala, "inicial": {"loc": [BACK.x, BACK.y, BACK.z], "escala": 0.001, "visible": True},
        "agarres": {"mano": {"matriz": agarre, "origen": "su sitio final en el destino, relativo a la mano en f%d" % Ta}},
        "eventos": [{"tipo": "en_mano", "t": Te, "agarre": "mano", "pop": {"dur": int(OB.get("pop_frames", 3)), "escala": escala}},
-                   {"tipo": "asienta", "t": Ts, "dur": int(OB.get("asienta_frames", 3)), "vivo": True, "en": {"loc": list(SUELO), "rot": DEST.get("rot_deg", [0, 0, 0]), "escala": escala}}]}
+                   {"tipo": "asienta", "t": Ts, "dur": int(OB.get("asienta_frames", 3)), "vivo": True, "en": {"loc": list(SUELO), "rot": DEST.get("rot_deg", [0, 0, 0]), "escala": float(OB.get("escala_destino", escala))}}]}
 mundo_ = []
 if OB.get("luz"): mundo_.append({"id": "luz_" + nombre, "accion": "luz", "t": 1, "objeto": nombre, "energia": float(OB["luz"]["energia"]) if "energia" in OB["luz"] else bpy.data.objects[OB["luz"]["energia_de"]].data.energy,
                                  "claves": [[1, 0.0], [Te, 0.0], [Te + int(OB["luz"].get("encendido_frames", 3)), 1.0], [FIN, 1.0]]})
 g = gv.migrar({"version": "2.0", "meta": {"frame_fin": FIN}, "anclas": {}, "objetos": [cfg], "mundo": mundo_})
-res = om.calcular(bpy.context, g, frames=[1, 2] + list(range(F0 - 2, FIN + 1))); om.aplicar(bpy.context, res); om.aplicar_mundo_luces(bpy.context, g)
+res = om.calcular(bpy.context, g, frames=[1, 2] + list(range(max(1, F0 - 2), FIN + 1))); om.aplicar(bpy.context, res); om.aplicar_mundo_luces(bpy.context, g)
 # --- sonidos (tiras en el VSE, con el id de la accion para poder quitarlas)
 ed = sc.sequence_editor or sc.sequence_editor_create(); sonp = os.path.join(RAIZ, "sonidos", "sounds"); pref = A["id"] + ":"
 for s_ in [x for x in ed.strips_all if str(x.get("guion_id", "")).startswith(pref)]: ed.strips.remove(s_)

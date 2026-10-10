@@ -1,0 +1,1699 @@
+{
+  "poses": [
+    {
+      "label": "de espalda contra la pared",
+      "frame": 1,
+      "armature": "Armature_chicken_1",
+      "character": "chicken_1",
+      "timestamp": "2026-10-09T11:19:36.704111",
+      "blender_version": "5.2.1 LTS",
+      "file": "chicken_1.blend",
+      "bone_count": 34,
+      "root": {
+        "location": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation_euler_deg": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "bones": {
+        "Root_M_chicken_1": {
+          "parent": null,
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 1.073969,
+              "y": 0.576045,
+              "z": 1.413059
+            },
+            "rotation_euler_deg": {
+              "x": 61.5339,
+              "y": 33.0049,
+              "z": 80.9623
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 61.5339,
+            "y": 33.0049,
+            "z": 80.9623
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Hip_R_chicken_1": {
+          "parent": "Root_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.004559,
+              "y": -0.064288,
+              "z": 0.001246
+            },
+            "rotation_euler_rad": {
+              "x": -0.057688,
+              "y": 0.184992,
+              "z": 1.970212
+            },
+            "rotation_euler_deg": {
+              "x": -3.3053,
+              "y": 10.5993,
+              "z": 112.8848
+            },
+            "rotation_quaternion": {
+              "w": 0.980723,
+              "x": -0.000107,
+              "y": 2.2e-05,
+              "z": 0.195404
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -3.3053,
+            "y": 10.5993,
+            "z": 112.8848
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.004559,
+            "y": -0.064288,
+            "z": 0.001246
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Knee_R_chicken_1": {
+          "parent": "Hip_R_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 1e-06,
+              "y": 1e-06,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.062097,
+              "y": 0.003315,
+              "z": -0.142445
+            },
+            "rotation_euler_deg": {
+              "x": -3.5579,
+              "y": 0.1899,
+              "z": -8.1615
+            },
+            "rotation_quaternion": {
+              "w": 0.937502,
+              "x": 5.1e-05,
+              "y": -1e-05,
+              "z": -0.34798
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -3.5579,
+            "y": 0.1899,
+            "z": -8.1615
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 1e-06,
+            "y": 1e-06,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Knee_R_end_chicken_1": {
+          "parent": "Knee_R_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Ankle_R_chicken_1": {
+          "parent": "Knee_R_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": -1e-06,
+              "y": 1e-06,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.095683,
+              "y": -0.210438,
+              "z": -1.19706
+            },
+            "rotation_euler_deg": {
+              "x": 5.4822,
+              "y": -12.0572,
+              "z": -68.5865
+            },
+            "rotation_quaternion": {
+              "w": 0.999996,
+              "x": -0.002675,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 5.4822,
+            "y": -12.0572,
+            "z": -68.5865
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -1e-06,
+            "y": 1e-06,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Ankle_R_end_chicken_1": {
+          "parent": "Ankle_R_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Spine1_M_chicken_1": {
+          "parent": "Root_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -1e-06,
+              "y": -1e-06,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": -0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -1e-06,
+            "y": -1e-06,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Chest_M_chicken_1": {
+          "parent": "Spine1_M_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": -2e-06,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "rotation_euler_deg": {
+              "x": -0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -0.0,
+            "y": -0.0,
+            "z": -0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": -2e-06,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Neck_M_chicken_1": {
+          "parent": "Chest_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 1.435167
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 82.229
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 82.229
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Head_M_chicken_1": {
+          "parent": "Neck_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 2e-06,
+              "y": 1e-06,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": -0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 2e-06,
+            "y": 1e-06,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Jaw_M_chicken_1": {
+          "parent": "Head_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.0,
+            "y": 0.0,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Jaw_top_chicken_1": {
+          "parent": "Jaw_M_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Jaw_bot_chicken_1": {
+          "parent": "Jaw_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_06_chicken_1": {
+          "parent": "Head_M_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Scapula_R_chicken_1": {
+          "parent": "Neck_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.206897,
+              "y": 0.094564,
+              "z": -0.091249
+            },
+            "rotation_euler_rad": {
+              "x": 0.412247,
+              "y": 0.224216,
+              "z": -1.127618
+            },
+            "rotation_euler_deg": {
+              "x": 23.62,
+              "y": 12.8466,
+              "z": -64.6077
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 23.62,
+            "y": 12.8466,
+            "z": -64.6077
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.206897,
+            "y": 0.094564,
+            "z": -0.091249
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Shoulder_R_chicken_1": {
+          "parent": "Scapula_R_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -1e-06
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": -1e-06
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Elbow_R_chicken_1": {
+          "parent": "Shoulder_R_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -1e-06,
+              "y": 1e-06,
+              "z": 1e-06
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -1e-06,
+            "y": 1e-06,
+            "z": 1e-06
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Elbow_R_end_chicken_1": {
+          "parent": "Elbow_R_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Scapula_L_chicken_1": {
+          "parent": "Neck_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.233819,
+              "y": 0.093239,
+              "z": 0.099357
+            },
+            "rotation_euler_rad": {
+              "x": -0.444014,
+              "y": -0.254344,
+              "z": -1.33064
+            },
+            "rotation_euler_deg": {
+              "x": -25.4401,
+              "y": -14.5728,
+              "z": -76.2401
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -25.4401,
+            "y": -14.5728,
+            "z": -76.2401
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.233819,
+            "y": 0.093239,
+            "z": 0.099357
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Shoulder_L_chicken_1": {
+          "parent": "Scapula_L_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 1e-06,
+              "y": 0.0,
+              "z": 2e-06
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 1e-06,
+            "y": 0.0,
+            "z": 2e-06
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Elbow_L_chicken_1": {
+          "parent": "Shoulder_L_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -1e-06,
+              "y": 2e-06,
+              "z": -1e-06
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -1e-06,
+            "y": 2e-06,
+            "z": -1e-06
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Elbow_L_end_chicken_1": {
+          "parent": "Elbow_L_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_01_chicken_1": {
+          "parent": "Chest_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Hip_L_chicken_1": {
+          "parent": "Root_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.008016,
+              "y": -0.128314,
+              "z": 0.001704
+            },
+            "rotation_euler_rad": {
+              "x": 0.056455,
+              "y": -0.18665,
+              "z": 1.983294
+            },
+            "rotation_euler_deg": {
+              "x": 3.2346,
+              "y": -10.6942,
+              "z": 113.6344
+            },
+            "rotation_quaternion": {
+              "w": 0.980674,
+              "x": 2.1e-05,
+              "y": -2.4e-05,
+              "z": 0.195647
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 3.2346,
+            "y": -10.6942,
+            "z": 113.6344
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.008016,
+            "y": -0.128314,
+            "z": 0.001704
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Knee_L_chicken_1": {
+          "parent": "Hip_L_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 1e-06
+            },
+            "rotation_euler_rad": {
+              "x": 0.047428,
+              "y": 0.019365,
+              "z": -0.371689
+            },
+            "rotation_euler_deg": {
+              "x": 2.7174,
+              "y": 1.1095,
+              "z": -21.2962
+            },
+            "rotation_quaternion": {
+              "w": 0.937385,
+              "x": 0.000112,
+              "y": 1e-05,
+              "z": -0.348296
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 2.7174,
+            "y": 1.1095,
+            "z": -21.2962
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 1e-06
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Knee_L_end_chicken_1": {
+          "parent": "Knee_L_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Ankle_L_chicken_1": {
+          "parent": "Knee_L_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.00694,
+              "y": 0.142745,
+              "z": -1.38335
+            },
+            "rotation_euler_deg": {
+              "x": 0.3976,
+              "y": 8.1787,
+              "z": -79.2601
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 7.1e-05,
+              "y": 5.8e-05,
+              "z": 2e-06
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.3976,
+            "y": 8.1787,
+            "z": -79.2601
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Ankle_L_end_chicken_1": {
+          "parent": "Ankle_L_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_05_chicken_1": {
+          "parent": "Root_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_04_chicken_1": {
+          "parent": "Root_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_02_chicken_1": {
+          "parent": "Root_M_chicken_1",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_03_chicken_1": {
+          "parent": "Root_M_chicken_1",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Knee.Right_chicken_1": {
+          "parent": null,
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "rotation_euler_deg": {
+              "x": -0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -0.0,
+            "y": -0.0,
+            "z": -0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.0,
+            "y": -0.0,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Knee.Left_chicken_1": {
+          "parent": null,
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": -0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.0,
+            "y": 0.0,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        }
+      }
+    }
+  ]
+}

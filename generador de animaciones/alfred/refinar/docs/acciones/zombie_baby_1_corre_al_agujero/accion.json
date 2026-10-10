@@ -1,0 +1,200 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "zombie_baby_1_corre_al_agujero",
+  "titulo": "zombie_baby_1 aparece en f340 y corre por una lista de puntos hacia el agujero del refugio",
+  "tipo_accion": "correr_ruta",
+  "ejecutor": "docs/acciones/correr_ruta.py",
+  "estado": "sin aprobar",
+  "descripcion": "A partir del frame 340 (despues de que zombie_1 se fue y Alfred se asomo otra vez), zombie_baby_1 aparece en el primer punto de la lista y corre por los 12 puntos (como en el videojuego: brazos al frente, piernas alternas rapidas, cuerpo que rebota) siempre mirando al agujero del refugio; al llegar al ultimo punto (junto al agujero) se queda quieto mirandolo.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Lista de coordenadas dada por Kebyn (imagen). El personaje: estructura_lista/zombie_baby_1.blend."
+  },
+  "parametros": {
+    "personaje": "zombie_baby_1",
+    "armature": "zombie_baby_1_zombie_baby_1",
+    "mallas": [
+      "Mesh_0_zombie_baby_1",
+      "ojo_izquierdo_zombie_baby_1",
+      "ojo_derecho_zombie_baby_1"
+    ],
+    "huesos": {
+      "raiz": {
+        "nombre": "zombie_baby_1_zombie_baby_1",
+        "padre": null
+      },
+      "cabeza": {
+        "nombre": "head_zombie_baby_1",
+        "padre": "zombie_baby_1_zombie_baby_1"
+      },
+      "cuerpo": {
+        "nombre": "body_zombie_baby_1",
+        "padre": "zombie_baby_1_zombie_baby_1"
+      },
+      "hueso": {
+        "nombre": "bone_zombie_baby_1",
+        "padre": "body_zombie_baby_1"
+      },
+      "brazo_izq": {
+        "nombre": "left_arm_zombie_baby_1",
+        "padre": "zombie_baby_1_zombie_baby_1"
+      },
+      "brazo_der": {
+        "nombre": "right_arm_zombie_baby_1",
+        "padre": "zombie_baby_1_zombie_baby_1"
+      },
+      "pierna_izq": {
+        "nombre": "left_leg_zombie_baby_1",
+        "padre": "zombie_baby_1_zombie_baby_1"
+      },
+      "pierna_der": {
+        "nombre": "right_leg_zombie_baby_1",
+        "padre": "zombie_baby_1_zombie_baby_1"
+      }
+    },
+    "puntos": [
+      [
+        -87.5,
+        -96.5,
+        12.0
+      ],
+      [
+        -87.5,
+        -97.5,
+        13.0
+      ],
+      [
+        -87.5,
+        -98.5,
+        14.0
+      ],
+      [
+        -87.5,
+        -99.5,
+        14.0
+      ],
+      [
+        -88.5,
+        -100.5,
+        14.0
+      ],
+      [
+        -88.5,
+        -101.5,
+        14.0
+      ],
+      [
+        -89.5,
+        -102.5,
+        14.0
+      ],
+      [
+        -90.5,
+        -103.5,
+        14.0
+      ],
+      [
+        -90.5,
+        -104.5,
+        14.0
+      ],
+      [
+        -91.5,
+        -105.5,
+        14.0
+      ],
+      [
+        -92.5,
+        -106.5,
+        14.0
+      ],
+      [
+        -93.5,
+        -107.5,
+        14.0
+      ]
+    ],
+    "puntos_nota": "(*) los 12 puntos (x, y, z) en orden; la z cambia 12 -> 13 -> 14 en los primeros 3 (escalones)",
+    "mirar_a": {
+      "loc": [
+        -94.5,
+        -108.5,
+        14.5
+      ],
+      "nota": "(*) el agujero del refugio: el personaje siempre mira hacia aqui"
+    },
+    "velocidad_m_s": 5.5,
+    "carrera": {
+      "periodo_frames": 8,
+      "pierna_deg": 55,
+      "brazos_adelante_deg": 85,
+      "brazos_vaiven_deg": 6,
+      "inclinacion_deg": 8,
+      "rebote_m": 0.04,
+      "nota": "(*) periodo = frames por zancada completa (dos pasos); brazos_adelante = levantados al frente (X positivo = hacia +Y, el frente a rz 0)"
+    },
+    "embestida": {
+      "desde": 407,
+      "impacto": 416,
+      "garras_desde": 420,
+      "destino": [
+        -93.75,
+        -108.5,
+        14.0
+      ],
+      "salto_m": 0.3,
+      "inclinacion_deg": 10.0,
+      "reposo_deg": 85.0,
+      "alza_deg": 125.0,
+      "golpe_deg": 55.0,
+      "barrido_deg": 14.0,
+      "semilla": 7,
+      "nota": "(*) desde f407 el bebe se lanza contra el agujero y choca en f416 con el slab (queda en `destino`, pegado al slab). Desde f420, AGRESIVO y al azar (semilla, repetible): arana con una mano y luego la otra (garras), mete las dos manos forcejeando por el hueco sobre el slab (manos), mete la cabeza (cabeza), salta contra el slab (saltar) o se mueve a lo largo del slab entre sus esquinas buscando por donde entrar (moverse; y_limites = hasta donde se mueve); `pesos` = probabilidad relativa de [garras, manos, cabeza, saltar, moverse]; sin exito hasta f538. VARIACIONES (f420-638): ademas embestir (retrocede 0.55 m y vuelve a embestir con todo el cuerpo), sacudir (sacude cabeza y cuerpo, brazos en molinillo), agachar (rasca abajo) y trepar (salta y patalea); cada conducta tiene amplitud, duracion y giro al azar, y nunca repite dos veces seguidas la misma (salvo garras). `pesos` = [garras, manos, cabeza, saltar, moverse, embestir, sacudir, agachar, trepar].",
+      "manos_deg": 100.0,
+      "y_limites": [
+        -108.8,
+        -108.2
+      ],
+      "pesos": [
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "retrocede_m": 0.55,
+      "especiales": [
+        {
+          "tipo": "agarra",
+          "a": 644,
+          "b": 652,
+          "nota": "mete el brazo derecho por el hueco y le quita el stick a Alfred en el tercer empujon (f646-647), tira de el hacia atras"
+        },
+        {
+          "tipo": "lanza_stick",
+          "a": 715,
+          "b": 728,
+          "suelta": 722,
+          "nota": "arma el brazo (f657-662) y le tira el stick a Alfred en la cara: lo suelta en f664"
+        }
+      ]
+    }
+  },
+  "tiempos": {
+    "inicio": 1,
+    "aparece": 340,
+    "fin": 800,
+    "nota": "frames absolutos. Oculto de 1 a 339; aparece en f340 y corre al ultimo punto (llega ~f402); en f407 se lanza contra el agujero (slab) y sigue intentando entrar (conductas al azar); en f644-652 le quita el stick a Alfred; lo conserva (lo agita con las conductas al azar) hasta f715-728, cuando se lo tira a la cara (suelta en f722); sigue hasta fin (f800)."
+  },
+  "sonidos": "los genera docs/acciones/sonorizar_escena.py (pasos rapidos por cada pierna y voces; volumen segun camara fuera/dentro)",
+  "notas_para_otra_ia": [
+    "Otra ruta: cambiar `puntos`. Otro ritmo: velocidad_m_s y carrera.periodo_frames.",
+    "Los ejes de los huesos del bebe se midieron: todos apuntan a +Z, X positivo lleva la punta de un hueso que cuelga hacia +Y.",
+    "El frente del modelo se supone +Y (como zombie_1); si en la escena corre de espaldas, sumar 180 a rz."
+  ]
+}

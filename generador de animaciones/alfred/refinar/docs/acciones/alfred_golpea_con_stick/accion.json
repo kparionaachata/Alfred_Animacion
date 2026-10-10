@@ -1,0 +1,512 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "alfred_empuja_con_stick",
+  "titulo": "Alfred saca un stick de su espalda y, desde lejos, empuja con el al bebe zombie para que se vaya",
+  "tipo_accion": "golpear_con_stick",
+  "ejecutor": "docs/acciones/golpear_con_stick.py",
+  "estado": "sin aprobar",
+  "descripcion": "A partir del frame 540 Alfred deja de agarrarse el pecho y, SIN acercarse (se queda en su sitio: empty (-95.772392, -108.518707, 13)), se endereza, saca un stick de su espalda con la mano derecha y, desde lejos, hace el gesto de empujar a zombie_baby_1 con el stick extendido (empujones repetidos listo-empujar-recoger, apuntando hacia donde esta el bebe en ese frame) para que se vaya. El stick no lo alcanza: es el gesto; el brazo izquierdo queda en reposo.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Parte de la pose poses/se agarra el percho.json."
+  },
+  "parametros": {
+    "pose_inicio": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\generador de animaciones\\alfred\\refinar\\poses\\se agarra el percho.json",
+    "plantilla_config": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\generador de animaciones\\alfred\\refinar\\configuraciones\\guiones\\configuracion_portable_alfred_retrocede_asustado_f410_462.json",
+    "objetivo": {
+      "portable": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\generador de animaciones\\zombie_baby_1\\refinar\\configuraciones\\guiones\\configuracion_portable_zombie_baby_1_corre_al_agujero_f1_800.json",
+      "nota": "(*) portable del que se lee la posicion del objetivo en cada frame (el bebe)"
+    },
+    "avance": {
+      "root_xy": [
+        -95.772392,
+        -108.518707
+      ],
+      "frames": 12,
+      "nota": "(*) Alfred NO avanza: el empty queda donde estaba (igual que en la pose de partida)"
+    },
+    "objeto": {
+      "nombre": "stick",
+      "blend": "objetos/vanilla/stick/stick.blend",
+      "fuente_objeto": "stick",
+      "escala": 0.6,
+      "agarre_mano": [
+        0.888062,
+        0.428312,
+        -0.167782,
+        0.042892,
+        -0.433081,
+        0.905132,
+        0.026628,
+        0.463207,
+        0.162918,
+        0.048443,
+        0.985464,
+        0.010025,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "golpes": {
+      "espalda_t": 549,
+      "primer_golpe": 564,
+      "periodo": [
+        12,
+        17
+      ],
+      "offset_espalda": [
+        -0.27,
+        -0.12,
+        0.06
+      ],
+      "frente_m": 0.58,
+      "cabeza_m": 0.75,
+      "alza_m": 1.95,
+      "listo_m": 1.55,
+      "semilla": 3,
+      "nota": "(*) modo `empujar`: cada empujon va de `listo` (stick cerca del cuerpo) a brazo casi extendido (`alcance_m` desde el hombro) en la direccion del bebe y vuelve; primer_golpe = frame del primer empujon; luego uno cada `periodo` frames (al azar); cabeza_m = altura del punto al que apunta sobre el empty del objetivo SINCRONIZADO CON LA VOZ: `frames` = un empujon por palabra de 'Niño malo, fuera de aquí.' (la voz empieza en f555; las palabras empiezan en f562, 571, 585, 598 y 608 y el empujon maximo cae 2 frames despues); son exactamente 5 empujones, ciclos cortos (antes 3, mantiene 1, recoge 4 frames).",
+      "modo": "empujar",
+      "alcance_m": 0.62,
+      "frames": [
+        564,
+        573,
+        587,
+        600,
+        610,
+        622,
+        634,
+        646
+      ],
+      "antes": 3,
+      "mantiene": 1,
+      "recoge": 4
+    },
+    "brazo_izquierdo_reposo": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "empuje_exacto": {
+      "RightUpArm_alfred": {
+        "loc": [
+          0.006607,
+          0.096742,
+          -0.086077
+        ],
+        "rot_deg": [
+          -97.156,
+          283.76,
+          347.86
+        ],
+        "escala": [
+          1.0,
+          0.999,
+          1.001
+        ]
+      },
+      "Rightelbow_alfred": {
+        "loc": [
+          -1e-06,
+          -4e-06,
+          -2e-06
+        ],
+        "rot_deg": [
+          2.6388,
+          16.568,
+          19.097
+        ]
+      },
+      "stick": {
+        "loc": [
+          -94.774,
+          -108.6,
+          14.587
+        ],
+        "quat": [
+          0.657,
+          0.61,
+          0.432,
+          -0.099
+        ],
+        "escala": 0.6
+      },
+      "nota": "(*) valores EXACTOS (de Kebyn) del brazo derecho estirado al maximo empujando al bebe con el stick: se usan tal cual en los frames de cada empuje maximo (f, f+1..f+3); el agarre del stick se calcula para que en ese momento quede en esa posicion/rotacion/escala."
+    },
+    "escena_final": {
+      "retro_desde": 648,
+      "guardia": 656,
+      "impacto": 726,
+      "choca": 729,
+      "rebote": 734,
+      "cae_fin": 774,
+      "retro_x": -95.83,
+      "tabla_x": -95.83,
+      "guardia_der": [
+        0.3,
+        -0.1,
+        1.5
+      ],
+      "guardia_izq": [
+        0.3,
+        0.1,
+        1.5
+      ],
+      "brazo_der_reposo_deg": [
+        270.0,
+        180.0,
+        180.0
+      ],
+      "brazo_izq_reposo_deg": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "cae_hips_m": 0.62,
+      "cae_atras_m": 0.05,
+      "stick_quita": 647,
+      "stick_lanza": 722,
+      "cara": [
+        -95.6,
+        -108.519,
+        14.72
+      ],
+      "rebote1": [
+        -95.25,
+        -108.72,
+        13.05
+      ],
+      "rebote2": [
+        -95.18,
+        -108.8,
+        13.05
+      ],
+      "nota": "(*) tras el 8.o empujon (f646) el bebe le quita el stick (f647); Alfred retrocede un poco (f648-654, x -95.83) con las manos en guardia (f656); en f664 el bebe le tira el stick a la cara (llega en f668) y rebota; el golpe lo echa atras (torso -26, cabeza hacia atras, x -95.90 contra la mesa de crafteo, f668-672); rebota en la mesa (f676) y se desmaya despacio (f676-716): la cadera baja 0.62 m, las piernas se doblan, la cabeza cae de lado y los brazos quedan sueltos, hasta fin. RE-TEMPORIZADO por la voz 'Ahí no, niño, espera, suelta eso.' (f649-728, 79 frames): el bebe se queda con el stick hasta que ella termina; lo suelta en f722 y le pega en f726 (con la ultima palabra); la caida va de f734 a f774; fin f800."
+    },
+    "mesa": {
+      "cara_x": -96.08,
+      "y": [
+        -108.922,
+        -108.022
+      ],
+      "z": [
+        14.0,
+        14.9
+      ],
+      "margen": 0.035,
+      "nota": "(*) mesa_de_crafteo_1 (medida en la escena): su cara hacia Alfred esta en x = -96.08, y -108.922..-108.022, z 14.0..14.9. Desde la escena final el empty de Alfred se mueve hacia delante (+x) lo justo para que ni la cabeza ni el torso (cajas de sus mallas en el marco de sus huesos) la atraviesen en ningun frame; Alfred ya esta casi pegado a la mesa (la espalda de su cabeza queda a ~4 cm de la cara con el empty en x = -95.772), asi que 'retroceder' y 'caer' son sobre todo inclinacion y flexion, no desplazamiento."
+    },
+    "herramientas": {
+      "suelta_despues": 3,
+      "vuelo": 14,
+      "lista": [
+        {
+          "nombre": "stone_axe",
+          "cae_en": [
+            -95.45,
+            -109.02,
+            13.05
+          ],
+          "rebote": [
+            -95.4,
+            -109.12,
+            13.05
+          ],
+          "eje": [
+            0,
+            1,
+            0
+          ],
+          "giro": -300.0
+        },
+        {
+          "nombre": "stone_shovel",
+          "cae_en": [
+            -95.62,
+            -108.02,
+            13.05
+          ],
+          "rebote": [
+            -95.58,
+            -107.94,
+            13.05
+          ],
+          "eje": [
+            0,
+            1,
+            0
+          ],
+          "giro": 280.0
+        }
+      ],
+      "nota": "(*) el hacha de piedra y la pala de piedra que Alfred lleva en la espalda: se pegan a su hueso Spine1 desde f540 (antes se quedaban quietas en el aire) y, 3 frames despues del golpe en la cara, CAEN (14 frames, con giro) al suelo del refugio a cada lado de Alfred (y -109.02 y -108.02, z 13.05) con un rebote pequeno."
+    }
+  },
+  "tiempos": {
+    "inicio": 540,
+    "fin": 800,
+    "nota": "frames absolutos: 540-548 se endereza, 546-549 va a la espalda y sale el stick (f550); voz f555-624 con 5 empujones (f564-610); 3 empujones mas (f622, 634, 646): en el tercero el bebe le quita el stick (f647); Alfred retrocede (f648-656) y dice 'Ahí no, niño, espera, suelta eso.' (f649-728) en guardia; el bebe lanza el stick en f722 y le pega en f726; golpe contra la mesa (f726-734); se desmaya despacio (f734-774); hasta f800 queda en el suelo."
+  },
+  "camara": {
+    "mueve_a": {
+      "desde": 595,
+      "hasta": 619,
+      "destino": [
+        -95.548,
+        -109.71,
+        14.937
+      ],
+      "interp": "smooth",
+      "nota": "(*) a partir de f595 la camara cambia automaticamente a estas coordenadas (24 frames, suave; valores de Kebyn)"
+    },
+    "mueve_b": {
+      "desde": 648,
+      "hasta": 672,
+      "destino": [
+        -95.33,
+        -109.75,
+        15.027
+      ],
+      "foco_destino": [
+        -94.992,
+        -106.34,
+        14.15
+      ],
+      "interp": "smooth",
+      "nota": "(*) despues de que el bebe le quita el stick a Alfred (f647) la camara y el foco cambian (24 frames, suave) a estas coordenadas (valores de Kebyn)"
+    }
+  },
+  "sonidos": [
+    {
+      "etiqueta": "espalda_stick_sale",
+      "archivo": "item/armor/equip_generic1.ogg",
+      "t": 550,
+      "volumen": 0.55,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "avanza_paso_1",
+      "archivo": "step/grass1.ogg",
+      "t": 544,
+      "volumen": 0.35,
+      "canal": 23,
+      "grupo": "pasos"
+    },
+    {
+      "etiqueta": "avanza_paso_2",
+      "archivo": "step/grass4.ogg",
+      "t": 549,
+      "volumen": 0.35,
+      "canal": 24,
+      "grupo": "pasos"
+    },
+    {
+      "etiqueta": "empuja_stick_1",
+      "archivo": "entity/player/attack/sweep2.ogg",
+      "t": 562,
+      "volumen": 0.7,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "empuja_stick_2",
+      "archivo": "entity/player/attack/sweep4.ogg",
+      "t": 571,
+      "volumen": 0.7,
+      "canal": 23,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "empuja_stick_3",
+      "archivo": "entity/player/attack/sweep6.ogg",
+      "t": 585,
+      "volumen": 0.7,
+      "canal": 24,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "empuja_stick_4",
+      "archivo": "entity/player/attack/sweep4.ogg",
+      "t": 598,
+      "volumen": 0.7,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "empuja_stick_5",
+      "archivo": "entity/player/attack/sweep6.ogg",
+      "t": 608,
+      "volumen": 0.7,
+      "canal": 23,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "empuja_stick_6",
+      "archivo": "entity/player/attack/sweep3.ogg",
+      "t": 620,
+      "volumen": 0.7,
+      "canal": 24,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "empuja_stick_7",
+      "archivo": "entity/player/attack/sweep4.ogg",
+      "t": 632,
+      "volumen": 0.7,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "empuja_stick_8",
+      "archivo": "entity/player/attack/sweep2.ogg",
+      "t": 644,
+      "volumen": 0.7,
+      "canal": 23,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "bebe_quita_stick",
+      "archivo": "item/armor/equip_generic5.ogg",
+      "t": 647,
+      "volumen": 0.6,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "retrocede_paso_a",
+      "archivo": "step/grass2.ogg",
+      "t": 650,
+      "volumen": 0.3,
+      "canal": 23,
+      "grupo": "pasos"
+    },
+    {
+      "etiqueta": "retrocede_paso_b",
+      "archivo": "step/grass6.ogg",
+      "t": 654,
+      "volumen": 0.3,
+      "canal": 24,
+      "grupo": "pasos"
+    },
+    {
+      "etiqueta": "stick_golpea_cara",
+      "archivo": "damage/fallbig.ogg",
+      "t": 726,
+      "volumen": 1.0,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "alfred_empujado_ropa",
+      "archivo": "step/cloth1.ogg",
+      "t": 727,
+      "volumen": 0.6,
+      "canal": 23,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "alfred_choca_mesa",
+      "archivo": "dig/wood2.ogg",
+      "t": 729,
+      "volumen": 0.45,
+      "canal": 24,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "stick_cae_suelo_1",
+      "archivo": "step/grass3.ogg",
+      "t": 742,
+      "volumen": 0.5,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "stick_cae_suelo_2",
+      "archivo": "step/grass5.ogg",
+      "t": 747,
+      "volumen": 0.25,
+      "canal": 23,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "hacha_cae",
+      "archivo": "step/stone1.ogg",
+      "t": 743,
+      "volumen": 0.5,
+      "canal": 24,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "pala_cae",
+      "archivo": "step/stone3.ogg",
+      "t": 744,
+      "volumen": 0.45,
+      "canal": 25,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "herramientas_rebotan",
+      "archivo": "step/stone5.ogg",
+      "t": 748,
+      "volumen": 0.25,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "alfred_rodillas_ceden",
+      "archivo": "step/cloth2.ogg",
+      "t": 742,
+      "volumen": 0.5,
+      "canal": 23,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "alfred_se_desploma",
+      "archivo": "damage/fallsmall.ogg",
+      "t": 762,
+      "volumen": 0.7,
+      "canal": 24,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "alfred_ropa_final",
+      "archivo": "step/cloth3.ogg",
+      "t": 770,
+      "volumen": 0.4,
+      "canal": 25,
+      "grupo": "objetos"
+    }
+  ],
+  "audio_pendiente": {
+    "nota": "sonidos de los empujones, el golpe en la cara, la mesa, las herramientas y el desmayo agregados (docs/acciones/alfred_golpea_con_stick `sonidos`)"
+  },
+  "nombre": "alfred_empuja_con_stick",
+  "audio": [
+    {
+      "personaje": "ALFRED",
+      "archivo": "audios/alfred/nino_malo_fuera_de_aqui.wav",
+      "inicio": 555,
+      "emocion": "ENOJO",
+      "texto": "Niño malo, fuera de aquí.",
+      "cara": "audios/alfred/nino_malo_fuera_de_aqui.cara.json",
+      "emocion_json": "audios/alfred/nino_malo_fuera_de_aqui.emocion.json",
+      "duracion_f": 69,
+      "id": "aud_nino_malo_fuera_de_aqui"
+    },
+    {
+      "personaje": "ALFRED",
+      "archivo": "audios/alfred/ahi_no_nino_espere_peraz.wav",
+      "inicio": 649,
+      "emocion": "MIEDO",
+      "texto": "Ahí no, niño, esperé peraz, solte eso.",
+      "cara": "audios/alfred/ahi_no_nino_espere_peraz.cara.json",
+      "emocion_json": "audios/alfred/ahi_no_nino_espere_peraz.emocion.json",
+      "duracion_f": 79,
+      "id": "aud_ahi_no_nino_espere_peraz",
+      "cuello_fijo": true
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "path_name": "recorded_path",
+  "tunnel_config": {
+    "width": 10.0,
+    "height": 15.0,
+    "shape": "square_tunnel"
+  },
+  "key_points": [
+    {
+      "index": 1,
+      "coordinates": {
+        "x": -109.5,
+        "y": -83.5,
+        "z": 16.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17305"
+    },
+    {
+      "index": 2,
+      "coordinates": {
+        "x": -109.5,
+        "y": -84.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17306"
+    },
+    {
+      "index": 3,
+      "coordinates": {
+        "x": -109.5,
+        "y": -85.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17307"
+    },
+    {
+      "index": 4,
+      "coordinates": {
+        "x": -110.5,
+        "y": -86.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17206"
+    },
+    {
+      "index": 5,
+      "coordinates": {
+        "x": -111.5,
+        "y": -86.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17119"
+    },
+    {
+      "index": 6,
+      "coordinates": {
+        "x": -112.5,
+        "y": -87.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17046"
+    },
+    {
+      "index": 7,
+      "coordinates": {
+        "x": -111.5,
+        "y": -88.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17121"
+    },
+    {
+      "index": 8,
+      "coordinates": {
+        "x": -111.5,
+        "y": -89.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17122"
+    },
+    {
+      "index": 9,
+      "coordinates": {
+        "x": -110.5,
+        "y": -89.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17209"
+    },
+    {
+      "index": 10,
+      "coordinates": {
+        "x": -109.5,
+        "y": -88.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17310"
+    },
+    {
+      "index": 11,
+      "coordinates": {
+        "x": -109.5,
+        "y": -87.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17309"
+    },
+    {
+      "index": 12,
+      "coordinates": {
+        "x": -109.5,
+        "y": -86.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17308"
+    }
+  ],
+  "mapped_area": {
+    "total_faces": 0,
+    "faces": []
+  }
+}

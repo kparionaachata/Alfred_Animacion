@@ -1,0 +1,107 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "se_asoma_otra_vez",
+  "titulo": "Alfred se vuelve a acercar a la abertura para ver otra vez que pasa afuera (despues de que zombie_1 se va)",
+  "tipo_accion": "inclinarse_para_mirar",
+  "ejecutor": "docs/acciones/inclinarse_para_mirar.py",
+  "estado": "sin aprobar",
+  "descripcion": "Cuando zombie_1 se retira (camina alrededor del refugio, f262-), Alfred se vuelve a inclinar hacia la abertura y adelanta el cuerpo 0.30 m en la direccion en la que mira (hacia el agujero) para ver afuera: justo cuando zombie_baby_1 corre hacia el agujero (f264-326). Misma accion y valores que 'se inclina para mirar afuera' (35 grados, cuello -25), pero el avance sigue la direccion del cuerpo.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Continua despues de 'alfred_lanza_stick_a_zombie_1' (f230-290). Ejecutor: inclinarse_para_mirar.py."
+  },
+  "parametros": {
+    "armature": "Armature",
+    "cuerpo": {
+      "inclinacion_deg": 35.0,
+      "avance_root_xy": [
+        0.2887,
+        0.0817
+      ],
+      "nota": "(*) inclinacion hacia delante en grados y cuanto adelanta el root (m, mundo): 0.30 m en la direccion del cuerpo (yaw 15.8 grados): (0.289, 0.082)"
+    },
+    "cuello": {
+      "compensacion_deg": -25.0,
+      "giro_deg": 0.0,
+      "nota": "(*) el cuello se endereza para que la cabeza no mire al suelo: inclinacion neta de la cabeza = inclinacion + compensacion; giro_deg gira la cabeza a los lados"
+    },
+    "organico": {
+      "modo": "reglas_alfred",
+      "nota": "filtros organicos del segmento (respiracion, micro-movimiento de cabeza, secondary motion, suavizado, micro-escala) que el Alfred Studio aplica al concatenar; \"exacto\" = ninguno (reproduce las poses tal cual)"
+    },
+    "camara": {
+      "objeto": "Camera.001",
+      "foco": "Foco_Conversacion",
+      "fija": {
+        "loc": [
+          -95.995,
+          -109.89,
+          15.027
+        ],
+        "nota": "hasta f317 la camara se queda donde esta"
+      },
+      "mueve_a": {
+        "desde": 317,
+        "hasta": 340,
+        "destino": [
+          -95.265,
+          -109.0,
+          14.847
+        ],
+        "foco_destino": [
+          -88.17,
+          -102.82,
+          13.36
+        ],
+        "interp": "smooth",
+        "nota": "(*) despues de asomarse (f317) la camara y el Foco_Conversacion pasan AUTOMATICAMENTE a estas coordenadas (23 frames, suave; valores dados por Kebyn)"
+      }
+    }
+  },
+  "tiempos": {
+    "inicio": 290,
+    "inclinado": 299,
+    "asomado": 317,
+    "fin": 396,
+    "nota": "frames absolutos. inicio = fin del lanzamiento (zombie_1 ya se fue); inclinado = inclinacion completa (f299); asomado = fin del movimiento (27 frames, f290-317); hasta fin (f340) se queda asomado viendo llegar a zombie_baby_1 (llega f326). Despues de f340 (la camara ya llego) Alfred sigue asomado (pose sostenida) hasta f396 (despues colocar el slab: alfred_coloca_slab_en_agujero, f396-410) mientras zombie_baby_1 corre al agujero (f340-402)."
+  },
+  "sonidos": [
+    {
+      "etiqueta": "asoma2_ropa",
+      "archivo": "step/cloth1.ogg",
+      "t": 291,
+      "volumen": 0.4,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "asoma2_paso",
+      "archivo": "step/grass1.ogg",
+      "t": 298,
+      "volumen": 0.35,
+      "canal": 23,
+      "grupo": "pasos"
+    }
+  ],
+  "notas_para_otra_ia": [
+    "Para asomarse mas o menos: cambia cuerpo.inclinacion_deg y avance_root_xy; el cuello compensa con cuello.compensacion_deg.",
+    "Para mirar a un lado: cuello.giro_deg (positivo = a la izquierda del personaje).",
+    "Para cambiar de momento: edita `tiempos` (frames absolutos).",
+    "No incluye el regreso a la postura de reposo: la accion termina asomado.",
+    "La camara (Camera.001, con TRACK_TO a Foco_Conversacion) va en la seccion `camara` del guion: claves fijas hasta `asomado` y un `movimiento` suave hasta `fin`. Se aplica con el boton Camara del estudio (alfst.cam_aplicar)."
+  ],
+  "audio": [
+    {
+      "personaje": "ALFRED",
+      "archivo": "audios/alfred/cuanto_falta_para_que_amanezca.wav",
+      "inicio": 300,
+      "emocion": "DUDA",
+      "texto": "¿Cuánto falta para que amanezca?",
+      "cara": "audios/alfred/cuanto_falta_para_que_amanezca.cara.json",
+      "emocion_json": "audios/alfred/cuanto_falta_para_que_amanezca.emocion.json",
+      "duracion_f": 44,
+      "id": "aud_cuanto_falta_para_que_amanezca"
+    }
+  ]
+}

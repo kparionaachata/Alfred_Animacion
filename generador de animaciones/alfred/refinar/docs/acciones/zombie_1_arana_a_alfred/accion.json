@@ -1,0 +1,55 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "zombie_1_arana_a_alfred",
+  "titulo": "zombie_1 mete el brazo derecho por el agujero del refugio dando arañazos para alcanzar a Alfred",
+  "tipo_accion": "arana_brazo",
+  "ejecutor": "docs/acciones/zombie_arana_brazo.py",
+  "estado": "sin aprobar",
+  "descripcion": "Mientras Alfred se asusta (f192-242), zombie_1 (parado en el agujero del refugio, pose de f193) estira el brazo derecho hacia Alfred y da arañazos (la mano dibuja circulos rapidos de zarpazo con avance y retroceso) sin poder alcanzarlo (su brazo mide 0.52 m). El resto del cuerpo se queda en la pose de f193. Se calcula con IK de 2 huesos y se mezcla desde la pose de f193.",
+  "parametros": {
+    "personaje": "zombie_1",
+    "brazo": {
+      "hombro": "RightUpArm_zombie_1",
+      "codo": "Rightelbow_zombie_1"
+    },
+    "pose_base": "zombie_1/refinar/poses/pose213.json",
+    "apunta_a": {
+      "loc": [
+        -95.85,
+        -108.9,
+        14.45
+      ],
+      "nota": "(*) punto hacia donde estira el brazo: el pecho de Alfred cuando retrocede; el agujero es x -95..-94, y -109..-108, z 14..15"
+    },
+    "alcance": 0.97,
+    "arana": {
+      "periodo_frames": 9,
+      "radio_m": 0.12,
+      "avance_m": 0.04,
+      "variacion": 0.25,
+      "nota": "(*) zarpazo: circulo de radio_m en el plano perpendicular al brazo, un ciclo cada periodo_frames; avance/retroceso de avance_m al ritmo del zarpazo; variacion = irregularidad de la amplitud"
+    },
+    "polo_codo": [
+      0.0,
+      0.35,
+      -1.0
+    ],
+    "organico": "apagado"
+  },
+  "tiempos": {
+    "inicio": 193,
+    "estira_frames": 8,
+    "fin": 256,
+    "nota": "frames absolutos: 193-201 estira el brazo hacia Alfred, 201-256 arañazos hasta recibir el stick (f256); despues `zombie_retirada_golpe.py` (reaccion, retirada y caminata alrededor del refugio)."
+  },
+  "audio_pendiente": {
+    "personaje": "ZOMBIE_1",
+    "texto": "(gruñido)",
+    "inicio": 193,
+    "nota": "sin audio todavia"
+  },
+  "notas_para_otra_ia": [
+    "Mas largo o corto el brazo no se cambia: es la geometria del rig. Para otro ritmo: arana.periodo_frames; mas violento: arana.radio_m.",
+    "Se aplica sobre las poses por frame de zombie_1_camina_al_refugio (solo cambia RightUpArm y Rightelbow desde f193)."
+  ]
+}

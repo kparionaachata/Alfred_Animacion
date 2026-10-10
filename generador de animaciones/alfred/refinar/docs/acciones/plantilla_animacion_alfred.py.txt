@@ -1,0 +1,127 @@
+# -*- coding: utf-8 -*-
+"""Animacion independiente de Alfred: @@TITULO@@ (@@N@@ f a 24 fps; frames originales f@@F0@@-f@@F1@@ de la parte 6, escena viva). Estado: sin aprobar.
+Mueve al personaje (los huesos del armature con el hueso Hips_alfred y su root, el empty padre) y a los objetos con los que interactua (ver ANIMATION_INFO['objetos']). NO incluye hablar ni expresiones: ni voces, ni ojos, ni parpadeo, ni audio.
+Los valores son los de la escena viva (con los filtros organicos de respiracion y micro-movimiento ya sumados).
+
+Uso en Blender (con el rig de Alfred cargado: armature con Hips_alfred; esto REEMPLAZA la accion actual de su armature, su root y los objetos de la escena):
+    execute_animation()                      # empieza en el frame original (@@F0@@); parte de donde esta Alfred AHORA (la posicion y orientacion actuales de su root son el inicio de la escena)
+    execute_animation(start_frame=300)       # en otro frame
+    execute_animation(origen='escena')       # con la posicion y orientacion ABSOLUTAS originales de la parte 6
+Objetos: los que falten en la escena se anaden desde `objetos/*.blend` (carpeta junto a este archivo). Las herramientas de piedra de Alfred son Child Of al hueso (Espalda -> Spine1_alfred, Mano -> Rightelbow_alfred, con la influencia y el
+basis por frame de la escena); el resto (herramientas de madera, mesa, bloques de la puerta, tablones) viaja con las transformaciones de mundo de la escena, relativas al root de Alfred.
+"""
+import bpy, math, os
+
+PAYLOAD = @@PAYLOAD@@
+ANIMATION_INFO = PAYLOAD['info']
+FRAMES = ANIMATION_INFO['frames']
+ORIGINAL_START = ANIMATION_INFO['frame_original']
+CARPETA = "@@DEST@@"
+
+
+def _curves(action):
+    if hasattr(action, 'fcurves'): return list(action.fcurves)
+    return [c for layer in action.layers for strip in layer.strips for bag in strip.channelbags for c in bag.fcurves]
+
+
+def _new_action(obj, label):
+    obj.animation_data_create(); obj.animation_data.action = bpy.data.actions.new(label)
+    return obj.animation_data.action
+
+
+def _interp(action):
+    for c in _curves(action):
+        const = 'influence' in c.data_path or c.data_path.startswith('hide')
+        for k in c.keyframe_points: k.interpolation = 'CONSTANT' if const else 'LINEAR'
+
+
+def find_rig():
+    for o in bpy.data.objects:
+        if o.type == 'ARMATURE' and 'Hips_alfred' in o.pose.bones: return o
+    raise ValueError('Carga el rig de Alfred: armature con el hueso Hips_alfred.')
+
+
+def _carpeta():
+    try: return os.path.dirname(os.path.abspath(__file__))
+    except NameError: return CARPETA
+
+
+def asegurar_objetos():
+    """anade a la escena los objetos de la animacion que no existan, desde objetos/*.blend"""
+    for nombre, rec in PAYLOAD['objetos'].items():
+        if nombre in bpy.data.objects: continue
+        ruta = os.path.join(_carpeta(), rec['archivo'])
+        if not os.path.isfile(ruta): ruta = os.path.join(CARPETA, rec['archivo'])
+        if not os.path.isfile(ruta): raise ValueError('Falta el objeto %s y su archivo %s' % (nombre, ruta))
+        faltan = [n for n in rec['paquete'] if n not in bpy.data.objects]
+        with bpy.data.libraries.load(ruta, link=False) as (src, dst): dst.objects = [n for n in faltan if n in src.objects]
+        for o in dst.objects:
+            if o is None: continue
+            if o.name in PAYLOAD['objetos'] or (o.parent is not None and o.parent.name in PAYLOAD['objetos']): bpy.context.scene.collection.objects.link(o)
+            else: bpy.data.objects.remove(o)                                                 # objeto del paquete que no es de esta animacion (p. ej. los bloques de la puerta ya rotos)
+        if nombre not in bpy.data.objects: raise ValueError('No se pudo anadir ' + nombre)
+
+
+def execute_animation(start_frame=ORIGINAL_START, origen='actual'):
+    from mathutils import Matrix, Quaternion, Vector, Euler
+    P = PAYLOAD; arm = find_rig(); missing = set(P['bones']) - set(arm.pose.bones.keys())
+    if missing: raise ValueError('Rig incompatible. Faltan huesos: ' + ', '.join(sorted(missing)))
+    asegurar_objetos(); root = arm.parent; sc = bpy.context.scene; bpy.context.view_layer.update()
+    for b in arm.pose.bones: b.rotation_mode = 'XYZ'
+    mat = lambda l, e: Matrix.LocRotScale(Vector(l), Euler(e, 'XYZ').to_quaternion(), Vector((1, 1, 1)))
+    R0 = mat(P['root']['location'][0], P['root']['rotation_euler'][0])
+    T = (root.matrix_world.copy() @ R0.inverted()) if (origen == 'actual' and root is not None) else Matrix.Identity(4)
+    # ---- Alfred: huesos ----
+    action = _new_action(arm, 'Alfred_' + ANIMATION_INFO['name'])
+    for name, chans in P['constantes'].items():
+        bone = arm.pose.bones[name]
+        for ch, v in chans.items(): setattr(bone, ch, v); bone.keyframe_insert(ch, frame=start_frame, group=name)
+    for name, channels in P['bones'].items():
+        bone = arm.pose.bones[name]
+        for ch, values in channels.items():
+            for i, v in enumerate(values): setattr(bone, ch, v); bone.keyframe_insert(ch, frame=start_frame + i, group=name)
+    _interp(action)
+    # ---- Alfred: root (empty padre) ----
+    if root is not None:
+        a = _new_action(root, 'Alfred_root_' + ANIMATION_INFO['name']); prev = Euler(tuple(root.rotation_euler), 'XYZ')
+        for i in range(FRAMES):
+            l, e = P['root']['location'][i], P['root']['rotation_euler'][i]
+            if origen == 'actual': M = T @ mat(l, e); loc, q, _s = M.decompose(); eul = q.to_euler('XYZ', prev); prev = eul
+            else: loc, eul = Vector(l), Euler(e, 'XYZ')
+            root.location = loc; root.rotation_euler = eul; root.keyframe_insert('location', frame=start_frame + i); root.keyframe_insert('rotation_euler', frame=start_frame + i)
+        _interp(a)
+    # ---- objetos ----
+    for name, rec in P['objetos'].items():
+        ob = bpy.data.objects[name]
+        if rec['tipo'] == 'aparentado':                                                    # herramienta Child Of al hueso: basis e influencia por frame
+            if ob.parent is not None: ob.parent = None; ob.matrix_parent_inverse = Matrix.Identity(4)   # el objeto del rig puede venir emparentado al armature (p. ej. estudio): el padre es el hueso (Child Of)
+            for cname, sub in rec['constraints']:
+                c = ob.constraints.get(cname) or ob.constraints.new('CHILD_OF'); c.name = cname; c.target = arm; c.subtarget = sub; c.inverse_matrix = Matrix.Identity(4)
+            ob.rotation_mode = rec['rotation_mode']; a = _new_action(ob, 'Alfred_' + name + '_' + ANIMATION_INFO['name']); rot_ch = 'rotation_quaternion' if rec['rotation_mode'] == 'QUATERNION' else 'rotation_euler'
+            for i in range(FRAMES):
+                ob.location = rec['location'][i]; setattr(ob, rot_ch, rec['rotation'][i]); ob.scale = rec['scale'][i]
+                for ch in ('location', rot_ch, 'scale'): ob.keyframe_insert(ch, frame=start_frame + i)
+                for cname, vals in rec['influencia'].items():
+                    c = ob.constraints[cname]; c.influence = vals[i]; c.keyframe_insert('influence', frame=start_frame + i)
+        else:                                                                              # transformacion de mundo relativa al root de Alfred
+            if ob.parent is not None: m0 = ob.matrix_world.copy(); ob.parent = None; ob.matrix_world = m0
+            ob.rotation_mode = 'QUATERNION'; a = _new_action(ob, 'Alfred_' + name + '_' + ANIMATION_INFO['name']); qprev = None
+            for i in range(FRAMES):
+                M = T @ Matrix.LocRotScale(Vector(rec['location'][i]), Quaternion(rec['rotation_quaternion'][i]), Vector(rec['scale'][i])); l, q, s = M.decompose()
+                if qprev is not None and q.dot(qprev) < 0: q = -q
+                qprev = q; ob.location = l; ob.rotation_quaternion = q; ob.scale = s
+                for ch in ('location', 'rotation_quaternion', 'scale'): ob.keyframe_insert(ch, frame=start_frame + i)
+        if 'hide' in rec:
+            for i, (hv, hr) in enumerate(rec['hide']):
+                ob.hide_viewport = hv; ob.hide_render = hr; ob.keyframe_insert('hide_viewport', frame=start_frame + i); ob.keyframe_insert('hide_render', frame=start_frame + i)
+        else: ob.hide_viewport, ob.hide_render = rec['hide_const']
+        _interp(a)
+    sc.render.fps = 24; sc.render.fps_base = 1
+    sc.frame_start = min(sc.frame_start, int(start_frame)); sc.frame_end = max(sc.frame_end, int(start_frame + FRAMES - 1)); sc.frame_set(int(start_frame))
+    return True
+
+
+def get_animation_metadata(): return dict(ANIMATION_INFO)
+
+
+if __name__ == '__main__': execute_animation()

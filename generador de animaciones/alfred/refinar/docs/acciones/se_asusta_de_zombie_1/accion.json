@@ -1,0 +1,110 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "se_asusta_de_zombie_1",
+  "titulo": "Alfred voltea, ve a zombie_1 en el agujero del refugio y se asusta levantando los brazos en V",
+  "tipo_accion": "sobresalto_v",
+  "ejecutor": "docs/acciones/sobresalto_v.py",
+  "estado": "sin aprobar",
+  "descripcion": "Despues de hablarle a Jerry, Alfred voltea (la cabeza primero, luego el cuerpo) hacia zombie_1, que aparece en el agujero del refugio (f193); se asusta: levanta los dos brazos en V, se inclina hacia atras y retrocede un paso corto, con rebote ELASTIC_IN_OUT. Se queda asi hasta `fin`.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Continua despues de 'voltea a ver a Jerry' (f112-192). Los parametros con (*) son los que se cambian."
+  },
+  "parametros": {
+    "armature": "Armature",
+    "mirar_a": {
+      "loc": [
+        -94.51,
+        -108.161,
+        14.733
+      ],
+      "nota": "(*) centro de la cabeza de zombie_1 en su pose de f193 (agujero del refugio); los angulos se calculan solos"
+    },
+    "frente": {
+      "rz_deg": -450.0,
+      "mira_a_grados": 0.0,
+      "altura_ojos": 0.236,
+      "cuello_x_por_grado_de_mirada": 0.84,
+      "cuello_sobre_root": [
+        -0.015,
+        -0.003,
+        1.467
+      ],
+      "adelante_ojos": 0.267,
+      "nota": "calibracion de Alfred (igual que girar_para_mirar)"
+    },
+    "cuello_y_reposo_deg": -1.0,
+    "susto": {
+      "v_angulo_deg": 38.0,
+      "inclinacion_atras_deg": 14.0,
+      "retrocede_m": 0.15,
+      "easing": "ELASTIC_IN_OUT",
+      "nota": "(*) v_angulo = apertura de cada brazo respecto a la vertical (V); inclinacion hacia atras del torso; retroceso en direccion contraria al zombie"
+    },
+    "organico": {
+      "modo": "reglas_alfred"
+    }
+  },
+  "tiempos": {
+    "inicio": 192,
+    "cuello_frames": 10,
+    "giro_hasta": 206,
+    "susto_hasta": 218,
+    "fin": 230,
+    "nota": "frames absolutos. 192-202 la cabeza gira hacia el zombie (el cuello deshace su torsion), 192-206 gira el cuerpo, 206-218 sobresalto con rebote elastico (brazos en V, torso atras, paso atras), 218-230 se queda asustado con los brazos en V (12 frames). El inicio es el fin provisional de 'voltea a ver a Jerry': ajustarlo a la duracion de su audio."
+  },
+  "audio_pendiente": {
+    "personaje": "ALFRED",
+    "texto": "(grito o exclamacion de susto)",
+    "inicio": 210,
+    "nota": "sin audio todavia"
+  },
+  "camara": {
+    "objeto": "Camera.001",
+    "fija": {
+      "loc": [
+        -95.995,
+        -109.89,
+        15.027
+      ],
+      "nota": "se queda donde esta"
+    }
+  },
+  "sonidos": [
+    {
+      "etiqueta": "susto_ropa",
+      "archivo": "step/cloth2.ogg",
+      "t": 206,
+      "volumen": 0.45,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "susto_paso_atras",
+      "archivo": "step/grass3.ogg",
+      "t": 214,
+      "volumen": 0.35,
+      "canal": 22,
+      "grupo": "pasos"
+    }
+  ],
+  "notas_para_otra_ia": [
+    "Otro punto a mirar: mirar_a.loc. Otro susto: susto.v_angulo_deg / inclinacion_atras_deg / retrocede_m.",
+    "Los brazos se resuelven con la pose final del tronco: la V queda simetrica respecto al cuerpo.",
+    "Tiempos son frames absolutos."
+  ],
+  "audio": [
+    {
+      "personaje": "ALFRED",
+      "archivo": "audios/alfred/ay_pendejame_a_susces.wav",
+      "inicio": 214,
+      "emocion": "SORPRESA",
+      "texto": "Ay, pendejame a susces.",
+      "cara": "audios/alfred/ay_pendejame_a_susces.cara.json",
+      "emocion_json": "audios/alfred/ay_pendejame_a_susces.emocion.json",
+      "duracion_f": 46,
+      "id": "aud_ay_pendejame_a_susces"
+    }
+  ]
+}

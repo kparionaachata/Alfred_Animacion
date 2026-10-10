@@ -1,0 +1,131 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "alfred_retrocede_asustado",
+  "titulo": "Alfred se echa hacia atras asustado despues de colocar el slab (zombie_baby_1 casi entra al refugio)",
+  "tipo_accion": "sobresalto_v",
+  "ejecutor": "docs/acciones/sobresalto_v.py",
+  "estado": "sin aprobar",
+  "descripcion": "Despues de colocar el slab en el agujero (f410), Alfred se endereza y se echa hacia atras de un salto de susto (torso hacia atras, paso atras de 0.5 m y los brazos suben en V con rebote ELASTIC_IN_OUT) sin dejar de mirar el agujero, porque el zombie pequeno casi se mete en su refugio. Mismo ejecutor y tipo de movimiento que 'se asusta de zombie_1' (sobresalto_v.py), con mas retroceso.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Continua despues de 'alfred_coloca_slab_en_agujero' (f396-410)."
+  },
+  "parametros": {
+    "armature": "Armature",
+    "mirar_a": {
+      "loc": [
+        -94.5,
+        -108.5,
+        14.5
+      ],
+      "nota": "(*) el agujero con el slab: la mirada de Alfred se queda fija aqui"
+    },
+    "frente": {
+      "rz_deg": -450.0,
+      "mira_a_grados": 0.0,
+      "altura_ojos": 0.236,
+      "cuello_x_por_grado_de_mirada": 0.84,
+      "cuello_sobre_root": [
+        -0.015,
+        -0.003,
+        1.467
+      ],
+      "adelante_ojos": 0.267,
+      "nota": "calibracion de Alfred (igual que girar_para_mirar)"
+    },
+    "cuello_y_reposo_deg": -1.0,
+    "susto": {
+      "v_angulo_deg": 38.0,
+      "inclinacion_atras_deg": 45.0,
+      "retrocede_m": 0.5,
+      "easing": "ELASTIC_IN_OUT",
+      "nota": "(*) inclinacion_atras = cuanto se echa atras DESDE la pose actual (estaba inclinado 35 hacia delante: 45 lo deja 10 grados hacia atras); retrocede_m = paso atras (m), en direccion contraria al agujero; v_angulo = apertura de los brazos respecto a la vertical"
+    },
+    "organico": {
+      "modo": "reglas_alfred"
+    }
+  },
+  "tiempos": {
+    "inicio": 410,
+    "cuello_frames": 4,
+    "giro_hasta": 414,
+    "susto_hasta": 422,
+    "fin": 462,
+    "nota": "frames absolutos. 410-414 gira la cabeza/cuerpo hacia el agujero, 414-422 el susto con rebote elastico (torso atras, paso atras de 0.5 m, brazos en V), hasta 430 se queda asustado. Hasta f452 se queda asustado: la camara se queda 20 frames en (-95.066, -108.64, 14.517) (f422-442) y luego hace el zoom de 10 frames (f442-452). Despues del zoom la camara regresa (f452-462) y se queda 50 frames (hasta f512). (El portable llega hasta f462; de f462 a f512 sigue 'alfred_se_agarra_el_pecho'.)"
+  },
+  "audio_pendiente": {
+    "personaje": "ALFRED",
+    "texto": "(exclamacion de susto)",
+    "inicio": 414,
+    "nota": "sin audio todavia"
+  },
+  "camara": {
+    "objeto": "Camera.001",
+    "foco": "Foco_Conversacion",
+    "mueve_a": {
+      "desde": 414,
+      "hasta": 422,
+      "destino": [
+        -95.066,
+        -108.64,
+        14.517
+      ],
+      "foco_destino": [
+        -96.465,
+        -108.41,
+        14.373
+      ],
+      "interp": "smooth",
+      "nota": "(*) en simultaneo al susto (f414-422)"
+    },
+    "zoom": {
+      "desde": 442,
+      "hasta": 452,
+      "lente_mm": 1651.0,
+      "foco_destino": [
+        -96.465,
+        -108.01,
+        13.845
+      ],
+      "interp": "smooth",
+      "nota": "(*) la camara se queda 20 frames (f422-442) en su posicion; luego (f442-452, 10 frames) el foco pasa a foco_destino y la camara hace un zoom de 12.003 mm a 1651 mm (Blender lo muestra como 1.651 m). Valores de Kebyn."
+    },
+    "regreso": {
+      "desde": 452,
+      "hasta": 462,
+      "lente_mm": 12.0027,
+      "foco_destino": [
+        -96.465,
+        -108.41,
+        14.373
+      ],
+      "mantiene_frames": 50,
+      "interp": "smooth",
+      "nota": "(*) despues del zoom (f442-452) se invierte: en 10 frames (f452-462) la lente vuelve a 12.003 mm y el foco a (-96.465, -108.41, 14.373), la camara queda como antes del zoom en (-95.066, -108.64, 14.517) y se queda asi 50 frames (hasta f512). Alfred se mantiene en su pose hasta f512."
+    }
+  },
+  "sonidos": [
+    {
+      "etiqueta": "retrocede_ropa",
+      "archivo": "step/cloth3.ogg",
+      "t": 414,
+      "volumen": 0.5,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "retrocede_paso",
+      "archivo": "step/grass4.ogg",
+      "t": 418,
+      "volumen": 0.45,
+      "canal": 23,
+      "grupo": "pasos"
+    }
+  ],
+  "notas_para_otra_ia": [
+    "Mas o menos retroceso: susto.retrocede_m. Mas o menos inclinacion atras: susto.inclinacion_atras_deg (desde la pose actual).",
+    "Tiempos en frames absolutos."
+  ],
+  "audio": []
+}

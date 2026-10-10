@@ -31,3 +31,6 @@ El formato que se carga y concatena en el flujo Alfred Animation Studio, en cual
 `poses/<accion>_f<a>_<b>/` + los objetos en `objetos_portables/<accion>_portable.blend`. Es el formato principal; la receta (`accion.json`) es para que una IA entienda y adapte la accion.
 `exportar_portable.py` genera el portable de un rango de la escena abierta (SPEC con nombre, f0, f1, objetos, anclas, sonidos...). Verificado: regenera las 77 poses de la antorcha identicas (0 diferencias) a las del portable existente.
 Cada accion nueva se entrega como portable + receta.
+
+## Camara (rapido)
+`mover_camara.py` mueve la camara de un punto a otro editando SOLO la seccion `camara` del guion portable (sin Blender, sin re-exportar poses): `python mover_camara.py <guion.json> --inicio=X,Y,Z --destino=X,Y,Z --desde <frame> --duracion <frames>` (duracion 0 = corte; sin `--destino` queda fija). Despues, en Blender: boton "Camara" del estudio. Detalle en la docstring del script.

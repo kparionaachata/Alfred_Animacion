@@ -1,0 +1,104 @@
+{
+  "path_name": "recorded_path",
+  "tunnel_config": {
+    "width": 10.0,
+    "height": 15.0,
+    "shape": "square_tunnel"
+  },
+  "key_points": [
+    {
+      "index": 1,
+      "coordinates": {
+        "x": -108.5,
+        "y": -94.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17433"
+    },
+    {
+      "index": 2,
+      "coordinates": {
+        "x": -108.5,
+        "y": -93.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17432"
+    },
+    {
+      "index": 3,
+      "coordinates": {
+        "x": -108.5,
+        "y": -92.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17431"
+    },
+    {
+      "index": 4,
+      "coordinates": {
+        "x": -108.5,
+        "y": -91.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17430"
+    },
+    {
+      "index": 5,
+      "coordinates": {
+        "x": -108.5,
+        "y": -90.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17429"
+    },
+    {
+      "index": 6,
+      "coordinates": {
+        "x": -108.5,
+        "y": -89.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17428"
+    },
+    {
+      "index": 7,
+      "coordinates": {
+        "x": -108.5,
+        "y": -88.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17427"
+    },
+    {
+      "index": 8,
+      "coordinates": {
+        "x": -108.5,
+        "y": -87.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17426"
+    },
+    {
+      "index": 9,
+      "coordinates": {
+        "x": -108.5,
+        "y": -86.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17425"
+    }
+  ],
+  "mapped_area": {
+    "total_faces": 0,
+    "faces": []
+  }
+}

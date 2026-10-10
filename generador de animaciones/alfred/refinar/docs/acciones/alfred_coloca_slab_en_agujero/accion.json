@@ -1,0 +1,113 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "alfred_coloca_slab_en_agujero",
+  "titulo": "Alfred saca un slab de su espalda y lo coloca en el agujero del refugio para que no entre zombie_baby_1",
+  "tipo_accion": "colocar_objeto",
+  "ejecutor": "docs/acciones/colocar_objeto.py",
+  "estado": "sin aprobar",
+  "descripcion": "Al ver que zombie_baby_1 se acerca corriendo, desde el frame 396 Alfred (asomado, inclinado 35 grados) lleva la mano derecha a la espalda, saca un slab de tablones de roble (1 x 1 x 0.5) y lo coloca en el agujero del refugio en (-94.5, -108.5, 14). La animacion de colocarlo dura 12 frames (f396-408); hasta f410 se queda con el brazo extendido.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Continua despues de 'se_asoma_otra_vez' (que ahora llega hasta f396). Ejecutor generico colocar_objeto.py; el cuerpo parte de la pose actual (ya inclinado)."
+  },
+  "parametros": {
+    "armature": "Armature",
+    "lado": "Right",
+    "objeto": {
+      "nombre": "slab_agujero",
+      "blend": "bloques_dinamicos/slab_de_tablones_de_roble.blend",
+      "fuente_objeto": "oak_planks_slab",
+      "escala": 0.35,
+      "escala_destino": 1.0,
+      "pop_frames": 2,
+      "asienta_frames": 3,
+      "nota": "(*) slab de tablones de roble 1 x 1 x 0.5 (origen en el centro de la base). En la mano va a escala 0.35 y al colocarlo crece a 1.0 (su tamano real en el agujero)."
+    },
+    "origen": {
+      "tipo": "espalda",
+      "offset_mundo": [
+        -0.27,
+        -0.12,
+        0.06
+      ],
+      "nota": "donde lleva el objeto: punto detras del omoplato, medido desde el hueso Spine1 al principio, en metros de mundo"
+    },
+    "destino": {
+      "loc": [
+        -94.5,
+        -108.5,
+        14.0
+      ],
+      "rot_deg": [
+        0,
+        0,
+        0
+      ],
+      "nota": "(*) el origen del slab (centro de su base): llena la mitad inferior del agujero (bloque x -95..-94, y -109..-108, z 14..15)"
+    },
+    "cuerpo": {
+      "giro_deg": 0.0,
+      "inclinacion_deg": 0.0,
+      "root_xy": [
+        -95.555603,
+        -108.459251
+      ],
+      "nota": "(*) sin giro ni inclinacion extra: ya esta asomado (inclinacion 35 grados, root en (-95.5556, -108.4593)); el brazo llega por IK"
+    },
+    "brazo": {
+      "alcance": {
+        "modo": "ik",
+        "muneca_sobre_destino": [
+          0,
+          0,
+          0.25
+        ],
+        "nota": "la muneca llega 0.25 m sobre el origen del slab (el centro del slab)"
+      }
+    },
+    "organico": {
+      "modo": "reglas_alfred",
+      "nota": "filtros organicos del segmento (respiracion, micro-movimiento de cabeza, secondary motion, suavizado, micro-escala) que el Alfred Studio aplica al concatenar; \"exacto\" = ninguno (reproduce las poses tal cual)"
+    },
+    "camara": {
+      "objeto": "Camera.001",
+      "foco": "Foco_Conversacion",
+      "nota": "sin cambios: la camara y el foco ya estan en sus coordenadas finales desde f340"
+    }
+  },
+  "tiempos": {
+    "inicio": 396,
+    "espalda": 399,
+    "alcance": 404,
+    "suelta": 405,
+    "quieto": 410,
+    "vuelve": 410,
+    "fin": 410,
+    "nota": "frames absolutos. inicio = pose de partida (asomado); espalda = la mano llega a la espalda y sale el slab (f399); alcance = brazo extendido sobre el agujero (f404); suelta = el slab se asienta en 3 frames (f405-408): colocarlo dura 12 frames (f396-408); hasta fin (f410) se queda con el brazo extendido."
+  },
+  "sonidos": [
+    {
+      "etiqueta": "slab_sale_espalda",
+      "archivo": "item/armor/equip_generic3.ogg",
+      "t": "espalda+1",
+      "volumen": 0.55,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "slab_puesto",
+      "archivo": "dig/wood1.ogg",
+      "t": "suelta+1",
+      "volumen": 1.0,
+      "canal": 23,
+      "grupo": "objetos"
+    }
+  ],
+  "notas_para_otra_ia": [
+    "Otro sitio: destino.loc (el origen del slab) y revisar el error de muneca que imprime el ejecutor.",
+    "Otro tiempo: `tiempos` (frames absolutos).",
+    "El slab llega al sitio a escala escala_destino; en la mano va a objeto.escala."
+  ],
+  "audio": []
+}

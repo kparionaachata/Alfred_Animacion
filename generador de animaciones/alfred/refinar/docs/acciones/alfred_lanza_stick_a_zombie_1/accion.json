@@ -1,0 +1,302 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "alfred_lanza_stick_a_zombie_1",
+  "titulo": "Alfred saca un stick de su espalda y se lo tira en la cara a zombie_1",
+  "tipo_accion": "lanzar_objeto",
+  "ejecutor": "docs/acciones/lanzar_objeto.py",
+  "estado": "sin aprobar",
+  "descripcion": "Despues de asustarse (V de brazos), Alfred baja los brazos, lleva la mano derecha a la espalda y saca un stick (f238), arma el brazo (torsion hacia atras, f258), lo lanza en 4 frames contra la cara de zombie_1 (f250; golpea en f256), el stick rebota y cae sobre el borde del agujero, y Alfred vuelve a su postura (f272) sin dejar de mirar al zombie. El stick rebota en la cara hacia Alfred y cae al suelo delante de sus pies con un segundo rebote pequeño.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Continua despues de 'se asusta de zombie_1' (f192-242). Los parametros con (*) son los que se cambian."
+  },
+  "parametros": {
+    "armature": "Armature",
+    "lado": "Right",
+    "reposo_frame": 192,
+    "frente": {
+      "rz_deg": -450.0,
+      "mira_a_grados": 0.0,
+      "cuello_x_por_grado_de_mirada": 0.84,
+      "nota": "calibracion de Alfred: con el root girado -450 grados mira al este"
+    },
+    "mira_a": {
+      "loc": [
+        -94.51,
+        -108.161,
+        14.733
+      ],
+      "nota": "(*) la cabeza de zombie_1: la mirada de Alfred se queda fija aqui (el cuello compensa el giro y la inclinacion del cuerpo)"
+    },
+    "objeto": {
+      "nombre": "stick_lanzado",
+      "blend": "objetos/vanilla/stick/stick.blend",
+      "fuente_objeto": "stick",
+      "escala": 0.6,
+      "pop_frames": 3,
+      "agarre_mano": [
+        0.888062,
+        0.428312,
+        -0.167782,
+        0.042892,
+        -0.433081,
+        0.905132,
+        0.026628,
+        0.463207,
+        0.162918,
+        0.048443,
+        0.985464,
+        0.010025,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "nota": "(*) otro objeto: nombre + blend + fuente_objeto (relativos a la raiz del proyecto); agarre_mano = matriz de agarre respecto al hueso del antebrazo"
+    },
+    "origen": {
+      "t": "espalda",
+      "offset_espalda": [
+        -0.27,
+        -0.12,
+        0.06
+      ],
+      "nota": "punto de la espalda donde sale el objeto, respecto a Spine1, en metros, en el marco del cuerpo (adelante, izquierda, arriba) de un personaje que mira al este"
+    },
+    "lanzamiento": {
+      "t": "lanza",
+      "vuelo": 6,
+      "golpea_en": [
+        -94.62,
+        -108.19,
+        14.74
+      ],
+      "giro": {
+        "eje": [
+          0,
+          1,
+          0
+        ],
+        "de": -540.0
+      },
+      "nota": "(*) golpea_en = punto de llegada del CENTRO del stick (la cara de zombie_1)"
+    },
+    "rebote": [
+      {
+        "vuelo": 12,
+        "cae_en": [
+          -95.15,
+          -108.75,
+          13.05
+        ],
+        "giro": {
+          "eje": [
+            0,
+            0,
+            1
+          ],
+          "de": 540.0
+        },
+        "nota": "(*) rebota en la cara hacia Alfred (al interior del refugio) y cae al suelo delante de sus pies (z 13)"
+      },
+      {
+        "vuelo": 5,
+        "cae_en": [
+          -95.35,
+          -108.82,
+          13.05
+        ],
+        "giro": {
+          "eje": [
+            0,
+            0,
+            1
+          ],
+          "de": 70.0
+        },
+        "arco": {
+          "altura": 0.14
+        },
+        "nota": "segundo rebote pequeño en el suelo"
+      }
+    ],
+    "pasos": [
+      {
+        "nombre": "espalda",
+        "t": "espalda",
+        "cuerpo": {
+          "dyaw": -10.0,
+          "lean": -4.0,
+          "adv": 0.0
+        },
+        "espalda": true,
+        "codo_delta": [
+          -0.05,
+          -0.2,
+          -0.2
+        ]
+      },
+      {
+        "nombre": "arma",
+        "t": "arma",
+        "cuerpo": {
+          "dyaw": -28.0,
+          "lean": -10.0,
+          "adv": -0.05
+        },
+        "mano_rel": [
+          -0.3,
+          -0.3,
+          1.78
+        ],
+        "codo_delta": [
+          0.2,
+          -0.2,
+          -0.28
+        ],
+        "nota": "mano atras y arriba de la cabeza (adelante, izquierda, arriba respecto al cuerpo)"
+      },
+      {
+        "nombre": "lanza",
+        "t": "lanza",
+        "cuerpo": {
+          "dyaw": 10.0,
+          "lean": 14.0,
+          "adv": 0.2,
+          "lineal": true
+        },
+        "mano_rel": [
+          0.6,
+          -0.12,
+          1.55
+        ],
+        "codo_delta": [
+          -0.3,
+          -0.28,
+          -0.05
+        ],
+        "nota": "el brazo restalla hacia delante (4 frames), con un paso al frente de 0.2 m"
+      },
+      {
+        "nombre": "sigue",
+        "t": "sigue",
+        "cuerpo": {
+          "dyaw": 16.0,
+          "lean": 20.0,
+          "adv": 0.26
+        },
+        "mano_rel": [
+          0.55,
+          0.2,
+          1.15
+        ],
+        "codo_delta": [
+          -0.3,
+          -0.3,
+          0.2
+        ],
+        "nota": "seguimiento del tiro: el brazo cruza hacia abajo"
+      },
+      {
+        "nombre": "reposo",
+        "t": "vuelve",
+        "cuerpo": {
+          "dyaw": 0.0,
+          "lean": 0.0,
+          "adv": 0.0
+        },
+        "reposo": true
+      }
+    ],
+    "brazo_otro": {
+      "reposo_en": "espalda",
+      "nota": "el brazo izquierdo baja de la V a su reposo hasta este tiempo"
+    },
+    "organico": {
+      "modo": "reglas_alfred"
+    }
+  },
+  "tiempos": {
+    "inicio": 230,
+    "espalda": 238,
+    "arma": 246,
+    "lanza": 250,
+    "sigue": 256,
+    "vuelve": 272,
+    "fin": 290,
+    "nota": "frames absolutos. inicio = fin del susto (230); espalda = la mano llega a la espalda y sale el stick; arma = brazo armado; lanza = suelta (vuela 6 frames, golpea en f256); sigue = fin del seguimiento; vuelve = postura de reposo; fin = ultimo frame (hasta f290 se queda parado en reposo mirando al zombie; f256-268 el stick rebota en la cara y cae en f268, rebote pequeño hasta f273)."
+  },
+  "audio_pendiente": {
+    "personaje": "ALFRED",
+    "texto": "(esfuerzo del lanzamiento)",
+    "inicio": 250,
+    "nota": "sin audio todavia"
+  },
+  "camara": {
+    "objeto": "Camera.001",
+    "fija": {
+      "loc": [
+        -95.995,
+        -109.89,
+        15.027
+      ],
+      "nota": "se queda donde esta"
+    }
+  },
+  "sonidos": [
+    {
+      "etiqueta": "stick_sale_espalda",
+      "archivo": "item/armor/equip_generic4.ogg",
+      "t": 239,
+      "volumen": 0.35,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "stick_lanza",
+      "archivo": "entity/player/attack/sweep2.ogg",
+      "t": 250,
+      "volumen": 0.7,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "stick_golpea_zombie",
+      "archivo": "entity/player/attack/weak2.ogg",
+      "t": 256,
+      "volumen": 0.75,
+      "canal": 23,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "stick_cae_suelo",
+      "archivo": "step/grass2.ogg",
+      "t": 268,
+      "volumen": 0.4,
+      "canal": 22,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "stick_rebote_suelo",
+      "archivo": "step/grass4.ogg",
+      "t": 273,
+      "volumen": 0.2,
+      "canal": 24,
+      "grupo": "objetos"
+    },
+    {
+      "etiqueta": "lanza_paso_adelante",
+      "archivo": "step/grass5.ogg",
+      "t": 252,
+      "volumen": 0.35,
+      "canal": 23,
+      "grupo": "pasos"
+    }
+  ],
+  "notas_para_otra_ia": [
+    "Mas fuerte/rapido: cambiar `cuerpo` de los pasos y los tiempos. Otro objetivo: mira_a.loc y lanzamiento.golpea_en.",
+    "Las posiciones de la mano son relativas al cuerpo (adelante, izquierda, arriba), asi se pueden reutilizar con otro personaje o direccion.",
+    "Si el zombie se mueve, hay que acordar golpea_en con su cabeza en f268."
+  ]
+}

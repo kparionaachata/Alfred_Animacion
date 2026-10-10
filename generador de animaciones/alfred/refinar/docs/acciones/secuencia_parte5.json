@@ -1,0 +1,15 @@
+{
+  "nota": "Orden de los guiones portables de la parte 5 (base_parte_5): cada animacion nueva se agrega al final. Lo usan ajustar.py y aplicar_secuencia.py.",
+  "guiones": [
+    "configuracion_portable_alfred_coloca_antorcha_desde_frame_1_f1_61.json",
+    "configuracion_portable_alfred_se_inclina_para_mirar_afuera_f61_112.json",
+    "configuracion_portable_alfred_voltea_a_ver_a_jerry_f112_192.json",
+    "configuracion_portable_alfred_se_asusta_de_zombie_1_f192_230.json",
+    "configuracion_portable_alfred_lanza_stick_a_zombie_1_f230_290.json",
+    "configuracion_portable_alfred_se_asoma_otra_vez_f290_396.json",
+    "configuracion_portable_alfred_coloca_slab_en_agujero_f396_410.json",
+    "configuracion_portable_alfred_retrocede_asustado_f410_462.json",
+    "configuracion_portable_alfred_se_agarra_el_pecho_f462_540.json",
+    "configuracion_portable_alfred_empuja_con_stick_f540_800.json"
+  ]
+}

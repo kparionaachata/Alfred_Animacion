@@ -1,0 +1,100 @@
+# -*- coding: utf-8 -*-
+"""ALFRED SACA UN STICK DE LA ESPALDA Y GOLPEA A UN PERSONAJE POR EL HUECO DEL REFUGIO, SIN ABRIR TU ESCENA: portable individual que PARTE de la pose de un archivo (la pose en que se quedo agarrandose el pecho) y la anima durante `inicio..fin`.
+Corre en Blender headless sobre la escena estatica (necesita el rig de Alfred solo para la IK de los brazos):
+  blender -b base_parte_5_estatica.blend --python golpear_con_stick.py -- <accion.json>
+Que hace: se endereza y avanza hasta el hueco (el cuerpo queda pegado a la pared, con piernas en marcha), la mano derecha va a la espalda (IK), saca el stick (evento `en_mano` del guion, el stick sigue a la mano) y desde `primer_golpe` da golpes con el
+brazo en ciclos armar -> golpear -> recuperar, cada golpe dirigido a la posicion REAL del objetivo en ese frame (se lee de las poses del portable del objetivo: `objetivo.portable`, su cabeza = z + `cabeza_m`). El resto de la pose (pierna de apoyo, empty) sale del archivo.
+Escribe `configuracion_portable_<nombre>_f<a>_<b>.json` + una pose por frame (el stick va en `objetos` del guion, con su asset)."""
+import hashlib
+import json
+import math
+import os
+import random
+import sys
+
+import bpy
+from mathutils import Euler, Quaternion, Vector
+
+AQUI = r"C:\Users\user\Desktop\Alfred_Animacion\generador de animaciones\alfred\refinar\docs\acciones"; sys.path.insert(0, AQUI)
+import pose_estatica as pe
+exec(open(os.path.join(AQUI, "..", "parte3", "ik_brazos.py"), encoding="utf-8").read(), globals())                     # fk, mundo, resolver, AA, OO
+
+A_ = json.load(open(sys.argv[sys.argv.index("--") + 1], encoding="utf-8")); P = A_["parametros"]; T = A_["tiempos"]; F0, FIN = int(T["inicio"]), int(T["fin"]); PF = P["pose_inicio"]; G = P["golpes"]; OBJ = P["objeto"]
+base = json.load(open(PF, encoding="utf-8"))["poses"][0]; rt = base["root"]; RZ = rt["rotation_euler_deg"]["z"]; ROOT0 = (rt["location"]["x"], rt["location"]["y"], rt["location"]["z"]); ROOT1 = (P["avance"]["root_xy"][0], P["avance"]["root_xy"][1], ROOT0[2])
+rot0 = {n: (b["local_space"]["rotation_euler_rad"]["x"], b["local_space"]["rotation_euler_rad"]["y"], b["local_space"]["rotation_euler_rad"]["z"]) for n, b in base["bones"].items()}; loc0 = {n: (b["local_space"]["location"]["x"], b["local_space"]["location"]["y"], b["local_space"]["location"]["z"]) for n, b in base["bones"].items()}
+SP = (("Spine_alfred", .32), ("Spine1_alfred", .34), ("Spine2_alfred", .34)); UP, EL = "RightUpArm_alfred", "Rightelbow_alfred"; ss = lambda x: max(0.0, min(1.0, x)) ** 2 * (3 - 2 * max(0.0, min(1.0, x)))
+th = math.radians(RZ + 450.0); fwd = Vector((math.cos(th), math.sin(th), 0)); izq = Vector((-math.sin(th), math.cos(th), 0)); arriba = Vector((0, 0, 1))
+# --- objetivo: posicion por frame
+pt = json.load(open(P["objetivo"]["portable"], encoding="utf-8")); dd = pt["portable"]["poses_directory"]; obj_pos = {}
+for m in pt["portable"]["pose_manifest"]:
+    if F0 <= m["frame"] <= FIN: r_ = json.load(open(os.path.join(dd, m["archivo"]), encoding="utf-8"))["poses"][0]["root"]["location"]; obj_pos[m["frame"]] = Vector((r_["x"], r_["y"], r_["z"]))
+rng = random.Random(int(G.get("semilla", 3)))
+
+
+def rot_con(lean, neck_comp=0.0):
+    r = {k: list(v) for k, v in rot0.items()}
+    for b, w in SP: r[b][0] = math.radians(lean * w)                                                                   # torso: lean absoluto (0 = erguido)
+    r["Neck_alfred"][0] = math.radians(neck_comp); r["Neck_alfred"][1] = 0.0; r["Neck_alfred"][2] = 0.0
+    return r
+
+
+def ik(lean, objetivo, hint, ini):
+    r = rot_con(lean); M = fk(r, loc0); Mw = mundo(ROOT1, math.radians(RZ)); q, qe, err, _ = resolver("Right", M["Spine2_alfred"], Mw, Vector(objetivo), codo_hint=Vector(hint), inicio=ini, iters=6000, semilla=4)
+    return q, 2 * math.atan2(qe.x, qe.w), err, M, Mw
+
+
+# --- claves del brazo: [(frame, lean, q, x_codo)]
+q_ini = Euler(rot0[UP], 'XYZ').to_quaternion(); x_ini = rot0[EL][0]; K = [dict(t=F0, lean=math.degrees(sum(rot0[b][0] for b, w in SP if b == "Spine_alfred") / 0.32) if False else math.degrees(rot0["Spine_alfred"][0] * 0.32 + rot0["Spine1_alfred"][0] * 0.34 + rot0["Spine2_alfred"][0] * 0.34) / 1.0, q=q_ini, x=x_ini)]
+# erguido en tE
+tE = int(G["espalda_t"]); M0 = fk(rot_con(0.0), loc0); Mw0 = mundo(ROOT1, math.radians(RZ)); sp1 = Mw0 @ M0["Spine1_alfred"].translation; off = G["offset_espalda"]
+BACK = sp1 + fwd * off[0] + izq * off[1] + arriba * off[2]
+q, x, err, M_, Mw_ = ik(0.0, BACK, BACK - izq * 0.2 + Vector((0, 0, -0.2)), (q_ini, x_ini)); K.append(dict(t=tE, lean=0.0, q=q, x=x)); print("IK espalda: error %.3f m, mano %s" % (err, [round(c, 3) for c in BACK])); qp, xp = q, x
+f = int(G["primer_golpe"]); golpes = []; per = G["periodo"]; nGolpe = 0; EMPUJAR = G.get("modo") == "empujar"; moves = math.dist(ROOT0, ROOT1) > 1e-4
+while f < FIN - 3:
+    s = f; golpes.append(s); o = obj_pos.get(min(max(s, min(obj_pos)), max(obj_pos)), Vector((-93.75, -108.5, 14.0)))
+    if EMPUJAR:                                                                                                           # desde lejos: empuja con el stick extendido hacia el objetivo (no lo alcanza, es el gesto)
+        def hombro(lean): rr = rot_con(lean); MM = fk(rr, loc0); return Mw0 @ MM["RightUpArm_alfred"].translation
+        h0 = hombro(2.0); h1 = hombro(12.0); dirv = Vector((o.x - h1.x, o.y - h1.y, (o.z + G["cabeza_m"]) - h1.z)); dirv.normalize()
+        listo = h0 + fwd * 0.30 - izq * 0.12 + Vector((0, 0, -0.12)); empuje = h1 + dirv * G["alcance_m"]
+        claves = ((s - 5, listo, 2.0, listo - fwd * 0.2 - izq * 0.2 + Vector((0, 0, -0.25))), (s, empuje, 12.0, empuje - dirv * 0.3 - izq * 0.2 + Vector((0, 0, -0.2))), (s + 3, empuje, 12.0, empuje - dirv * 0.3 - izq * 0.2 + Vector((0, 0, -0.2))), (s + 9, listo, 2.0, listo - fwd * 0.2 - izq * 0.2 + Vector((0, 0, -0.25))))
+    else:
+        obj = Vector((o.x - G["frente_m"], o.y + rng.uniform(-0.08, 0.08), o.z + G["cabeza_m"]))                          # muneca en el punto de golpe (el stick sobresale por delante)
+        base_w = Vector(ROOT1); arm_t = base_w + fwd * 0.15 - izq * 0.22 + Vector((0, 0, G["alza_m"])); rec = base_w + fwd * 0.45 - izq * 0.12 + Vector((0, 0, G["listo_m"]))
+        claves = ((s - 6, arm_t, -8.0, arm_t - fwd * 0.2 - izq * 0.25 + Vector((0, 0, -0.3))), (s, obj, 16.0, obj - fwd * 0.3 - izq * 0.2 + Vector((0, 0, -0.12))), (s + 4, rec, 6.0, rec - fwd * 0.2 - izq * 0.2 + Vector((0, 0, -0.2))))
+    for (tt, tgt, lean, hint) in claves:
+        if tt <= K[-1]["t"]: tt = K[-1]["t"] + 1
+        q, x, err, M_, Mw_ = ik(lean, tgt, hint, (qp, xp)); K.append(dict(t=tt, lean=lean, q=q, x=x)); qp, xp = q, x
+        if tt == s: print("IK %s f%d: error %.3f m, muneca %s (objetivo %s)" % ("empuje" if EMPUJAR else "golpe", s, err, [round(c, 3) for c in tgt], [round(c, 2) for c in o]))
+    f = s + rng.randint(int(per[0]), int(per[1]))
+# --- portable
+nombre = A_.get("nombre", "alfred_golpea_con_stick"); ruta, n = pe.crear("alfred", PF, F0, FIN - F0 + 1, nombre, aparicion=False); C = json.load(open(ruta, encoding="utf-8")); D = C["poses_dir"]; man = []; aps = {}
+legs = ("RightUpLeg_alfred", "LeftUpLeg_alfred")
+for fr in range(F0, FIN + 1):
+    t = fr - F0; ua = ss(t / float(P["avance"]["frames"])); fp = json.load(open(os.path.join(D, "%s_f%d.json" % (nombre, fr)), encoding="utf-8")); c = fp["poses"][0]; eul = {k: list(v) for k, v in rot0.items()}
+    for a_, b_ in zip(K, K[1:]):
+        if a_["t"] <= fr <= b_["t"]:
+            u = (fr - a_["t"]) / float(max(1, b_["t"] - a_["t"])); u = ss(u) if (b_["t"] - a_["t"]) > 5 else (u * u if b_["lean"] > a_["lean"] else u * (2 - u))                               # golpe rapido: acelera al bajar, frena al subir
+            qa, qb = a_["q"], b_["q"]; qq = qa.slerp(qb if qa.dot(qb) >= 0 else -qb, u); e = qq.to_euler('XYZ', Euler(eul[UP], 'XYZ')); eul[UP] = [e.x, e.y, e.z]; eul[EL] = [a_["x"] + (b_["x"] - a_["x"]) * u, 0.0, 0.0]; lean = a_["lean"] + (b_["lean"] - a_["lean"]) * u; break
+    else: a_ = K[-1]; qq = a_["q"]; e = qq.to_euler('XYZ', Euler(eul[UP], 'XYZ')); eul[UP] = [e.x, e.y, e.z]; eul[EL] = [a_["x"], 0.0, 0.0]; lean = a_["lean"]
+    u0 = ss(t / 8.0)
+    for b, w in SP: eul[b][0] = rot0[b][0] * (1 - u0) + math.radians(lean * w) * u0                                    # del torso de la pose de partida al torso calculado
+    eul["Neck_alfred"][0] = rot0["Neck_alfred"][0] * (1 - ss(t / 8.0)) - math.radians(lean * 0.7 / 0.84) * ss(t / 8.0); eul["Neck_alfred"][1] = rot0["Neck_alfred"][1] * (1 - ss(t / 8.0)); eul["Neck_alfred"][2] = rot0["Neck_alfred"][2] * (1 - ss(t / 8.0))
+    cam = (ua * (1 - ua) * 4 if ua < 1.0 else 0.0) if moves else 0.0                                                                       # piernas en marcha mientras avanza
+    eul[legs[0]][0] += math.radians(24) * math.sin(t * 0.9) * cam; eul[legs[1]][0] -= math.radians(24) * math.sin(t * 0.9) * cam
+    if moves: eul[legs[0]][1] *= (1 - ua); eul[legs[1]][1] *= (1 - ua)
+    if P.get("brazo_izquierdo_reposo"): ur = ss(t / 8.0); eul["LeftUpArm_alfred"] = [rot0["LeftUpArm_alfred"][i] + (math.radians(P["brazo_izquierdo_reposo"][i]) - rot0["LeftUpArm_alfred"][i]) * ur for i in range(3)]; eul["Leftelbow_alfred"] = [rot0["Leftelbow_alfred"][i] * (1 - ur) for i in range(3)]                                                            # la pose de piernas del susto se va enderezando
+    for hn, hb in c["bones"].items():
+        ls = hb["local_space"]; r = eul[hn]; ls["rotation_euler_rad"] = {"x": round(r[0], 6), "y": round(r[1], 6), "z": round(r[2], 6)}; ls["rotation_euler_deg"] = {k: round(math.degrees(r[i]), 4) for i, k in enumerate("xyz")}; hb["raw_rotation_euler_deg"] = dict(ls["rotation_euler_deg"])
+    x_, y_ = ROOT0[0] + (ROOT1[0] - ROOT0[0]) * ua, ROOT0[1] + (ROOT1[1] - ROOT0[1]) * ua; c["root"] = {"location": {"x": round(x_, 6), "y": round(y_, 6), "z": ROOT0[2]}, "rotation_euler_deg": {"x": 0.0, "y": 0.0, "z": RZ}, "scale": {"x": 1.0, "y": 1.0, "z": 1.0}}
+    p = os.path.join(D, "%s_f%d.json" % (nombre, fr)); json.dump(fp, open(p, "w", encoding="utf-8", newline="\n"), indent=2, ensure_ascii=False); man.append({"frame": fr, "archivo": os.path.basename(p), "sha256": hashlib.sha256(open(p, "rb").read()).hexdigest()}); aps[fr] = (x_, y_, ROOT0[2], RZ)
+def fix(ap): k = int(ap["pose_name"].rsplit("_f", 1)[1]); x_, y_, z_, rz_ = aps[k]; ap.update({"pos_x": x_, "pos_y": y_, "pos_z": z_, "rot_z": rz_})
+for ap in C["action_poses"]: fix(ap)
+for ap in C["alfred_segs"][0]["action_poses"]: fix(ap)
+# --- objeto (stick): sale de la espalda y sigue a la mano
+ref = json.load(open(P["plantilla_config"], encoding="utf-8")); C["armature_name"] = ref["armature_name"]; C["portable"]["required_target_objects"] = ref["portable"]["required_target_objects"]
+esc = float(OBJ["escala"]); C["objetos"] = [{"id": "obj_" + OBJ["nombre"], "nombre": OBJ["nombre"], "armature": "Armature", "hueso": EL, "escala_mano": esc, "inicial": {"loc": [BACK.x, BACK.y, BACK.z], "escala": 0.001, "visible": True},
+    "agarres": {"mano": {"matriz": OBJ["agarre_mano"], "origen": "agarre de la mano derecha tomado de stick_1 (valores de Kebyn en f625)"}}, "eventos": [{"tipo": "en_mano", "t": tE + 1, "agarre": "mano", "pop": {"dur": 3, "escala": esc}}]}]
+bl = os.path.join(r"C:\Users\user\Desktop\Alfred_Animacion", OBJ["blend"]); C["portable"]["object_asset"] = {"path": bl, "sha256": hashlib.sha256(open(bl, "rb").read()).hexdigest(), "root_object": OBJ["fuente_objeto"], "children": [], "library_objects": [OBJ["fuente_objeto"]]}
+C["portable"]["pose_manifest"] = man; C["description"] = A_["descripcion"]; C["export_desc"] = C["description"]; C["meta"]["titulo"] = A_["titulo"]; C["anclas"] = {"inicio_pose": F0, "espalda": tE, "primer_golpe": int(G["primer_golpe"]), "fin": FIN}
+C["meta"]["notas"] = "Parte de la pose de %s; avanza al hueco, saca el stick de la espalda y golpea al objetivo (%d golpes, posicion leida de su portable)." % (os.path.basename(PF), len(golpes))
+json.dump(C, open(ruta, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=2); print("GOLPES: %d golpes en f%s | portable escrito (%d frames): %s" % (len(golpes), golpes, n, ruta))

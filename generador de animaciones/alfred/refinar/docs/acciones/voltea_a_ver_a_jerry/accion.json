@@ -1,0 +1,111 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "voltea_a_ver_a_jerry",
+  "titulo": "Alfred voltea a ver a Jerry (que duerme) para decirle que siguen rodeados de zombies",
+  "tipo_accion": "girar_para_mirar",
+  "ejecutor": "docs/acciones/girar_para_mirar.py",
+  "estado": "sin aprobar",
+  "descripcion": "Alfred, que estaba asomado a la abertura mirando afuera, se endereza, gira el cuerpo y la cabeza hacia Jerry (dormido en el suelo, junto al muro sur, con la cabeza al oeste) y se queda mirandolo para decirle 'todavia continuan rodeados de zombies'. La voz se agrega cuando se tenga el audio (ver `audio_pendiente`).",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Continua despues de asomarse (f61-112). Los parametros con (*) son los que se cambian."
+  },
+  "parametros": {
+    "armature": "Armature",
+    "mirar_a": {
+      "loc": [
+        -96.6,
+        -109.335,
+        14.229
+      ],
+      "nota": "(*) punto del mundo que mira: la cabeza de Jerry (hueso scull de Dog_001_rig) dormido; los angulos se calculan solos"
+    },
+    "frente": {
+      "rz_deg": -450.0,
+      "mira_a_grados": 0.0,
+      "altura_ojos": 0.236,
+      "cuello_x_por_grado_de_mirada": 0.84,
+      "nota": "calibracion de Alfred: con el root girado -450 grados mira al este (0 grados, hacia +X; los grados crecen hacia +Y); sus ojos estan 0.236 m sobre la cabeza del hueso del cuello; el cuello X baja la mirada 0.84 grados por grado; el cuello (de pie) queda en root + (-0.015, -0.003, 1.467) m y los ojos 0.267 m por delante: sirven para calcular hacia donde mirar",
+      "cuello_sobre_root": [
+        -0.015,
+        -0.003,
+        1.467
+      ],
+      "adelante_ojos": 0.267
+    },
+    "cuerpo": {
+      "root_xy": [
+        -95.7,
+        -108.5
+      ],
+      "reparto_giro_cuerpo": 0.76,
+      "nota": "(*) vuelve al centro del pozo; rz_final_deg = rotacion Z FINAL del root de Alfred mirando a Jerry (-504.937, dada por Kebyn; el cuerpo gira desde -450) y el cuello lleva el resto del giro hasta Jerry; sin rz_final_deg, el giro se reparte con reparto_giro_cuerpo (76% cuerpo / 24% cuello)",
+      "rz_final_deg": -504.937
+    },
+    "enderezar": {
+      "inclinacion_deg": 35.0,
+      "cuello_deg": -25.0,
+      "nota": "deshace la inclinacion de la accion anterior (35 grados de torso, -25 de compensacion del cuello)"
+    },
+    "organico": {
+      "modo": "reglas_alfred"
+    },
+    "cuello_final_deg": [
+      30.286,
+      -36.181,
+      3.6435
+    ],
+    "cuello_final_nota": "(*) valor FINAL del hueso Neck_alfred (rotacion XYZ Euler, grados) cuando Alfred mira a Jerry, dado por Kebyn; manda sobre el calculo de la mirada (mirar_a queda como referencia)",
+    "cuello_durante_voz": {
+      "desde": 130,
+      "hasta": 185,
+      "deg": [
+        -3.958,
+        -35.869,
+        6.3244
+      ],
+      "nota": "(*) valor FIJO del hueso Neck_alfred (X, Y, Z en grados, dado por Kebyn) desde el inicio (f130) hasta el final (f185) de la voz 'Qué aburridos que son...'; antes llega a el desde la pose de f112 y despues pasa a `cuello_final_deg` (f192). La voz de Voz Sync no mueve el cuello en este clip (`cuello_fijo`)."
+    }
+  },
+  "tiempos": {
+    "inicio": 112,
+    "giro_hasta": 132,
+    "fin": 192,
+    "nota": "frames absolutos. giro = 20 frames (endereza y gira hacia Jerry); hasta fin se queda mirandolo (hablando). fin = 60 frames de espera PROVISIONAL: ajustarlo a la duracion del audio."
+  },
+  "audio_pendiente": {
+    "nota": "La voz 'Qué aburridos que son, ¿Qué no pueden ir a otro lado?' se reproduce desde f130 (ver ); la voz '¿Qué están haciendo?...' va desde f42 (colocar_objeto_exterior/accion_desde_frame_1.json)."
+  },
+  "camara": {
+    "objeto": "Camera.001",
+    "fija": {
+      "loc": [
+        -95.995,
+        -109.89,
+        15.027
+      ],
+      "nota": "se queda donde la dejo la accion anterior"
+    }
+  },
+  "sonidos": [],
+  "notas_para_otra_ia": [
+    "Para mirar a otro punto: cambia mirar_a.loc (coordenadas de mundo); el giro y la inclinacion de la cabeza se recalculan al ejecutar.",
+    "El reparto entre cuerpo y cuello se cambia con cuerpo.reparto_giro_cuerpo (1.0 = todo el cuerpo).",
+    "Los tiempos son frames absolutos de la escena."
+  ],
+  "audio": [
+    {
+      "personaje": "ALFRED",
+      "archivo": "audios/alfred/que_aburridos_que_son.wav",
+      "inicio": 130,
+      "emocion": "ENOJO",
+      "texto": "Qué aburridos que son, ¿Qué no pueden ir a otro lado?",
+      "cara": "audios/alfred/que_aburridos_que_son.cara.json",
+      "emocion_json": "audios/alfred/que_aburridos_que_son.emocion.json",
+      "duracion_f": 55,
+      "id": "aud_que_aburridos_que_son",
+      "cuello_fijo": true
+    }
+  ]
+}

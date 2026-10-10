@@ -1,0 +1,72 @@
+{
+  "esquema": "alfred_accion_v1",
+  "id": "inclinarse_para_mirar_afuera",
+  "titulo": "Alfred se inclina hacia delante para ver que pasa afuera de la base",
+  "tipo_accion": "inclinarse_para_mirar",
+  "ejecutor": "docs/acciones/inclinarse_para_mirar.py",
+  "estado": "sin aprobar",
+  "descripcion": "Alfred, de pie en el pozo (z 13) mirando al este, tras colocar la antorcha, inclina el torso hacia delante y adelanta el cuerpo hacia la abertura del muro (el bloque que corto) para asomarse y ver que hay afuera; el cuello compensa para que la cabeza mire al frente. Se queda asomado. Despues de asomarse (f88) la camara pasa de (-91.623, -107.82, 14.847) a (-95.995, -109.89, 15.027) en 24 frames, con Alfred todavia asomado.",
+  "origen": {
+    "escena": "base_parte_5.blend",
+    "fps": 24,
+    "nota": "Continua despues de colocar la antorcha (f1-77). Los parametros con (*) son los que se cambian para una version distinta."
+  },
+  "parametros": {
+    "armature": "Armature",
+    "cuerpo": {
+      "inclinacion_deg": 35.0,
+      "avance_root_xy": [
+        0.3,
+        0.0
+      ],
+      "nota": "(*) inclinacion hacia delante en grados (repartida en Spine / Spine1 / Spine2) y cuanto adelanta el root (m, x hacia el este)"
+    },
+    "cuello": {
+      "compensacion_deg": -25.0,
+      "giro_deg": 0.0,
+      "nota": "(*) el cuello se endereza para que la cabeza no mire al suelo: inclinacion neta de la cabeza = inclinacion + compensacion; giro_deg gira la cabeza a los lados"
+    },
+    "organico": {
+      "modo": "reglas_alfred",
+      "nota": "filtros organicos del segmento (respiracion, micro-movimiento de cabeza, secondary motion, suavizado, micro-escala) que el Alfred Studio aplica al concatenar; \"exacto\" = ninguno (reproduce las poses tal cual)"
+    },
+    "camara": {
+      "objeto": "Camera.001",
+      "foco": "Foco_Conversacion",
+      "fija": {
+        "loc": [
+          -91.623,
+          -107.82,
+          14.847
+        ],
+        "nota": "posicion de la camara al empezar el guion (la que traia la escena al terminar la parte anterior)"
+      },
+      "mueve_a": {
+        "desde": 88,
+        "hasta": 112,
+        "destino": [
+          -95.995,
+          -109.89,
+          15.027
+        ],
+        "interp": "smooth",
+        "nota": "(*) despues de asomarse (f88) la camara pasa AUTOMATICAMENTE a estas coordenadas; 24 frames, suave (duracion 0 = corte). Se cambia con docs/acciones/mover_camara.py sin tocar Blender"
+      }
+    }
+  },
+  "tiempos": {
+    "inicio": 61,
+    "inclinado": 70,
+    "asomado": 88,
+    "fin": 112,
+    "nota": "frames absolutos. inicio = pose de partida; inclinado = inclinacion completa; asomado = fin de la mirada (la inclinacion y el asomarse duran f61-88, 27 frames); fin = ultimo frame: Alfred se queda asomado mientras la camara cambia de sitio (f88-112)."
+  },
+  "sonidos": [],
+  "notas_para_otra_ia": [
+    "Para asomarse mas o menos: cambia cuerpo.inclinacion_deg y avance_root_xy; el cuello compensa con cuello.compensacion_deg.",
+    "Para mirar a un lado: cuello.giro_deg (positivo = a la izquierda del personaje).",
+    "Para cambiar de momento: edita `tiempos` (frames absolutos).",
+    "No incluye el regreso a la postura de reposo: la accion termina asomado.",
+    "La camara (Camera.001, con TRACK_TO a Foco_Conversacion) va en la seccion `camara` del guion: claves fijas hasta `asomado` y un `movimiento` suave hasta `fin`. Se aplica con el boton Camara del estudio (alfst.cam_aplicar)."
+  ]
+}

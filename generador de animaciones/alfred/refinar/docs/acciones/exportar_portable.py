@@ -66,6 +66,16 @@ base_ap = lambda k, i: dict({"pose_name": "%s_f%d" % (nombre, k), "json_file": o
 C["action_poses"] = [dict(base_ap(k, i), pose_index=0) for i, k in enumerate(range(f0, f1 + 1))]
 seg = C["alfred_segs"][0]; seg.update({"label": label, "frame_start": f0, "frame_end": f1, "frame_start_planned": f0, "frame_end_planned": f1, "seg_action_name": "alfredseg_" + label, "export_desc": S["titulo"]})
 seg["action_poses"] = [dict(base_ap(k, i), pose_label="Frame %d" % k, entry_ratio=0.3, exit_ratio=0.3, manual_start=True, frame_abs_start=k) for i, k in enumerate(range(f0, f1 + 1))]
+# FILTROS ORGANICOS del segmento (para que el movimiento no se vea robotico): por defecto el baseline de reglas_alfred (respiracion, micro-movimiento de cabeza, secondary motion de brazos, suavizado de curvas, micro-escala);
+# SPEC["organic"] = "exacto" los deja todos apagados (el portable reproduce las poses tal cual) o un dict propio con los campos de AlfredOrganicFilters.
+ORG_REGLAS_ALFRED = {"enabled": True, "breathing_enabled": True, "breathing_amplitude": 0.020, "breathing_speed": 0.010, "breathing_phase": 1.97, "head_sway_enabled": True, "head_sway_amplitude": 0.023, "head_sway_speed": 0.079, "head_sway_seed": 693,
+                     "weight_shift_enabled": False, "weight_shift_amplitude": 0.0, "weight_shift_speed": 0.0, "root_noise_enabled": False, "root_noise_strength": 0.0, "root_noise_frequency": 0.0, "root_noise_seed": 0,
+                     "secondary_motion_enabled": True, "secondary_motion_lag": 3.9, "secondary_motion_damping": 0.51, "smooth_curves_enabled": True, "smooth_passes": 3, "smooth_factor": 0.63, "micro_scale_enabled": True, "micro_scale_amplitude": 0.010,
+                     "shoulder_noise_enabled": False, "shoulder_noise_amplitude": 0.016, "shoulder_noise_speed": 0.091, "shoulder_noise_seed": 3449}
+_org = S.get("organic", "reglas")
+if _org == "exacto": C["alfred_segs"][0]["organic"] = {k: (False if k.endswith("_enabled") else v) for k, v in ORG_REGLAS_ALFRED.items()}; C["alfred_segs"][0]["organic"]["enabled"] = True
+elif isinstance(_org, dict): C["alfred_segs"][0]["organic"] = _org
+else: C["alfred_segs"][0]["organic"] = dict(ORG_REGLAS_ALFRED)
 C["export_name"] = "alfred_" + nombre; C["export_desc"] = S["titulo"]
 C["meta"] = {"nombre": nombre + "_portable", "titulo": S["titulo"], "personaje": "ALFRED", "fps": sc.render.fps, "frame_ini": f0, "frame_fin": f1, "fuente": [blend] + ([os.path.basename(S["fuente_guion"])] if S.get("fuente_guion") else []),
              "estado": "extraido_sin_aprobacion_nueva", "notas": S.get("notas", "Las poses se guardan una por frame (carpeta poses/%s) y se concatenan al cargar." % carpeta)}

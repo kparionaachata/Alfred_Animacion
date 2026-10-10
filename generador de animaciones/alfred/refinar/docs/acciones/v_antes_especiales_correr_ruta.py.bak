@@ -1,0 +1,134 @@
+# -*- coding: utf-8 -*-
+"""PERSONAJE QUE APARECE Y CORRE POR UNA LISTA DE COORDENADAS, MIRANDO A UN PUNTO, SIN BLENDER (segundos): portable individual de `zombie_baby_1` (rig de 8 huesos del videojuego).
+  python correr_ruta.py docs/acciones/zombie_baby_1_corre_al_agujero/accion.json
+Carrera "como en el videojuego": brazos estirados hacia delante (como todo zombie de Minecraft), piernas que se alternan rapido, cuerpo que rebota y se inclina hacia delante; el personaje esta OCULTO hasta el frame `aparece` (queda en el primer punto) y ahi se muestra y empieza a correr por los puntos a velocidad constante; siempre MIRA al punto `mirar_a` (el agujero del refugio); al llegar al ultimo punto se queda quieto mirandolo.
+Ejes del rig del bebe (medidos): todos los huesos apuntan a +Z; X positivo de una pierna / brazo que cuelga lleva su punta hacia +Y (el frente del personaje a rz = 0); rz = rumbo - 90.
+Escribe `<p>/refinar/configuraciones/guiones/configuracion_portable_<nombre>_f<a>_<b>.json` + una pose por frame. Organico apagado. Se aplica en Blender con `aplicar_portable_directo.py` (muestra la malla en `aparece`)."""
+import json
+import math
+import os
+import random
+import sys
+import hashlib
+
+AQUI = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, AQUI)
+import caminar_a_pose as cp
+import pose_estatica as pe
+ss = cp._smooth
+
+
+def plantilla(pers, huesos, armature):
+    """pose base (todo en cero) con la estructura de huesos del personaje, para `pose_estatica.crear`."""
+    b = {}
+    for n, par in huesos.items():
+        z = {"x": 0.0, "y": 0.0, "z": 0.0}; b[n] = {"parent": par, "connected": False, "local_space": {"location": dict(z), "rotation_euler_rad": dict(z), "rotation_euler_deg": dict(z), "rotation_quaternion": {"w": 1.0, "x": 0.0, "y": 0.0, "z": 0.0}, "scale": {"x": 1.0, "y": 1.0, "z": 1.0}},
+                                                    "rotation_mode": "XYZ", "raw_rotation_euler_deg": dict(z), "raw_location": dict(z), "raw_scale": {"x": 1.0, "y": 1.0, "z": 1.0}}
+    d = {"poses": [{"label": pers + "_base", "frame": 1, "armature": armature, "character": pers, "timestamp": "", "blender_version": "5.2.1", "file": "", "bone_count": len(b), "root": {"location": {"x": 0.0, "y": 0.0, "z": 0.0}, "rotation_euler_deg": {"x": 0.0, "y": 0.0, "z": 0.0}, "scale": {"x": 1.0, "y": 1.0, "z": 1.0}}, "bones": b}]}
+    r = os.path.join(os.environ.get("TEMP", "."), "plantilla_%s.json" % pers); json.dump(d, open(r, "w", encoding="utf-8"), indent=1); return r
+
+
+def main(acc_f):
+    A = json.load(open(acc_f, encoding="utf-8")); P = A["parametros"]; T = A["tiempos"]; pers = P["personaje"]; arm = P["armature"]; a, b, ap = int(T["inicio"]), int(T["fin"]), int(T["aparece"])
+    huesos = P["huesos"]; pts = [tuple(p) for p in P["puntos"]]; mira = P["mirar_a"]["loc"]; v = float(P["velocidad_m_s"]) / 24.0; C_ = P["carrera"]
+    pl = plantilla(pers, {h["nombre"]: h["padre"] for h in huesos.values()}, arm)
+    ruta, n = pe.crear(pers, pl, a, b - a + 1, pers + "_corre_al_agujero", aparicion=False)
+    C = json.load(open(ruta, encoding="utf-8")); D = C["poses_dir"]; nombre = pers + "_corre_al_agujero"
+    seg = [0.0]
+    for p0, p1 in zip(pts, pts[1:]): seg.append(seg[-1] + math.dist(p0, p1))
+    L = seg[-1]; llega = ap + L / v
+    def punto(d):
+        d = max(0.0, min(L, d))
+        for i in range(len(pts) - 1):
+            if d <= seg[i + 1] + 1e-9: u = (d - seg[i]) / max(seg[i + 1] - seg[i], 1e-9); return tuple(pts[i][k] + (pts[i + 1][k] - pts[i][k]) * u for k in range(3))
+        return pts[-1]
+    H = {k: huesos[k]["nombre"] for k in ("raiz", "cabeza", "cuerpo", "hueso", "brazo_izq", "brazo_der", "pierna_izq", "pierna_der")}; man = []; aps = {}; per = float(C_["periodo_frames"]); aL = math.radians(C_["pierna_deg"]); aB = math.radians(C_["brazos_adelante_deg"])
+    E = P.get("embestida"); segs = []
+    if E:                                                                                                       # embestida contra el slab y luego CONDUCTA AGRESIVA al azar (semilla): garras, meter las manos, meter la cabeza, saltar, moverse a lo largo del slab
+        rng = random.Random(int(E.get("semilla", 7))); fi, fim, fg = int(E["desde"]), int(E["impacto"]), int(E["garras_desde"]); dest = tuple(E["destino"]); bx, by = dest[0] - mira[0], dest[1] - mira[1]; bn = math.hypot(bx, by) or 1.0; back = (bx / bn, by / bn)
+        t0 = fg; y_cur = dest[1]; brazos = ["der", "izq"]; nb = 0; ylim = E["y_limites"]
+        while t0 < b:
+            TIPOS = ["garras", "manos", "cabeza", "saltar", "moverse", "embestir", "sacudir", "agachar", "trepar"]
+            tipo = "garras" if nb < 2 else rng.choices(TIPOS, weights=E["pesos"])[0]
+            while nb >= 2 and segs and tipo == segs[-1]["tipo"] and tipo != "garras": tipo = rng.choices(TIPOS, weights=E["pesos"])[0]           # no repite dos veces seguidas la misma conducta (salvo garras)
+            if tipo == "garras":
+                arm = brazos[nb] if nb < 2 else rng.choice(["der", "izq"]); n = rng.choice([2, 3, 3, 4]); st = []; ts_ = t0
+                for k in range(n): ln = rng.randint(6, 10); st.append((ts_, ln)); ts_ += ln
+                e1 = ts_; segs.append(dict(tipo=tipo, a=t0, b=e1, arm=arm, st=st, y0=y_cur, y1=y_cur, yaw=rng.uniform(-5, 5))); nb += 1
+            else:
+                dur = {"manos": rng.randint(12, 18), "cabeza": rng.randint(10, 14), "saltar": rng.randint(9, 12), "moverse": rng.randint(10, 14), "embestir": rng.randint(16, 22), "sacudir": rng.randint(10, 14), "agachar": rng.randint(12, 17), "trepar": rng.randint(12, 17)}[tipo]; y1 = rng.uniform(ylim[0], ylim[1]) if tipo == "moverse" else y_cur
+                e1 = t0 + dur; segs.append(dict(tipo=tipo, a=t0, b=e1, y0=y_cur, y1=y1, ph=rng.uniform(0, 6.28), amp=rng.uniform(0.8, 1.3), yaw=rng.uniform(-7, 7), dir=rng.choice([-1, 1]))); y_cur = y1
+            if tipo == "garras": y_cur = segs[-1]["y1"]
+            t0 = e1 + rng.randint(0, 2)
+        strikes = [s_ + int(0.8 * ln) for sg in segs if sg["tipo"] == "garras" for s_, ln in sg["st"]]
+    def seg_de(f):
+        for sg in segs:
+            if sg["a"] <= f < sg["b"]: return sg
+        return None
+    def brazo_garra(f, sg, quien):
+        if sg is None or sg["tipo"] != "garras" or sg["arm"] != quien: return E["reposo_deg"], 0.0
+        for s_, ln in sg["st"]:
+            if s_ <= f < s_ + ln:
+                u = (f - s_) / float(ln)
+                if u < 0.45: return E["reposo_deg"] + (E["alza_deg"] - E["reposo_deg"]) * ss(u / 0.45), 0.0
+                if u < 0.8: k = (u - 0.45) / 0.35; k = 1 - (1 - k) ** 2; return E["alza_deg"] + (E["golpe_deg"] - E["alza_deg"]) * k, k
+                return E["golpe_deg"] + (E["reposo_deg"] - E["golpe_deg"]) * ss((u - 0.8) / 0.2), 1.0
+        return E["reposo_deg"], 0.0
+    for f in range(a, b + 1):
+        t = f - ap; corre = t >= 0 and t * v < L
+        d = max(0.0, t) * v; x, y, z = punto(d); ph = 2 * math.pi * max(0.0, t) / per
+        rz = math.degrees(math.atan2(mira[1] - y, mira[0] - x)) - 90.0
+        fp = json.load(open(os.path.join(D, "%s_f%d.json" % (nombre, f)), encoding="utf-8")); c = fp["poses"][0]; bo = c["bones"]
+        def poner(h, rx=0.0, ry=0.0, rzz=0.0, loc=(0.0, 0.0, 0.0)):
+            ls = bo[h]["local_space"]; ls["rotation_euler_rad"] = {"x": round(rx, 6), "y": round(ry, 6), "z": round(rzz, 6)}; ls["rotation_euler_deg"] = {"x": round(math.degrees(rx), 4), "y": round(math.degrees(ry), 4), "z": round(math.degrees(rzz), 4)}
+            ls["location"] = {"x": round(loc[0], 6), "y": round(loc[1], 6), "z": round(loc[2], 6)}; bo[h]["raw_rotation_euler_deg"] = dict(ls["rotation_euler_deg"]); bo[h]["raw_location"] = dict(ls["location"])
+        w = 1.0 if corre else 0.0; s1 = math.sin(ph); s2 = math.sin(2 * ph)
+        pD, pI = aL * s1 * w, -aL * s1 * w; aD = aB - math.radians(C_["brazos_vaiven_deg"]) * s1 * w; aI = aB + math.radians(C_["brazos_vaiven_deg"]) * s1 * w; lean = math.radians(C_["inclinacion_deg"]) * w; zD = zI = 0.0; rebote = C_["rebote_m"] * abs(s1) * w; cabeza_x = 0.0; head_y = 0.0; twist = 0.0; yawj = 0.0
+        if E and f >= fi:
+            if f < fim:                                                                                          # salto contra la entrada
+                u = (f - fi) / float(fim - fi); k = ss(u); x = pts[-1][0] + (dest[0] - pts[-1][0]) * k; y = pts[-1][1] + (dest[1] - pts[-1][1]) * k; z = pts[-1][2] + (dest[2] - pts[-1][2]) * k + E["salto_m"] * math.sin(math.pi * u)
+                pD = pI = math.radians(35); aD = aI = math.radians(E["alza_deg"]); lean = math.radians(15); rebote = 0.0
+            else:
+                bump = sum(math.exp(-(f - st_) / 1.5) for st_ in strikes if 0 <= f - st_ <= 5); rc = math.sin(math.pi * (f - fim) / 4.0) if f - fim < 4 else 0.0; sg = seg_de(f) if f >= fg else None
+                yy = dest[1]; hop = 0.0; head = 0.0; lean_d = E["inclinacion_deg"]; aDd = aIi = E["reposo_deg"]; kD = kI = 0.0; pD = pI = 0.0; wig = 0.0; back_extra = 0.0; head_y = 0.0; twist = 0.0; yawj = 0.0
+                if f >= fg and sg is not None:
+                    u = (f - sg["a"]) / float(max(1, sg["b"] - sg["a"])); yy = sg["y0"] + (sg["y1"] - sg["y0"]) * ss(u) if sg["tipo"] == "moverse" else sg["y0"]
+                    if sg["tipo"] == "garras": aDd, kD = brazo_garra(f, sg, "der"); aIi, kI = brazo_garra(f, sg, "izq")
+                    elif sg["tipo"] == "manos":                                                                  # mete las dos manos por el hueco que queda sobre el slab, forcejeando
+                        wig = math.sin(sg["ph"] + f * 1.9); aDd = E["manos_deg"] + 7 * wig; aIi = E["manos_deg"] - 7 * wig; lean_d = E["inclinacion_deg"] + 10 + 3 * abs(wig); kD = 0.4 * wig; kI = -0.4 * wig
+                    elif sg["tipo"] == "cabeza":                                                                 # mete la cabeza: cuerpo muy inclinado, cabeza adelantada, brazos arriba
+                        lean_d = E["inclinacion_deg"] + 22 * math.sin(math.pi * min(1.0, u * 1.2)) ** 0.6; head = 22 * math.sin(math.pi * min(1.0, u * 1.2)) ** 0.6; aDd = aIi = E["alza_deg"] - 10
+                    elif sg["tipo"] == "saltar":                                                                 # salta contra el slab intentando pasar por encima
+                        hop = E["salto_m"] * math.sin(math.pi * u); aDd = aIi = E["alza_deg"]; pD = pI = 35.0 * math.sin(math.pi * u); lean_d = E["inclinacion_deg"] + 8
+                    elif sg["tipo"] == "moverse":                                                                # se mueve a lo largo del slab buscando por donde entrar (piernas en marcha rapida)
+                        ph2 = 2 * math.pi * (f - sg["a"]) / 6.0; pD = 40 * math.sin(ph2); pI = -pD; aDd = aIi = E["manos_deg"] - 10; lean_d = E["inclinacion_deg"] + 4
+                    elif sg["tipo"] == "embestir":                                                               # retrocede y vuelve a embestir el slab con todo el cuerpo
+                        d_ = E["retrocede_m"] * (ss(u / 0.4) if u < 0.4 else (1 - ss((u - 0.4) / 0.12)) if u < 0.52 else 0.0); back_extra = d_; aDd = aIi = E["alza_deg"] - 15 if 0.4 <= u < 0.55 else E["reposo_deg"]; lean_d = E["inclinacion_deg"] + (16 if 0.45 <= u < 0.7 else 0); hop = 0.12 * math.sin(math.pi * min(1.0, max(0.0, (u - 0.4) / 0.2))) if 0.4 <= u < 0.6 else 0.0; pD = 30 * math.sin(ss(u / 0.4) * 3.1) if u < 0.52 else 0.0; pI = -pD
+                    elif sg["tipo"] == "sacudir":                                                                # sacude la cabeza y el cuerpo rabioso, brazos en molinillo
+                        wig = math.sin(sg["ph"] + f * 1.6); head_y = 28 * wig * sg["amp"]; twist = 10 * wig; aDd = E["manos_deg"] + 25 * math.sin(f * 1.3 + sg["ph"]); aIi = E["manos_deg"] + 25 * math.sin(f * 1.3 + sg["ph"] + 2.2); lean_d = E["inclinacion_deg"] + 8
+                    elif sg["tipo"] == "agachar":                                                                # se agacha a rascar abajo, junto al slab / el suelo
+                        k_ = math.sin(math.pi * min(1.0, u * 1.1)) ** 0.5; lean_d = E["inclinacion_deg"] + 24 * k_; aDd = E["reposo_deg"] - (50 + 20 * math.sin(f * 1.7 + sg["ph"])) * k_; aIi = E["reposo_deg"] - (50 + 20 * math.sin(f * 1.7 + sg["ph"] + 2.5)) * k_; head = -10 * k_
+                    elif sg["tipo"] == "trepar":                                                                 # intenta trepar el slab: salta y agarra, patalea
+                        lean_d = E["inclinacion_deg"] + 16; aDd = aIi = E["alza_deg"] + 18 + 8 * math.sin(f * 1.5); pD = 45 * math.sin(f * 1.4 + sg["ph"]); pI = -pD; hop = 0.14 * abs(math.sin(math.pi * 2 * u))
+                    yawj = sg["yaw"] * math.sin(math.pi * u)
+                x = dest[0] + back[0] * (0.12 * rc + 0.03 * bump + back_extra); y = yy + back[1] * (0.12 * rc + 0.03 * bump + back_extra); z = dest[2] + hop
+                aD = math.radians(aDd); aI = math.radians(aIi); zD = math.radians(E["barrido_deg"]) * kD; zI = -math.radians(E["barrido_deg"]) * kI; pD = math.radians(pD); pI = math.radians(pI); lean = math.radians(lean_d + 5.0 * bump + 6.0 * rc); rebote = 0.0; cabeza_x = math.radians(head)
+            rz = math.degrees(math.atan2(mira[1] - y, mira[0] - x)) - 90.0 + (yawj if f >= fim else 0.0)
+        poner(H["pierna_der"], pD); poner(H["pierna_izq"], pI); poner(H["brazo_der"], aD, 0.0, zD); poner(H["brazo_izq"], aI, 0.0, zI)
+        poner(H["cuerpo"], lean, 0.0, math.radians(twist) if (E and f >= fim) else 0.0); poner(H["hueso"]); poner(H["cabeza"], -lean * 0.8 + (cabeza_x if (E and f >= fim) else 0.0), math.radians(head_y) if (E and f >= fim) else 0.0); poner(H["raiz"], loc=(0.0, 0.0, rebote))
+        c["root"] = {"location": {"x": round(x, 6), "y": round(y, 6), "z": round(z, 6)}, "rotation_euler_deg": {"x": 0.0, "y": 0.0, "z": round(rz, 4)}, "scale": {"x": 1.0, "y": 1.0, "z": 1.0}}
+        p = os.path.join(D, "%s_f%d.json" % (nombre, f)); json.dump(fp, open(p, "w", encoding="utf-8", newline="\n"), indent=2, ensure_ascii=False)
+        man.append({"frame": f, "archivo": os.path.basename(p), "sha256": hashlib.sha256(open(p, "rb").read()).hexdigest()}); aps[f] = (x, y, z, rz)
+    def fix(q): k = int(q["pose_name"].rsplit("_f", 1)[1]); x, y, z, rz = aps[k]; q.update({"pos_x": x, "pos_y": y, "pos_z": z, "rot_x": 0.0, "rot_y": 0.0, "rot_z": rz})
+    for q in C["action_poses"]: fix(q)
+    for q in C[pers + "_segs"][0]["action_poses"]: fix(q)
+    C["portable"]["pose_manifest"] = man; C["paso1_path"]["path_points"][0]["coords"] = list(pts[0]); C["paso1_path"]["root_rot_z"] = aps[a][3]
+    C["description"] = A["descripcion"]; C["export_desc"] = C["description"]; C["meta"]["titulo"] = A["titulo"]; C["meta"]["notas"] = "Carrera del videojuego (brazos al frente, piernas alternas). Oculto hasta f%d; recorre %d puntos (%.1f m) a %.1f m/s y llega en f%d mirando al agujero." % (ap, len(pts), L, P["velocidad_m_s"], round(llega))
+    C["anclas"] = {"inicio": a, "aparece": ap, "llega": int(round(llega)), "fin": b}
+    if E: C["conducta"] = {"desde": fi, "impacto": fim, "garras_desde": fg, "golpes_garra": strikes, "segmentos": [{k: v for k, v in sg.items() if k in ("tipo", "a", "b", "arm", "ph", "amp", "dir")} for sg in segs], "nota": "conducta del bebe contra el slab (la usa sonorizar_escena.py para los sonidos)"}
+    C["mundo"] = [{"id": "aparece_" + pers, "accion": "mostrar", "objetos": P["mallas"], "t": "aparece", "nota": "la malla aparece en f%d (antes oculta); el root y el armature no se tocan" % ap}]
+    json.dump(C, open(ruta, "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=2)
+    print("CORRE: %s f%d-f%d | aparece f%d, recorre %.1f m a %.1f m/s, llega f%d en %s" % (pers, a, b, ap, L, P["velocidad_m_s"], round(llega), [round(q, 2) for q in pts[-1]])); return ruta
+
+
+
+if __name__ == "__main__": main(sys.argv[1])
