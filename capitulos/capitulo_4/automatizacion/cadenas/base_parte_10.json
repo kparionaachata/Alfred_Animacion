@@ -1,0 +1,68 @@
+{
+  "descripcion": "Parte 10: Jerry saca a Alfred del tunel, cachetadas LE-VAN-TA-TE, flecha al pecho, segundo arrastre, golpes con el sombrero y Alfred se levanta.",
+  "variables": {
+    "DOCS": "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/alfred/refinar/docs",
+    "JERRY": "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/jerry/refinar",
+    "ENT": "{AUTO}/entradas/base_parte_10"
+  },
+  "rutas_python": ["{JERRY}"],
+  "tiempos_prop": "p10_tiempos",
+  "respaldos_max": 4,
+  "pasos": [
+    {"id": "limpiar_voces", "tipo": "borrar_props", "props": ["jerry_voces_rapidas"]},
+    {"id": "arrastre", "tipo": "script", "archivo": "{DOCS}/parte10/jerry_arrastra_alfred_parte10.py",
+     "depende_de": ["{JERRY}/jerry_animation_studio/tunel_jerry.py"]},
+    {"id": "voz_boca_ocupada", "tipo": "script", "archivo": "{DOCS}/parte10/voz_jerry_boca_ocupada_parte10.py", "checkpoint": true},
+    {"id": "jerry_levantate", "tipo": "voz_rapida", "inicio": "T['VOZ_LEV']", "audio": "{ENT}/jerry_levantate.wav",
+     "script": "{ENT}/cara_jerry_levantate.py", "tag": "jerry_levantate", "modo": "normal",
+     "depende_de": ["{JERRY}/jerry_animation_studio/voz_rapida.py", "{JERRY}/docs/voz_jerry_despierta.py"]},
+    {"id": "jerry_rio", "tipo": "voz_rapida", "inicio": "T['T_ARR0'] + 4", "audio": "{ENT}/jerry_rio.wav",
+     "script": "{ENT}/cara_jerry_rio.py", "tag": "jerry_rio", "modo": "boca_cerrada_cara", "efecto": "sin_efecto",
+     "depende_de": ["{JERRY}/jerry_animation_studio/voz_rapida.py"]},
+    {"id": "jerry_te_mueres", "tipo": "voz_rapida", "inicio": "T['GOLPES_S'][0] - 8", "audio": "{ENT}/jerry_te_mueres.wav",
+     "script": "{ENT}/cara_jerry_te_mueres.py", "tag": "jerry_te_mueres", "modo": "normal", "checkpoint": true,
+     "depende_de": ["{JERRY}/jerry_animation_studio/voz_rapida.py", "{JERRY}/docs/voz_jerry_despierta.py"]},
+    {"id": "sonidos", "tipo": "script", "archivo": "{DOCS}/parte10/sonidos_parte10.py"},
+    {"id": "voz_alfred", "tipo": "script", "archivo": "{DOCS}/parte10/voz_alfred_despertar_parte10.py"},
+    {"id": "filtros_parpadeos", "tipo": "script", "archivo": "{DOCS}/parte10/filtros_y_parpadeos_parte10.py"},
+    {"id": "flechas", "tipo": "script", "archivo": "{DOCS}/parte10/flechas_perpendiculares_parte10.py"},
+    {"id": "ducking", "tipo": "script", "archivo": "{DOCS}/acciones/ducking_voces.py"}
+  ],
+  "chequeos": {
+    "rango": ["1", "T['FIN']"],
+    "cada": 2,
+    "personajes": {
+      "alfred": {"armadura": "armature", "raiz": "alfred", "mallas": ["Mesh_?_alfred"]},
+      "jerry": {"armadura": "a.002", "raiz": "jerry", "mallas": ["Mesh_3_jerry"]}
+    },
+    "vigilados": ["flecha_*", "sombrero_jerry*"],
+    "saltos": {"umbral_m": 0.08, "factor": 5, "teleport_m": 0.6},
+    "giros": {"umbral_grados": 40, "factor": 5},
+    "tramos_rapidos": [
+      {"desde": "T['CACH'][0] - 6", "hasta": "T['CONTACTOS'][-1] + 8", "motivo": "cachetadas"},
+      {"desde": "T['T_FLECHA'] - 2", "hasta": "T['T_CAE1'] + 6", "motivo": "flecha al pecho y caida"},
+      {"desde": "T['GOLPES_S'][0] - 10", "hasta": "T['GOLPES_S'][-1] + 10", "motivo": "golpes con el sombrero"}
+    ],
+    "pegados": {"flecha_alfred": "alfred", "flecha_mano_*": "alfred", "flecha_entrepierna": "alfred", "flecha_pecho": "alfred"},
+    "penetracion": {
+      "pares": [["alfred", "jerry"]], "min_pares": 4,
+      "permitido": [
+        {"desde": "1", "hasta": "T['T_PARA'] + 12", "motivo": "primera mordida y arrastre"},
+        {"desde": "T['CACH'][0] - 4", "hasta": "T['CONTACTOS'][-1] + 8", "motivo": "cachetadas"},
+        {"desde": "T['T_MUERDE2'] - 4", "hasta": "T['T_ARR1'] + 14", "motivo": "segunda mordida y arrastre"}
+      ]
+    },
+    "suelo": {
+      "personajes": ["alfred", "jerry"], "umbral_m": 0.05, "alto_m": 0.35, "muestras": 16, "cada": 4,
+      "ignorar_prefijos": ["flecha", "sombrero", "miga", "Short_Grass", "Tall_Grass", "Fern", "Large_Fern", "Poppy", "Dandelion", "Allium", "Azure",
+                           "Pasto_roto", "White_Tulip", "Peony", "Lilac", "Sunflower", "Dead_Bush", "Sweet_Berry", "Seagrass", "Tall_Seagrass", "Vines", "Glow_Lichen"],
+      "ignorar_sufijos": ["_alfred", "_jerry"]
+    },
+    "distancias": [
+      {"nombre": "golpe con el sombrero", "frames": "T['GOLPES_S']", "a": "sombrero_jerry_libre", "b": "Mesh_0_alfred", "max_m": 0.03},
+      {"nombre": "cachetada", "frames": "T['CONTACTOS']", "a": "jerry", "b": "Mesh_0_alfred", "max_m": 0.03}
+    ],
+    "audio": {"voces": {"jerry": "VozJerry", "alfred": "VozAlfred"}},
+    "max_lineas": 25
+  }
+}

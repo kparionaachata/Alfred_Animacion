@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "export_timestamp": "2026-10-10 16:10:54.196927",
+  "camera_paths": [
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": [
+        {
+          "frame": 1880,
+          "location_x": -133.03346252441406,
+          "location_y": -69.31948852539062,
+          "location_z": 8.118526458740234,
+          "rotation_x": 0.0,
+          "rotation_y": -0.0,
+          "rotation_z": 0.0,
+          "fov": 20.0,
+          "freeze": false,
+          "freeze_frames": 12,
+          "has_focus": true,
+          "focus_x": -123.73570251464844,
+          "focus_y": -70.95478820800781,
+          "focus_z": 8.46430778503418,
+          "focus_rx": 0.0,
+          "focus_ry": 0.0,
+          "focus_rz": 0.0
+        }
+      ]
+    }
+  ]
+}

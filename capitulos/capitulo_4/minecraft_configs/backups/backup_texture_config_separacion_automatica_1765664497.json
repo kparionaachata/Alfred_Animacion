@@ -1,0 +1,43 @@
+{
+    "metadata": {
+        "version": "5.0",
+        "timestamp": "2025-12-13T13:42:19.352724",
+        "blender_version": "4.5.3",
+        "total_objects": 0,
+        "total_materials": 0,
+        "changes_only": true,
+        "default_texture_dir": "Prompt_054",
+        "includes_separation_tracking": true,
+        "separations_tracked": 1
+    },
+    "texture_paths": {},
+    "objects": {},
+    "separation_tracking": {
+        "Bedrock": {
+            "original_object": "Bedrock",
+            "separated_cubes": [
+                "Bedrock.004",
+                "Bedrock.005",
+                "Bedrock.006",
+                "Bedrock.007",
+                "Bedrock.008",
+                "Bedrock.011",
+                "Bedrock.012",
+                "Bedrock.013",
+                "Bedrock.015",
+                "Bedrock.018",
+                "Bedrock.019",
+                "Bedrock.021",
+                "Bedrock.022",
+                "Bedrock.023",
+                "Bedrock.024",
+                "Bedrock.025",
+                "Bedrock.026",
+                "Bedrock.027"
+            ],
+            "cube_count": 18,
+            "group_materials": {},
+            "separation_timestamp": "2025-12-13T13:42:19.360910"
+        }
+    }
+}

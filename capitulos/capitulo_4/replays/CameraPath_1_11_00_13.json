@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "export_timestamp": "2026-09-11 00:13:22.953933",
+  "camera_paths": [
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": [
+        {
+          "frame": 1,
+          "location_x": -5.801008701324463,
+          "location_y": 16.966716766357422,
+          "location_z": 25.150712966918945,
+          "rotation_x": 1.057816743850708,
+          "rotation_y": -0.07452556490898132,
+          "rotation_z": 3.0460705757141113,
+          "fov": 50.0
+        },
+        {
+          "frame": 362,
+          "location_x": -5.801008701324463,
+          "location_y": 16.966716766357422,
+          "location_z": 25.150712966918945,
+          "rotation_x": 1.057816743850708,
+          "rotation_y": -0.07452556490898132,
+          "rotation_z": 3.0460705757141113,
+          "fov": 50.0
+        },
+        {
+          "frame": 404,
+          "location_x": -3.003052234649658,
+          "location_y": -1.6275861263275146,
+          "location_z": 16.25121307373047,
+          "rotation_x": 1.4988409280776978,
+          "rotation_y": -0.02654183655977249,
+          "rotation_z": 1.218014121055603,
+          "fov": 50.0
+        }
+      ]
+    }
+  ]
+}

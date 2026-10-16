@@ -1,0 +1,2053 @@
+{
+  "version": "1.0",
+  "export_timestamp": "2026-07-19 08:20:39.107257",
+  "camera_paths": [
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": []
+    },
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": [
+        {
+          "frame": 1,
+          "location_x": -74.04119110107422,
+          "location_y": -12.77184009552002,
+          "location_z": 10.649195671081543,
+          "rotation_x": 1.518892765045166,
+          "rotation_y": 0.030557682737708092,
+          "rotation_z": 4.44102144241333,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "inicio",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 8,
+          "location_x": -73.05404479980469,
+          "location_y": -12.691155586242676,
+          "location_z": 10.644913291931152,
+          "rotation_x": 1.512560248374939,
+          "rotation_y": 0.03383577153086662,
+          "rotation_z": 4.406811218261719,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 19,
+          "location_x": -71.5733253479004,
+          "location_y": -12.57012882232666,
+          "location_z": 10.638489723205566,
+          "rotation_x": 1.5030614733695984,
+          "rotation_y": 0.03875290472060442,
+          "rotation_z": 4.355495882034302,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 43,
+          "location_x": -68.28283767700195,
+          "location_y": -12.301180458068847,
+          "location_z": 10.624215126037598,
+          "rotation_x": 1.4819530844688416,
+          "rotation_y": 0.04967986736446619,
+          "rotation_z": 4.2414618015289305,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 54,
+          "location_x": -66.80211822509766,
+          "location_y": -12.180153694152832,
+          "location_z": 10.617791557312012,
+          "rotation_x": 1.472454309463501,
+          "rotation_y": 0.05459700055420399,
+          "rotation_z": 4.190146465301513,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 61,
+          "location_x": -65.81497192382812,
+          "location_y": -12.099469184875488,
+          "location_z": 10.613509178161621,
+          "rotation_x": 1.466121792793274,
+          "rotation_y": 0.05787508934736252,
+          "rotation_z": 4.155936241149902,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 68,
+          "location_x": -63.12371566772461,
+          "location_y": -12.26494571685791,
+          "location_z": 10.775344200134278,
+          "rotation_x": 1.4436130952835082,
+          "rotation_y": 0.05093007862567902,
+          "rotation_z": 3.9265752983093263,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 78,
+          "location_x": -59.08683128356934,
+          "location_y": -12.513160514831544,
+          "location_z": 11.018096733093262,
+          "rotation_x": 1.40985004901886,
+          "rotation_y": 0.04051256254315376,
+          "rotation_z": 3.5825338840484617,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 102,
+          "location_x": -50.115977096557614,
+          "location_y": -13.064748954772949,
+          "location_z": 11.557546806335449,
+          "rotation_x": 1.334821057319641,
+          "rotation_y": 0.01736252680420876,
+          "rotation_z": 2.817997407913208,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 112,
+          "location_x": -46.07909271240234,
+          "location_y": -13.312963752746581,
+          "location_z": 11.800299339294433,
+          "rotation_x": 1.3010580110549927,
+          "rotation_y": 0.006945010721683499,
+          "rotation_z": 2.4739559936523436,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 119,
+          "location_x": -43.38783645629883,
+          "location_y": -13.478440284729004,
+          "location_z": 11.96213436126709,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2445950508117676,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 143,
+          "location_x": -43.38783645629883,
+          "location_y": -14.135694274902344,
+          "location_z": 11.825964889526368,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.1881661796569825,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 179,
+          "location_x": -43.38783645629883,
+          "location_y": -15.121575260162354,
+          "location_z": 11.621710681915284,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.1035228729248048,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 258,
+          "location_x": -43.38783645629883,
+          "location_y": -17.312421894073488,
+          "location_z": 11.16781244277954,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.9154266357421874,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 294,
+          "location_x": -43.38783645629883,
+          "location_y": -18.298302879333498,
+          "location_z": 10.963558235168456,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.8307833290100097,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 318,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 323,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "CONSTANT",
+            "easing": "AUTO",
+            "handle_type": "VECTOR",
+            "speed_multiplier": 0.0,
+            "nota": "pausa: congela la camara durante todo el tramo"
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 332,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "CONSTANT",
+            "easing": "AUTO",
+            "handle_type": "VECTOR",
+            "speed_multiplier": 0.0,
+            "nota": "pausa: congela la camara durante todo el tramo"
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 350,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "CONSTANT",
+            "easing": "AUTO",
+            "handle_type": "VECTOR",
+            "speed_multiplier": 0.0,
+            "nota": "pausa: congela la camara durante todo el tramo"
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 358,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "CONSTANT",
+            "easing": "AUTO",
+            "handle_type": "VECTOR",
+            "speed_multiplier": 0.0,
+            "nota": "pausa: congela la camara durante todo el tramo"
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 363,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "CONSTANT",
+            "easing": "AUTO",
+            "handle_type": "VECTOR",
+            "speed_multiplier": 0.0,
+            "nota": "pausa: congela la camara durante todo el tramo"
+          }
+        },
+        {
+          "frame": 371,
+          "location_x": -42.813037719726566,
+          "location_y": -18.040341720581054,
+          "location_z": 11.124070205688476,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.8669269466400147,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 383,
+          "location_x": -41.950839614868165,
+          "location_y": -16.66751899719238,
+          "location_z": 11.56909236907959,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.0057856798172,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 411,
+          "location_x": -40.034843826293944,
+          "location_y": -13.616801834106447,
+          "location_z": 12.55803050994873,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.3143606424331664,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 423,
+          "location_x": -39.17264572143554,
+          "location_y": -12.243979110717774,
+          "location_z": 13.003052673339845,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.4532193756103515,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 431,
+          "location_x": -38.59784698486328,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 439,
+          "location_x": -37.42201278686523,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 450,
+          "location_x": -35.65826148986817,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 476,
+          "location_x": -31.73881416320801,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 488,
+          "location_x": -29.975062866210937,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 496,
+          "location_x": -28.79922866821289,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 502,
+          "location_x": -28.836096725463868,
+          "location_y": -12.605873107910156,
+          "location_z": 13.114029693603516,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5108477306365966,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 511,
+          "location_x": -28.89139881134033,
+          "location_y": -14.521536827087402,
+          "location_z": 12.83547306060791,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.458431529998779,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 530,
+          "location_x": -29.014292335510255,
+          "location_y": -18.77856731414795,
+          "location_z": 12.216458320617676,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.341951084136963,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 539,
+          "location_x": -29.069594421386718,
+          "location_y": -20.694231033325195,
+          "location_z": 11.93790168762207,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.2895348834991456,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 545,
+          "location_x": -29.106462478637695,
+          "location_y": -21.97134017944336,
+          "location_z": 11.752197265625,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2545907497406006,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 571,
+          "location_x": -29.30058906555176,
+          "location_y": -22.990151138305663,
+          "location_z": 11.60882568359375,
+          "rotation_x": 1.2837789487838744,
+          "rotation_y": -0.005148092955350876,
+          "rotation_z": 2.0950224733352663,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 609,
+          "location_x": -29.59177894592285,
+          "location_y": -24.518367576599122,
+          "location_z": 11.393768310546875,
+          "rotation_x": 1.2916234016418457,
+          "rotation_y": -0.012870232388377189,
+          "rotation_z": 1.8556700587272643,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 694,
+          "location_x": -30.238867568969727,
+          "location_y": -27.914404106140136,
+          "location_z": 10.915863037109375,
+          "rotation_x": 1.3090555191040039,
+          "rotation_y": -0.030030542239546775,
+          "rotation_z": 1.3237758040428163,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 732,
+          "location_x": -30.53005744934082,
+          "location_y": -29.442620544433595,
+          "location_z": 10.7008056640625,
+          "rotation_x": 1.3168999719619752,
+          "rotation_y": -0.03775268167257309,
+          "rotation_z": 1.0844233894348145,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 758,
+          "location_x": -30.724184036254883,
+          "location_y": -30.4614315032959,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 0.92485511302948,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 789,
+          "location_x": -30.594425888061522,
+          "location_y": -30.18920425415039,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 0.984605746269226,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 836,
+          "location_x": -30.399788665771485,
+          "location_y": -29.78086338043213,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.0742316961288452,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 940,
+          "location_x": -29.967261505126952,
+          "location_y": -28.873439216613768,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.2734004735946656,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 987,
+          "location_x": -29.772624282836915,
+          "location_y": -28.46509834289551,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.3630264234542846,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1018,
+          "location_x": -29.642866134643555,
+          "location_y": -28.19287109375,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.4227770566940308,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 1046,
+          "location_x": -29.642866134643555,
+          "location_y": -27.069815216064452,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.6452711868286132,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1089,
+          "location_x": -29.642866134643555,
+          "location_y": -25.38523139953613,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.979012382030487,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1183,
+          "location_x": -29.642866134643555,
+          "location_y": -21.641711807250978,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 2.7206594824790953,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1226,
+          "location_x": -29.642866134643555,
+          "location_y": -19.957127990722654,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.0544006776809693,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1254,
+          "location_x": -29.642866134643555,
+          "location_y": -18.83407211303711,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.2768948078155518,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 1269,
+          "location_x": -30.140894927978515,
+          "location_y": -19.397517852783203,
+          "location_z": 10.518716316223145,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.0429007750749588,
+          "rotation_z": 3.4207722473144533,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1291,
+          "location_x": -30.88793811798096,
+          "location_y": -20.242686462402343,
+          "location_z": 10.460639667510986,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077574551106,
+          "rotation_z": 3.6365884065628054,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1340,
+          "location_x": -32.54803409576416,
+          "location_y": -22.120838928222657,
+          "location_z": 10.331580448150635,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077723562717,
+          "rotation_z": 4.116179871559143,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1362,
+          "location_x": -33.2950772857666,
+          "location_y": -22.966007537841797,
+          "location_z": 10.273503799438476,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077790617943,
+          "rotation_z": 4.331996030807495,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1377,
+          "location_x": -33.79310607910156,
+          "location_y": -23.52945327758789,
+          "location_z": 10.234786033630371,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900778353214264,
+          "rotation_z": 4.4758734703063965,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 1384,
+          "location_x": -33.263260192871094,
+          "location_y": -23.130665588378907,
+          "location_z": 10.207577247619628,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.0429007788002491,
+          "rotation_z": 4.3490008354187015,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1395,
+          "location_x": -32.46849136352539,
+          "location_y": -22.53248405456543,
+          "location_z": 10.166764068603516,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900779470801356,
+          "rotation_z": 4.158691883087158,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1418,
+          "location_x": -30.702338409423827,
+          "location_y": -21.20319175720215,
+          "location_z": 10.076068115234374,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078096091747,
+          "rotation_z": 3.735783100128174,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1429,
+          "location_x": -29.907569580078125,
+          "location_y": -20.60501022338867,
+          "location_z": 10.035254936218262,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078163146973,
+          "rotation_z": 3.545474147796631,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1436,
+          "location_x": -29.377723693847656,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.4186015129089355,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 1472,
+          "location_x": -29.295374984741212,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.3951937103271486,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1527,
+          "location_x": -29.171851921081544,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.360082006454468,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1648,
+          "location_x": -28.897356224060058,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.2820559978485107,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1703,
+          "location_x": -28.77383316040039,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.24694429397583,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1739,
+          "location_x": -28.691484451293945,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.223536491394043,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 1757,
+          "location_x": -28.691484451293945,
+          "location_y": -20.151701736450196,
+          "location_z": 10.05108772277832,
+          "rotation_x": 1.3150295782089234,
+          "rotation_y": -0.04230943188071251,
+          "rotation_z": 3.2238236236572266,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1785,
+          "location_x": -28.691484451293945,
+          "location_y": -20.069920539855957,
+          "location_z": 10.115650081634522,
+          "rotation_x": 1.3043795347213745,
+          "rotation_y": -0.04142240658402443,
+          "rotation_z": 3.224254322052002,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1845,
+          "location_x": -28.691484451293945,
+          "location_y": -19.888184547424316,
+          "location_z": 10.259121990203857,
+          "rotation_x": 1.2807127714157105,
+          "rotation_y": -0.03945123925805092,
+          "rotation_z": 3.225211429595947,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1873,
+          "location_x": -28.691484451293945,
+          "location_y": -19.806403350830077,
+          "location_z": 10.32368434906006,
+          "rotation_x": 1.2700627279281616,
+          "rotation_y": -0.038564213961362837,
+          "rotation_z": 3.2256421279907226,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1891,
+          "location_x": -28.691484451293945,
+          "location_y": -19.751882553100586,
+          "location_z": 10.36672592163086,
+          "rotation_x": 1.2629626989364624,
+          "rotation_y": -0.037972863763570786,
+          "rotation_z": 3.2259292602539062,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 1906,
+          "location_x": -28.691484451293945,
+          "location_y": -19.788486251831056,
+          "location_z": 10.687573165893555,
+          "rotation_x": 1.212740638256073,
+          "rotation_y": -0.033455840054666626,
+          "rotation_z": 3.226905555725098,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1929,
+          "location_x": -28.691484451293945,
+          "location_y": -19.843391799926756,
+          "location_z": 11.168844032287598,
+          "rotation_x": 1.137407547235489,
+          "rotation_y": -0.026680304491310383,
+          "rotation_z": 3.2283699989318846,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 1981,
+          "location_x": -28.691484451293945,
+          "location_y": -19.96540412902832,
+          "location_z": 12.238334846496581,
+          "rotation_x": 0.9700006783008576,
+          "rotation_y": -0.011623558794963174,
+          "rotation_z": 3.2316243171691896,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2004,
+          "location_x": -28.691484451293945,
+          "location_y": -20.020309677124022,
+          "location_z": 12.719605712890624,
+          "rotation_x": 0.8946675872802734,
+          "rotation_y": -0.004848023231606928,
+          "rotation_z": 3.2330887603759764,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2019,
+          "location_x": -28.691484451293945,
+          "location_y": -20.056913375854492,
+          "location_z": 13.04045295715332,
+          "rotation_x": 0.844445526599884,
+          "rotation_y": -0.00033099952270276845,
+          "rotation_z": 3.234065055847168,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 2030,
+          "location_x": -29.167953033447265,
+          "location_y": -20.447699584960937,
+          "location_z": 12.810923843383788,
+          "rotation_x": 0.8744490385055542,
+          "rotation_y": -0.0006206685933284462,
+          "rotation_z": 3.37291748046875,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2045,
+          "location_x": -29.882655906677247,
+          "location_y": -21.033878898620607,
+          "location_z": 12.466630172729491,
+          "rotation_x": 0.9194543063640594,
+          "rotation_y": -0.0010551721992669628,
+          "rotation_z": 3.581196117401123,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2081,
+          "location_x": -31.47088451385498,
+          "location_y": -22.33649959564209,
+          "location_z": 11.701533126831055,
+          "rotation_x": 1.0194660127162933,
+          "rotation_y": -0.0020207357680192216,
+          "rotation_z": 4.044037532806397,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2096,
+          "location_x": -32.18558738708496,
+          "location_y": -22.92267890930176,
+          "location_z": 11.357239456176758,
+          "rotation_x": 1.0644712805747987,
+          "rotation_y": -0.002455239373957738,
+          "rotation_z": 4.252316169738769,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2107,
+          "location_x": -32.66205596923828,
+          "location_y": -23.313465118408203,
+          "location_z": 11.127710342407227,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.391168594360352,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        },
+        {
+          "frame": 2119,
+          "location_x": -32.50885070800781,
+          "location_y": -22.978859786987304,
+          "location_z": 11.215142631530762,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.316038646697998,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2136,
+          "location_x": -32.27904281616211,
+          "location_y": -22.476951789855956,
+          "location_z": 11.346291065216064,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.203343725204467,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2176,
+          "location_x": -31.768358612060545,
+          "location_y": -21.36160068511963,
+          "location_z": 11.637732028961182,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.952910566329956,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2193,
+          "location_x": -31.538550720214843,
+          "location_y": -20.859692687988282,
+          "location_z": 11.768880462646484,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.8402156448364257,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          },
+          "effect_meta": {
+            "effect": "speed_ramp"
+          }
+        },
+        {
+          "frame": 2205,
+          "location_x": -31.385345458984375,
+          "location_y": -20.525087356567383,
+          "location_z": 11.85631275177002,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.7650856971740723,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED",
+            "speed_multiplier": 1.0
+          }
+        }
+      ],
+      "original_keyframe_count": 18,
+      "total_keyframe_count_after_effects": 86
+    }
+  ],
+  "transition_preset": "speed_ramp_pausas",
+  "transition_preset_description": "Holds reales congelados (CONSTANT); resto con Ease In/Out, speed_multiplier variable y densidad extra de keyframes.",
+  "effects_applied": [
+    "speed_ramp"
+  ]
+}

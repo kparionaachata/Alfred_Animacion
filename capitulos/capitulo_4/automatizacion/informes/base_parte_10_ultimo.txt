@@ -1,0 +1,31 @@
+CHEQUEOS f1-812  (812 frames, 2 personajes, 8 objetos vigilados, 80 tiras de audio, 42 s)
+RESULTADO: 5 errores, 10 avisos
+
+ERRORES:
+  - [f633] golpe con el sombrero: sombrero_jerry_libre NO llega a Mesh_0_alfred (queda a 26.2 cm, maximo 3.0)
+  - [f647] golpe con el sombrero: sombrero_jerry_libre NO llega a Mesh_0_alfred (queda a 21.7 cm, maximo 3.0)
+  - [f619] golpe con el sombrero: sombrero_jerry_libre NO llega a Mesh_0_alfred (queda a 19.3 cm, maximo 3.0)
+  - [f300] cachetada: jerry NO llega a Mesh_0_alfred (queda a 10.2 cm, maximo 3.0)
+  - [f331] cachetada: jerry NO llega a Mesh_0_alfred (queda a 9.5 cm, maximo 3.0)
+
+AVISOS (revisar):
+  - [f414] alfred:LeftUpArm_alfred se mueve 0.17 m en 1 frame (10x lo normal de sus vecinos) (y 20 huesos/objetos mas de alfred)
+  - [f414] obj flecha_entrepierna se mueve 0.17 m en 1 frame (25x lo normal de sus vecinos)
+  - [f414] obj flecha_mano_izq se mueve 0.17 m en 1 frame (22x lo normal de sus vecinos)
+  - [f414] obj flecha_mano_der se mueve 0.16 m en 1 frame (15x lo normal de sus vecinos)
+  - [f388] alfred:Spine1_alfred se mueve 0.12 m en 1 frame (22x lo normal de sus vecinos) (y 16 huesos/objetos mas de alfred)
+  - [f388] obj flecha_entrepierna se mueve 0.12 m en 1 frame (13x lo normal de sus vecinos)
+  - [f388] obj flecha_mano_der se mueve 0.12 m en 1 frame (15x lo normal de sus vecinos)
+  - [f388] obj flecha_mano_izq se mueve 0.12 m en 1 frame (27x lo normal de sus vecinos)
+  - [f362] obj flecha_mano_der se mueve 0.10 m en 1 frame (15x lo normal de sus vecinos)
+  - [f453] raiz jerry se mueve 0.09 m en 1 frame (17x lo normal de sus vecinos)
+
+COMPROBADO OK:
+  - cachetada (f284): 0.0 cm
+  - cachetada (f316): 0.1 cm
+  - relevo flecha_pecho_vuelo -> flecha_pecho en f429: 0.012 m
+  - relevo sombrero_jerry -> sombrero_jerry_libre en f601: 0.009 m
+  - relevo sombrero_jerry_libre -> sombrero_jerry en f669: 0.009 m
+
+REVISADO: saltos y giros en 812 frames; penetracion 406, suelo 406, pegados 1816, distancias 7
+TIEMPOS: frames 8 s, mallas 19 s, penetracion 0 s, suelo 15 s, distancias 0 s

@@ -1,0 +1,3256 @@
+{
+  "version": "1.0",
+  "export_timestamp": "2026-07-19 08:20:39.107257",
+  "camera_paths": [
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": []
+    },
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": [
+        {
+          "frame": 1,
+          "location_x": -74.04119110107422,
+          "location_y": -12.77184009552002,
+          "location_z": 10.649195671081543,
+          "rotation_x": 1.518892765045166,
+          "rotation_y": 0.030557682737708092,
+          "rotation_z": 4.44102144241333,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "inicio",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 10,
+          "location_x": -72.8072582244873,
+          "location_y": -12.67098445892334,
+          "location_z": 10.643842697143555,
+          "rotation_x": 1.5110979864846261,
+          "rotation_y": 0.03473990082322695,
+          "rotation_z": 4.398500396778303,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 21,
+          "location_x": -71.61240245921094,
+          "location_y": -12.938469996990383,
+          "location_z": 10.551662328190297,
+          "rotation_x": 1.510966356274604,
+          "rotation_y": 0.037243231181438914,
+          "rotation_z": 4.413164380284141,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 22,
+          "location_x": -71.16201438903809,
+          "location_y": -12.536510276794434,
+          "location_z": 10.63670539855957,
+          "rotation_x": 1.5029705397501805,
+          "rotation_y": 0.04190210554631075,
+          "rotation_z": 4.346336851957484,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 34,
+          "location_x": -69.51677055358887,
+          "location_y": -12.402036094665528,
+          "location_z": 10.629568099975586,
+          "rotation_x": 1.4872337702165266,
+          "rotation_y": 0.04373778430994885,
+          "rotation_z": 4.278954661538247,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 41,
+          "location_x": -68.83535743281013,
+          "location_y": -12.580101942517738,
+          "location_z": 10.520542288301142,
+          "rotation_x": 1.4914854859938196,
+          "rotation_y": 0.0499871444608501,
+          "rotation_z": 4.323333206682217,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 46,
+          "location_x": -67.87152671813965,
+          "location_y": -12.267561912536621,
+          "location_z": 10.622430801391602,
+          "rotation_x": 1.4793672094633574,
+          "rotation_y": 0.051082609219926176,
+          "rotation_z": 4.22731288867998,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 55,
+          "location_x": -66.63759384155273,
+          "location_y": -12.16670627593994,
+          "location_z": 10.617077827453613,
+          "rotation_x": 1.4739818695944662,
+          "rotation_y": 0.05695143438959923,
+          "rotation_z": 4.189610720428251,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 61,
+          "location_x": -65.81497192382812,
+          "location_y": -12.099469184875488,
+          "location_z": 10.613509178161621,
+          "rotation_x": 1.466121792793274,
+          "rotation_y": 0.05787508934736252,
+          "rotation_z": 4.155936241149902,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 70,
+          "location_x": -62.45090160369873,
+          "location_y": -12.306314849853516,
+          "location_z": 10.815802955627442,
+          "rotation_x": 1.4398799705714107,
+          "rotation_y": 0.05051966071099889,
+          "rotation_z": 3.87302316192987,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 80,
+          "location_x": -57.94108294142728,
+          "location_y": -12.237697100231284,
+          "location_z": 11.033274770759217,
+          "rotation_x": 1.4043555754634576,
+          "rotation_y": 0.04546065478860096,
+          "rotation_z": 3.6109742385281343,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 81,
+          "location_x": -57.96547451019287,
+          "location_y": -12.582109069824218,
+          "location_z": 11.085527992248535,
+          "rotation_x": 1.3975132983137522,
+          "rotation_y": 0.03554811935589183,
+          "rotation_z": 3.4810505710461443,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 93,
+          "location_x": -53.480047416687015,
+          "location_y": -12.857903289794923,
+          "location_z": 11.35525302886963,
+          "rotation_x": 1.363982082483577,
+          "rotation_y": 0.026761397500023345,
+          "rotation_z": 3.106748893017386,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 99,
+          "location_x": -49.56579085980901,
+          "location_y": -13.204670902428235,
+          "location_z": 11.471263631201989,
+          "rotation_x": 1.328557316349392,
+          "rotation_y": 0.018851458234682802,
+          "rotation_z": 2.8672332731892807,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 104,
+          "location_x": -48.99462032318115,
+          "location_y": -13.133697509765625,
+          "location_z": 11.624978065490723,
+          "rotation_x": 1.3273888960565146,
+          "rotation_y": 0.01583129622633374,
+          "rotation_z": 2.726323273794853,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 113,
+          "location_x": -45.63055000305175,
+          "location_y": -13.340543174743653,
+          "location_z": 11.827271842956543,
+          "rotation_x": 1.2943605575561985,
+          "rotation_y": 0.003725306195053006,
+          "rotation_z": 2.4298371620179147,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 119,
+          "location_x": -43.38783645629883,
+          "location_y": -13.478440284729004,
+          "location_z": 11.96213436126709,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2445950508117676,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 149,
+          "location_x": -43.38783645629883,
+          "location_y": -14.300007772445678,
+          "location_z": 11.791922521591186,
+          "rotation_x": 1.2755597186138945,
+          "rotation_y": -0.0020927164519328537,
+          "rotation_z": 2.168079772005621,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 185,
+          "location_x": -43.14189347478816,
+          "location_y": -15.600455940394896,
+          "location_z": 11.489838548577373,
+          "rotation_x": 1.2739416115336826,
+          "rotation_y": -0.0014216966511996338,
+          "rotation_z": 2.0313411148641842,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 189,
+          "location_x": -43.38783645629883,
+          "location_y": -15.395431089401246,
+          "location_z": 11.564973402023316,
+          "rotation_x": 1.2802415801388936,
+          "rotation_y": 0.0011845866155665535,
+          "rotation_z": 2.0833953764643107,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 228,
+          "location_x": -43.38783645629883,
+          "location_y": -16.49085440635681,
+          "location_z": 11.338024282455445,
+          "rotation_x": 1.27986890916663,
+          "rotation_y": 0.0009237169349820351,
+          "rotation_z": 1.988601915928475,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 250,
+          "location_x": -43.13826578616038,
+          "location_y": -17.792488395387874,
+          "location_z": 11.080281509869028,
+          "rotation_x": 1.2761761776462093,
+          "rotation_y": -0.0007322260319834156,
+          "rotation_z": 1.8523741860306286,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 268,
+          "location_x": -43.38783645629883,
+          "location_y": -17.586277723312378,
+          "location_z": 11.111075162887573,
+          "rotation_x": 1.2755548149123672,
+          "rotation_y": -0.0020961490430019174,
+          "rotation_z": 1.8859256088286407,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 298,
+          "location_x": -43.38783645629883,
+          "location_y": -18.407845211029052,
+          "location_z": 10.94086332321167,
+          "rotation_x": 1.280184814165266,
+          "rotation_y": 0.0011448504340272878,
+          "rotation_z": 1.824649518390957,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 318,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 325,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.2792887037528897,
+          "rotation_y": 0.0005175731453638757,
+          "rotation_z": 1.77583323827055,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 334,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.2807133614056825,
+          "rotation_y": 0.0015148335023188043,
+          "rotation_z": 1.7786825535761355,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 343,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.2756743505813917,
+          "rotation_y": -0.0020124740746848176,
+          "rotation_z": 1.7686045319275536,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 352,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.279222399138595,
+          "rotation_y": 0.000471159915357478,
+          "rotation_z": 1.7757006290419604,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 358,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.2807600475508978,
+          "rotation_y": 0.0015475138039695712,
+          "rotation_z": 1.7787759258665663,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            318,
+            363
+          ],
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 363,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 373,
+          "location_x": -42.66933803558349,
+          "location_y": -17.81153793334961,
+          "location_z": 11.198240566253663,
+          "rotation_x": 1.2811938612800866,
+          "rotation_y": 0.0018511834144016952,
+          "rotation_z": 1.8953591643059313,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 385,
+          "location_x": -41.77512919870402,
+          "location_y": -16.937157035331133,
+          "location_z": 11.661232392477453,
+          "rotation_x": 1.2785493135452273,
+          "rotation_y": 0.0,
+          "rotation_z": 1.942493259693865,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 387,
+          "location_x": -41.71134014129639,
+          "location_y": -16.28617935180664,
+          "location_z": 11.692709636688232,
+          "rotation_x": 1.2760124122172039,
+          "rotation_y": -0.0017758309296161921,
+          "rotation_z": 2.0392837474881493,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 400,
+          "location_x": -40.75334224700928,
+          "location_y": -14.76082077026367,
+          "location_z": 12.187178707122802,
+          "rotation_x": 1.27840828593126,
+          "rotation_y": -9.871932977688158e-05,
+          "rotation_z": 2.198362976224245,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 408,
+          "location_x": -40.5988106394019,
+          "location_y": -13.651071923258359,
+          "location_z": 12.587335880280698,
+          "rotation_x": 1.2785493135452273,
+          "rotation_y": 0.0,
+          "rotation_z": 2.2811058233351535,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 414,
+          "location_x": -39.79534435272217,
+          "location_y": -13.235462188720703,
+          "location_z": 12.681647777557373,
+          "rotation_x": 1.2812253868092132,
+          "rotation_y": 0.0018732512847902114,
+          "rotation_z": 2.3582846592881346,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 424,
+          "location_x": -39.07684593200683,
+          "location_y": -12.091443252563476,
+          "location_z": 13.052499580383301,
+          "rotation_x": 1.276049480362849,
+          "rotation_y": -0.0017498832276645721,
+          "rotation_z": 2.4636484573763937,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 431,
+          "location_x": -38.59784698486328,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 441,
+          "location_x": -37.128054237365724,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.275561601494989,
+          "rotation_y": -0.002091398435166639,
+          "rotation_z": 2.5398164402946657,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 452,
+          "location_x": -35.73180543877372,
+          "location_y": -11.001071606485928,
+          "location_z": 13.32648912708107,
+          "rotation_x": 1.2785493135452268,
+          "rotation_y": 0.0,
+          "rotation_z": 2.614922619881807,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 454,
+          "location_x": -35.16833057403564,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.2802594439774535,
+          "rotation_y": 0.0011970913025585103,
+          "rotation_z": 2.5492121252595945,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 467,
+          "location_x": -33.20860691070557,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.2798493975040068,
+          "rotation_y": 0.0009100587711458446,
+          "rotation_z": 2.548392032312701,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 474,
+          "location_x": -32.103666816770854,
+          "location_y": -11.139925458217652,
+          "location_z": 13.206169281651288,
+          "rotation_x": 1.2785493135452268,
+          "rotation_y": 0.0,
+          "rotation_z": 2.596395474083741,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 480,
+          "location_x": -31.24888324737549,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.2755562059969017,
+          "rotation_y": -0.0020951752838278184,
+          "rotation_z": 2.539805649298491,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 490,
+          "location_x": -29.77909049987793,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.2802029530476067,
+          "rotation_y": 0.001157547651665697,
+          "rotation_z": 2.549099143399901,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 496,
+          "location_x": -28.79922866821289,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 503,
+          "location_x": -28.84531373977661,
+          "location_y": -12.925150394439697,
+          "location_z": 13.067603588104248,
+          "rotation_x": 1.2812742662488115,
+          "rotation_y": 0.0019074668925090775,
+          "rotation_z": 2.507561602604129,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 512,
+          "location_x": -28.584009861430452,
+          "location_y": -14.834114890101468,
+          "location_z": 12.616746754086169,
+          "rotation_x": 1.2766914336114028,
+          "rotation_y": 0.0018289112266427847,
+          "rotation_z": 2.5172771289158042,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 513,
+          "location_x": -28.906760501861573,
+          "location_y": -15.05366563796997,
+          "location_z": 12.75809621810913,
+          "rotation_x": 1.2782962163974994,
+          "rotation_y": -0.0001771680034094238,
+          "rotation_z": 2.443365279970597,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 523,
+          "location_x": -28.968207263946532,
+          "location_y": -17.182180881500244,
+          "location_z": 12.448588848114014,
+          "rotation_x": 1.276074127671309,
+          "rotation_y": -0.0017326301117425629,
+          "rotation_z": 2.380680879587308,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 528,
+          "location_x": -28.775930578995663,
+          "location_y": -18.404122794720614,
+          "location_z": 12.175263209570529,
+          "rotation_x": 1.274778094575076,
+          "rotation_y": 0.0037124168182599824,
+          "rotation_z": 2.457343477969598,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 533,
+          "location_x": -29.029654026031494,
+          "location_y": -19.310696125030518,
+          "location_z": 12.139081478118896,
+          "rotation_x": 1.28124502742773,
+          "rotation_y": 0.0018869997177520569,
+          "rotation_z": 2.332782456169242,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 540,
+          "location_x": -29.075739097595214,
+          "location_y": -20.907082557678223,
+          "location_z": 11.906950950622559,
+          "rotation_x": 1.278364256440647,
+          "rotation_y": -0.0001295399732059799,
+          "rotation_z": 2.2833407469968945,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 545,
+          "location_x": -29.106462478637695,
+          "location_y": -21.97134017944336,
+          "location_z": 11.752197265625,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2545907497406006,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 577,
+          "location_x": -29.349120712280275,
+          "location_y": -23.24485387802124,
+          "location_z": 11.572982788085938,
+          "rotation_x": 1.2851692927514362,
+          "rotation_y": -0.006377061583658628,
+          "rotation_z": 2.0552962745497325,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 615,
+          "location_x": -29.529247205403916,
+          "location_y": -25.413506561723363,
+          "location_z": 11.342670685072472,
+          "rotation_x": 1.291941045682943,
+          "rotation_y": -0.01318292361360789,
+          "rotation_z": 1.783519852665828,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 620,
+          "location_x": -29.67266502380371,
+          "location_y": -24.94287214279175,
+          "location_z": 11.334030151367188,
+          "rotation_x": 1.2911531196112904,
+          "rotation_y": -0.01686977881910104,
+          "rotation_z": 1.783884683465058,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 662,
+          "location_x": -29.996209335327148,
+          "location_y": -26.640890407562257,
+          "location_z": 11.095077514648438,
+          "rotation_x": 1.3050499764762928,
+          "rotation_y": -0.021823375050939422,
+          "rotation_z": 1.5282991523906806,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 686,
+          "location_x": -30.59619998199357,
+          "location_y": -28.791755577808484,
+          "location_z": 10.806702772241728,
+          "rotation_x": 1.3099370324776702,
+          "rotation_y": -0.030898310751484862,
+          "rotation_z": 1.1979810906234094,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 705,
+          "location_x": -30.319753646850586,
+          "location_y": -28.338908672332764,
+          "location_z": 10.856124877929688,
+          "rotation_x": 1.3113856392332457,
+          "rotation_y": -0.03206980715841263,
+          "rotation_z": 1.257591233100204,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 737,
+          "location_x": -30.562411880493165,
+          "location_y": -29.612422370910643,
+          "location_z": 10.676910400390625,
+          "rotation_x": 1.3150909592527567,
+          "rotation_y": -0.040487130172759976,
+          "rotation_z": 1.0524674395359395,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 758,
+          "location_x": -30.724184036254883,
+          "location_y": -30.4614315032959,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 0.92485511302948,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 797,
+          "location_x": -30.561986351013182,
+          "location_y": -30.121147441864014,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3198394732639702,
+          "rotation_y": -0.04450386838358061,
+          "rotation_z": 0.9949631367058579,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 844,
+          "location_x": -30.548357104851046,
+          "location_y": -30.062018724659076,
+          "location_z": 10.492224410330653,
+          "rotation_x": 1.3233396742193793,
+          "rotation_y": -0.04409197386276297,
+          "rotation_z": 1.014959160823635,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 849,
+          "location_x": -30.34572277069092,
+          "location_y": -29.667435359954833,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3249451363397522,
+          "rotation_y": -0.040929904230533186,
+          "rotation_z": 1.104758851590332,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 901,
+          "location_x": -30.129459190368653,
+          "location_y": -29.213723278045656,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3216412594624425,
+          "rotation_y": -0.043242618044650086,
+          "rotation_z": 1.1977354865686225,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 930,
+          "location_x": -30.096146331267164,
+          "location_y": -29.240825927924202,
+          "location_z": 10.516240326352568,
+          "rotation_x": 1.32275283619313,
+          "rotation_y": -0.0435142860181997,
+          "rotation_z": 1.1978007444309051,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 953,
+          "location_x": -29.913195610046387,
+          "location_y": -28.760011196136475,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3197959999931903,
+          "rotation_y": -0.04453429967312661,
+          "rotation_z": 1.2936293563630283,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 992,
+          "location_x": -29.750997924804686,
+          "location_y": -28.41972713470459,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3249208559359886,
+          "rotation_y": -0.04094690051316767,
+          "rotation_z": 1.3785673597983081,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 1018,
+          "location_x": -29.642866134643555,
+          "location_y": -28.19287109375,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.4227770566940308,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 1053,
+          "location_x": -29.642866134643555,
+          "location_y": -26.789051246643066,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3215786655280448,
+          "rotation_y": -0.04328643379872836,
+          "rotation_z": 1.6997928360171035,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 1096,
+          "location_x": -29.562958739596024,
+          "location_y": -25.116184646067023,
+          "location_z": 10.483859888242801,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774445419204,
+          "rotation_z": 1.9631179954709685,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 1101,
+          "location_x": -29.642866134643555,
+          "location_y": -24.91729145050049,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.319836460885109,
+          "rotation_y": -0.04450597704878352,
+          "rotation_z": 2.067131976955536,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 1148,
+          "location_x": -29.642866134643555,
+          "location_y": -23.04553165435791,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.324943521373401,
+          "rotation_y": -0.040931034706979036,
+          "rotation_z": 2.4481696481564246,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 1174,
+          "location_x": -29.58251309389863,
+          "location_y": -21.837563710318648,
+          "location_z": 10.355734299216087,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774257466516,
+          "rotation_z": 2.633351454707349,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 1195,
+          "location_x": -29.642866134643555,
+          "location_y": -21.173771858215332,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3216458655575078,
+          "rotation_y": -0.0432393937781043,
+          "rotation_z": 2.812397886748942,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 1230,
+          "location_x": -29.642866134643555,
+          "location_y": -19.769952011108398,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.319793069472672,
+          "rotation_y": -0.04453635103748925,
+          "rotation_z": 3.0868099572474987,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 1254,
+          "location_x": -29.642866134643555,
+          "location_y": -18.83407211303711,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.2768948078155518,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 1272,
+          "location_x": -30.265402126312257,
+          "location_y": -19.538379287719728,
+          "location_z": 10.509036874771118,
+          "rotation_x": 1.3229318759444324,
+          "rotation_y": -0.042339187066050665,
+          "rotation_z": 3.4583461446767982,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 1295,
+          "location_x": -30.84814317027798,
+          "location_y": -20.17264316756493,
+          "location_z": 10.374253039634237,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077559969461,
+          "rotation_z": 3.78134751151856,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 1297,
+          "location_x": -31.095450115203857,
+          "location_y": -20.47745552062988,
+          "location_z": 10.444507265090943,
+          "rotation_x": 1.3242480878608225,
+          "rotation_y": -0.04141783946963556,
+          "rotation_z": 3.700774301007747,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 1322,
+          "location_x": -31.92549810409546,
+          "location_y": -21.41653175354004,
+          "location_z": 10.379977655410766,
+          "rotation_x": 1.3192367333158295,
+          "rotation_y": -0.0449257883961888,
+          "rotation_z": 3.9305473244159304,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 1335,
+          "location_x": -32.630751921996044,
+          "location_y": -22.281097487320984,
+          "location_z": 10.26842526821136,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900776940120997,
+          "rotation_z": 4.25679718670227,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 1346,
+          "location_x": -32.75554609298706,
+          "location_y": -22.355607986450195,
+          "location_z": 10.31544804573059,
+          "rotation_x": 1.3228659352386496,
+          "rotation_y": -0.04238534779527275,
+          "rotation_z": 4.17760146075974,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 1365,
+          "location_x": -33.37808208465576,
+          "location_y": -23.059915161132814,
+          "location_z": 10.267050838470459,
+          "rotation_x": 1.3242958418431183,
+          "rotation_y": -0.04138441373093827,
+          "rotation_z": 4.360308073342303,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 1377,
+          "location_x": -33.79310607910156,
+          "location_y": -23.52945327758789,
+          "location_z": 10.234786033630371,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900778353214264,
+          "rotation_z": 4.4758734703063965,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 1386,
+          "location_x": -33.130798721313475,
+          "location_y": -23.03096866607666,
+          "location_z": 10.200775051116944,
+          "rotation_x": 1.319519066826437,
+          "rotation_y": -0.044728157173937806,
+          "rotation_z": 4.312061595948406,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 1396,
+          "location_x": -32.62184089446102,
+          "location_y": -22.897432356527855,
+          "location_z": 10.09189928652711,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077976722298,
+          "rotation_z": 4.256392554460813,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 1398,
+          "location_x": -32.2477222442627,
+          "location_y": -22.36632251739502,
+          "location_z": 10.155427074432373,
+          "rotation_x": 1.324703427994672,
+          "rotation_y": -0.0410991051012314,
+          "rotation_z": 4.110975926805383,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 1409,
+          "location_x": -31.364645767211915,
+          "location_y": -21.70167636871338,
+          "location_z": 10.110079097747803,
+          "rotation_x": 1.3222001937838206,
+          "rotation_y": -0.042851369793885326,
+          "rotation_z": 3.894515066904189,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 1416,
+          "location_x": -30.87690966874383,
+          "location_y": -21.30884002540509,
+          "location_z": 10.041205985483566,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900781211500545,
+          "rotation_z": 3.8035767751276657,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 1421,
+          "location_x": -30.481569290161133,
+          "location_y": -21.03703022003174,
+          "location_z": 10.064731121063232,
+          "rotation_x": 1.3194861286199857,
+          "rotation_y": -0.04475121615362779,
+          "rotation_z": 3.677632545097027,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 1430,
+          "location_x": -29.819261932373045,
+          "location_y": -20.538545608520508,
+          "location_z": 10.030720138549805,
+          "rotation_x": 1.3246677156197366,
+          "rotation_y": -0.041124105812595645,
+          "rotation_z": 3.5294049254869098,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 1436,
+          "location_x": -29.377723693847656,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.4186015129089355,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 1481,
+          "location_x": -29.274787807464598,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3250373333989254,
+          "rotation_y": -0.04086537373969264,
+          "rotation_z": 3.395157212078307,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 1536,
+          "location_x": -29.090045469888018,
+          "location_y": -20.188226422142364,
+          "location_z": 9.98797502606126,
+          "rotation_x": 1.3245797228943295,
+          "rotation_y": -0.04310484839447164,
+          "rotation_z": 3.339868632776563,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 1542,
+          "location_x": -29.13753995895386,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3213370653016348,
+          "rotation_y": -0.04345556140779607,
+          "rotation_z": 3.3487436715807477,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 1603,
+          "location_x": -29.000292110443116,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.320003994428983,
+          "rotation_y": -0.04438871101865225,
+          "rotation_z": 3.3070645255324655,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 1636,
+          "location_x": -28.85760200240451,
+          "location_y": -20.195614895056302,
+          "location_z": 9.982696669182788,
+          "rotation_x": 1.3271029763699376,
+          "rotation_y": -0.043315006165556315,
+          "rotation_z": 3.271073701399886,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 1663,
+          "location_x": -28.863044261932373,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.325019792505857,
+          "rotation_y": -0.04087765236484045,
+          "rotation_z": 3.278083117383235,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 1709,
+          "location_x": -28.760108375549315,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3214030644765649,
+          "rotation_y": -0.04340936198534488,
+          "rotation_z": 3.2415899080974167,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 1739,
+          "location_x": -28.691484451293945,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.223536491394043,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 1762,
+          "location_x": -28.691484451293945,
+          "location_y": -20.138071537017822,
+          "location_z": 10.06184811592102,
+          "rotation_x": 1.3157235527695865,
+          "rotation_y": -0.04043330706525305,
+          "rotation_z": 3.2288333703401983,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 1789,
+          "location_x": -28.64838759837185,
+          "location_y": -20.047464619321165,
+          "location_z": 10.087884295371051,
+          "rotation_x": 1.3099200766080994,
+          "rotation_y": -0.04191372167407236,
+          "rotation_z": 3.211418985081986,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 1792,
+          "location_x": -28.691484451293945,
+          "location_y": -20.047203540802002,
+          "location_z": 10.13358407020569,
+          "rotation_x": 1.301685196370994,
+          "rotation_y": -0.04099120572429852,
+          "rotation_z": 3.22490197462065,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 1823,
+          "location_x": -28.691484451293945,
+          "location_y": -19.95633554458618,
+          "location_z": 10.205320024490357,
+          "rotation_x": 1.2868582926574794,
+          "rotation_y": -0.042101087503789554,
+          "rotation_z": 3.219393484271258,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 1839,
+          "location_x": -28.668768851054285,
+          "location_y": -19.89031834204202,
+          "location_z": 10.191656980934164,
+          "rotation_x": 1.2915726427856973,
+          "rotation_y": -0.04041633611428894,
+          "rotation_z": 3.218419731935866,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 1853,
+          "location_x": -28.691484451293945,
+          "location_y": -19.86546754837036,
+          "location_z": 10.277055978775024,
+          "rotation_x": 1.2801840182696629,
+          "rotation_y": -0.03750412875529197,
+          "rotation_z": 3.2301902525732613,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 1876,
+          "location_x": -28.691484451293945,
+          "location_y": -19.797316551208496,
+          "location_z": 10.330857944488525,
+          "rotation_x": 1.2692112817001864,
+          "rotation_y": -0.03823333123894859,
+          "rotation_z": 3.2263537672425358,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 1891,
+          "location_x": -28.691484451293945,
+          "location_y": -19.751882553100586,
+          "location_z": 10.36672592163086,
+          "rotation_x": 1.2629626989364624,
+          "rotation_y": -0.037972863763570786,
+          "rotation_z": 3.2259292602539062,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 1910,
+          "location_x": -28.691484451293945,
+          "location_y": -19.79763717651367,
+          "location_z": 10.767784976959229,
+          "rotation_x": 1.20235607304195,
+          "rotation_y": -0.03080691915825852,
+          "rotation_z": 3.231491529504844,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 1933,
+          "location_x": -28.602337945718986,
+          "location_y": -19.772910050972673,
+          "location_z": 11.12643196351705,
+          "rotation_x": 1.1364465567037763,
+          "rotation_y": -0.02710266559178744,
+          "rotation_z": 3.204180303636047,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 1936,
+          "location_x": -28.691484451293945,
+          "location_y": -19.858643341064454,
+          "location_z": 11.30253038406372,
+          "rotation_x": 1.1172113994953503,
+          "rotation_y": -0.0242874136655837,
+          "rotation_z": 3.2302362104649287,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 1961,
+          "location_x": -28.691484451293945,
+          "location_y": -19.919649505615233,
+          "location_z": 11.837275791168214,
+          "rotation_x": 1.0298871950440802,
+          "rotation_y": -0.019293579806178247,
+          "rotation_z": 3.2246218296156717,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 1975,
+          "location_x": -28.516270721844133,
+          "location_y": -19.933944948338358,
+          "location_z": 12.160799391669407,
+          "rotation_x": 0.9656744994305916,
+          "rotation_y": -0.012137128769940766,
+          "rotation_z": 3.1821583032077547,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 1987,
+          "location_x": -28.691484451293945,
+          "location_y": -19.980655670166016,
+          "location_z": 12.372021198272705,
+          "rotation_x": 0.9511981266073508,
+          "rotation_y": -0.008255150736594257,
+          "rotation_z": 3.236277720795497,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 2006,
+          "location_x": -28.691484451293945,
+          "location_y": -20.0264102935791,
+          "location_z": 12.773080253601075,
+          "rotation_x": 0.8870929350419253,
+          "rotation_y": -0.003538202100921195,
+          "rotation_z": 3.2348428587046083,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 2019,
+          "location_x": -28.691484451293945,
+          "location_y": -20.056913375854492,
+          "location_z": 13.04045295715332,
+          "rotation_x": 0.844445526599884,
+          "rotation_y": -0.00033099952270276845,
+          "rotation_z": 3.234065055847168,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 2032,
+          "location_x": -29.287070178985594,
+          "location_y": -20.54539613723755,
+          "location_z": 12.753541564941406,
+          "rotation_x": 0.8810184449771765,
+          "rotation_y": -0.001345115914341503,
+          "rotation_z": 3.405767643614555,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 2048,
+          "location_x": -29.83690973364501,
+          "location_y": -21.28177404998095,
+          "location_z": 12.685676005375619,
+          "rotation_x": 0.863534159513824,
+          "rotation_y": 0.003661056353694139,
+          "rotation_z": 3.5984014249808864,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 2050,
+          "location_x": -30.081184482574464,
+          "location_y": -21.19670648574829,
+          "location_z": 12.370993041992188,
+          "rotation_x": 0.9348957848623135,
+          "rotation_y": 0.0008821429975964109,
+          "rotation_z": 3.644931324735232,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 2067,
+          "location_x": -30.87529878616333,
+          "location_y": -21.848016834259035,
+          "location_z": 11.988444519042968,
+          "rotation_x": 0.9799917646190772,
+          "rotation_y": -0.0030375501803269725,
+          "rotation_z": 3.866532285599162,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 2077,
+          "location_x": -31.61106988731777,
+          "location_y": -22.662983390101694,
+          "location_z": 11.793721854199037,
+          "rotation_x": 0.99251615818116,
+          "rotation_y": 0.00039042406042357484,
+          "rotation_z": 4.113351714573768,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 2085,
+          "location_x": -31.669413089752197,
+          "location_y": -22.499327182769775,
+          "location_z": 11.60589599609375,
+          "rotation_x": 1.0309713991147753,
+          "rotation_y": -0.0028386850409962885,
+          "rotation_z": 4.099900555940962,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 2098,
+          "location_x": -32.264998817443846,
+          "location_y": -22.987809944152833,
+          "location_z": 11.318984603881836,
+          "rotation_x": 1.0724246943643685,
+          "rotation_y": -0.00043653762202467165,
+          "rotation_z": 4.28136389745295,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 2107,
+          "location_x": -32.66205596923828,
+          "location_y": -23.313465118408203,
+          "location_z": 11.127710342407227,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.391168594360352,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 2122,
+          "location_x": -32.47054939270019,
+          "location_y": -22.89520845413208,
+          "location_z": 11.237000703811646,
+          "rotation_x": 1.094207850935268,
+          "rotation_y": -0.002931767526223994,
+          "rotation_z": 4.296722276692008,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 0
+          }
+        },
+        {
+          "frame": 2139,
+          "location_x": -32.38645734939612,
+          "location_y": -22.544188162102433,
+          "location_z": 11.262200593604755,
+          "rotation_x": 1.1065908459137528,
+          "rotation_y": -0.0028618829490582465,
+          "rotation_z": 4.2349800227094825,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_1"
+          }
+        },
+        {
+          "frame": 2141,
+          "location_x": -32.21520729064942,
+          "location_y": -22.337532901763915,
+          "location_z": 11.382721185684204,
+          "rotation_x": 1.092007485360574,
+          "rotation_y": -0.004472023428509848,
+          "rotation_z": 4.167104966105364,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 1
+          }
+        },
+        {
+          "frame": 2161,
+          "location_x": -31.959865188598634,
+          "location_y": -21.77985734939575,
+          "location_z": 11.528441667556763,
+          "rotation_x": 1.0971765756771152,
+          "rotation_y": -0.0008536602069309041,
+          "rotation_z": 4.05222656730119,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 2
+          }
+        },
+        {
+          "frame": 2172,
+          "location_x": -31.695550938290367,
+          "location_y": -21.308481508915172,
+          "location_z": 11.590452956544233,
+          "rotation_x": 1.100715005342521,
+          "rotation_y": -0.002805154613963191,
+          "rotation_z": 3.934762317175947,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "suavizado",
+            "phase": "curva_2"
+          }
+        },
+        {
+          "frame": 2180,
+          "location_x": -31.70452308654785,
+          "location_y": -21.222181797027588,
+          "location_z": 11.674162149429321,
+          "rotation_x": 1.0942758671693353,
+          "rotation_y": -0.0028841561623767762,
+          "rotation_z": 3.9212085708483753,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 3
+          }
+        },
+        {
+          "frame": 2195,
+          "location_x": -31.513016510009766,
+          "location_y": -20.803925132751466,
+          "location_z": 11.78345251083374,
+          "rotation_x": 1.091969317084002,
+          "rotation_y": -0.004498741222110141,
+          "rotation_z": 3.8226830360997663,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          },
+          "effect_meta": {
+            "effect": "shake",
+            "idx": 4
+          }
+        },
+        {
+          "frame": 2205,
+          "location_x": -31.385345458984375,
+          "location_y": -20.525087356567383,
+          "location_z": 11.85631275177002,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.7650856971740723,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "SINE",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        }
+      ],
+      "original_keyframe_count": 18,
+      "total_keyframe_count_after_effects": 135
+    }
+  ],
+  "transition_preset": "documental_organico",
+  "transition_preset_description": "Sine ease + shake sutil de mano. Sensacion de camara al hombro, no robotica.",
+  "effects_applied": [
+    "shake",
+    "suavizado"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+    "FollowCam": {
+        "location_x": 0.0,
+        "location_y": -10.0,
+        "location_z": 2.0,
+        "rotation_x": 90.0,
+        "rotation_y": 0.0,
+        "rotation_z": 0.0,
+        "zoom": 248.37501525878906
+    },
+    "FollowCam1": {
+        "location_x": 0.0,
+        "location_y": 86.1533203125,
+        "location_z": 2.0,
+        "rotation_x": 90.0,
+        "rotation_y": 288.4619140625,
+        "rotation_z": 0.0,
+        "zoom": 300.0
+    },
+    "1": {
+        "location_x": 0.0,
+        "location_y": -10.0,
+        "location_z": 2.0,
+        "rotation_x": 90.0,
+        "rotation_y": 0.0,
+        "rotation_z": 0.0,
+        "zoom": 278.4375
+    },
+    "camara1": {
+        "location_x": 0.0,
+        "location_y": -10.0,
+        "location_z": 2.0,
+        "rotation_x": 90.0,
+        "rotation_y": 0.0,
+        "rotation_z": 0.0,
+        "zoom": 275.6875305175781
+    }
+}

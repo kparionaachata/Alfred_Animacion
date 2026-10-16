@@ -1,0 +1,1162 @@
+{
+  "version": "1.0",
+  "export_timestamp": "2026-07-19 08:20:39.107257",
+  "camera_paths": [
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": []
+    },
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": [
+        {
+          "frame": 1,
+          "location_x": -74.04119110107422,
+          "location_y": -12.77184009552002,
+          "location_z": 10.649195671081543,
+          "rotation_x": 1.518892765045166,
+          "rotation_y": 0.030557682737708092,
+          "rotation_z": 4.44102144241333,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "inicio",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 29,
+          "location_x": -70.17486808776856,
+          "location_y": -12.45582576751709,
+          "location_z": 10.63242301940918,
+          "rotation_x": 1.4940904080867767,
+          "rotation_y": 0.04339686384424567,
+          "rotation_z": 4.307031397819519,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 33,
+          "location_x": -69.68129493713379,
+          "location_y": -12.415483512878417,
+          "location_z": 10.630281829833985,
+          "rotation_x": 1.4909241497516632,
+          "rotation_y": 0.04503590824082494,
+          "rotation_z": 4.2899262857437135,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 61,
+          "location_x": -65.81497192382812,
+          "location_y": -12.099469184875488,
+          "location_z": 10.613509178161621,
+          "rotation_x": 1.466121792793274,
+          "rotation_y": 0.05787508934736252,
+          "rotation_z": 4.155936241149902,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 88,
+          "location_x": -55.274218254089355,
+          "location_y": -12.747585601806641,
+          "location_z": 11.247363014221191,
+          "rotation_x": 1.377962727546692,
+          "rotation_y": 0.030673797354102136,
+          "rotation_z": 3.257605881690979,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 92,
+          "location_x": -53.9285901260376,
+          "location_y": -12.830323867797851,
+          "location_z": 11.32828052520752,
+          "rotation_x": 1.366708378791809,
+          "rotation_y": 0.027201291993260383,
+          "rotation_z": 3.142925410270691,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 119,
+          "location_x": -43.38783645629883,
+          "location_y": -13.478440284729004,
+          "location_z": 11.96213436126709,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2445950508117676,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 213,
+          "location_x": -43.38783645629883,
+          "location_y": -16.052685079574584,
+          "location_z": 11.428803930282593,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.0235819721221926,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 224,
+          "location_x": -43.38783645629883,
+          "location_y": -16.381312074661256,
+          "location_z": 11.360719194412232,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.9953675365447998,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 318,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 363,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "EASE_IN_OUT",
+            "handle_type": "AUTO_CLAMPED"
+          }
+        },
+        {
+          "frame": 395,
+          "location_x": -41.13654140472412,
+          "location_y": -15.37096420288086,
+          "location_z": 11.989391078948975,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.136930038928986,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 399,
+          "location_x": -40.84914203643799,
+          "location_y": -14.913356628417969,
+          "location_z": 12.137731800079345,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.1832162833213804,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 431,
+          "location_x": -38.59784698486328,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 462,
+          "location_x": -33.9924963760376,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 465,
+          "location_x": -33.40457927703857,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 496,
+          "location_x": -28.79922866821289,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 519,
+          "location_x": -28.94362855911255,
+          "location_y": -16.330774784088135,
+          "location_z": 12.572391796112061,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.4089273405075073,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 522,
+          "location_x": -28.962062587738036,
+          "location_y": -16.969329357147217,
+          "location_z": 12.479539585113525,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.391455273628235,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 545,
+          "location_x": -29.106462478637695,
+          "location_y": -21.97134017944336,
+          "location_z": 11.752197265625,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2545907497406006,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 645,
+          "location_x": -29.866791610717772,
+          "location_y": -25.961683101654053,
+          "location_z": 11.190658569335938,
+          "rotation_x": 1.299032051563263,
+          "rotation_y": -0.020163364075124264,
+          "rotation_z": 1.6296150004863739,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 658,
+          "location_x": -29.963854904174806,
+          "location_y": -26.471088581085205,
+          "location_z": 11.118972778320312,
+          "rotation_x": 1.3016468691825867,
+          "rotation_y": -0.0227374105527997,
+          "rotation_z": 1.5498308622837067,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 758,
+          "location_x": -30.724184036254883,
+          "location_y": -30.4614315032959,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 0.92485511302948,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 880,
+          "location_x": -30.21596462249756,
+          "location_y": -29.395208110809325,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.1588784265518188,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 896,
+          "location_x": -30.15108554840088,
+          "location_y": -29.259094486236574,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.188753743171692,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1018,
+          "location_x": -29.642866134643555,
+          "location_y": -28.19287109375,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.4227770566940308,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 1129,
+          "location_x": -29.642866134643555,
+          "location_y": -23.79423557281494,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 2.2942123997211454,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1143,
+          "location_x": -29.642866134643555,
+          "location_y": -23.23270763397217,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 2.405459464788437,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1254,
+          "location_x": -29.642866134643555,
+          "location_y": -18.83407211303711,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.2768948078155518,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 1312,
+          "location_x": -31.593478908538817,
+          "location_y": -21.040901260375975,
+          "location_z": 10.405789499282838,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077637881041,
+          "rotation_z": 3.840414779186249,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1319,
+          "location_x": -31.8424933052063,
+          "location_y": -21.322624130249025,
+          "location_z": 10.386430616378783,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077660232782,
+          "rotation_z": 3.9123534989356994,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1377,
+          "location_x": -33.79310607910156,
+          "location_y": -23.52945327758789,
+          "location_z": 10.234786033630371,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900778353214264,
+          "rotation_z": 4.4758734703063965,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 1405,
+          "location_x": -31.71787635803223,
+          "location_y": -21.967534828186036,
+          "location_z": 10.12821828842163,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078010410071,
+          "rotation_z": 3.9789556503295898,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1408,
+          "location_x": -31.45295341491699,
+          "location_y": -21.768140983581542,
+          "location_z": 10.11461389541626,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078032761812,
+          "rotation_z": 3.9155193328857423,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1436,
+          "location_x": -29.377723693847656,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.4186015129089355,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 1578,
+          "location_x": -29.05519124984741,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.326920952796936,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1597,
+          "location_x": -29.01401689529419,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.3152170515060426,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1739,
+          "location_x": -28.691484451293945,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.223536491394043,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 1810,
+          "location_x": -28.691484451293945,
+          "location_y": -19.99268274307251,
+          "location_z": 10.17662564277649,
+          "rotation_x": 1.2943211603164673,
+          "rotation_y": -0.04058466047048569,
+          "rotation_z": 3.2246610927581787,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1820,
+          "location_x": -28.691484451293945,
+          "location_y": -19.965422344207763,
+          "location_z": 10.19814642906189,
+          "rotation_x": 1.2907711458206177,
+          "rotation_y": -0.04028898537158966,
+          "rotation_z": 3.2248046588897705,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1891,
+          "location_x": -28.691484451293945,
+          "location_y": -19.751882553100586,
+          "location_z": 10.36672592163086,
+          "rotation_x": 1.2629626989364624,
+          "rotation_y": -0.037972863763570786,
+          "rotation_z": 3.2259292602539062,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 1951,
+          "location_x": -28.691484451293945,
+          "location_y": -19.89524703979492,
+          "location_z": 11.623377628326416,
+          "rotation_x": 1.0662596279382706,
+          "rotation_y": -0.02028118757036282,
+          "rotation_z": 3.229753084182739,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 1959,
+          "location_x": -28.691484451293945,
+          "location_y": -19.913548889160158,
+          "location_z": 11.783801250457763,
+          "rotation_x": 1.0411485975980759,
+          "rotation_y": -0.018022675715910735,
+          "rotation_z": 3.230241231918335,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 2019,
+          "location_x": -28.691484451293945,
+          "location_y": -20.056913375854492,
+          "location_z": 13.04045295715332,
+          "rotation_x": 0.844445526599884,
+          "rotation_y": -0.00033099952270276845,
+          "rotation_z": 3.234065055847168,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 2060,
+          "location_x": -30.557653064727784,
+          "location_y": -21.587492694854735,
+          "location_z": 12.141463928222656,
+          "rotation_x": 0.9619592815637589,
+          "rotation_y": -0.0014655367159866727,
+          "rotation_z": 3.777903718948364,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 2066,
+          "location_x": -30.795887355804442,
+          "location_y": -21.78288579940796,
+          "location_z": 12.026699371337891,
+          "rotation_x": 0.9769610375165939,
+          "rotation_y": -0.0016103712512995118,
+          "rotation_z": 3.8473299312591553,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 2107,
+          "location_x": -32.66205596923828,
+          "location_y": -23.313465118408203,
+          "location_z": 11.127710342407227,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.391168594360352,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 2153,
+          "location_x": -32.06200202941895,
+          "location_y": -22.00292757034302,
+          "location_z": 11.47015347480774,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.0969096326828005,
+          "fov": 37.5,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "punch_in",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 2159,
+          "location_x": -31.98539939880371,
+          "location_y": -21.835624904632567,
+          "location_z": 11.513869619369506,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.059344658851623,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          },
+          "effect_meta": {
+            "effect": "flash",
+            "phase": "recover",
+            "flash_flag": true
+          }
+        },
+        {
+          "frame": 2205,
+          "location_x": -31.385345458984375,
+          "location_y": -20.525087356567383,
+          "location_z": 11.85631275177002,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.7650856971740723,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "EXPO",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR"
+          }
+        }
+      ],
+      "original_keyframe_count": 18,
+      "total_keyframe_count_after_effects": 50
+    }
+  ],
+  "transition_preset": "transmision_flash_noticias",
+  "transition_preset_description": "EXPO + flash de FOV en cada movimiento + lineal en holds: corte tipo noticiero/breaking.",
+  "effects_applied": [
+    "flash"
+  ]
+}

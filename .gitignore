@@ -23,6 +23,17 @@
 /generador de animaciones/jerry/refinar/*
 !/generador de animaciones/jerry/refinar/animaciones_ia/
 
+# capitulo 4 (ring, base_ranas_2 / base_ranas_3): solo los scripts, add-ons y datos en texto
+!/capitulos/
+/capitulos/*
+!/capitulos/capitulo_4/
+/capitulos/capitulo_4/**/*.*
+!/capitulos/capitulo_4/**/
+!/capitulos/capitulo_4/**/*.py
+!/capitulos/capitulo_4/**/*.json
+!/capitulos/capitulo_4/**/*.md
+!/capitulos/capitulo_4/**/*.txt
+
 # dentro de lo incluido, solo texto
 *.blend
 *.blend1

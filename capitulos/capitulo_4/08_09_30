@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "export_timestamp": "2026-10-08 09:30:25.221609",
+  "camera_paths": [
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": [
+        {
+          "frame": 1,
+          "location_x": -77.6156005859375,
+          "location_y": -124.1199951171875,
+          "location_z": 15.944999694824219,
+          "rotation_x": 0.0,
+          "rotation_y": 0.0,
+          "rotation_z": 0.32606241106987,
+          "fov": 12.002699851989746,
+          "has_focus": true,
+          "focus_x": -96.34600067138672,
+          "focus_y": -109.22000122070312,
+          "focus_z": 19.75,
+          "focus_rx": 0.0,
+          "focus_ry": 0.0,
+          "focus_rz": 0.0
+        },
+        {
+          "frame": 72,
+          "location_x": -89.47559356689453,
+          "location_y": -118.83999633789062,
+          "location_z": 23.604999542236328,
+          "rotation_x": 0.0,
+          "rotation_y": 0.0,
+          "rotation_z": 0.32606241106987,
+          "fov": 12.002699851989746,
+          "has_focus": true,
+          "focus_x": -96.34600067138672,
+          "focus_y": -109.22000122070312,
+          "focus_z": 14.149999618530273,
+          "focus_rx": 0.0,
+          "focus_ry": 0.0,
+          "focus_rz": 0.0
+        },
+        {
+          "frame": 101,
+          "location_x": -96.93854522705078,
+          "location_y": -108.2015609741211,
+          "location_z": 16.769683837890625,
+          "rotation_x": 0.0,
+          "rotation_y": 0.0,
+          "rotation_z": 0.0,
+          "fov": 12.002699851989746,
+          "has_focus": true,
+          "focus_x": -96.06568908691406,
+          "focus_y": -108.99604797363281,
+          "focus_z": 14.347698211669922,
+          "focus_rx": 0.0,
+          "focus_ry": 0.0,
+          "focus_rz": 0.0
+        },
+        {
+          "frame": 410,
+          "location_x": -94.60292053222656,
+          "location_y": -108.04866790771484,
+          "location_z": 14.967355728149414,
+          "rotation_x": 0.0,
+          "rotation_y": 0.0,
+          "rotation_z": 0.0,
+          "fov": 50.0,
+          "has_focus": true,
+          "focus_x": -96.12568664550781,
+          "focus_y": -108.87604522705078,
+          "focus_z": 14.47769832611084,
+          "focus_rx": 0.0,
+          "focus_ry": 0.0,
+          "focus_rz": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "descripcion": "Parte 11: Alfred sentado en la orilla se saca las flechas (dice 'Como paso esto? Oh...') y las tira al mar; el cerdo hace su recorrido; Jerry sin armadura llega nadando con un pescado, se sacude y lo deja en la fogata. Alfred saca su ultimo pan, una paloma se lo disputa y se lo lleva volando.",
+  "variables": {
+    "DOCS": "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/alfred/refinar/docs",
+    "JERRY": "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/jerry/refinar",
+    "ENT": "{AUTO}/entradas/base_parte_11"
+  },
+  "rutas_python": [
+    "{JERRY}"
+  ],
+  "tiempos_prop": "p11_tiempos",
+  "respaldos_max": 4,
+  "pasos": [
+    {
+      "id": "saca_flechas",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/alfred_saca_flechas_parte11.py",
+      "checkpoint": true
+    },
+    {
+      "id": "sonidos_alfred",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/sonidos_alfred_flechas_parte11.py"
+    },
+    {
+      "id": "cerdo_recorrido",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/cerdo_recorrido_parte11.py",
+      "depende_de": [
+        "{ENT}/recorrido_cerdo_1.json",
+        "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/cerdo_1/refinar/cerdo_1_animation_studio/generate_slots_cerdo_1.py",
+        "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/cerdo_1/refinar/cerdo_1_animation_studio/path_recorder.py",
+        "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/cerdo_1/refinar/cerdo_1_animation_studio/jump_motion.py"
+      ]
+    },
+    {
+      "id": "jerry_nada_pescado",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/jerry_nada_pescado_parte11.py",
+      "checkpoint": true,
+      "depende_de": [
+        "{DOCS}/parte11/jerry_fuentes/nadar.py",
+        "{DOCS}/parte11/jerry_fuentes/secarse.py",
+        "{DOCS}/parte11/jerry_fuentes/caminar_jerry.py",
+        "C:/Users/user/Desktop/Alfred_Animacion/estructura_lista/Jerry_sin_armadura.blend"
+      ]
+    },
+    {
+      "id": "voz_alfred_como_paso",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/voz_alfred_como_paso_esto_parte11.py",
+      "depende_de": [
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/alfred/alfred_como_paso_esto.mp3",
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/alfred/alfred_como_paso_esto.cara_original.py"
+      ]
+    },
+    {
+      "id": "sonidos_jerry_fogata",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/sonidos_jerry_fogata_parte11.py"
+    },
+    {
+      "id": "voz_jerry_voy_a_ir",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/voz_jerry_voy_a_ir_parte11.py",
+      "depende_de": [
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/jerry/jerry_voy_a_ir_tu_no_vas_a_comer.wav",
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/jerry/jerry_voy_a_ir_tu_no_vas_a_comer.cara_original.py",
+        "{DOCS}/parte11/voz_jerry_comun.py"
+      ]
+    },
+    {
+      "id": "voz_alfred_que_cocinaste",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/voz_alfred_que_cocinaste_parte11.py",
+      "depende_de": [
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/alfred/alfred_que_cocinaste_para_los_dos.mp3",
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/alfred/alfred_que_cocinaste_para_los_dos.cara_original.py"
+      ]
+    },
+    {
+      "id": "voz_jerry_anda_ve",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/voz_jerry_anda_ve_parte11.py",
+      "depende_de": [
+        "{DOCS}/parte11/voz_jerry_comun.py",
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/jerry/jerry_te_esta_bien_anda_ve_por_tu_comida.wav",
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/jerry/jerry_te_esta_bien_anda_ve_por_tu_comida.cara_original.py"
+      ]
+    },
+    {
+      "id": "voz_alfred_ultimo_pan",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/voz_alfred_ultimo_pan_parte11.py",
+      "depende_de": [
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/alfred/alfred_prefiero_comer_mi_ultimo_pan.mp3",
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/alfred/alfred_prefiero_comer_mi_ultimo_pan.cara_original.py"
+      ]
+    },
+    {
+      "id": "paloma_roba_pan",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/paloma_roba_pan_parte11.py",
+      "depende_de": [
+        "C:/Users/user/Desktop/Alfred_Animacion/estructura_lista/paloma_1.blend"
+      ]
+    },
+    {
+      "id": "jerry_observa_acomoda",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/jerry_observa_acomoda_parte11.py"
+    },
+    {
+      "id": "organico_parpadeo",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/organico_parpadeo_parte11.py"
+    },
+    {
+      "id": "sonidos_paloma_pan",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/sonidos_paloma_pan_parte11.py"
+    },
+    {
+      "id": "voz_alfred_disputa_pan",
+      "tipo": "script",
+      "archivo": "{DOCS}/parte11/voz_alfred_disputa_pan_parte11.py",
+      "depende_de": [
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/alfred/alfred_oye_no_mi_pan.mp3",
+        "C:/Users/user/Desktop/Alfred_Animacion/audios/alfred/alfred_no_no_no_mi_pan.mp3"
+      ]
+    },
+    {
+      "id": "microfono",
+      "tipo": "python",
+      "codigo": "import sys\nsys.path.insert(0, 'C:/Users/user/Desktop/Alfred_Animacion/capitulos/capitulo_4')\nimport microfono_camara as mic\nmic.register()\nbpy.ops.microfono.analizar()\nbpy.ops.microfono.aplicar()\n",
+      "depende_de": [
+        "{CAPITULO}/microfono_camara/__init__.py"
+      ]
+    }
+  ],
+  "chequeos": {
+    "rango": [
+      "1",
+      "T['FIN']"
+    ],
+    "cada": 2,
+    "personajes": {
+      "alfred": {
+        "armadura": "armature",
+        "raiz": "alfred",
+        "mallas": [
+          "Mesh_?_alfred"
+        ]
+      }
+    },
+    "vigilados": [
+      "flecha_*"
+    ],
+    "saltos": {
+      "umbral_m": 0.08,
+      "factor": 5,
+      "teleport_m": 0.6
+    },
+    "giros": {
+      "umbral_grados": 40,
+      "factor": 5
+    },
+    "tramos_rapidos": [],
+    "pegados": {},
+    "penetracion": {
+      "pares": [],
+      "min_pares": 4,
+      "permitido": []
+    },
+    "suelo": {
+      "personajes": [
+        "alfred"
+      ],
+      "umbral_m": 0.05,
+      "alto_m": 0.35,
+      "muestras": 16,
+      "cada": 4,
+      "ignorar_prefijos": [
+        "flecha",
+        "sombrero",
+        "miga",
+        "Short_Grass",
+        "Tall_Grass",
+        "Fern",
+        "Large_Fern",
+        "Poppy",
+        "Dandelion",
+        "Allium",
+        "Azure",
+        "Pasto_roto",
+        "White_Tulip",
+        "Peony",
+        "Lilac",
+        "Sunflower",
+        "Dead_Bush",
+        "Sweet_Berry",
+        "Seagrass",
+        "Tall_Seagrass",
+        "Vines",
+        "Glow_Lichen"
+      ],
+      "ignorar_sufijos": [
+        "_alfred",
+        "_jerry"
+      ]
+    },
+    "distancias": [],
+    "audio": {
+      "voces": {
+        "jerry": "VozJerry",
+        "alfred": "VozAlfred"
+      }
+    },
+    "max_lineas": 25
+  }
+}

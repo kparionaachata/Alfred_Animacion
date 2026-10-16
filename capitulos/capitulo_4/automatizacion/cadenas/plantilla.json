@@ -1,0 +1,39 @@
+{
+  "descripcion": "PLANTILLA: copiala como cadenas/<nombre del .blend sin extension>.json (p.ej. base_parte_11.json) y llena los pasos.",
+  "variables": {
+    "DOCS": "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/alfred/refinar/docs",
+    "JERRY": "C:/Users/user/Desktop/Alfred_Animacion/generador de animaciones/jerry/refinar",
+    "ENT": "{AUTO}/entradas/base_parte_11"
+  },
+  "rutas_python": ["{JERRY}"],
+  "tiempos_prop": "p11_tiempos",
+  "respaldos_max": 4,
+  "pasos": [
+    {"id": "ejemplo_script", "tipo": "script", "archivo": "{DOCS}/parte11/mi_animacion_parte11.py", "checkpoint": true},
+    {"id": "ejemplo_voz", "tipo": "voz_rapida", "inicio": "T['MI_EVENTO'] + 4", "audio": "{ENT}/voz.wav", "script": "{ENT}/cara.py",
+     "tag": "jerry_ejemplo", "modo": "normal", "efecto": "ninguno",
+     "depende_de": ["{JERRY}/jerry_animation_studio/voz_rapida.py", "{JERRY}/docs/voz_jerry_despierta.py"]},
+    {"id": "ducking", "tipo": "script", "archivo": "{DOCS}/acciones/ducking_voces.py"}
+  ],
+  "chequeos": {
+    "rango": ["1", "T['FIN']"],
+    "cada": 2,
+    "personajes": {
+      "alfred": {"armadura": "armature", "raiz": "alfred", "mallas": ["Mesh_?_alfred"]},
+      "jerry": {"armadura": "a.002", "raiz": "jerry", "mallas": ["Mesh_3_jerry"]}
+    },
+    "vigilados": ["flecha_*", "sombrero_jerry*"],
+    "saltos": {"umbral_m": 0.08, "factor": 5, "teleport_m": 0.6},
+    "giros": {"umbral_grados": 40, "factor": 5},
+    "tramos_rapidos": [],
+    "pegados": {},
+    "penetracion": {"pares": [["alfred", "jerry"]], "min_pares": 4, "permitido": []},
+    "suelo": {"personajes": ["alfred", "jerry"], "umbral_m": 0.05, "alto_m": 0.35, "muestras": 16, "cada": 4,
+              "ignorar_prefijos": ["flecha", "sombrero", "miga", "Short_Grass", "Tall_Grass", "Fern", "Large_Fern", "Poppy", "Dandelion", "Allium", "Azure",
+                                   "Pasto_roto", "White_Tulip", "Peony", "Lilac", "Sunflower", "Dead_Bush", "Sweet_Berry", "Seagrass", "Tall_Seagrass", "Vines", "Glow_Lichen"],
+              "ignorar_sufijos": ["_alfred", "_jerry"]},
+    "distancias": [],
+    "audio": {"voces": {"jerry": "VozJerry", "alfred": "VozAlfred"}},
+    "max_lineas": 25
+  }
+}

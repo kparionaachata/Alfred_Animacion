@@ -1,0 +1,4863 @@
+{
+  "version": "1.0",
+  "export_timestamp": "2026-07-19 08:20:39.107257",
+  "camera_paths": [
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": []
+    },
+    {
+      "name": "CameraPath_1",
+      "interpolation": "BEZIER",
+      "keyframes": [
+        {
+          "frame": 1,
+          "location_x": -74.04119110107422,
+          "location_y": -12.77184009552002,
+          "location_z": 10.649195671081543,
+          "rotation_x": 1.518892765045166,
+          "rotation_y": 0.030557682737708092,
+          "rotation_z": 4.44102144241333,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "inicio",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 4,
+          "location_x": -73.62988014221192,
+          "location_y": -12.738221549987793,
+          "location_z": 10.647411346435547,
+          "rotation_x": 1.5220590233802795,
+          "rotation_y": 0.028918638341128827,
+          "rotation_z": 4.4581265544891355,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 8,
+          "location_x": -73.05404479980469,
+          "location_y": -12.691155586242676,
+          "location_z": 10.644913291931152,
+          "rotation_x": 1.5204758942127228,
+          "rotation_y": 0.029738160539418457,
+          "rotation_z": 4.449573998451233,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 34,
+          "location_x": -69.51677055358887,
+          "location_y": -12.402036094665528,
+          "location_z": 10.629568099975586,
+          "rotation_x": 1.4566230177879333,
+          "rotation_y": 0.06279222253710032,
+          "rotation_z": 4.104620904922485,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 42,
+          "location_x": -68.44736206054688,
+          "location_y": -12.314627876281738,
+          "location_z": 10.624928855895996,
+          "rotation_x": 1.4713988900184631,
+          "rotation_y": 0.05514334868639707,
+          "rotation_z": 4.184444761276245,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 44,
+          "location_x": -68.11831329345704,
+          "location_y": -12.287733039855958,
+          "location_z": 10.623501396179199,
+          "rotation_x": 1.4597892761230469,
+          "rotation_y": 0.06115317814052105,
+          "rotation_z": 4.121726016998291,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 48,
+          "location_x": -67.5424779510498,
+          "location_y": -12.24066707611084,
+          "location_z": 10.621003341674804,
+          "rotation_x": 1.4629555344581604,
+          "rotation_y": 0.05951413374394179,
+          "rotation_z": 4.138831129074097,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 52,
+          "location_x": -67.04890480041504,
+          "location_y": -12.200324821472169,
+          "location_z": 10.61886215209961,
+          "rotation_x": 1.468496486544609,
+          "rotation_y": 0.05664580604992807,
+          "rotation_z": 4.168765075206757,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 54,
+          "location_x": -66.80211822509766,
+          "location_y": -12.180153694152832,
+          "location_z": 10.617791557312012,
+          "rotation_x": 1.4677049219608307,
+          "rotation_y": 0.05705556714907289,
+          "rotation_z": 4.164488797187805,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 57,
+          "location_x": -66.3085450744629,
+          "location_y": -12.13981143951416,
+          "location_z": 10.615650367736816,
+          "rotation_x": 1.4653302282094955,
+          "rotation_y": 0.05828485044650734,
+          "rotation_z": 4.1516599631309505,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 58,
+          "location_x": -66.22628288269043,
+          "location_y": -12.133087730407714,
+          "location_z": 10.615293502807617,
+          "rotation_x": 1.4654885411262513,
+          "rotation_y": 0.05820289822667837,
+          "rotation_z": 4.152515218734742,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1,
+            61
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 61,
+          "location_x": -65.81497192382812,
+          "location_y": -12.099469184875488,
+          "location_z": 10.613509178161621,
+          "rotation_x": 1.466121792793274,
+          "rotation_y": 0.05787508934736252,
+          "rotation_z": 4.155936241149902,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 64,
+          "location_x": -64.69361515045166,
+          "location_y": -12.168417739868165,
+          "location_z": 10.680940437316895,
+          "rotation_x": 1.4773761415481568,
+          "rotation_y": 0.06134759470820427,
+          "rotation_z": 4.270616712570191,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 68,
+          "location_x": -63.12371566772461,
+          "location_y": -12.26494571685791,
+          "location_z": 10.775344200134278,
+          "rotation_x": 1.4717489671707153,
+          "rotation_y": 0.05961134202778339,
+          "rotation_z": 4.213276476860046,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 93,
+          "location_x": -53.480047416687015,
+          "location_y": -12.857903289794923,
+          "location_z": 11.35525302886963,
+          "rotation_x": 1.2447862672805785,
+          "rotation_y": -0.010417516082525252,
+          "rotation_z": 1.9005536365509033,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 100,
+          "location_x": -50.564519805908205,
+          "location_y": -13.037169532775879,
+          "location_z": 11.53057430267334,
+          "rotation_x": 1.2973065614700316,
+          "rotation_y": 0.005787508934736252,
+          "rotation_z": 2.435729169845581,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 103,
+          "location_x": -49.66743438720703,
+          "location_y": -13.09232837677002,
+          "location_z": 11.584519309997559,
+          "rotation_x": 1.2560406160354614,
+          "rotation_y": -0.006945010721683502,
+          "rotation_z": 2.0152341079711915,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 107,
+          "location_x": -48.09753490447998,
+          "location_y": -13.188856353759766,
+          "location_z": 11.678923072814941,
+          "rotation_x": 1.2672949647903442,
+          "rotation_y": -0.003472505360841751,
+          "rotation_z": 2.1299145793914795,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 110,
+          "location_x": -46.75190677642823,
+          "location_y": -13.271594619750976,
+          "location_z": 11.75984058380127,
+          "rotation_x": 1.2869900751113892,
+          "rotation_y": 0.002604379020631313,
+          "rotation_z": 2.3306054043769837,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 112,
+          "location_x": -46.07909271240234,
+          "location_y": -13.312963752746581,
+          "location_z": 11.800299339294433,
+          "rotation_x": 1.2841764879226685,
+          "rotation_y": 0.0017362526804208754,
+          "rotation_z": 2.301935286521912,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 116,
+          "location_x": -44.733464584350585,
+          "location_y": -13.395702018737794,
+          "location_z": 11.881216850280762,
+          "rotation_x": 1.2757357263565063,
+          "rotation_y": -0.0008681263402104377,
+          "rotation_z": 2.2159249329566957,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 117,
+          "location_x": -44.50919322967529,
+          "location_y": -13.409491729736327,
+          "location_z": 11.894703102111816,
+          "rotation_x": 1.2762984437942504,
+          "rotation_y": -0.0006945010721683502,
+          "rotation_z": 2.22165895652771,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            61,
+            119
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 119,
+          "location_x": -43.38783645629883,
+          "location_y": -13.478440284729004,
+          "location_z": 11.96213436126709,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2445950508117676,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 129,
+          "location_x": -43.38783645629883,
+          "location_y": -13.752296113967896,
+          "location_z": 11.905397081375122,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.27280948638916,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 143,
+          "location_x": -43.38783645629883,
+          "location_y": -14.135694274902344,
+          "location_z": 11.825964889526368,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.258702268600464,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 228,
+          "location_x": -43.38783645629883,
+          "location_y": -16.49085440635681,
+          "location_z": 11.338024282455445,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.689711151123047,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 254,
+          "location_x": -43.38783645629883,
+          "location_y": -17.20287956237793,
+          "location_z": 11.190507354736328,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.821378517150879,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 262,
+          "location_x": -43.38783645629883,
+          "location_y": -17.42196422576904,
+          "location_z": 11.145117530822754,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.7179255867004395,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 276,
+          "location_x": -43.38783645629883,
+          "location_y": -17.805362386703493,
+          "location_z": 11.065685338974,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.746140022277832,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 288,
+          "location_x": -43.38783645629883,
+          "location_y": -18.133989381790162,
+          "location_z": 10.997600603103638,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7955152845382691,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 294,
+          "location_x": -43.38783645629883,
+          "location_y": -18.298302879333498,
+          "location_z": 10.963558235168456,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.788461675643921,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 306,
+          "location_x": -43.38783645629883,
+          "location_y": -18.626929874420167,
+          "location_z": 10.895473499298095,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.7673008489608764,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 308,
+          "location_x": -43.38783645629883,
+          "location_y": -18.681701040267946,
+          "location_z": 10.884126043319702,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 1.768711570739746,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            119,
+            318
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 318,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 363,
+          "location_x": -43.38783645629883,
+          "location_y": -18.955556869506836,
+          "location_z": 10.827388763427734,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7743544578552246,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "hold",
+          "transition": {
+            "interpolation": "BEZIER",
+            "easing": "AUTO",
+            "handle_type": "VECTOR"
+          }
+        },
+        {
+          "frame": 366,
+          "location_x": -43.14833698272705,
+          "location_y": -18.574217224121092,
+          "location_z": 10.951006031036377,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.7280682134628296,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 371,
+          "location_x": -42.813037719726566,
+          "location_y": -18.040341720581054,
+          "location_z": 11.124070205688476,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 1.751211335659027,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 400,
+          "location_x": -40.75334224700928,
+          "location_y": -14.76082077026367,
+          "location_z": 12.187178707122802,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.6846505975723267,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 409,
+          "location_x": -40.130643615722654,
+          "location_y": -13.769337692260741,
+          "location_z": 12.508583602905274,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.4686481237411497,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 412,
+          "location_x": -39.93904403686523,
+          "location_y": -13.464265975952149,
+          "location_z": 12.607477416992188,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.6383643531799317,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 417,
+          "location_x": -39.60374477386475,
+          "location_y": -12.93039047241211,
+          "location_z": 12.780541591644287,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5920781087875366,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 421,
+          "location_x": -39.316345405578616,
+          "location_y": -12.47278289794922,
+          "location_z": 12.928882312774657,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.511077181100845,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 423,
+          "location_x": -39.17264572143554,
+          "location_y": -12.243979110717774,
+          "location_z": 13.003052673339845,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5226487421989443,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 427,
+          "location_x": -38.88524635314941,
+          "location_y": -11.786371536254883,
+          "location_z": 13.151393394470215,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5573634254932402,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 428,
+          "location_x": -38.83734645843506,
+          "location_y": -11.710103607177736,
+          "location_z": 13.176116847991944,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5550491132736206,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            363,
+            431
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 431,
+          "location_x": -38.59784698486328,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 434,
+          "location_x": -38.107916069030765,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 439,
+          "location_x": -37.42201278686523,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 467,
+          "location_x": -33.20860691070557,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 475,
+          "location_x": -31.934786529541014,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 478,
+          "location_x": -31.542841796875,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 482,
+          "location_x": -30.856938514709473,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 486,
+          "location_x": -30.269021415710448,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 488,
+          "location_x": -29.975062866210937,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 492,
+          "location_x": -29.387145767211912,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 493,
+          "location_x": -29.28915958404541,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            431,
+            496
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 496,
+          "location_x": -28.79922866821289,
+          "location_y": -11.328763961791992,
+          "location_z": 13.299734115600586,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.5457918643951416,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 498,
+          "location_x": -28.81459035873413,
+          "location_y": -11.86089277267456,
+          "location_z": 13.222357273101807,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.563263931274414,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 502,
+          "location_x": -28.836096725463868,
+          "location_y": -12.605873107910156,
+          "location_z": 13.114029693603516,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.554527897834778,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 523,
+          "location_x": -28.968207263946532,
+          "location_y": -17.182180881500244,
+          "location_z": 12.448588848114014,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.202174549102783,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 529,
+          "location_x": -29.00814765930176,
+          "location_y": -18.565715789794922,
+          "location_z": 12.247409057617187,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2837108612060546,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 531,
+          "location_x": -29.02043701171875,
+          "location_y": -18.991418838500977,
+          "location_z": 12.185507583618165,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.2196466159820556,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 535,
+          "location_x": -29.041943378448487,
+          "location_y": -19.736399173736572,
+          "location_z": 12.077180004119873,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.237118682861328,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 538,
+          "location_x": -29.060377407073975,
+          "location_y": -20.374953746795654,
+          "location_z": 11.984327793121338,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2676947999000547,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 539,
+          "location_x": -29.069594421386718,
+          "location_y": -20.694231033325195,
+          "location_z": 11.93790168762207,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.263326783180237,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 542,
+          "location_x": -29.088028450012207,
+          "location_y": -21.332785606384277,
+          "location_z": 11.845049476623535,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.2502227330207827,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 543,
+          "location_x": -29.091100788116456,
+          "location_y": -21.43921136856079,
+          "location_z": 11.82957410812378,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": 0.0,
+          "rotation_z": 2.2510963363647463,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            496,
+            545
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 545,
+          "location_x": -29.106462478637695,
+          "location_y": -21.97134017944336,
+          "location_z": 11.752197265625,
+          "rotation_x": 1.278549313545227,
+          "rotation_y": -0.0,
+          "rotation_z": 2.2545907497406006,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 556,
+          "location_x": -29.187348556518554,
+          "location_y": -22.395844745635987,
+          "location_z": 11.692459106445312,
+          "rotation_x": 1.2759344959259034,
+          "rotation_y": 0.002574046477675438,
+          "rotation_z": 2.3343748879432678,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 571,
+          "location_x": -29.30058906555176,
+          "location_y": -22.990151138305663,
+          "location_z": 11.60882568359375,
+          "rotation_x": 1.2772419047355652,
+          "rotation_y": 0.001287023238837719,
+          "rotation_z": 2.294482818841934,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 662,
+          "location_x": -29.996209335327148,
+          "location_y": -26.640890407562257,
+          "location_z": 11.095077514648438,
+          "rotation_x": 1.3299740600585936,
+          "rotation_y": -0.05062291406095028,
+          "rotation_z": 0.6855026984214783,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 690,
+          "location_x": -30.20651313781738,
+          "location_y": -27.744602279663084,
+          "location_z": 10.93975830078125,
+          "rotation_x": 1.317771577835083,
+          "rotation_y": -0.03861069716513157,
+          "rotation_z": 1.057828676700592,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 698,
+          "location_x": -30.27122200012207,
+          "location_y": -28.084205932617188,
+          "location_z": 10.8919677734375,
+          "rotation_x": 1.32735924243927,
+          "rotation_y": -0.04804886758327484,
+          "rotation_z": 0.7652868366241455,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 713,
+          "location_x": -30.384462509155274,
+          "location_y": -28.678512325286867,
+          "location_z": 10.808334350585938,
+          "rotation_x": 1.3247444248199463,
+          "rotation_y": -0.0454748211055994,
+          "rotation_z": 0.8450709748268127,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 726,
+          "location_x": -30.481525802612303,
+          "location_y": -29.18791780471802,
+          "location_z": 10.736648559570312,
+          "rotation_x": 1.3201684939861298,
+          "rotation_y": -0.040970239769667384,
+          "rotation_z": 0.9846932166814804,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 732,
+          "location_x": -30.53005744934082,
+          "location_y": -29.442620544433595,
+          "location_z": 10.7008056640625,
+          "rotation_x": 1.3208221983909607,
+          "rotation_y": -0.04161375138908625,
+          "rotation_z": 0.9647471821308136,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 745,
+          "location_x": -30.627120742797853,
+          "location_y": -29.952026023864747,
+          "location_z": 10.629119873046875,
+          "rotation_x": 1.3227833116054535,
+          "rotation_y": -0.04354428624734283,
+          "rotation_z": 0.9049090784788132,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 747,
+          "location_x": -30.643297958374024,
+          "location_y": -30.03692693710327,
+          "location_z": 10.617172241210938,
+          "rotation_x": 1.3226525707244874,
+          "rotation_y": -0.04341558392345905,
+          "rotation_z": 0.9088982853889466,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            545,
+            758
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 758,
+          "location_x": -30.724184036254883,
+          "location_y": -30.4614315032959,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 0.92485511302948,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 771,
+          "location_x": -30.670118141174317,
+          "location_y": -30.348003482818605,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 0.8949797964096069,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 789,
+          "location_x": -30.594425888061522,
+          "location_y": -30.18920425415039,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 0.9099174547195434,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 901,
+          "location_x": -30.129459190368653,
+          "location_y": -29.213723278045656,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.51240300655365,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 935,
+          "location_x": -29.988887863159178,
+          "location_y": -28.918810424804686,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.3729848623275758,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 945,
+          "location_x": -29.945635147094727,
+          "location_y": -28.82806800842285,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.482527689933777,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 963,
+          "location_x": -29.869942893981932,
+          "location_y": -28.66926877975464,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.4526523733139038,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 979,
+          "location_x": -29.805063819885255,
+          "location_y": -28.533155155181884,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.400370569229126,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 987,
+          "location_x": -29.772624282836915,
+          "location_y": -28.46509834289551,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.4078393983840942,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 1002,
+          "location_x": -29.707745208740235,
+          "location_y": -28.328984718322754,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.430245885848999,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 1005,
+          "location_x": -29.69693202972412,
+          "location_y": -28.306299114227294,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.4287521200180053,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            758,
+            1018
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 1018,
+          "location_x": -29.642866134643555,
+          "location_y": -28.19287109375,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.4227770566940308,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 1030,
+          "location_x": -29.642866134643555,
+          "location_y": -27.724931144714354,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.3115299916267396,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 1046,
+          "location_x": -29.642866134643555,
+          "location_y": -27.069815216064452,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 1.3671535241603852,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 1148,
+          "location_x": -29.642866134643555,
+          "location_y": -23.04553165435791,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.6106360030174254,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 1178,
+          "location_x": -29.642866134643555,
+          "location_y": -21.828887786865234,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.0914830327033997,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 1188,
+          "location_x": -29.642866134643555,
+          "location_y": -21.454535827636718,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.499388937950134,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 1204,
+          "location_x": -29.642866134643555,
+          "location_y": -20.799419898986816,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.388141872882843,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 1219,
+          "location_x": -29.642866134643555,
+          "location_y": -20.237891960144044,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.1934595090150832,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 1226,
+          "location_x": -29.642866134643555,
+          "location_y": -19.957127990722654,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.221271275281906,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 1240,
+          "location_x": -29.642866134643555,
+          "location_y": -19.39560005187988,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.3047065740823744,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 1242,
+          "location_x": -29.642866134643555,
+          "location_y": -19.302012062072755,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.29914422082901,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1018,
+            1254
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 1254,
+          "location_x": -29.642866134643555,
+          "location_y": -18.83407211303711,
+          "location_z": 10.55743408203125,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774627923965,
+          "rotation_z": 3.2768948078155518,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 1260,
+          "location_x": -29.850378131866456,
+          "location_y": -19.068841171264648,
+          "location_z": 10.541301679611205,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900774404406546,
+          "rotation_z": 3.204956088066101,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 1269,
+          "location_x": -30.140894927978515,
+          "location_y": -19.397517852783203,
+          "location_z": 10.518716316223145,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077451616526,
+          "rotation_z": 3.2409254479408265,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 1322,
+          "location_x": -31.92549810409546,
+          "location_y": -21.41653175354004,
+          "location_z": 10.379977655410766,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900779023766517,
+          "rotation_z": 4.691689629554748,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 1338,
+          "location_x": -32.465029296875,
+          "location_y": -22.02693130493164,
+          "location_z": 10.338033409118653,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900777980685235,
+          "rotation_z": 4.355975604057312,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 1343,
+          "location_x": -32.63103889465332,
+          "location_y": -22.21474655151367,
+          "location_z": 10.325127487182618,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.0429007788002491,
+          "rotation_z": 4.619750909805298,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 1351,
+          "location_x": -32.92155569076538,
+          "location_y": -22.543423233032225,
+          "location_z": 10.302542123794556,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900778576731684,
+          "rotation_z": 4.547812190055847,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 1359,
+          "location_x": -33.170570087432864,
+          "location_y": -22.825146102905272,
+          "location_z": 10.283183240890503,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.0429007781855762,
+          "rotation_z": 4.421919430494309,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 1362,
+          "location_x": -33.2950772857666,
+          "location_y": -22.966007537841797,
+          "location_z": 10.273503799438476,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077824145556,
+          "rotation_z": 4.439904110431671,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 1370,
+          "location_x": -33.54409168243408,
+          "location_y": -23.247730407714844,
+          "location_z": 10.254144916534424,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077840909362,
+          "rotation_z": 4.493858150243759,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 1371,
+          "location_x": -33.58559408187866,
+          "location_y": -23.294684219360352,
+          "location_z": 10.250918436050416,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077839791775,
+          "rotation_z": 4.490261214256287,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1254,
+            1377
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 1377,
+          "location_x": -33.79310607910156,
+          "location_y": -23.52945327758789,
+          "location_z": 10.234786033630371,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900778353214264,
+          "rotation_z": 4.4758734703063965,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 1380,
+          "location_x": -33.572336959838864,
+          "location_y": -23.36329174041748,
+          "location_z": 10.22344903945923,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900778129696844,
+          "rotation_z": 4.539309787750244,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 1384,
+          "location_x": -33.263260192871094,
+          "location_y": -23.130665588378907,
+          "location_z": 10.207577247619628,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290077824145556,
+          "rotation_z": 4.507591629028321,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 1409,
+          "location_x": -31.364645767211915,
+          "location_y": -21.70167636871338,
+          "location_z": 10.110079097747803,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900782749056815,
+          "rotation_z": 3.2282925605773927,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 1417,
+          "location_x": -30.790646057128907,
+          "location_y": -21.269656372070312,
+          "location_z": 10.080602912902831,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900781705975534,
+          "rotation_z": 3.5243287086486816,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 1419,
+          "location_x": -30.61403076171875,
+          "location_y": -21.136727142333985,
+          "location_z": 10.071533317565917,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900782525539395,
+          "rotation_z": 3.29172887802124,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 1424,
+          "location_x": -30.304953994750978,
+          "location_y": -20.90410099029541,
+          "location_z": 10.055661525726318,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078230202198,
+          "rotation_z": 3.355165195465088,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 1427,
+          "location_x": -30.040031051635744,
+          "location_y": -20.704707145690918,
+          "location_z": 10.042057132720947,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.0429007819108665,
+          "rotation_z": 3.4661787509918214,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 1429,
+          "location_x": -29.907569580078125,
+          "location_y": -20.60501022338867,
+          "location_z": 10.035254936218262,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900781966745856,
+          "rotation_z": 3.4503196716308593,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 1432,
+          "location_x": -29.64264663696289,
+          "location_y": -20.40561637878418,
+          "location_z": 10.02165054321289,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078213438392,
+          "rotation_z": 3.4027424335479735,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 1433,
+          "location_x": -29.59849281311035,
+          "location_y": -20.372384071350098,
+          "location_z": 10.019383144378661,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.042900782123208046,
+          "rotation_z": 3.405914249420166,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1377,
+            1436
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 1436,
+          "location_x": -29.377723693847656,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.4186015129089355,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 1451,
+          "location_x": -29.34341173171997,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.4303054141998293,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 1472,
+          "location_x": -29.295374984741212,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.424453463554382,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 1603,
+          "location_x": -29.000292110443116,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.1884247875213623,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 1642,
+          "location_x": -28.911081008911133,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.243042993545532,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 1654,
+          "location_x": -28.883631439208983,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.200128688812256,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 1675,
+          "location_x": -28.835594692230224,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.2118325901031493,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 1694,
+          "location_x": -28.794420337677003,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.232314417362213,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 1703,
+          "location_x": -28.77383316040039,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.2293884420394896,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 1721,
+          "location_x": -28.73265880584717,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.2206105160713197,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 1724,
+          "location_x": -28.72579641342163,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.2211957111358642,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1436,
+            1739
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 1739,
+          "location_x": -28.691484451293945,
+          "location_y": -20.206222534179688,
+          "location_z": 10.00804615020752,
+          "rotation_x": 1.3221296072006226,
+          "rotation_y": -0.04290078207850456,
+          "rotation_z": 3.223536491394043,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 1747,
+          "location_x": -28.691484451293945,
+          "location_y": -20.183505535125732,
+          "location_z": 10.025980138778687,
+          "rotation_x": 1.3256796216964721,
+          "rotation_y": -0.04319645717740059,
+          "rotation_z": 3.223392925262451,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 1757,
+          "location_x": -28.691484451293945,
+          "location_y": -20.151701736450196,
+          "location_z": 10.05108772277832,
+          "rotation_x": 1.3239046144485473,
+          "rotation_y": -0.043048619627952575,
+          "rotation_z": 3.223464708328247,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 1823,
+          "location_x": -28.691484451293945,
+          "location_y": -19.95633554458618,
+          "location_z": 10.205320024490357,
+          "rotation_x": 1.2523126554489137,
+          "rotation_y": -0.03708583846688271,
+          "rotation_z": 3.2263599586486817,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 1842,
+          "location_x": -28.691484451293945,
+          "location_y": -19.897271347045898,
+          "location_z": 10.25194839477539,
+          "rotation_x": 1.2688793897628785,
+          "rotation_y": -0.038465655595064166,
+          "rotation_z": 3.22568998336792,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 1848,
+          "location_x": -28.691484451293945,
+          "location_y": -19.879097747802735,
+          "location_z": 10.266295585632324,
+          "rotation_x": 1.2558626699447633,
+          "rotation_y": -0.037381513565778735,
+          "rotation_z": 3.22621639251709,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 1859,
+          "location_x": -28.691484451293945,
+          "location_y": -19.8472939491272,
+          "location_z": 10.291403169631957,
+          "rotation_x": 1.2594126844406128,
+          "rotation_y": -0.03767718866467476,
+          "rotation_z": 3.226072826385498,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 1868,
+          "location_x": -28.691484451293945,
+          "location_y": -19.82003355026245,
+          "location_z": 10.312923955917359,
+          "rotation_x": 1.2656252098083496,
+          "rotation_y": -0.038194620087742805,
+          "rotation_z": 3.2258215856552126,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 1873,
+          "location_x": -28.691484451293945,
+          "location_y": -19.806403350830077,
+          "location_z": 10.32368434906006,
+          "rotation_x": 1.2647377061843872,
+          "rotation_y": -0.0381207013130188,
+          "rotation_z": 3.2258574771881103,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 1882,
+          "location_x": -28.691484451293945,
+          "location_y": -19.779142951965333,
+          "location_z": 10.34520513534546,
+          "rotation_x": 1.2620751953125,
+          "rotation_y": -0.03789894498884678,
+          "rotation_z": 3.225965151786804,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 1883,
+          "location_x": -28.691484451293945,
+          "location_y": -19.77459955215454,
+          "location_z": 10.348791933059692,
+          "rotation_x": 1.2622526960372924,
+          "rotation_y": -0.03791372874379158,
+          "rotation_z": 3.2259579734802246,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1739,
+            1891
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 1891,
+          "location_x": -28.691484451293945,
+          "location_y": -19.751882553100586,
+          "location_z": 10.36672592163086,
+          "rotation_x": 1.2629626989364624,
+          "rotation_y": -0.037972863763570786,
+          "rotation_z": 3.2259292602539062,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 1897,
+          "location_x": -28.691484451293945,
+          "location_y": -19.76713409423828,
+          "location_z": 10.500412273406983,
+          "rotation_x": 1.288073729276657,
+          "rotation_y": -0.04023137561802287,
+          "rotation_z": 3.2254411125183107,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 1906,
+          "location_x": -28.691484451293945,
+          "location_y": -19.788486251831056,
+          "location_z": 10.687573165893555,
+          "rotation_x": 1.2755182141065597,
+          "rotation_y": -0.03910211969079683,
+          "rotation_z": 3.2256851863861082,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 1961,
+          "location_x": -28.691484451293945,
+          "location_y": -19.919649505615233,
+          "location_z": 11.837275791168214,
+          "rotation_x": 0.7691124355793,
+          "rotation_y": 0.006444536040653474,
+          "rotation_z": 3.235529499053955,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 1978,
+          "location_x": -28.691484451293945,
+          "location_y": -19.959303512573243,
+          "location_z": 12.184860305786133,
+          "rotation_x": 0.8862972438335419,
+          "rotation_y": -0.00409518594678957,
+          "rotation_z": 3.2332514762878417,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 1983,
+          "location_x": -28.691484451293945,
+          "location_y": -19.971504745483397,
+          "location_z": 12.291809387207032,
+          "rotation_x": 0.7942234659194947,
+          "rotation_y": 0.004186024186201394,
+          "rotation_z": 3.2350413513183596,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 1992,
+          "location_x": -28.691484451293945,
+          "location_y": -19.992856903076174,
+          "location_z": 12.478970279693604,
+          "rotation_x": 0.8193344962596893,
+          "rotation_y": 0.0019275123317493126,
+          "rotation_z": 3.2345532035827635,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 2000,
+          "location_x": -28.691484451293945,
+          "location_y": -20.011158752441407,
+          "location_z": 12.63939390182495,
+          "rotation_x": 0.86327879935503,
+          "rotation_y": -0.002024883413541829,
+          "rotation_z": 3.233698945045471,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 2004,
+          "location_x": -28.691484451293945,
+          "location_y": -20.020309677124022,
+          "location_z": 12.719605712890624,
+          "rotation_x": 0.8570010417699814,
+          "rotation_y": -0.001460255449928809,
+          "rotation_z": 3.23382098197937,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 2011,
+          "location_x": -28.691484451293945,
+          "location_y": -20.03861152648926,
+          "location_z": 12.880029335021973,
+          "rotation_x": 0.8381677690148354,
+          "rotation_y": 0.00023362844091025182,
+          "rotation_z": 3.2341870927810668,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 2013,
+          "location_x": -28.691484451293945,
+          "location_y": -20.0416618347168,
+          "location_z": 12.906766605377197,
+          "rotation_x": 0.8394233205318451,
+          "rotation_y": 0.00012070284818764776,
+          "rotation_z": 3.234162685394287,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            1891,
+            2019
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 2019,
+          "location_x": -28.691484451293945,
+          "location_y": -20.056913375854492,
+          "location_z": 13.04045295715332,
+          "rotation_x": 0.844445526599884,
+          "rotation_y": -0.00033099952270276845,
+          "rotation_z": 3.234065055847168,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 2023,
+          "location_x": -28.890013027191163,
+          "location_y": -20.21974096298218,
+          "location_z": 12.944815826416015,
+          "rotation_x": 0.829443770647049,
+          "rotation_y": -0.00018616498738992959,
+          "rotation_z": 3.164638843536377,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 2030,
+          "location_x": -29.167953033447265,
+          "location_y": -20.447699584960937,
+          "location_z": 12.810923843383788,
+          "rotation_x": 0.8369446486234665,
+          "rotation_y": -0.000258582255046349,
+          "rotation_z": 3.1993519496917724,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 2067,
+          "location_x": -30.87529878616333,
+          "location_y": -21.848016834259035,
+          "location_z": 11.988444519042968,
+          "rotation_x": 1.139480060338974,
+          "rotation_y": -0.0031794120505219325,
+          "rotation_z": 4.599447231292725,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 2079,
+          "location_x": -31.391473083496095,
+          "location_y": -22.271368560791014,
+          "location_z": 11.739787979125976,
+          "rotation_x": 1.0694718658924103,
+          "rotation_y": -0.002503517552395351,
+          "rotation_z": 4.275458240509034,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 2082,
+          "location_x": -31.550295944213868,
+          "location_y": -22.401630630493162,
+          "location_z": 11.663278274536133,
+          "rotation_x": 1.1244783043861388,
+          "rotation_y": -0.003034577515209094,
+          "rotation_z": 4.530021018981934,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 2089,
+          "location_x": -31.82823595046997,
+          "location_y": -22.629589252471924,
+          "location_z": 11.529386291503906,
+          "rotation_x": 1.1094765484333038,
+          "rotation_y": -0.0028897429798962547,
+          "rotation_z": 4.460594806671143,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 2094,
+          "location_x": -32.06647024154663,
+          "location_y": -22.824982357025146,
+          "location_z": 11.414621734619141,
+          "rotation_x": 1.0832234755158425,
+          "rotation_y": -0.0026362825430987866,
+          "rotation_z": 4.339098935127258,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 2096,
+          "location_x": -32.18558738708496,
+          "location_y": -22.92267890930176,
+          "location_z": 11.357239456176758,
+          "rotation_x": 1.0869739145040511,
+          "rotation_y": -0.0026724911769269964,
+          "rotation_z": 4.356455488204956,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 2102,
+          "location_x": -32.42382167816162,
+          "location_y": -23.11807201385498,
+          "location_z": 11.242474899291992,
+          "rotation_x": 1.0982252314686776,
+          "rotation_y": -0.0027811170784116258,
+          "rotation_z": 4.408525147438049,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 2103,
+          "location_x": -32.46352739334107,
+          "location_y": -23.150637531280516,
+          "location_z": 11.223347473144532,
+          "rotation_x": 1.0974751436710357,
+          "rotation_y": -0.002773875351645984,
+          "rotation_z": 4.40505383682251,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2019,
+            2107
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 2107,
+          "location_x": -32.66205596923828,
+          "location_y": -23.313465118408203,
+          "location_z": 11.127710342407227,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.391168594360352,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        },
+        {
+          "frame": 2112,
+          "location_x": -32.59822044372559,
+          "location_y": -23.17404623031616,
+          "location_z": 11.164140462875366,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.428733568191529,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_1"
+          }
+        },
+        {
+          "frame": 2119,
+          "location_x": -32.50885070800781,
+          "location_y": -22.978859786987304,
+          "location_z": 11.215142631530762,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 4.40995108127594,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "anticipacion",
+            "phase": "coil_2"
+          }
+        },
+        {
+          "frame": 2161,
+          "location_x": -31.959865188598634,
+          "location_y": -21.77985734939575,
+          "location_z": 11.528441667556763,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.652390775680542,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_1"
+          }
+        },
+        {
+          "frame": 2174,
+          "location_x": -31.793892822265626,
+          "location_y": -21.417368240356446,
+          "location_z": 11.623159980773925,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.8276939868927,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_2"
+          }
+        },
+        {
+          "frame": 2178,
+          "location_x": -31.74282440185547,
+          "location_y": -21.305833129882814,
+          "location_z": 11.652304077148438,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.689955749511719,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_1"
+          }
+        },
+        {
+          "frame": 2184,
+          "location_x": -31.653454666137694,
+          "location_y": -21.110646686553956,
+          "location_z": 11.703306245803834,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.7275207233428955,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_3"
+          }
+        },
+        {
+          "frame": 2190,
+          "location_x": -31.57685203552246,
+          "location_y": -20.943344020843504,
+          "location_z": 11.7470223903656,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.7932594275474547,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "undershoot"
+          }
+        },
+        {
+          "frame": 2193,
+          "location_x": -31.538550720214843,
+          "location_y": -20.859692687988282,
+          "location_z": 11.768880462646484,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.783868184089661,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_4"
+          }
+        },
+        {
+          "frame": 2199,
+          "location_x": -31.46194808959961,
+          "location_y": -20.69239002227783,
+          "location_z": 11.812596607208253,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.755694453716278,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "rebote",
+            "phase": "overshoot_2"
+          }
+        },
+        {
+          "frame": 2200,
+          "location_x": -31.44918098449707,
+          "location_y": -20.664506244659425,
+          "location_z": 11.81988263130188,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.757572702407837,
+          "fov": 50.0,
+          "origin": "inserted",
+          "source_segment": [
+            2107,
+            2205
+          ],
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          },
+          "effect_meta": {
+            "effect": "elastico",
+            "phase": "swing_5"
+          }
+        },
+        {
+          "frame": 2205,
+          "location_x": -31.385345458984375,
+          "location_y": -20.525087356567383,
+          "location_z": 11.85631275177002,
+          "rotation_x": 1.0944747924804688,
+          "rotation_y": -0.002744908444583416,
+          "rotation_z": 3.7650856971740723,
+          "fov": 50.0,
+          "origin": "original",
+          "segment_type": "movimiento",
+          "transition": {
+            "interpolation": "BOUNCE",
+            "easing": "EASE_OUT",
+            "handle_type": "VECTOR",
+            "bounce_amplitude": 0.6,
+            "bounce_period": 0.35,
+            "bounces": 3
+          }
+        }
+      ],
+      "original_keyframe_count": 18,
+      "total_keyframe_count_after_effects": 178
+    }
+  ],
+  "transition_preset": "comedia_cartoon",
+  "transition_preset_description": "BOUNCE nativo + rebote explicito + elastico explicito combinados al maximo: muy exagerado.",
+  "effects_applied": [
+    "anticipacion",
+    "rebote",
+    "elastico"
+  ]
+}

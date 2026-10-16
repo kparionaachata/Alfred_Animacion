@@ -28,9 +28,9 @@ Nombre: `chat_<fecha del ultimo mensaje>_<id de sesion>.zip`. Muchas son bifurca
 | `chat_2026-10-15_cbeb26ea.zip` | 4 870 | capitulo 4 (bifurcacion) |
 | `chat_2026-10-15_b2583b18.zip` | 2 278 | capitulo 4 (bifurcacion) |
 | `chat_2026-10-15_dd2b9161.zip` | 64 | analisis rapido de la carpeta |
-| `chat_2026-10-16_1e33b4da.zip` | 5 937 | **ultima sesion** (capitulo 4, `capitulos/capitulo_4`): sonidos del ring, antorchas, guardianes de patrulla, Jerry despierta (base_ranas_2); base_ranas_3: Jerry llega a la valla y le pregunta al cerdo, la pelea desde la fase 3 (fase 4 "Alfred pierde", fase 5 "Derribo" en el otro extremo, golpes en el suelo, la rana celebra y saluda al publico), Alfred le pide a Jerry que tire la toalla y Jerry le lanza un stick, un bloque de cobblestone y un pollo (que huye saltando la valla), rana de las apuestas (Jerry apuesta 5 pepitas de hierro) |
+| `chat_2026-10-16_1e33b4da.zip` | 6032 | **ultima sesion** (capitulo 4, `capitulos/capitulo_4`): sonidos del ring, antorchas, guardianes de patrulla, Jerry despierta (base_ranas_2); base_ranas_3: Jerry llega a la valla y le pregunta al cerdo, la pelea desde la fase 3 (fase 4 "Alfred pierde", fase 5 "Derribo" en el otro extremo, golpes en el suelo, la rana celebra y saluda al publico), Alfred le pide a Jerry que tire la toalla y Jerry le lanza un stick, un bloque de cobblestone y un pollo (que huye saltando la valla), rana de las apuestas (Jerry apuesta 5 pepitas de hierro) |
 
-Los scripts del capitulo 4 estan en `capitulos/capitulo_4/ring/` (fuera del repositorio por el `.gitignore`).
+Los scripts del capitulo 4 estan en `capitulos/capitulo_4/` (solo .py, .json, .md y .txt; los .blend, audio e imagenes no se suben). Los de esta ultima sesion estan en `capitulos/capitulo_4/ring/`.
 
 Unir las partes de una misma sesion en orden (1, 2, 3).
 

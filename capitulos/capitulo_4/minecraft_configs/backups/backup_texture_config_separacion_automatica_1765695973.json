@@ -1,0 +1,197 @@
+{
+    "metadata": {
+        "version": "5.0",
+        "timestamp": "2025-12-14T00:23:50.631159",
+        "blender_version": "4.5.3",
+        "total_objects": 6,
+        "total_materials": 6,
+        "changes_only": true,
+        "default_texture_dir": "Prompt_054",
+        "includes_separation_tracking": true,
+        "separations_tracked": 2
+    },
+    "texture_paths": {
+        "red_toadstool": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\animacion\\Prompt_059\\mundo\\ribbits\\red_toadstool.png"
+    },
+    "objects": {
+        "Bedrock.004": {
+            "name": "Bedrock.004",
+            "location": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "materials": {
+                "slot_0": {
+                    "material_name": "Mat_red_toadstool.png",
+                    "texture_path": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\animacion\\Prompt_059\\mundo\\ribbits\\red_toadstool.png",
+                    "texture_name": "red_toadstool",
+                    "image_name": "red_toadstool.png"
+                }
+            }
+        },
+        "Bedrock.009": {
+            "name": "Bedrock.009",
+            "location": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "materials": {
+                "slot_0": {
+                    "material_name": "Mat_red_toadstool.png",
+                    "texture_path": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\animacion\\Prompt_059\\mundo\\ribbits\\red_toadstool.png",
+                    "texture_name": "red_toadstool",
+                    "image_name": "red_toadstool.png"
+                }
+            }
+        },
+        "Bedrock.010": {
+            "name": "Bedrock.010",
+            "location": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "materials": {
+                "slot_0": {
+                    "material_name": "Mat_red_toadstool.png",
+                    "texture_path": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\animacion\\Prompt_059\\mundo\\ribbits\\red_toadstool.png",
+                    "texture_name": "red_toadstool",
+                    "image_name": "red_toadstool.png"
+                }
+            }
+        },
+        "Bedrock.012": {
+            "name": "Bedrock.012",
+            "location": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "materials": {
+                "slot_0": {
+                    "material_name": "Mat_red_toadstool.png",
+                    "texture_path": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\animacion\\Prompt_059\\mundo\\ribbits\\red_toadstool.png",
+                    "texture_name": "red_toadstool",
+                    "image_name": "red_toadstool.png"
+                }
+            }
+        },
+        "Bedrock.016": {
+            "name": "Bedrock.016",
+            "location": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "materials": {
+                "slot_0": {
+                    "material_name": "Mat_red_toadstool.png",
+                    "texture_path": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\animacion\\Prompt_059\\mundo\\ribbits\\red_toadstool.png",
+                    "texture_name": "red_toadstool",
+                    "image_name": "red_toadstool.png"
+                }
+            }
+        },
+        "Bedrock.026": {
+            "name": "Bedrock.026",
+            "location": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "materials": {
+                "slot_0": {
+                    "material_name": "Mat_red_toadstool.png",
+                    "texture_path": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\animacion\\Prompt_059\\mundo\\ribbits\\red_toadstool.png",
+                    "texture_name": "red_toadstool",
+                    "image_name": "red_toadstool.png"
+                }
+            }
+        }
+    },
+    "separation_tracking": {
+        "Campfire__4": {
+            "original_object": "Campfire__4",
+            "separated_cubes": [
+                "Campfire__4",
+                "Campfire__4.001",
+                "Campfire__4.002",
+                "Campfire__4.003",
+                "Campfire__4.004",
+                "Campfire__4.007",
+                "Campfire__4.008",
+                "Campfire__4.009",
+                "Campfire__4.010",
+                "Campfire__4.011"
+            ],
+            "cube_count": 10,
+            "group_materials": {},
+            "separation_timestamp": "2025-12-14T00:23:50.636176"
+        },
+        "Bedrock": {
+            "original_object": "Bedrock",
+            "separated_cubes": [
+                "Bedrock.004",
+                "Bedrock.005",
+                "Bedrock.006",
+                "Bedrock.007",
+                "Bedrock.008",
+                "Bedrock.011",
+                "Bedrock.012",
+                "Bedrock.013",
+                "Bedrock.015",
+                "Bedrock.018",
+                "Bedrock.019",
+                "Bedrock.021",
+                "Bedrock.022",
+                "Bedrock.023",
+                "Bedrock.024",
+                "Bedrock.025",
+                "Bedrock.026",
+                "Bedrock.027"
+            ],
+            "cube_count": 18,
+            "group_materials": {
+                "slot_0": {
+                    "material_name": "Mat_red_toadstool.png",
+                    "texture_path": "C:\\Users\\user\\Desktop\\Alfred_Animacion\\animacion\\Prompt_059\\mundo\\ribbits\\red_toadstool.png",
+                    "texture_name": "red_toadstool",
+                    "image_name": "red_toadstool.png"
+                }
+            },
+            "separation_timestamp": "2025-12-14T00:23:50.638171"
+        }
+    }
+}
