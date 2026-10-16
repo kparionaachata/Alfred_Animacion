@@ -57,7 +57,7 @@ def asegurar_objetos():
         with bpy.data.libraries.load(ruta, link=False) as (src, dst): dst.objects = [n for n in faltan if n in src.objects]
         for o in dst.objects:
             if o is None: continue
-            if o.name in PAYLOAD['objetos'] or (o.parent is not None and o.parent.name in PAYLOAD['objetos']): bpy.context.scene.collection.objects.link(o)
+            if o.name in PAYLOAD['objetos'] or (o.parent is not None and o.parent.name in PAYLOAD['objetos']) or (rec.get('enlazar_todo') and o.name in rec['paquete']): bpy.context.scene.collection.objects.link(o)
             else: bpy.data.objects.remove(o)                                                 # objeto del paquete que no es de esta animacion (p. ej. los bloques de la puerta ya rotos)
         if nombre not in bpy.data.objects: raise ValueError('No se pudo anadir ' + nombre)
 
@@ -116,6 +116,15 @@ def execute_animation(start_frame=ORIGINAL_START, origen='actual'):
                 ob.hide_viewport = hv; ob.hide_render = hr; ob.keyframe_insert('hide_viewport', frame=start_frame + i); ob.keyframe_insert('hide_render', frame=start_frame + i)
         else: ob.hide_viewport, ob.hide_render = rec['hide_const']
         _interp(a)
+        if 'rig_bones' in rec:                                                                  # objeto con ARMATURE propio (p. ej. el pollo): la pose de sus huesos por frame
+            rig = bpy.data.objects[rec['rig']]; ar = _new_action(rig, 'Alfred_' + rec['rig'] + '_' + ANIMATION_INFO['name'])
+            for bn, chans in rec['rig_bones'].items():
+                pb = rig.pose.bones.get(bn)
+                if pb is None: continue
+                pb.rotation_mode = 'XYZ'
+                for ch, vals in chans.items():
+                    for i, v in enumerate(vals): setattr(pb, ch, v); pb.keyframe_insert(ch, frame=start_frame + i, group=bn)
+            _interp(ar)
     sc.render.fps = 24; sc.render.fps_base = 1
     sc.frame_start = min(sc.frame_start, int(start_frame)); sc.frame_end = max(sc.frame_end, int(start_frame + FRAMES - 1)); sc.frame_set(int(start_frame))
     return True
