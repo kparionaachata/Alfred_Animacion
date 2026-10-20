@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """ESPECTADORES POR GRUPOS: activa / desactiva la presencia de cada grupo de espectadores del ring
-(ribbits, guardianes ribbit, cerdos, vacas, pollos) para reproducir y analizar cada grupo por separado.
+(ribbits, guardianes ribbit, cerdos, vacas, pollos y la rana de las apuestas con sus pepitas) para reproducir y analizar cada grupo por separado.
 - Ocultar un grupo apaga sus objetos en el visor (y opcionalmente en el render): no se evaluan, la reproduccion va mas fluida.
 - Cada personaje se lleva su slab (slab_<nombre>) y todas sus mallas hijas.
 - El estado original de cada objeto se guarda al ocultarlo y se restaura al mostrarlo (las mallas auxiliares que ya
@@ -25,15 +25,35 @@ GRUPOS = [  # (id, etiqueta, icono, patron del nombre de la raiz)
     ("cerdos", "Cerdos", 'MONKEY', re.compile(r"^cerdo\d*_ring$")),
     ("vacas", "Vacas", 'MONKEY', re.compile(r"^vaca\d*_ring$")),
     ("pollos", "Pollos", 'MONKEY', re.compile(r"^pollo\d*_ring$")),
+    ("apuestas", "Rana de las apuestas", 'OUTLINER_OB_ARMATURE', re.compile(r"^rana_apuestas$")),
 ]
+SIEMPRE = {"apuestas"}                                    # grupos cuya raiz cuenta aunque ande lejos de la valla
+EXTRAS = {"apuestas": re.compile(r"^pepita_apuesta_\d+$")}   # objetos sueltos (sin padre) que tambien son del grupo: las pepitas de hierro
 
 
 # ------------------------------------------------------------------ quien es de cada grupo
+def _posicion(o):
+    """posicion de la raiz. Un objeto oculto no se evalua (su matrix_world queda en 0,0,0): se lee de sus curvas de ubicacion."""
+    from mathutils import Vector
+    ad = o.animation_data
+    if o.hide_viewport and ad and ad.action:
+        try:
+            from bpy_extras import anim_utils
+            cb = anim_utils.action_get_channelbag_for_slot(ad.action, ad.action_slot)
+            fc = [cb.fcurves.find("location", index=i) for i in range(3)] if cb else []
+            if fc and all(fc):
+                f = bpy.context.scene.frame_current
+                return Vector([c.evaluate(f) for c in fc])
+        except Exception:
+            pass
+    return o.matrix_world.translation
+
+
 def _cerca_del_ring(o):
     v = bpy.data.objects.get(VALLA)
     if v is None: return True
     from mathutils import Vector
-    bb = [v.matrix_world @ Vector(c) for c in v.bound_box]; p = o.matrix_world.translation
+    bb = [v.matrix_world @ Vector(c) for c in v.bound_box]; p = _posicion(o)
     return (min(q.x for q in bb) - MARGEN <= p.x <= max(q.x for q in bb) + MARGEN and
             min(q.y for q in bb) - MARGEN <= p.y <= max(q.y for q in bb) + MARGEN)
 
@@ -42,23 +62,30 @@ def raices(sc, gid):
     patron = next(g[3] for g in GRUPOS if g[0] == gid); col = bpy.data.collections.get(COLECCION); out = []
     for o in sc.objects:
         if o.parent is not None or o.name in LUCHADORES or not patron.match(o.name): continue
-        if (col and col in o.users_collection) or _cerca_del_ring(o): out.append(o)
+        if gid in SIEMPRE or CLAVE in o or (col and col in o.users_collection) or _cerca_del_ring(o): out.append(o)   # CLAVE: lo oculto este add-on
     return out
 
 
+def extras(sc, gid):
+    patron = EXTRAS.get(gid)
+    return [o for o in sc.objects if patron and patron.match(o.name)] if patron else []
+
+
 def objetos(sc, gid):
-    """raices del grupo + todos sus hijos + su slab"""
+    """raices del grupo + todos sus hijos + su slab + sus objetos sueltos (EXTRAS)"""
     out = []
     for r in raices(sc, gid):
         out += [r] + list(r.children_recursive)
         sl = bpy.data.objects.get("slab_" + r.name)
         if sl: out += [sl] + list(sl.children_recursive)
-    return out
+    return out + extras(sc, gid)
 
 
 # ------------------------------------------------------------------ mostrar / ocultar
 def poner(sc, gid, visible):
     render = sc.esp_grupos_render
+    if visible: _mutear_visibilidad(extras(sc, gid), False)       # los objetos sueltos tienen claves de visibilidad: se silencian mientras estan ocultos
+    else: _mutear_visibilidad(extras(sc, gid), True)
     for o in objetos(sc, gid):
         if not visible:
             if CLAVE not in o: o[CLAVE] = [int(o.hide_viewport), int(o.hide_render)]

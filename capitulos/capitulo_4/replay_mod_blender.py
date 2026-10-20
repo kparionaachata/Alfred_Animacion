@@ -54,7 +54,75 @@ from bpy.types import (
     PropertyGroup,
     UIList
 )
-from mathutils import Vector, Euler
+from mathutils import Vector, Euler, Matrix
+
+
+def _ajustes(context):
+    """Ajustes del replay. Viven en el World y NO en la Scene: si la Scene tiene animacion (p.ej. el volumen
+    de los sonidos animado por el ducking de voces), Blender busca la curva de cada casilla que lee la Scene y
+    cada una tarda ~50 ms (todo el panel Replay iba a ~1 s por redibujo). El World no tiene animacion."""
+    sc = context.scene
+    if sc.world is None:
+        sc.world = bpy.data.worlds.new("World")
+    return sc.world.replay_settings
+
+
+def _copiar_ajustes(src, dst):
+    """Copia recursivamente un grupo de propiedades guardado como IDProperty (el de la Scene) a `dst`."""
+    for k in list(src.keys()):
+        p = dst.bl_rna.properties.get(k)
+        if p is None or p.identifier in ("rna_type", "migrado"):
+            continue
+        v = src[k]
+        try:
+            if p.type == 'COLLECTION':
+                col = getattr(dst, k)
+                col.clear()
+                for it in v:
+                    _copiar_ajustes(it, col.add())
+            elif p.type == 'POINTER':
+                setattr(dst, k, v)
+            elif p.type == 'ENUM':
+                nombre = next((e.identifier for e in p.enum_items if e.value == v), None)
+                if nombre:
+                    setattr(dst, k, nombre)
+            else:
+                setattr(dst, k, v.to_list() if hasattr(v, "to_list") else v)
+        except Exception as e:
+            print(f"Replay: no se pudo migrar '{k}': {e}")
+
+
+def _migrar_ajustes(*_):
+    """Pasa los ajustes antiguos (guardados en la Scene) al World, una sola vez."""
+    for sc in bpy.data.scenes:
+        viejo = sc.get("replay_settings")
+        if viejo is None:
+            continue
+        if sc.world is None:
+            sc.world = bpy.data.worlds.new("World")
+        nuevo = sc.world.replay_settings
+        if not nuevo.migrado:
+            _copiar_ajustes(viejo, nuevo)
+            nuevo.migrado = True
+            print(f"Replay: ajustes de '{sc.name}' migrados al World '{sc.world.name}'")
+
+
+def _orbit_update(self, context):
+    """Activa/desactiva que la camara gire alrededor del foco: la camara se hace hija del foco
+    (sin moverse), asi al rotar o mover el foco la camara orbita a su alrededor."""
+    cam = self.active_camera if self.active_camera else context.scene.camera
+    foco = _obtener_foco(context)
+    if cam is None or foco is None:
+        return
+    if self.orbit_focus:
+        if cam.parent is not foco:
+            cam.parent = foco
+            cam.matrix_parent_inverse = foco.matrix_world.inverted()
+    elif cam.parent is foco:
+        mw = cam.matrix_world.copy()
+        cam.parent = None
+        cam.matrix_world = mw
+
 
 # ============================================
 # CLASES DE DATOS
@@ -103,6 +171,7 @@ class ReplayRecording(PropertyGroup):
     filepath: StringProperty(name="Archivo", subtype='FILE_PATH')
 
 class ReplaySettings(PropertyGroup):
+    migrado: BoolProperty(default=False, options={'HIDDEN'})
     is_preview: BoolProperty(name="Vista Previa", default=False)
     is_recording: BoolProperty(name="Grabando", default=False)
     is_playing: BoolProperty(name="Reproduciendo", default=False)
@@ -123,6 +192,12 @@ class ReplaySettings(PropertyGroup):
         name="Grabar Foco",
         default=True,
         description="Guardar tambien posicion y rotacion del foco en cada keyframe"
+    )
+    orbit_focus: BoolProperty(
+        name="Cámara gira alrededor del foco",
+        default=False,
+        update=_orbit_update,
+        description="El foco es el pivote de la cámara: al rotar o mover el foco, toda la cámara orbita a su alrededor (la cámara se hace hija del foco)"
     )
 
     recordings: CollectionProperty(type=ReplayRecording)
@@ -175,7 +250,7 @@ class REPLAY_OT_TogglePreview(Operator):
     bl_description = "Activar/Desactivar vista previa de cámara en ventana separada"
     
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         settings.is_preview = not settings.is_preview
         
         if settings.is_preview:
@@ -217,7 +292,7 @@ class REPLAY_OT_OpenPreviewWindow(Operator):
     bl_description = "Abre una ventana separada mostrando la vista de la cámara seleccionada"
     
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         
         if not settings.active_camera:
             self.report({'ERROR'}, "Selecciona una cámara primero")
@@ -256,7 +331,7 @@ class REPLAY_OT_StartRecording(Operator):
     bl_description = "Comenzar a grabar la sesión actual"
     
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         
         if not settings.active_camera:
             self.report({'ERROR'}, "Selecciona una cámara antes de grabar")
@@ -282,7 +357,7 @@ class REPLAY_OT_StopRecording(Operator):
     bl_description = "Detener la grabación actual"
     
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         settings.is_recording = False
         
         if len(settings.recordings) > 0:
@@ -310,7 +385,7 @@ class REPLAY_OT_StopRecording(Operator):
             }
             data['objects'].append(obj_data)
         
-        output_dir = bpy.path.abspath(context.scene.replay_settings.output_path)
+        output_dir = bpy.path.abspath(_ajustes(context).output_path)
         os.makedirs(output_dir, exist_ok=True)
         
         filepath = os.path.join(output_dir, f"{recording.name}.json")
@@ -325,7 +400,7 @@ class REPLAY_OT_CreateCameraPath(Operator):
     bl_description = "Crear un nuevo path de cámara"
     
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         path = settings.camera_paths.add()
         path.name = f"CameraPath_{len(settings.camera_paths)}"
         settings.active_path = len(settings.camera_paths) - 1
@@ -340,7 +415,7 @@ def _obtener_cam_eval_activa(context, operator):
     Si no hay cámara activa o ya no existe en la escena, reporta el error en
     `operator` y devuelve (None, None).
     """
-    settings = context.scene.replay_settings
+    settings = _ajustes(context)
 
     if not settings.active_camera:
         operator.report({'ERROR'}, "⚠ Selecciona una cámara en el panel primero")
@@ -360,7 +435,7 @@ def _obtener_cam_eval_activa(context, operator):
 def _obtener_foco(context):
     """Objeto foco a usar: el del panel o, si esta vacio, 'Foco_Conversacion' si existe en la escena.
     Devuelve None si no hay foco o no se quiere grabar."""
-    settings = context.scene.replay_settings
+    settings = _ajustes(context)
     if not settings.record_focus:
         return None
     foco = settings.focus_object
@@ -373,12 +448,18 @@ def _obtener_foco(context):
 
 def _asignar_transform_a_keyframe(kf, cam_eval, foco_eval=None):
     """Copia posición/rotación/FOV actuales de `cam_eval` (y del foco, si hay) al ReplayKeyframe `kf`."""
-    kf.location_x = cam_eval.location.x
-    kf.location_y = cam_eval.location.y
-    kf.location_z = cam_eval.location.z
-    kf.rotation_x = cam_eval.rotation_euler.x
-    kf.rotation_y = cam_eval.rotation_euler.y
-    kf.rotation_z = cam_eval.rotation_euler.z
+    if cam_eval.parent is not None:
+        # camara hija del foco: se guarda su pose en el mundo, no la local
+        loc, rot, _ = cam_eval.matrix_world.decompose()
+        rot = rot.to_euler('XYZ')
+    else:
+        loc, rot = cam_eval.location, cam_eval.rotation_euler
+    kf.location_x = loc.x
+    kf.location_y = loc.y
+    kf.location_z = loc.z
+    kf.rotation_x = rot.x
+    kf.rotation_y = rot.y
+    kf.rotation_z = rot.z
     if cam_eval.data.type == 'PERSP':
         kf.fov = cam_eval.data.lens
     if foco_eval is not None:
@@ -402,13 +483,20 @@ def _foco_eval(context, foco):
 
 def _aplicar_keyframe_a_objetos(kf, cam, foco):
     """Mueve la camara (y el foco) a los valores guardados en `kf`, sin crear claves."""
-    cam.location = Vector((kf.location_x, kf.location_y, kf.location_z))
-    cam.rotation_euler = Euler((kf.rotation_x, kf.rotation_y, kf.rotation_z))
-    if cam.data.type == 'PERSP':
-        cam.data.lens = kf.fov
     if foco is not None and kf.has_focus:
         foco.location = Vector((kf.focus_x, kf.focus_y, kf.focus_z))
         foco.rotation_euler = Euler((kf.focus_rx, kf.focus_ry, kf.focus_rz))
+    loc = Vector((kf.location_x, kf.location_y, kf.location_z))
+    rot = Euler((kf.rotation_x, kf.rotation_y, kf.rotation_z))
+    if cam.parent is not None:
+        # camara hija del foco: la pose guardada es la del mundo
+        bpy.context.view_layer.update()
+        cam.matrix_world = Matrix.LocRotScale(loc, rot, None)
+    else:
+        cam.location = loc
+        cam.rotation_euler = rot
+    if cam.data.type == 'PERSP':
+        cam.data.lens = kf.fov
 
 
 def _interpolar(idblock, modo):
@@ -429,16 +517,36 @@ def _hornear_path(context, path, cam, foco):
     No cambia de frame para cada clave (es mucho mas rapido en escenas pesadas):
     pone el valor y lo clava con keyframe_insert(frame=...)."""
     usar_foco = foco is not None and any(kf.has_focus for kf in path.keyframes)
+    # orbita: la camara es hija del foco y TODOS los keyframes tienen foco -> se hornea la pose
+    # de la camara relativa al foco, asi al girar el foco entre keyframes la camara orbita a su alrededor
+    orbita = (usar_foco and cam.parent is foco and all(kf.has_focus for kf in path.keyframes))
     for ob in ((cam, foco) if usar_foco else (cam,)):
         if ob.animation_data:
             ob.animation_data_clear()
     if cam.data.animation_data:
         cam.data.animation_data_clear()
+    if orbita:
+        cam.matrix_parent_inverse = Matrix.Identity(4)
+    elif cam.parent is not None and cam.parent is foco:
+        cam.parent = None       # sin orbita: la camara se hornea en el mundo
+        _ajustes(context).orbit_focus = False
 
     ordenados = sorted(path.keyframes, key=lambda k: k.frame)
 
     def _clavar(kf, frame):
-        _aplicar_keyframe_a_objetos(kf, cam, foco if usar_foco else None)
+        if orbita:
+            foco.location = Vector((kf.focus_x, kf.focus_y, kf.focus_z))
+            foco.rotation_euler = Euler((kf.focus_rx, kf.focus_ry, kf.focus_rz))
+            f_mat = Matrix.LocRotScale(foco.location, foco.rotation_euler, foco.scale)
+            c_mat = Matrix.LocRotScale(Vector((kf.location_x, kf.location_y, kf.location_z)),
+                                       Euler((kf.rotation_x, kf.rotation_y, kf.rotation_z)), None)
+            local = f_mat.inverted() @ c_mat
+            cam.location = local.to_translation()
+            cam.rotation_euler = local.to_euler('XYZ', cam.rotation_euler)
+            if cam.data.type == 'PERSP':
+                cam.data.lens = kf.fov
+        else:
+            _aplicar_keyframe_a_objetos(kf, cam, foco if usar_foco else None)
         cam.keyframe_insert(data_path="location", frame=frame)
         cam.keyframe_insert(data_path="rotation_euler", frame=frame)
         if cam.data.type == 'PERSP':
@@ -472,7 +580,7 @@ class REPLAY_OT_AddKeyframe(Operator):
     bl_description = "Grabar estado actual de la cámara en el frame seleccionado"
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
 
         if not settings.active_camera:
             self.report({'ERROR'}, "⚠ Selecciona una cámara en el panel primero")
@@ -561,7 +669,7 @@ class REPLAY_OT_InsertKeyframe(Operator):
     )
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
 
         cam, cam_eval = _obtener_cam_eval_activa(context, self)
         if cam is None:
@@ -633,7 +741,7 @@ class REPLAY_OT_ApplyCameraPath(Operator):
     bl_description = "Aplicar el path de cámara a la animación"
     
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         
         if len(settings.camera_paths) == 0:
             self.report({'WARNING'}, "No hay paths creados")
@@ -663,7 +771,7 @@ class REPLAY_OT_PlayReplay(Operator):
     bl_description = "Reproducir la secuencia de keyframes grabados"
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
 
         if len(settings.camera_paths) == 0:
             self.report({'WARNING'}, "No hay paths de cámara creados")
@@ -723,7 +831,7 @@ class REPLAY_OT_DeletePath(Operator):
     bl_description = "Eliminar el path seleccionado"
     
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         
         if len(settings.camera_paths) > 0:
             settings.camera_paths.remove(settings.active_path)
@@ -740,7 +848,7 @@ class REPLAY_OT_DeleteKeyframe(Operator):
     keyframe_index: IntProperty()
     
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         
         if len(settings.camera_paths) == 0:
             self.report({'WARNING'}, "No hay paths creados")
@@ -763,7 +871,7 @@ class REPLAY_OT_GotoKeyframe(Operator):
     keyframe_index: IntProperty()
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         if len(settings.camera_paths) == 0:
             self.report({'WARNING'}, "No hay paths creados")
             return {'CANCELLED'}
@@ -782,6 +890,48 @@ class REPLAY_OT_GotoKeyframe(Operator):
         return {'FINISHED'}
 
 
+class REPLAY_OT_SelectKeyframe(Operator):
+    bl_idname = "replay.select_keyframe"
+    bl_label = "Seleccionar Keyframe"
+    bl_description = "Hacer activo este keyframe (edita su lente y congelado en la caja de abajo)"
+
+    keyframe_index: IntProperty()
+
+    def execute(self, context):
+        settings = _ajustes(context)
+        if len(settings.camera_paths) == 0:
+            return {'CANCELLED'}
+        path = settings.camera_paths[settings.active_path]
+        if 0 <= self.keyframe_index < len(path.keyframes):
+            path.active_keyframe = self.keyframe_index
+        return {'FINISHED'}
+
+
+class REPLAY_OT_AddFocus(Operator):
+    bl_idname = "replay.add_focus"
+    bl_label = "Crear punto focal"
+    bl_description = "Crear el punto focal (empty 'Foco_Conversacion') frente a la cámara y usarlo como foco del replay"
+
+    def execute(self, context):
+        settings = _ajustes(context)
+        cam = settings.active_camera if settings.active_camera else context.scene.camera
+
+        foco = context.scene.objects.get("Foco_Conversacion")
+        if foco is None:
+            foco = bpy.data.objects.new("Foco_Conversacion", None)
+            foco.empty_display_type = 'SPHERE'
+            foco.empty_display_size = 0.5
+            context.collection.objects.link(foco)
+            if cam is not None:
+                # 5 m delante de la camara (la camara mira hacia su -Z local)
+                foco.location = cam.matrix_world @ Vector((0.0, 0.0, -5.0))
+
+        settings.focus_object = foco
+        settings.orbit_focus = True      # la camara pasa a girar alrededor del punto focal
+        self.report({'INFO'}, f"Punto focal: {foco.name}")
+        return {'FINISHED'}
+
+
 class REPLAY_OT_TakeKeyframeLens(Operator):
     bl_idname = "replay.take_keyframe_lens"
     bl_label = "Tomar lente actual"
@@ -790,7 +940,7 @@ class REPLAY_OT_TakeKeyframeLens(Operator):
     keyframe_index: IntProperty(default=-1)
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         if len(settings.camera_paths) == 0:
             self.report({'WARNING'}, "No hay paths creados")
             return {'CANCELLED'}
@@ -814,7 +964,7 @@ class REPLAY_OT_PauseReplay(Operator):
     bl_description = "Pausar o reanudar la reproducción actual"
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
 
         # Verificar si hay una animación reproduciéndose
         if context.screen.is_animation_playing:
@@ -866,7 +1016,7 @@ class REPLAY_OT_ExportVideo(Operator):
     filepath: StringProperty(subtype='FILE_PATH')
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
 
         if len(settings.recordings) == 0:
             self.report({'WARNING'}, "No hay grabaciones para exportar")
@@ -894,7 +1044,7 @@ class REPLAY_OT_ExportSequence(Operator):
     filepath: StringProperty(subtype='FILE_PATH')
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
 
         if len(settings.camera_paths) == 0:
             self.report({'WARNING'}, "No hay camera paths para exportar")
@@ -955,7 +1105,7 @@ class REPLAY_OT_ExportSequence(Operator):
 
     def invoke(self, context, event):
         # Nombre por defecto
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         if len(settings.camera_paths) > 0:
             path_names = [p.name for p in settings.camera_paths[:3]]  # Primeros 3 paths
             default_name = "_".join(path_names) + "_sequence.json"
@@ -974,7 +1124,7 @@ class REPLAY_OT_ImportSequence(Operator):
     filepath: StringProperty(subtype='FILE_PATH')
 
     def execute(self, context):
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
 
         try:
             with open(self.filepath, 'r', encoding='utf-8') as f:
@@ -1114,7 +1264,7 @@ class REPLAY_PT_MainPanel(Panel):
     
     def draw(self, context):
         layout = self.layout
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         
         workflow_box = layout.box()
         workflow_box.label(text="🎯 Workflow:", icon='HELP')
@@ -1180,8 +1330,12 @@ class REPLAY_PT_MainPanel(Panel):
         box = layout.box()
         box.label(text="Foco de la cámara:", icon='EMPTY_AXIS')
         box.prop(settings, "record_focus")
-        row = box.row()
+        row = box.row(align=True)
         row.prop_search(settings, "focus_object", context.scene, "objects", text="", icon='EMPTY_AXIS')
+        row.operator("replay.add_focus", text="", icon='ADD')
+        row2 = box.row()
+        row2.prop(settings, "orbit_focus")
+        row2.enabled = _obtener_foco(context) is not None
         foco = _obtener_foco(context)
         if foco is not None:
             col = box.column(align=True)
@@ -1236,7 +1390,7 @@ class REPLAY_PT_RecordingsPanel(Panel):
     
     def draw(self, context):
         layout = self.layout
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
         
         row = layout.row()
         row.template_list(
@@ -1261,7 +1415,7 @@ class REPLAY_PT_CameraPathPanel(Panel):
 
     def draw(self, context):
         layout = self.layout
-        settings = context.scene.replay_settings
+        settings = _ajustes(context)
 
         box = layout.box()
         box.label(text="PASO 1: Crear Recorrido", icon='ADD')
@@ -1335,17 +1489,32 @@ class REPLAY_PT_CameraPathPanel(Panel):
                 keyframe_box = box.box()
                 keyframe_box.label(text="Lista de Keyframes grabados:", icon='PRESET')
                 
-                row = keyframe_box.row()
-                row.template_list(
-                    "REPLAY_UL_Keyframes", "",
-                    path, "keyframes",
-                    path, "active_keyframe"
-                )
+                # Lista completa dibujada a mano: una fila por keyframe (en todos).
+                total = len(path.keyframes)
+                col = keyframe_box.column(align=True)
+                for i in range(total):
+                    kf_i = path.keyframes[i]
+                    row = col.row(align=True)
+                    row.prop(kf_i, "freeze", text="", icon='FREEZE')
+                    op = row.operator("replay.select_keyframe", text=f"Frame {kf_i.frame}  {kf_i.fov:g}mm",
+                                      icon='KEYFRAME_HLT' if i == path.active_keyframe else 'KEYFRAME',
+                                      depress=(i == path.active_keyframe))
+                    op.keyframe_index = i
+                    op = row.operator("replay.goto_keyframe", text="", icon='TRIA_RIGHT')
+                    op.keyframe_index = i
+                    op = row.operator("replay.delete_keyframe", text="", icon='X')
+                    op.keyframe_index = i
 
                 if 0 <= path.active_keyframe < len(path.keyframes):
                     akf = path.keyframes[path.active_keyframe]
                     fbox = keyframe_box.box()
                     fbox.label(text=f"Keyframe activo: frame {akf.frame}", icon='KEYFRAME_HLT')
+                    fcol = fbox.column(align=True)
+                    fcol.scale_y = 0.8
+                    fcol.label(text=f"Pos: ({akf.location_x:.2f}, {akf.location_y:.2f}, {akf.location_z:.2f})")
+                    fcol.label(text=f"Rot: ({math.degrees(akf.rotation_x):.1f}°, {math.degrees(akf.rotation_y):.1f}°, {math.degrees(akf.rotation_z):.1f}°)")
+                    if akf.has_focus:
+                        fcol.label(text=f"Foco: ({akf.focus_x:.2f}, {akf.focus_y:.2f}, {akf.focus_z:.2f})")
                     lrow = fbox.row(align=True)
                     lrow.prop(akf, "fov", text="Lente (mm)")
                     op = lrow.operator("replay.take_keyframe_lens", text="", icon='EYEDROPPER')
@@ -1427,6 +1596,8 @@ classes = (
     REPLAY_OT_DeleteKeyframe,
     REPLAY_OT_GotoKeyframe,
     REPLAY_OT_TakeKeyframeLens,
+    REPLAY_OT_SelectKeyframe,
+    REPLAY_OT_AddFocus,
     REPLAY_OT_ExportVideo,
     REPLAY_OT_ExportSequence,
     REPLAY_OT_ImportSequence,
@@ -1442,13 +1613,18 @@ def register():
     for cls in classes:
         bpy.utils.register_class(cls)
     
-    bpy.types.Scene.replay_settings = PointerProperty(type=ReplaySettings)
+    bpy.types.World.replay_settings = PointerProperty(type=ReplaySettings)
+    _migrar_ajustes()
+    if _migrar_ajustes not in bpy.app.handlers.load_post:
+        bpy.app.handlers.load_post.append(_migrar_ajustes)
 
 def unregister():
+    if _migrar_ajustes in bpy.app.handlers.load_post:
+        bpy.app.handlers.load_post.remove(_migrar_ajustes)
     for cls in reversed(classes):
         bpy.utils.unregister_class(cls)
-    
-    del bpy.types.Scene.replay_settings
+
+    del bpy.types.World.replay_settings
 
 if __name__ == "__main__":
     register()

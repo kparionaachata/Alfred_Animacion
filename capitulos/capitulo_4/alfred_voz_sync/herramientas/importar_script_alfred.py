@@ -10,7 +10,7 @@ import json
 import sys
 from pathlib import Path
 
-MAPA = {"alegria": "ALEGRIA", "tristeza": "TRISTEZA", "enojo": "ENOJO", "sorpresa": "SORPRESA", "cansancio": "SUENO", "duda": "DUDA", "curiosidad": "DUDA", "neutral": "NEUTRO", "miedo": "MIEDO", "disgusto": "ENOJO", "asco": "ENOJO"}
+MAPA = {"alegria": "ALEGRIA", "tristeza": "TRISTEZA", "enojo": "ENOJO", "sorpresa": "SORPRESA", "cansancio": "SUENO", "duda": "DUDA", "curiosidad": "DUDA", "neutral": "NEUTRO", "miedo": "MIEDO", "disgusto": "ENOJO", "asco": "ENOJO", "dolor": "TRISTEZA"}
 NOMBRES = ("GENERATED_EMOTION", "TRANSCRIPT", "COORDINATES", "END_FRAME", "SHAPE_VALUE", "SCALE_X", "SCALE_Z", "VERTICAL", "ROTATION", "LATERAL", "BLINK_CENTERS", "phase_data")
 OPCIONALES = ("SPEECH_CURVE", "SPEECH_VERTICAL", "SPEECH_SCALE_X", "SPEECH_SCALE_Z", "ATTACK_ROTATION")           # oscilacion del habla de los OJOS (pulso vertical, squash / stretch, giro de ataque)
 

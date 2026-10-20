@@ -1,0 +1,208 @@
+{
+  "path_name": "recorrido_bloques",
+  "tipo": "caras_superiores_de_bloques",
+  "celdas_totales": 6,
+  "key_points": [
+    {
+      "index": 1,
+      "coordinates": {
+        "x": -50.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-51_-17_-10",
+      "cell": [
+        -51,
+        -17,
+        -10
+      ]
+    },
+    {
+      "index": 2,
+      "coordinates": {
+        "x": -49.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "diorite",
+      "face_index": "bloque_diorite_-50_-17_-10",
+      "cell": [
+        -50,
+        -17,
+        -10
+      ]
+    },
+    {
+      "index": 3,
+      "coordinates": {
+        "x": -48.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-49_-17_-10",
+      "cell": [
+        -49,
+        -17,
+        -10
+      ]
+    },
+    {
+      "index": 4,
+      "coordinates": {
+        "x": -47.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-48_-17_-10",
+      "cell": [
+        -48,
+        -17,
+        -10
+      ]
+    },
+    {
+      "index": 5,
+      "coordinates": {
+        "x": -46.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-47_-17_-10",
+      "cell": [
+        -47,
+        -17,
+        -10
+      ]
+    },
+    {
+      "index": 6,
+      "coordinates": {
+        "x": -45.5,
+        "y": -15.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-46_-16_-10",
+      "cell": [
+        -46,
+        -16,
+        -10
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "index": 1,
+      "coordinates": {
+        "x": -50.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-51_-17_-10",
+      "cell": [
+        -51,
+        -17,
+        -10
+      ],
+      "key_point": true,
+      "nearest_keypoint": 1,
+      "aviso": ""
+    },
+    {
+      "index": 2,
+      "coordinates": {
+        "x": -49.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "diorite",
+      "face_index": "bloque_diorite_-50_-17_-10",
+      "cell": [
+        -50,
+        -17,
+        -10
+      ],
+      "key_point": true,
+      "nearest_keypoint": 2,
+      "aviso": ""
+    },
+    {
+      "index": 3,
+      "coordinates": {
+        "x": -48.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-49_-17_-10",
+      "cell": [
+        -49,
+        -17,
+        -10
+      ],
+      "key_point": true,
+      "nearest_keypoint": 3,
+      "aviso": ""
+    },
+    {
+      "index": 4,
+      "coordinates": {
+        "x": -47.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-48_-17_-10",
+      "cell": [
+        -48,
+        -17,
+        -10
+      ],
+      "key_point": true,
+      "nearest_keypoint": 4,
+      "aviso": ""
+    },
+    {
+      "index": 5,
+      "coordinates": {
+        "x": -46.5,
+        "y": -16.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-47_-17_-10",
+      "cell": [
+        -47,
+        -17,
+        -10
+      ],
+      "key_point": true,
+      "nearest_keypoint": 5,
+      "aviso": ""
+    },
+    {
+      "index": 6,
+      "coordinates": {
+        "x": -45.5,
+        "y": -15.5,
+        "z": -9.0
+      },
+      "texture": "stone",
+      "face_index": "bloque_stone_-46_-16_-10",
+      "cell": [
+        -46,
+        -16,
+        -10
+      ],
+      "key_point": true,
+      "nearest_keypoint": 6,
+      "aviso": ""
+    }
+  ],
+  "avisos": []
+}

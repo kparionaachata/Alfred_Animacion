@@ -53,3 +53,16 @@ __pycache__/
 
 # transcripciones de los chats (jsonl comprimido, sin imagenes)
 !/chats/*.zip
+# Variador musical: versionar la aplicacion, no el motor/modelos ni los audios.
+!/musica_variaciones/
+/musica_variaciones/*
+!/musica_variaciones/estudio_musical.py
+!/musica_variaciones/abrir_estudio_musical.py
+!/musica_variaciones/test_estudio_musical.py
+!/musica_variaciones/Abrir Variador de Musica.cmd
+!/musica_variaciones/instalar.ps1
+!/musica_variaciones/LEEME.md
+# documentos de continuidad entre cuentas
+!/refinar/
+/refinar/*
+!/refinar/docs/
