@@ -14,7 +14,7 @@ from mathutils import Vector
 CELDA = (-49, -19)
 K_TECHO, K_TOPE = -2, 7
 Z_SUPERFICIE = 8.0
-F_AGUA = 150                          # frame en que empieza a caer el agua
+F_AGUA = 80                           # frame en que empieza a caer el agua
 T_CAIDA = 100                         # la columna tarda 100 frames en llegar al suelo
 TICK = 6                              # frames por bloque que se extiende el agua en el suelo (5 ticks de Minecraft)
 RADIO_CHARCO = 7

@@ -20,7 +20,7 @@ def cargar_addon():
     return m
 
 
-def sonorizar(f_agua=150, t_caida=100):
+def sonorizar(f_agua=80, t_caida=100):
     m = cargar_addon()
     sc = bpy.context.scene
     ob = bpy.data.objects

@@ -15,7 +15,7 @@ ANIM_ORIGEN = r"C:\Users\user\Downloads\animacion_alfred (24).py"
 LEVANTARSE = CARPETA + r"\alfred_levantarse.py"
 ANTORCHA_BLEND = r"C:\Users\user\Desktop\Alfred_Animacion\bloques_dinamicos\antorcha_1.blend"
 DESTINO = Vector((-44.5, -15.5, -9.0))              # cara de arriba del bloque de piedra
-F_FIN_PIE = 552
+F_FIN_PIE = 454                                     # antes 552 (todo -98 frames)
 F_MEZCLA = 6
 F_ANIM = F_FIN_PIE + F_MEZCLA                       # cuadro 1 del slot
 F_APARECE = F_ANIM + 15                             # TORCH_APPEAR_FRAME = 16 del slot

@@ -1,0 +1,1111 @@
+{
+  "poses": [
+    {
+      "label": "parado mirando",
+      "frame": 257,
+      "armature": "Armature",
+      "character": "alfred",
+      "timestamp": "2026-10-22T19:01:44.615361",
+      "blender_version": "5.2.1 LTS",
+      "file": "alfred_cueva_4_13120_autosave.blend",
+      "bone_count": 22,
+      "root": {
+        "location": {
+          "x": -76.232582,
+          "y": -14.48129,
+          "z": -11.05326
+        },
+        "rotation_euler_deg": {
+          "x": 0.0,
+          "y": -0.0,
+          "z": 98.853
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "bones": {
+        "Hips_alfred": {
+          "parent": null,
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.035384,
+              "y": 0.000106,
+              "z": -0.005969
+            },
+            "rotation_euler_deg": {
+              "x": 2.0274,
+              "y": 0.0061,
+              "z": -0.342
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": -1e-06
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 2.0274,
+            "y": 0.0061,
+            "z": -0.342
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Spine_alfred": {
+          "parent": "Hips_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": -0.0,
+              "z": 1e-06
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.0,
+            "y": 0.0,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Spine1_alfred": {
+          "parent": "Spine_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 1e-06,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.085775,
+              "y": -0.104477,
+              "z": -0.004614
+            },
+            "rotation_euler_deg": {
+              "x": 4.9145,
+              "y": -5.9861,
+              "z": -0.2644
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.006544
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 4.9145,
+            "y": -5.9861,
+            "z": -0.2644
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 1e-06,
+            "y": -0.0,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.006544
+          }
+        },
+        "Spine2_alfred": {
+          "parent": "Spine1_alfred",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.065553,
+              "y": -0.147076,
+              "z": 0.046389
+            },
+            "rotation_euler_deg": {
+              "x": 3.7559,
+              "y": -8.4268,
+              "z": 2.6579
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 3.7559,
+            "y": -8.4268,
+            "z": 2.6579
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": -0.0,
+            "z": -0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Neck_alfred": {
+          "parent": "Spine2_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.066997,
+              "y": -0.242209,
+              "z": 0.040438
+            },
+            "rotation_euler_deg": {
+              "x": -3.8387,
+              "y": -13.8776,
+              "z": 2.317
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -3.8387,
+            "y": -13.8776,
+            "z": 2.317
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.0,
+            "y": -0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "face_alfred": {
+          "parent": "Neck_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.094577,
+              "y": -0.002594,
+              "z": 0.018324
+            },
+            "rotation_euler_deg": {
+              "x": -5.4189,
+              "y": -0.1486,
+              "z": 1.0499
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": -0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -5.4189,
+            "y": -0.1486,
+            "z": 1.0499
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "RightUpArm_alfred": {
+          "parent": "Spine2_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": -2e-06,
+              "z": 1e-06
+            },
+            "rotation_euler_rad": {
+              "x": 1.122622,
+              "y": 0.424602,
+              "z": -0.160431
+            },
+            "rotation_euler_deg": {
+              "x": 64.3215,
+              "y": 24.3279,
+              "z": -9.192
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 64.3215,
+            "y": 24.3279,
+            "z": -9.192
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": -2e-06,
+            "z": 1e-06
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Rightelbow_alfred": {
+          "parent": "RightUpArm_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": -0.084598,
+              "y": 0.3115,
+              "z": -0.137465
+            },
+            "rotation_euler_deg": {
+              "x": -4.8471,
+              "y": 17.8476,
+              "z": -7.8761
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": -4.8471,
+            "y": 17.8476,
+            "z": -7.8761
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "LeftUpArm_alfred": {
+          "parent": "Spine2_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 1.33476,
+              "y": -0.57598,
+              "z": 0.236889
+            },
+            "rotation_euler_deg": {
+              "x": 76.4761,
+              "y": -33.0013,
+              "z": 13.5727
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -1e-06,
+              "y": 0.0,
+              "z": -1e-06
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 76.4761,
+            "y": -33.0013,
+            "z": 13.5727
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Leftelbow_alfred": {
+          "parent": "LeftUpArm_alfred",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.906356,
+              "y": 0.337077,
+              "z": 1.383141
+            },
+            "rotation_euler_deg": {
+              "x": 51.9304,
+              "y": 19.3131,
+              "z": 79.2481
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": -0.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 51.9304,
+            "y": 19.3131,
+            "z": 79.2481
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_03": {
+          "parent": "Spine2_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_04": {
+          "parent": "Spine2_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "RightUpLeg_alfred": {
+          "parent": "Hips_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": -7e-06,
+              "y": 0.0,
+              "z": 1e-06
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.000672,
+              "y": 0.0,
+              "z": 1e-06
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -7e-06,
+            "y": 0.0,
+            "z": 1e-06
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Rightknee_alfred": {
+          "parent": "RightUpLeg_alfred",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": -0.0,
+              "y": 1e-06,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 0.999999,
+              "x": -0.001341,
+              "y": 0.0,
+              "z": -0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": -0.0,
+            "y": 1e-06,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_07": {
+          "parent": "RightUpLeg_alfred",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "LeftUpLeg_alfred": {
+          "parent": "Hips_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 1e-06,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.021637,
+              "y": -0.236827,
+              "z": 0.036841
+            },
+            "rotation_euler_deg": {
+              "x": 1.2397,
+              "y": -13.5692,
+              "z": 2.1108
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.00065,
+              "y": 0.0,
+              "z": 1e-06
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 1.2397,
+            "y": -13.5692,
+            "z": 2.1108
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 1e-06,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "Leftknee_alfred": {
+          "parent": "LeftUpLeg_alfred",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 0.999999,
+              "x": -0.001299,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_08": {
+          "parent": "LeftUpLeg_alfred",
+          "connected": true,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_01": {
+          "parent": "Hips_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_02": {
+          "parent": "Hips_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_06": {
+          "parent": "Hips_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        },
+        "no_bone_05": {
+          "parent": "Hips_alfred",
+          "connected": false,
+          "local_space": {
+            "location": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_rad": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_euler_deg": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation_quaternion": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
+          "rotation_mode": "XYZ",
+          "raw_rotation_euler_deg": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_rotation_quaternion": null,
+          "raw_location": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "raw_scale": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          }
+        }
+      }
+    }
+  ]
+}

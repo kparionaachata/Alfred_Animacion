@@ -66,3 +66,10 @@ __pycache__/
 !/refinar/
 /refinar/*
 !/refinar/docs/
+# personaje the Stalker y recorridos: solo estos scripts
+!/estructura_lista/
+/estructura_lista/*
+!/estructura_lista/stalker_aspecto.py
+!/recorrido/
+/recorrido/*
+!/recorrido/blender_path_bloques.py

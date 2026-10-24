@@ -11,7 +11,7 @@ from mathutils import Vector, Quaternion
 
 ANIM = r"C:\Users\user\Desktop\Alfred_Animacion\capitulos\capitulo_4\animacion_alfred_levantarse_3.py"
 ANIM_ORIGEN = r"C:\Users\user\Downloads\animacion_alfred (23).py"
-F_INI = 370                        # frame en que empieza a ponerse de pie (cuadro 1 de la animacion)
+F_INI = 272                        # frame en que empieza a ponerse de pie (30 frames tirado; antes 370) (cuadro 1 de la animacion)
 F_MEZCLA = 9                       # frames de transicion desde la pose del suelo
 F_HOLD = F_INI - F_MEZCLA          # ultimo frame con la pose de la caida
 BLOQUE = "bloque_diorite_-45_-15_-10"         # el bloque diorita de la celda (-45, -15) cuya cara de arriba esta en z = -9 (no existe uno con k = -9 en la escena)

@@ -37,3 +37,4 @@ Unir las partes de una misma sesion en orden (1, 2, 3).
 El estado del trabajo esta en las guias `GUIA_ANIMACION_ALFRED.md` y `GUIA_ANIMACION_JERRY.md` (carpetas `refinar/docs`). El add-on del tunel (`alfred_animation_studio/tunel.py`, `tunel_ops.py`) NO esta en el repositorio (el `.gitignore` solo sube `docs/` y `animaciones_ia/`).
 
 - `chat_2026-10-20_342257e2.zip`: capitulo 4 - Alfred cae/se levanta/coloca antorcha, agua, Jerry baja por el agua y trota hacia Alfred (ver `refinar/docs/addons_sincronizacion_audio_animacion.md`).
+- `chat_2026-10-24_f52e92f4.zip`: capitulo 4 - cueva_4 (Jerry pica carbon y se lo lanza a Alfred, voces), cueva_5 (tunel, Stalker arana), the_stalker_1 (aspecto), cueva_5A (caverna de superficies con lava, add-on de cavernas, Alfred pica la salida/camina/antorcha/se arrodilla, Jerry llega). Resumen en `refinar/docs/CONTINUAR_DESDE_AQUI.md`.

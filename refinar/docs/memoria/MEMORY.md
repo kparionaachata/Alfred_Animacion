@@ -1,0 +1,25 @@
+- [Alfred manual workflow](project_alfred_workflow.md) — user's manual, AI-independent pipeline; JSON = per-character saved config/guion
+- [AI API + chase animation](project_ai_api_persecucion.md) — ai_api.py layer added 2026-09-29; first AI-built animation, gotchas
+- [Two flows: manual vs AI](feedback_dos_flujos.md) — keep flows separate/parallel; AI saves full result in animaciones_ia/
+- [Obey and be brief](feedback_obedecer_breve.md) — do only what is ordered; short replies, no unrequested data or extra work
+- [Jerry torch/jump animation](project_jerry_antorcha.md) — Jerry's chase part via AI flow; personaje=JERRY export, gotchas
+- [Zombies chase](project_zombies_persecucion.md) — zombie_1 test done (unapproved); zombies 2-5 pending
+- [Parte 2 base](project_parte2_base.md) — base_parte_2.blend: estado del frame 860 fijado como frame 1
+- [Elastic In-Out for expressive moves](feedback_elastic_expresivas.md) — sustos/risas/golpes use ELASTIC_IN_OUT
+- [No preview_path in part-2 scene](feedback_no_preview_path_parte2.md) — add-on operators re-import/rename characters; use artifacts
+- [Voz Sync + estudio audio](project_voz_sync_audio.md) — add-on voz/emocion y app Whisper del usuario; fdfdfdfff=DUDA, 'no me vengas con tonterias'=ENOJO
+- [Sonidos Minecraft + add-on](project_sonidos_minecraft.md) — alfred_sonidos: pasos/antorcha/impactos desde sonidos/ (sounds.json)
+- [Parte 3: despejar + mesa de crafteo](project_parte3_mesa_crafteo.md) — sentarse_en_refugio.py N=650, kneel/mesa layers, ik_brazos.py, re-sync de voces tras cada exec
+- [Parte 5 base](project_parte5_base.md) — base_parte_5.blend: estado del frame 1236 de la parte 4 fijado como frame 1
+- [Sonido camara dentro/fuera](feedback_sonido_camara_dentro_fuera.md) — sonidos de afuera bajan -10 dB con la camara dentro del refugio (sonorizar_escena.py)
+- [Ducking suave de voces](feedback_voces_ducking_suave.md) — voces bajan solo -5 dB los sonidos del juego (ducking_voces.py, DUCK=0.56)
+- [Jerry sin sonidos de lobo](feedback_jerry_sin_sonidos_lobo.md) — voz propia de Jerry; un sonido de lanzamiento por herramienta
+- [Herramientas aparentadas a la espalda de Alfred](feedback_herramientas_aparentadas.md) — Child Of a Spine1_alfred, brazo atras al sacar/guardar
+- [Creeper parte 6](project_creeper_parte6.md) — camina creeper.json desde f1035, parado mirando al este
+- [Filtros organicos y parpadeos](feedback_filtros_organicos_parpadeos.md) — aplicar a Alfred/Jerry/Creeper en la parte 6; sin suavizar fcurves
+- [Parte 7 base](project_parte7_base.md) — base_parte_7_estatica.blend: f1265 de la parte 6 como frame 1; hecho headless en copia (el borrado en vivo lo bloquea el clasificador)
+- [Distancia a camara = volumen](feedback_distancia_camara_volumen.md) — parte 7: -6 dB max al alejarse, enganchado al ducking
+- [Parte 8 base](project_parte8_base.md) — base_parte_8.blend: f751 de la parte 7 como frame 1; quitar driver 'or frame<300' del creeper
+- [Cueva capitulo 4 (20 oct)](project_cueva_alfred_jerry.md) — alfred_cueva_2.blend: estalagmita, levantarse, antorcha, agua, Jerry; no usar Blender sin autorizacion
+- [Addon tunel](project_addon_tunel.md) — panel 10 del Studio: inicio+final -> tunel y animacion de Alfred; base de trabajo _trabajo.blend
+- [Stalker en el tunel](project_stalker_tunel.md) — stalker_tunel_gatear.py: agarres pared/suelo/techo, mandibula, luz de cara

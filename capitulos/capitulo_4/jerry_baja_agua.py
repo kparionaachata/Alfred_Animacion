@@ -16,7 +16,7 @@ RIG, ROOT, BUCKET = "Dog_001_rig", "jerry", "bucket_jerry"
 FPS = 24
 S = 1.3                                   # escala del armature Dog_001_rig (jerry.blend de estructura_lista)
 HOYO = (-48.5, -18.5)                     # centro del hueco de agua
-F_BAJA = 378                              # frame en que empieza a bajar
+F_BAJA = 106                              # frame en que empieza a bajar (aterriza en el suelo de la cueva en el 210)
 V_TROTE, V_AGUA, V_VADEO = 3.4, 6.0, 2.2  # m/s: trote en superficie, caida limite dentro del agua, vadeo
 G = 9.8
 C_LOCAL = Vector((0.0, 0.1, 0.5))         # centro del cuerpo en el armature (sin escala)
@@ -28,7 +28,7 @@ V_RUTA = 3.4                              # m/s caminando por ese recorrido (cic
 ESPERA_BORDE = 0                          # frames que espera en el borde (el agua aun cae) antes de saltar
 DEMORA_RUTA = 0                           # frames quieto antes de caminar: Alfred planta la antorcha (alfred_coloca_antorcha.py) y Jerry llega despues
 CICLO_RUTA = 14                          # ciclo de caminata lento: llega a Alfred despues de que plante la antorcha
-F_ALFRED_DE_PIE = 552                     # frame en que Alfred ya esta de pie
+F_ALFRED_DE_PIE = 454                     # frame en que Alfred ya esta de pie
 
 
 def suave(t):
