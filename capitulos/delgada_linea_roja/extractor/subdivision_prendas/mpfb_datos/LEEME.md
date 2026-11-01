@@ -1,0 +1,1 @@
+Malla base y deformaciones de MPFB 2.0.18 (https://github.com/makehumancommunity/mpfb2), licencia CC0 de sus recursos (LICENSE.ASSETS.md). Las usa crear_rostro de personajes/black_watch_soldier.py para la cabeza; el add-on no hace falta.

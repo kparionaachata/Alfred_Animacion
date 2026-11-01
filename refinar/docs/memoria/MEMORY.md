@@ -23,3 +23,5 @@
 - [Cueva capitulo 4 (20 oct)](project_cueva_alfred_jerry.md) — alfred_cueva_2.blend: estalagmita, levantarse, antorcha, agua, Jerry; no usar Blender sin autorizacion
 - [Addon tunel](project_addon_tunel.md) — panel 10 del Studio: inicio+final -> tunel y animacion de Alfred; base de trabajo _trabajo.blend
 - [Stalker en el tunel](project_stalker_tunel.md) — stalker_tunel_gatear.py: agarres pared/suelo/techo, mandibula, luz de cara
+- [Delgada Linea Roja](project_delgada_linea_roja.md) — video realista 5 min; extractor Napoleon Total War a .glb; no animar hasta que lo ordene
+- [Subdivision de prendas](reference_subdivision_prendas.md) — flujo reutilizable para partir personajes en prendas y detalles (extractor/subdivision_prendas)

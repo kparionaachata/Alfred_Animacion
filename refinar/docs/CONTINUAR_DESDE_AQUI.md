@@ -1,5 +1,7 @@
 # Continuar desde aqui (estado al 2026-10-24)
 
+> Esta guia es de Alfred y Jerry. El proyecto en paralelo, La Delgada Linea Roja, tiene la suya: `capitulos/delgada_linea_roja/CONTINUAR_AQUI.md`.
+
 Leer esto primero al retomar el proyecto con otra cuenta de Claude. Despues: `refinar/docs/addons_sincronizacion_audio_animacion.md`
 (detalle del capitulo 4 en cueva_2 / cueva_5) y `refinar/docs/memoria/` (preferencias y reglas del usuario, copia de la memoria de Claude).
 Chats completos en `chats/` (zip con el .jsonl, sin imagenes); el de esta etapa: `chats/chat_2026-10-24_f52e92f4.zip`.

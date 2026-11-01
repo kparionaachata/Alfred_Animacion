@@ -73,3 +73,12 @@ __pycache__/
 !/recorrido/
 /recorrido/*
 !/recorrido/blender_path_bloques.py
+
+# La Delgada Linea Roja (proyecto paralelo): solo guias, scripts y los datos CC0 de MPFB
+!/capitulos/delgada_linea_roja/
+/capitulos/delgada_linea_roja/*
+!/capitulos/delgada_linea_roja/CONTINUAR_AQUI.md
+!/capitulos/delgada_linea_roja/extractor/
+!/capitulos/delgada_linea_roja/extractor/**/*.obj
+# guia automatica para Claude
+!/CLAUDE.md

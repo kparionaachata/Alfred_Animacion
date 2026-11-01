@@ -1,0 +1,13 @@
+---
+name: subdivision-prendas
+description: "Flujo para partir personajes de la Delgada Linea Roja en prendas, detalles y piezas; extractor/subdivision_prendas con LEEME.md"
+metadata:
+  node_type: memory
+  type: reference
+  originSessionId: b65a9749-3a3d-4b02-97bf-d4c55a0c5b35
+  modified: 2026-10-31T16:54:22.507Z
+---
+
+`capitulos/delgada_linea_roja/extractor/subdivision_prendas/` (LEEME.md, flujo.sh, paso1 a paso6, personajes/<config>.py). El usuario lo pidio para reutilizarlo con otros personajes. Cada personaje necesita su configuracion, medida con paso3_inspeccionar.py; `MAL 0` no valida los cortes, hay que mirar la hoja de fotos. Hecho solo el Black Watch soldado (prendas/: 338 .blend, 8.2 GB). Ver [[delgada-linea-roja]].
+
+Pasos 7 a 10: textura de cine y desgaste (prendas_cine/, 298 .blend), montaje en archivo nuevo, y paso 10: suaviza mallas, relieve 3D desde la textura y texturas redibujadas. Copias de revision del Black Watch junto al original: `ejemplo_1` (montaje), `ejemplo_2` (relieve), `ejemplo_3` (mallas suaves), `ejemplo_4` (kilt mate con pliegues), `ejemplo_5` (faldones y bordes 3D), `ejemplo_6` (medias a dados, polainas blancas y zapato negro, segun el cuadro de Robert Gibb que el usuario pone como referencia), `ejemplo_7` (bonete de plumas, rechazado: el usuario dijo que no eran plumas), `ejemplo_8` (bonete de pelo fino con caida lateral, banda a dados y plumero blanco), `ejemplo_9` (sporran de pelo con seis borlas), `ejemplo_10` (sporran junto a la cintura con colgador en V; sin cantimplora, que el usuario mando borrar), `ejemplo_11` (media con doblez y borla roja colgante en vez de lazo), `ejemplo_12` (banda blanca con insignia y faja roja de otra tela), `ejemplo_13` (hombros como el cuadro: rollo blanco, tirilla y vivo; sin el ala ni flecos del juego), `ejemplo_14` (polainas que tapan casi todo el zapato), `ejemplo_15` (rostro modelado: rasgos, ojos reales, piel y barba de pelo), `ejemplo_16` (hombre mayor y curtido, barba rizada: los soldados son personas mayores), `ejemplo_17` (cabeza de MPFB, datos CC0 en extractor/subdivision_prendas/mpfb_datos, sin instalar el add-on), `ejemplo_18` (detalles de la persona corregidos), `ejemplo_19` (nuca cubierta de pelo y cuello mas grueso; ultimo archivo). La persona tambien se subdivide en detalles como la ropa: <personaje>/persona/ con paso11_persona.py. Higgsfield: la API con HF_KEY de `.env.local` solo tiene imagen y video; los modelos 3D estan en el conector, sin creditos. El usuario exige: sin aristas de carton, relieve 3D real y color nitido con desgaste de batalla; el paso 10 actual parte de `ejemplo_1`.
