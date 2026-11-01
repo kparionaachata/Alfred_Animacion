@@ -63,7 +63,18 @@ def _ajustes(context):
     cada una tarda ~50 ms (todo el panel Replay iba a ~1 s por redibujo). El World no tiene animacion."""
     sc = context.scene
     if sc.world is None:
-        sc.world = bpy.data.worlds.new("World")
+        # no se puede escribir en la Scene (ni crear datos) mientras se dibuja el panel: se usa un mundo existente y la escena se arregla fuera del dibujo
+        w = next((w for w in bpy.data.worlds), None)
+        if w is not None:
+            def _asignar(sc=sc, w=w):
+                try:
+                    if sc.world is None:
+                        sc.world = w
+                except Exception:
+                    pass
+                return None
+            bpy.app.timers.register(_asignar, first_interval=0.1)
+            return w.replay_settings
     return sc.world.replay_settings
 
 

@@ -13,7 +13,8 @@ CAMINAR = r"C:/Users/user/Desktop/Alfred_Animacion/capitulos/capitulo_4/jerry_ca
 F_INI = 180
 INICIO = Vector((0.4529, 92.8, 66.0157))            # dentro del tunel, detras de Alfred
 CODO = Vector((0.4529, 85.95, 66.0157))             # justo pasando el hueco del tapon
-FINAL = Vector((-0.549, 84.775, 66.0157))           # su sitio
+FINAL = Vector((-0.27542, 84.485, 66.016))          # su sitio (posicion final indicada por el usuario)
+RZ_FINAL = math.radians(148)                        # su rotacion Z al quedar
 RZ = math.pi                                        # mirando a la caverna (-Y)
 VEL = 0.07                                          # m por frame (caminar rapido)
 F_GIRO_LADO = 14                                    # el ultimo tramo (de lado, hacia su sitio)
@@ -22,7 +23,8 @@ PICO = "jerry_pico"
 JAW_TOP = (12.62, -0.39805, -0.031797)
 JAW_BOT = (-23.97, -0.76517, 0.20142)
 REL_PICO = [[0.310716, 0.340091, 0.02848, 0.127948], [-0.144332, 0.096044, 0.42774, 0.096868], [0.30926, -0.296869, 0.171011, -0.087825], [0, 0, 0, 1]]
-PICO_SUELO = Vector((-0.55, 84.42, 66.05))          # donde lo deja (delante de sus patas, sobre el bloque)
+PICO_SUELO = Vector((-0.463, 83.664, 66.05))
+PICO_RZ = math.radians(-78.326)                     # coordenada y rotacion finales del pico (indicadas por el usuario)          # donde lo deja (delante de sus patas, sobre el bloque)
 
 
 def _ciclo():
@@ -60,7 +62,7 @@ def construir():
         k = f - F_INI
         if f <= f_codo: pos = INICIO.lerp(CODO, (f - F_INI) / max(1, f_codo - F_INI)); rz = RZ
         else:
-            u = (f - f_codo) / F_GIRO_LADO; u = u * u * (3 - 2 * u); pos = CODO.lerp(FINAL, u); rz = RZ + math.radians(28) * math.sin(math.pi * u)
+            u = (f - f_codo) / F_GIRO_LADO; u = u * u * (3 - 2 * u); pos = CODO.lerp(FINAL, u); rz = RZ + (RZ_FINAL - RZ) * u + math.radians(28) * math.sin(math.pi * u)
         amp = min(1.0, k / 6.0, max(0.0, (f_llega - f) / 6.0))
         for b in pb: b.rotation_euler = (0, 0, 0)
         for n, claves in kf.items():
@@ -72,20 +74,22 @@ def construir():
     for k in range(1, F_DEJA + 1):
         f = f0 + k; t = k / F_DEJA
         baja = math.sin(math.pi * min(1.0, t / 0.8)) if t < 0.8 else 0.0
-        abre = max(0.0, min(1.0, (t - 0.35) / 0.15)) * (1 - max(0.0, min(1.0, (t - 0.6) / 0.2)))
+        abre = max(0.0, min(1.0, (t - 0.35) / 0.15)) * (1 - max(0.0, min(1.0, (t - 0.65) / 0.2)))
         pose_quieto()
         for n, a in (("spine_1", 0.45), ("spine_2", 0.45), ("spine_3", 0.3)): pb[n].rotation_euler = (a * baja, 0, 0)
         pb["front_shin.L"].rotation_euler = (-0.15 * baja, 0, 0); pb["front_shin.R"].rotation_euler = (-0.15 * baja, 0, 0)
-        pb["jaw_bot"].rotation_euler = (jb[0] - 0.35 * abre, jb[1], jb[2])
+        c = max(0.0, min(1.0, (t - 0.65) / 0.2)); c = c * c * (3 - 2 * c)                  # cierra la mandibula (sin el pico el agarre ya no aplica)
+        pb["jaw_top"].rotation_euler = tuple(v * (1 - c) for v in jt)
+        pb["jaw_bot"].rotation_euler = ((jb[0] - 0.35 * abre) * (1 - c), jb[1] * (1 - c), jb[2] * (1 - c))
         en_boca = t < 0.45
-        clave(f, FINAL, RZ, pico_en_boca=en_boca)
+        clave(f, FINAL, RZ_FINAL, pico_en_boca=en_boca)
         if not en_boca:                                                       # cae y queda tendido en el suelo delante
             if k == int(0.45 * F_DEJA) + 1: p_suelta = pico.matrix_world.translation.copy()
-            u = min(1.0, (t - 0.45) / 0.12); u = u * u
+            u = min(1.0, (t - 0.45) / 0.17); u = u * u
             pico.location = p_suelta.lerp(PICO_SUELO, u)
-            pico.rotation_euler = Euler((0.0, 0.0, math.radians(15))).to_quaternion().slerp(pico.rotation_euler.to_quaternion(), 1 - u).to_euler('XYZ')
-            if u >= 1: pico.rotation_euler = (0.0, 0.0, math.radians(15))
+            pico.rotation_euler = Euler((0.0, 0.0, PICO_RZ)).to_quaternion().slerp(pico.rotation_euler.to_quaternion(), 1 - u).to_euler('XYZ')
+            if u >= 1: pico.rotation_euler = (0.0, 0.0, PICO_RZ)
             pico.keyframe_insert("location", frame=f); pico.keyframe_insert("rotation_euler", frame=f)
-    pose_quieto(); clave(f0 + F_DEJA + 1, FINAL, RZ, pico_en_boca=False)
+    pose_quieto(); pb["jaw_top"].rotation_euler = (0, 0, 0); pb["jaw_bot"].rotation_euler = (0, 0, 0); clave(f0 + F_DEJA + 1, FINAL, RZ_FINAL, pico_en_boca=False)
     sc.frame_set(1)
     return {"camina": (F_INI, f_llega), "deja_pico": (f0, f0 + F_DEJA), "pico_suelto": int(f0 + 0.45 * F_DEJA) + 1}

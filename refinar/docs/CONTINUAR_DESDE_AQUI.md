@@ -1,4 +1,16 @@
-# Continuar desde aqui (estado al 2026-10-24)
+# Continuar desde aqui (actualizado el 2026-11-01)
+
+## NOVEDADES 2026-10-24 -> 2026-11-01 (leer primero)
+- **Al retomar con otra cuenta:** (1) `git pull`; (2) copiar `.claude/skills/*` del repositorio a `~/.claude/skills/` (CLAUDE.md las exige: desplazamiento A->B de Alfred/Jerry/rat_1/chicken_1, sistema-recorrido, inercia-accion-reaccion, herramienta-mano-derecha, bloque-roto-drop, lanzador-mira-objetivo, recursos-animacion); (3) copiar `refinar/docs/memoria/*.md` a la carpeta de memoria de Claude de esa cuenta (reglas del usuario); (4) instalar los add-ons desde `generador de animaciones/{alfred,jerry,rat_1,chicken_1}/refinar/<personaje>_animation_studio/` (solo texto: .py/.json); (5) los .blend, audios e imagenes NO estan en el repositorio: hay que copiarlos aparte (carpeta del proyecto en el otro PC).
+- **Capitulo 4, cuevas 5B-5E:** scripts nuevos en `capitulos/capitulo_4/` (`crear_cueva_5B/5C/5D.py`, `crear_base_cueva_5E.py`, `stalker_*.py` incl. trepa de pared, `slimes_caverna.py`, `criaturas_caverna.py`, `zombies_cruzan_camino.py`, camaras `camara_*`, flashback `flashback_*.py`). Detalle en `refinar/docs/memoria/project_trepa_pared_5E.md` y los chats de 10-25 a 10-28.
+- **Video "Alfred tala arboles y los bonobos le lanzan cosas"** (escena `capitulos/capitulo_4/base_tarde con las ranas.blend`, 24 fps, 1-1453): guion y gotchas en `refinar/docs/memoria/project_video_bonobos_tala.md`; scripts `bonobos_madera_*.py`, `arboles_talables.py`; scripts de trabajo de la ultima sesion (lanzar objetos con trayectoria real, monos que se rascan/miran, cuello de Alfred que mira a los monos, hueco de animaciones) en `capitulos/capitulo_4/bonobos_madera_scratch/` (`lanzar.py`, `hueco.py`, `rascar.py`, `rascar_run.py`, `mirada_alfred.py`, `intercambio.py`...). Los lanzamientos llevan +20 frames por un remapeo global (ver `project_lanzamientos_mas_lentos.md`). Mordida de la serpiente: el mouth de `snake_plains` sigue al antebrazo izquierdo de Alfred desde f1218 (claves enteras de `location` y mandibulas en `mesh_root_snake_plains`).
+- **`base_tarde con las ranas_1.blend`** (2026-11-01, no esta en el repo): estado del ultimo frame (f1453) como frame 1, sin animaciones, SIN Alfred, monos, pollo, serpiente, rata ni props de la historia (colección `bonobos_madera`), arboles devueltos a superficies del mundo (`Oak_Log`/`Oak_Leaves` originales); solo quedan las ranas, fogatas, antorchas, mundo y camara. Se hizo en segundo plano con una copia de `alfred/refinar/docs/parte10/crear_base_parte_10.py` (mismo metodo que las bases anteriores).
+- **Reglas nuevas del usuario** (ver `refinar/docs/memoria/`): movimientos rapidos (nada lento), fisica real en todo objeto lanzado/golpeado, el que lanza mira al objetivo, Alfred mira hacia arriba a los monos al interactuar, herramienta en mano derecha con transformacion fija, bloque roto = item que gira y se absorbe, no tocar los monos cuando se pide solo Alfred, no pedir guardar ni responder avisos automaticos.
+- Chats completos de esta etapa: ver `chats/LEEME.md` (seccion 2026-10-24 a 2026-11-01).
+
+---
+
+## Estado detallado al 2026-10-24 (cueva_5A)
 
 > Esta guia es de Alfred y Jerry. El proyecto en paralelo, La Delgada Linea Roja, tiene la suya: `capitulos/delgada_linea_roja/CONTINUAR_AQUI.md`.
 

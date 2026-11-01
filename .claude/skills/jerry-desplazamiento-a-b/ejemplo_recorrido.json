@@ -1,0 +1,275 @@
+{
+  "path_name": "recorded_path",
+  "key_points": [
+    {
+      "index": 1,
+      "coordinates": {
+        "x": -59.5,
+        "y": 32.5,
+        "z": 13.0
+      },
+      "texture": "stone",
+      "face_index": "75430"
+    },
+    {
+      "index": 2,
+      "coordinates": {
+        "x": -58.5,
+        "y": 33.5,
+        "z": 13.0
+      },
+      "texture": "stone",
+      "face_index": "75673"
+    },
+    {
+      "index": 3,
+      "coordinates": {
+        "x": -57.5,
+        "y": 34.5,
+        "z": 13.0
+      },
+      "texture": "stone",
+      "face_index": "75910"
+    },
+    {
+      "index": 4,
+      "coordinates": {
+        "x": -56.5,
+        "y": 35.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24601"
+    },
+    {
+      "index": 5,
+      "coordinates": {
+        "x": -55.5,
+        "y": 35.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24740"
+    },
+    {
+      "index": 6,
+      "coordinates": {
+        "x": -54.5,
+        "y": 35.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24883"
+    },
+    {
+      "index": 7,
+      "coordinates": {
+        "x": -53.5,
+        "y": 35.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25032"
+    },
+    {
+      "index": 8,
+      "coordinates": {
+        "x": -52.5,
+        "y": 34.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25178"
+    },
+    {
+      "index": 9,
+      "coordinates": {
+        "x": -52.5,
+        "y": 33.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25179"
+    },
+    {
+      "index": 10,
+      "coordinates": {
+        "x": -52.5,
+        "y": 32.5,
+        "z": 13.0
+      },
+      "texture": "stone",
+      "face_index": "76987"
+    },
+    {
+      "index": 11,
+      "coordinates": {
+        "x": -52.5,
+        "y": 31.5,
+        "z": 13.0
+      },
+      "texture": "stone",
+      "face_index": "76989"
+    },
+    {
+      "index": 12,
+      "coordinates": {
+        "x": -52.5,
+        "y": 30.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25180"
+    },
+    {
+      "index": 13,
+      "coordinates": {
+        "x": -53.5,
+        "y": 29.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25034"
+    },
+    {
+      "index": 14,
+      "coordinates": {
+        "x": -54.5,
+        "y": 28.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24887"
+    },
+    {
+      "index": 15,
+      "coordinates": {
+        "x": -54.5,
+        "y": 27.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24888"
+    },
+    {
+      "index": 16,
+      "coordinates": {
+        "x": -54.5,
+        "y": 26.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24889"
+    },
+    {
+      "index": 17,
+      "coordinates": {
+        "x": -54.5,
+        "y": 25.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24890"
+    },
+    {
+      "index": 18,
+      "coordinates": {
+        "x": -54.5,
+        "y": 24.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24891"
+    },
+    {
+      "index": 19,
+      "coordinates": {
+        "x": -55.5,
+        "y": 23.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24747"
+    },
+    {
+      "index": 20,
+      "coordinates": {
+        "x": -55.5,
+        "y": 22.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24748"
+    },
+    {
+      "index": 21,
+      "coordinates": {
+        "x": -54.5,
+        "y": 21.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "24894"
+    },
+    {
+      "index": 22,
+      "coordinates": {
+        "x": -53.5,
+        "y": 20.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25043"
+    },
+    {
+      "index": 23,
+      "coordinates": {
+        "x": -52.5,
+        "y": 19.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25190"
+    },
+    {
+      "index": 24,
+      "coordinates": {
+        "x": -52.5,
+        "y": 18.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25191"
+    },
+    {
+      "index": 25,
+      "coordinates": {
+        "x": -52.5,
+        "y": 17.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25192"
+    },
+    {
+      "index": 26,
+      "coordinates": {
+        "x": -52.5,
+        "y": 16.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25193"
+    },
+    {
+      "index": 27,
+      "coordinates": {
+        "x": -52.5,
+        "y": 15.5,
+        "z": 10.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "25194"
+    }
+  ]
+}

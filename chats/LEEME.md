@@ -38,3 +38,49 @@ El estado del trabajo esta en las guias `GUIA_ANIMACION_ALFRED.md` y `GUIA_ANIMA
 
 - `chat_2026-10-20_342257e2.zip`: capitulo 4 - Alfred cae/se levanta/coloca antorcha, agua, Jerry baja por el agua y trota hacia Alfred (ver `refinar/docs/addons_sincronizacion_audio_animacion.md`).
 - `chat_2026-10-24_f52e92f4.zip`: capitulo 4 - cueva_4 (Jerry pica carbon y se lo lanza a Alfred, voces), cueva_5 (tunel, Stalker arana), the_stalker_1 (aspecto), cueva_5A (caverna de superficies con lava, add-on de cavernas, Alfred pica la salida/camina/antorcha/se arrodilla, Jerry llega). Resumen en `refinar/docs/CONTINUAR_DESDE_AQUI.md`.
+
+## Sesiones del 2026-10-24 al 2026-11-01 (exportadas el 2026-11-01)
+
+Nombre `chat_<fecha del ultimo mensaje>_<id>.zip` (sin imagenes). Muchas son bifurcaciones de la misma conversacion. Temas: capitulo 4 cuevas 5B-5E (Stalker, trepa de pared, zombies, flashback), add-ons de Alfred/Jerry, video de los bonobos (`base_tarde con las ranas.blend`: tala, lanzamientos, serpiente), skills del proyecto y `base_tarde con las ranas_1.blend`. La ultima sesion de trabajo es `chat_2026-11-01_593282e0` (mordida de la serpiente) y su continuacion `chat_2026-11-01_7ced37ce` (base limpia con solo las ranas). Las fechas 2026-09-28..10-17 de algunos archivos son sesiones antiguas que siguieron recibiendo mensajes.
+
+| Archivo | Lineas |
+|---|---|
+| `chat_2026-09-28_4065b6e6.zip` | 166 |
+| `chat_2026-09-28_cf5def0d.zip` | 171 |
+| `chat_2026-09-29_d930d14a.zip` | 2343 |
+| `chat_2026-09-29_e566c646.zip` | 443 |
+| `chat_2026-10-02_eb178fec.zip` | 6069 |
+| `chat_2026-10-03_bc5111ce.zip` | 9795 |
+| `chat_2026-10-04_93e8129b.zip` | 10458 |
+| `chat_2026-10-07_4c1ec968.zip` | 10148 |
+| `chat_2026-10-10_268c7c02.zip` | 2418 |
+| `chat_2026-10-17_17f9cf62.zip` | 2114 |
+| `chat_2026-10-18_c082589c.zip` | 4279 |
+| `chat_2026-10-19_f7e904f9.zip` | 2884 |
+| `chat_2026-10-24_b0c3e1b5.zip` | 4993 |
+| `chat_2026-10-25_dec9322d.zip` | 2764 |
+| `chat_2026-10-26_11dd869e.zip` | 7472 |
+| `chat_2026-10-26_c6a6e7b4.zip` | 7251 |
+| `chat_2026-10-27_597fbfa7.zip` | 133 |
+| `chat_2026-10-27_7828b18c.zip` | 10279 |
+| `chat_2026-10-27_7e1acee0.zip` | 248 |
+| `chat_2026-10-27_d7098d88.zip` | 3721 |
+| `chat_2026-10-28_56100e18.zip` | 5466 |
+| `chat_2026-10-28_91a5a82e.zip` | 149 |
+| `chat_2026-10-28_fd007133.zip` | 214 |
+| `chat_2026-10-29_7c6732ba.zip` | 1366 |
+| `chat_2026-10-29_ef2f7cfb.zip` | 743 |
+| `chat_2026-10-29_f2dc8c8c.zip` | 5870 |
+| `chat_2026-10-30_22c3d667.zip` | 12163 |
+| `chat_2026-10-30_3efc46d5.zip` | 7364 |
+| `chat_2026-10-30_652ab5d2.zip` | 2736 |
+| `chat_2026-10-30_8406077a.zip` | 1369 |
+| `chat_2026-10-30_e86c287c.zip` | 9095 |
+| `chat_2026-10-30_f9deb2c1.zip` | 12556 |
+| `chat_2026-10-31_8f0f4a19.zip` | 4218 |
+| `chat_2026-10-31_b65a9749.zip` | 2312 |
+| `chat_2026-10-31_ecf146ce.zip` | 1733 |
+| `chat_2026-10-31_f0ee91de.zip` | 2189 |
+| `chat_2026-11-01_211598cf.zip` | 2072 |
+| `chat_2026-11-01_593282e0.zip` | 5008 |
+| `chat_2026-11-01_7ced37ce.zip` | 435 |

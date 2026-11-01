@@ -1,0 +1,214 @@
+{
+  "path_name": "recorded_path",
+  "tunnel_config": {
+    "width": 10.0,
+    "height": 15.0,
+    "shape": "square_tunnel"
+  },
+  "key_points": [
+    {
+      "index": 1,
+      "coordinates": {
+        "x": -107.5,
+        "y": -95.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17567"
+    },
+    {
+      "index": 2,
+      "coordinates": {
+        "x": -107.5,
+        "y": -94.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17566"
+    },
+    {
+      "index": 3,
+      "coordinates": {
+        "x": -107.5,
+        "y": -93.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17565"
+    },
+    {
+      "index": 4,
+      "coordinates": {
+        "x": -107.5,
+        "y": -92.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17564"
+    },
+    {
+      "index": 5,
+      "coordinates": {
+        "x": -107.5,
+        "y": -91.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17563"
+    },
+    {
+      "index": 6,
+      "coordinates": {
+        "x": -107.5,
+        "y": -90.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17562"
+    },
+    {
+      "index": 7,
+      "coordinates": {
+        "x": -107.5,
+        "y": -89.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17561"
+    },
+    {
+      "index": 8,
+      "coordinates": {
+        "x": -107.5,
+        "y": -88.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17560"
+    },
+    {
+      "index": 9,
+      "coordinates": {
+        "x": -107.5,
+        "y": -87.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17559"
+    },
+    {
+      "index": 10,
+      "coordinates": {
+        "x": -107.5,
+        "y": -86.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17558"
+    },
+    {
+      "index": 11,
+      "coordinates": {
+        "x": -107.5,
+        "y": -85.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17557"
+    },
+    {
+      "index": 12,
+      "coordinates": {
+        "x": -107.5,
+        "y": -84.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17556"
+    },
+    {
+      "index": 13,
+      "coordinates": {
+        "x": -107.5,
+        "y": -83.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17555"
+    },
+    {
+      "index": 14,
+      "coordinates": {
+        "x": -107.5,
+        "y": -82.5,
+        "z": 16.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17554"
+    },
+    {
+      "index": 15,
+      "coordinates": {
+        "x": -107.5,
+        "y": -81.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17553"
+    },
+    {
+      "index": 16,
+      "coordinates": {
+        "x": -107.5,
+        "y": -80.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17552"
+    },
+    {
+      "index": 17,
+      "coordinates": {
+        "x": -107.5,
+        "y": -79.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17551"
+    },
+    {
+      "index": 18,
+      "coordinates": {
+        "x": -107.5,
+        "y": -78.5,
+        "z": 15.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17550"
+    },
+    {
+      "index": 19,
+      "coordinates": {
+        "x": -107.5,
+        "y": -77.5,
+        "z": 14.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17549"
+    },
+    {
+      "index": 20,
+      "coordinates": {
+        "x": -107.5,
+        "y": -76.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "17548"
+    }
+  ],
+  "mapped_area": {
+    "total_faces": 0,
+    "faces": []
+  }
+}

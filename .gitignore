@@ -82,3 +82,25 @@ __pycache__/
 !/capitulos/delgada_linea_roja/extractor/**/*.obj
 # guia automatica para Claude
 !/CLAUDE.md
+
+# skills del proyecto (las reglas de CLAUDE.md las usan; copiar a ~/.claude/skills/ en la otra cuenta)
+!/.claude/
+/.claude/*
+!/.claude/skills/
+
+# add-ons de Alfred, Jerry, rat_1 y chicken_1 (solo texto), mas la guia y los docs de Jerry
+*.bak
+!/generador de animaciones/alfred/refinar/alfred_animation_studio/
+!/generador de animaciones/jerry/refinar/jerry_animation_studio/
+!/generador de animaciones/jerry/refinar/GUIA_ANIMACION_JERRY.md
+!/generador de animaciones/jerry/refinar/docs/
+!/generador de animaciones/rat_1/
+/generador de animaciones/rat_1/*
+!/generador de animaciones/rat_1/refinar/
+/generador de animaciones/rat_1/refinar/*
+!/generador de animaciones/rat_1/refinar/rat_1_animation_studio/
+!/generador de animaciones/chicken_1/
+/generador de animaciones/chicken_1/*
+!/generador de animaciones/chicken_1/refinar/
+/generador de animaciones/chicken_1/refinar/*
+!/generador de animaciones/chicken_1/refinar/chicken_1_animation_studio/

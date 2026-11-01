@@ -23,5 +23,25 @@
 - [Cueva capitulo 4 (20 oct)](project_cueva_alfred_jerry.md) — alfred_cueva_2.blend: estalagmita, levantarse, antorcha, agua, Jerry; no usar Blender sin autorizacion
 - [Addon tunel](project_addon_tunel.md) — panel 10 del Studio: inicio+final -> tunel y animacion de Alfred; base de trabajo _trabajo.blend
 - [Stalker en el tunel](project_stalker_tunel.md) — stalker_tunel_gatear.py: agarres pared/suelo/techo, mandibula, luz de cara
+- [No pedir guardar](feedback_no_pedir_guardar.md) — no avisar de guardado; el usuario decide
+- [No responder avisos](feedback_no_responder_avisos.md) — callar ante notificaciones automaticas
+- [Trepa pared 5E](project_trepa_pared_5E.md) — criatura salta, trepa y llega bajo Alfred (f1-729); geometria y gotchas
+- [Biblioteca de animaciones de Alfred](reference_biblioteca_animaciones_alfred.md) — codigos de animacion/alfred: formatos, API execute_animation, familias por escena, objetos
+- [Video bonobos tala (29 oct)](project_video_bonobos_tala.md) — guion, scripts bonobos_madera_*.py, como regenerar, gotchas del rig T-pose
+- [Monos bloqueados](feedback_monos_bloqueados.md) — video bonobos: no tocar monos; solo Alfred y objetos
+- [Inercia/accion-reaccion](feedback_inercia_accion_reaccion.md) — toda animacion con fisica real; skill instalada global y en proyecto
+- [Alfred A→B con presets](feedback_alfred_desplazamiento_a_b.md) — dz=0 caminar, + subir, - bajar; skill alfred-desplazamiento-a-b
+- [Recursos para animar](reference_recursos_animacion.md) — rutas de objetos, sonidos y bloques; skill recursos-animacion
+- [Jerry desplazamiento A→B](feedback_jerry_desplazamiento_a_b.md) — skill: Z igual=caminar, +=saltar subir, -=saltar bajar (jerry_animation_studio)
+- [Rat_1 desplazamiento A→B](feedback_rat1_desplazamiento_a_b.md) — skill rat1-desplazamiento-a-b (rat_1_animation_studio)
+- [Chicken_1 desplazamiento A→B](feedback_chicken1_desplazamiento_a_b.md) — skill chicken1-desplazamiento-a-b (animaciones base capturadas)
+- [Sistema de recorrido](reference_sistema_recorrido.md) — skill general: pasos de 1 bloque, JSON key_points, clasificacion, flujo (todos los personajes)
+- [Herramienta en mano derecha](feedback_herramienta_mano_derecha.md) — loc/rot/escala fijas (Child Of Rightelbow_alfred) para cualquier arma/herramienta
+- [Zona de vision de los bonobos](feedback_zona_vision_bonobos.md) — Alfred va a (-72.5,32.5|30.5,12) al ser golpeado o lanzar a los monos
+- [Bloque roto = item que gira y se absorbe](feedback_bloque_roto_drop.md) — item 0.25 que cae, gira, flota y lo absorbe quien lo rompio (skill bloque-roto-drop)
+- [Movimientos rapidos](feedback_movimientos_rapidos.md) — nada lento: menos frames o mas amplitud, interacciones rapidas
+- [Lanzador mira al objetivo](feedback_lanzador_mira_objetivo.md) — cabeza y mirada al objetivo al lanzar (skill lanzador-mira-objetivo)
 - [Delgada Linea Roja](project_delgada_linea_roja.md) — video realista 5 min; extractor Napoleon Total War a .glb; no animar hasta que lo ordene
 - [Subdivision de prendas](reference_subdivision_prendas.md) — flujo reutilizable para partir personajes en prendas y detalles (extractor/subdivision_prendas)
+- [Lanzamientos +20 frames](project_lanzamientos_mas_lentos.md) — vuelos alargados con remapeo global; escena 1339 f, scripts desfasados; invertible con scene['lanz_rampas']
+- [Alfred mira a los monos](feedback_alfred_mira_monos.md) — al interactuar con un mono, Alfred mira hacia arriba (cuello resuelto a su cabeza)

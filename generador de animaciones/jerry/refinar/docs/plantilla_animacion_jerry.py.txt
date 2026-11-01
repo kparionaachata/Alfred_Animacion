@@ -1,0 +1,126 @@
+# -*- coding: utf-8 -*-
+"""Animacion independiente de Jerry: @@TITULO@@ (@@N@@ f a 24 fps; frames originales f@@F0@@-f@@F1@@ de la parte 6, escena viva). Estado: sin aprobar.
+Mueve a Jerry (los huesos del armature con spine_6 y scull_1, y su root, el empty `jerry`) y a los objetos con los que interactua (ver ANIMATION_INFO['objetos']). NO incluye hablar ni expresiones: ni voz, ni mandibula (jaw_bot/jaw_top), ni cejas, ni ojos,
+pupilas o parpadeo, ni audio. Los valores son los de la escena viva (con los filtros organicos de respiracion, orejas, cola y micro-movimiento ya sumados).
+
+Uso en Blender (con el rig de Jerry cargado; esto REEMPLAZA la accion actual de su armature, su root y los objetos de la escena):
+    execute_animation()                      # empieza en el frame original (@@F0@@); parte de donde esta Jerry AHORA (la posicion y orientacion actuales de su root son el inicio de la escena)
+    execute_animation(start_frame=300)       # en otro frame
+    execute_animation(origen='escena')       # con la posicion y orientacion ABSOLUTAS originales de la parte 6
+Objetos: los que falten en la escena se anaden desde `objetos/*.blend` (carpeta junto a este archivo). El sombrero que lleva puesto (`sombrero_jerry`) es parte del modelo de Jerry (hijo del hueso `sombrero`): solo se animan sus claves de visibilidad.
+"""
+import bpy, math, os
+
+PAYLOAD = @@PAYLOAD@@
+ANIMATION_INFO = PAYLOAD['info']
+FRAMES = ANIMATION_INFO['frames']
+ORIGINAL_START = ANIMATION_INFO['frame_original']
+CARPETA = "@@DEST@@"
+
+
+def _curves(action):
+    if hasattr(action, 'fcurves'): return list(action.fcurves)
+    return [c for layer in action.layers for strip in layer.strips for bag in strip.channelbags for c in bag.fcurves]
+
+
+def _new_action(obj, label):
+    obj.animation_data_create(); obj.animation_data.action = bpy.data.actions.new(label)
+    return obj.animation_data.action
+
+
+def _interp(action):
+    for c in _curves(action):
+        const = c.data_path.startswith('hide')
+        for k in c.keyframe_points: k.interpolation = 'CONSTANT' if const else 'LINEAR'
+
+
+def find_rig():
+    for o in bpy.data.objects:
+        if o.type == 'ARMATURE' and 'spine_6' in o.pose.bones and 'scull_1' in o.pose.bones: return o
+    raise ValueError('Carga el rig de Jerry: armature con los huesos spine_6 y scull_1.')
+
+
+def _carpeta():
+    try: return os.path.dirname(os.path.abspath(__file__))
+    except NameError: return CARPETA
+
+
+def asegurar_objetos():
+    """anade a la escena los objetos de la animacion que no existan, desde objetos/*.blend"""
+    for nombre, rec in PAYLOAD['objetos'].items():
+        if nombre in bpy.data.objects: continue
+        if rec['tipo'] == 'hijo': raise ValueError('Falta %s: es parte del modelo de Jerry (hijo del hueso sombrero)' % nombre)
+        ruta = os.path.join(_carpeta(), rec['archivo'])
+        if not os.path.isfile(ruta): ruta = os.path.join(CARPETA, rec['archivo'])
+        if not os.path.isfile(ruta): raise ValueError('Falta el objeto %s y su archivo %s' % (nombre, ruta))
+        faltan = [n for n in rec['paquete'] if n not in bpy.data.objects]
+        with bpy.data.libraries.load(ruta, link=False) as (src, dst): dst.objects = [n for n in faltan if n in src.objects]
+        for o in dst.objects:
+            if o is not None: bpy.context.scene.collection.objects.link(o)
+        if nombre not in bpy.data.objects: raise ValueError('No se pudo anadir ' + nombre)
+
+
+def execute_animation(start_frame=ORIGINAL_START, origen='actual'):
+    from mathutils import Matrix, Quaternion, Vector, Euler
+    P = PAYLOAD; rig = find_rig(); allb = set(P['bones']) | set(P['constantes']); missing = allb - set(rig.pose.bones.keys())
+    if missing: raise ValueError('Rig incompatible. Faltan huesos: ' + ', '.join(sorted(missing)))
+    asegurar_objetos(); root = rig.parent; sc = bpy.context.scene; bpy.context.view_layer.update()
+    for b in rig.pose.bones: b.rotation_mode = 'XYZ'
+    mat = lambda l, e: Matrix.LocRotScale(Vector(l), Euler(e, 'XYZ').to_quaternion(), Vector((1, 1, 1)))
+    R0 = mat(P['root']['location'][0], P['root']['rotation_euler'][0])
+    T = (root.matrix_world.copy() @ R0.inverted()) if (origen == 'actual' and root is not None) else Matrix.Identity(4)
+    # ---- Jerry: huesos ----
+    action = _new_action(rig, 'Jerry_' + ANIMATION_INFO['name'])
+    for name, chans in P['constantes'].items():
+        bone = rig.pose.bones[name]
+        for ch, v in chans.items(): setattr(bone, ch, v); bone.keyframe_insert(ch, frame=start_frame, group=name)
+    for name, channels in P['bones'].items():
+        bone = rig.pose.bones[name]
+        for ch, values in channels.items():
+            for i, v in enumerate(values): setattr(bone, ch, v); bone.keyframe_insert(ch, frame=start_frame + i, group=name)
+    _interp(action)
+    # ---- Jerry: root (empty `jerry`) ----
+    if root is not None:
+        root.rotation_mode = 'XYZ'; a = _new_action(root, 'Jerry_root_' + ANIMATION_INFO['name']); prev = Euler(tuple(root.rotation_euler), 'XYZ')
+        for i in range(FRAMES):
+            l, e = P['root']['location'][i], P['root']['rotation_euler'][i]
+            if origen == 'actual': M = T @ mat(l, e); loc, q, _s = M.decompose(); eul = q.to_euler('XYZ', prev); prev = eul
+            else: loc, eul = Vector(l), Euler(e, 'XYZ')
+            root.location = loc; root.rotation_euler = eul; root.keyframe_insert('location', frame=start_frame + i); root.keyframe_insert('rotation_euler', frame=start_frame + i)
+        _interp(a)
+    # ---- objetos ----
+    for name, rec in P['objetos'].items():
+        ob = bpy.data.objects[name]; a = None
+        if rec['tipo'] == 'hueso':                                                         # pegado a un hueso (antorcha en la boca): sigue la boca de cualquier Jerry
+            sc.frame_set(int(start_frame)); bpy.context.view_layer.update(); pb = rig.pose.bones[rec['hueso']]
+            ob.parent = rig; ob.parent_type = 'BONE'; ob.parent_bone = rec['hueso']; ob.matrix_world = rig.matrix_world @ pb.matrix @ Matrix(rec['matriz'])
+        elif rec['tipo'] == 'mundo':                                                         # transformacion de mundo relativa al root de Jerry
+            if ob.parent is not None: m0 = ob.matrix_world.copy(); ob.parent = None; ob.matrix_world = m0
+            ob.rotation_mode = 'QUATERNION'; a = _new_action(ob, 'Jerry_' + name + '_' + ANIMATION_INFO['name']); qprev = None; rel = rec.get('hueso_rel'); C = None; ultimo = None
+            for i in range(FRAMES):
+                M = T @ Matrix.LocRotScale(Vector(rec['location'][i]), Quaternion(rec['rotation_quaternion'][i]), Vector(rec['scale'][i]))
+                if rel is not None:                                                        # en la boca: pegado al hueso; al soltarlo sigue su recorrido desde ahi
+                    if rel[i] is not None:
+                        sc.frame_set(int(start_frame + i)); pb = rig.pose.bones[rec['hueso']]; Mb = rig.matrix_world @ pb.matrix @ Matrix(rel[i]); ultimo = (Mb, M); M = Mb
+                    else:
+                        if C is None and ultimo is not None: C = ultimo[0] @ ultimo[1].inverted()
+                        if C is not None: M = C @ M
+                l, q, s = M.decompose()
+                if qprev is not None and q.dot(qprev) < 0: q = -q
+                qprev = q; ob.location = l; ob.rotation_quaternion = q; ob.scale = s
+                for ch in ('location', 'rotation_quaternion', 'scale'): ob.keyframe_insert(ch, frame=start_frame + i)
+        if 'hide' in rec:
+            if a is None: a = _new_action(ob, 'Jerry_' + name + '_' + ANIMATION_INFO['name'])
+            for i, (hv, hr) in enumerate(rec['hide']):
+                ob.hide_viewport = hv; ob.hide_render = hr; ob.keyframe_insert('hide_viewport', frame=start_frame + i); ob.keyframe_insert('hide_render', frame=start_frame + i)
+        else: ob.hide_viewport, ob.hide_render = rec['hide_const']
+        if a is not None: _interp(a)
+    sc.render.fps = 24; sc.render.fps_base = 1
+    sc.frame_start = min(sc.frame_start, int(start_frame)); sc.frame_end = max(sc.frame_end, int(start_frame + FRAMES - 1)); sc.frame_set(int(start_frame))
+    return True
+
+
+def get_animation_metadata(): return dict(ANIMATION_INFO)
+
+
+if __name__ == '__main__': execute_animation()
