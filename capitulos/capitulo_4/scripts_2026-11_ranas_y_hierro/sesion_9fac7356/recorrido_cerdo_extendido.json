@@ -1,0 +1,325 @@
+{
+  "path_name": "recorded_path",
+  "key_points": [
+    {
+      "index": 1,
+      "coordinates": {
+        "x": 3.5,
+        "y": -2.5,
+        "z": 13.0
+      },
+      "texture": "gravel",
+      "face_index": "8993"
+    },
+    {
+      "index": 2,
+      "coordinates": {
+        "x": 2.5,
+        "y": -3.5,
+        "z": 13.0
+      },
+      "texture": "gravel",
+      "face_index": "8957"
+    },
+    {
+      "index": 3,
+      "coordinates": {
+        "x": 1.5,
+        "y": -4.5,
+        "z": 13.0
+      },
+      "texture": "gravel",
+      "face_index": "8918"
+    },
+    {
+      "index": 4,
+      "coordinates": {
+        "x": 0.5,
+        "y": -4.5,
+        "z": 13.0
+      },
+      "texture": "gravel",
+      "face_index": "8867"
+    },
+    {
+      "index": 5,
+      "coordinates": {
+        "x": -0.5,
+        "y": -4.5,
+        "z": 13.0
+      },
+      "texture": "gravel",
+      "face_index": "8807"
+    },
+    {
+      "index": 6,
+      "coordinates": {
+        "x": -1.5,
+        "y": -3.5,
+        "z": 13.0
+      },
+      "texture": "gravel",
+      "face_index": "8744"
+    },
+    {
+      "index": 7,
+      "coordinates": {
+        "x": -1.5,
+        "y": -2.5,
+        "z": 13.0
+      },
+      "texture": "gravel",
+      "face_index": "8743"
+    },
+    {
+      "index": 8,
+      "coordinates": {
+        "x": -1.5,
+        "y": -1.5,
+        "z": 14.0
+      },
+      "texture": "gravel",
+      "face_index": "8741"
+    },
+    {
+      "index": 9,
+      "coordinates": {
+        "x": -2.5,
+        "y": -0.5,
+        "z": 14.0
+      },
+      "texture": "gravel",
+      "face_index": "8668"
+    },
+    {
+      "index": 10,
+      "coordinates": {
+        "x": -3.5,
+        "y": -0.5,
+        "z": 14.0
+      },
+      "texture": "gravel",
+      "face_index": "8599"
+    },
+    {
+      "index": 11,
+      "coordinates": {
+        "x": -4.5,
+        "y": 0.5,
+        "z": 14.0
+      },
+      "texture": "gravel",
+      "face_index": "8528"
+    },
+    {
+      "index": 12,
+      "coordinates": {
+        "x": -5.5,
+        "y": 1.5,
+        "z": 14.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "31496"
+    },
+    {
+      "index": 13,
+      "coordinates": {
+        "x": -6.5,
+        "y": 1.5,
+        "z": 14.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "31370"
+    },
+    {
+      "index": 14,
+      "coordinates": {
+        "x": -7.5,
+        "y": 1.5,
+        "z": 14.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "31248"
+    },
+    {
+      "index": 15,
+      "coordinates": {
+        "x": -8.5,
+        "y": 1.5,
+        "z": 14.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "31127"
+    },
+    {
+      "index": 16,
+      "coordinates": {
+        "x": -9.5,
+        "y": 1.5,
+        "z": 14.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "31001"
+    },
+    {
+      "index": 17,
+      "coordinates": {
+        "x": -10.5,
+        "y": 1.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "30885"
+    },
+    {
+      "index": 18,
+      "coordinates": {
+        "x": -11.5,
+        "y": 1.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "30762"
+    },
+    {
+      "index": 19,
+      "coordinates": {
+        "x": -12.5,
+        "y": 1.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "30646"
+    },
+    {
+      "index": 20,
+      "coordinates": {
+        "x": -13.5,
+        "y": 1.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "30526"
+    },
+    {
+      "index": 21,
+      "coordinates": {
+        "x": -14.5,
+        "y": 0.5,
+        "z": 13.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 22,
+      "coordinates": {
+        "x": -14.5,
+        "y": -0.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": "30397"
+    },
+    {
+      "index": 23,
+      "coordinates": {
+        "x": -15.5,
+        "y": -1.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 24,
+      "coordinates": {
+        "x": -16.5,
+        "y": -2.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 25,
+      "coordinates": {
+        "x": -17.5,
+        "y": -2.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 26,
+      "coordinates": {
+        "x": -18.5,
+        "y": -3.5,
+        "z": 12.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 27,
+      "coordinates": {
+        "x": -19.5,
+        "y": -4.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 28,
+      "coordinates": {
+        "x": -20.5,
+        "y": -4.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 29,
+      "coordinates": {
+        "x": -21.5,
+        "y": -4.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 30,
+      "coordinates": {
+        "x": -22.5,
+        "y": -4.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 31,
+      "coordinates": {
+        "x": -23.5,
+        "y": -3.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    },
+    {
+      "index": 32,
+      "coordinates": {
+        "x": -24.5,
+        "y": -3.5,
+        "z": 11.0
+      },
+      "texture": "grass_block_top",
+      "face_index": ""
+    }
+  ]
+}

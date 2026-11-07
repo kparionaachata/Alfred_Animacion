@@ -104,3 +104,21 @@ __pycache__/
 !/generador de animaciones/chicken_1/refinar/
 /generador de animaciones/chicken_1/refinar/*
 !/generador de animaciones/chicken_1/refinar/chicken_1_animation_studio/
+
+# 2026-11-07: voces y sonidos procesados del capitulo 4 (archivos pequenos, los usa base_tarde con las ranas_1.blend)
+!/capitulos/capitulo_4/voces_alfred/*
+!/capitulos/capitulo_4/voces_jerry/*
+!/capitulos/capitulo_4/sonidos_pollos_desesperados/*
+# render DLSS por comando (solo los .bat/.ps1/.py, no los frames)
+!/renderizado/
+/renderizado/*
+!/renderizado/*.bat
+!/renderizado/*.ps1
+!/renderizado/*.py
+# add-on del cerdo (cerdo_1_animation_studio) y su guia de portado
+!/generador de animaciones/cerdo_1/
+/generador de animaciones/cerdo_1/*
+!/generador de animaciones/cerdo_1/refinar/
+/generador de animaciones/cerdo_1/refinar/*
+!/generador de animaciones/cerdo_1/refinar/cerdo_1_animation_studio/
+!/generador de animaciones/cerdo_1/refinar/PORTADO_CERDO_1.md

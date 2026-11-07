@@ -1090,7 +1090,8 @@ def material_piel(nombre, surcos):
     gr = N.new("ShaderNodeMath")
     gr.operation = "MULTIPLY"
     L.new(spl.outputs[0], gr.inputs[0])
-    gr.inputs[1].default_value = 2.0
+    # los surcos ya son geometria: el bump solo afila el fondo del pliegue
+    gr.inputs[1].default_value = .6
     L.new(gr.outputs[0], pz.inputs[1])
     L.new(pz.outputs[0], suma.inputs[0])
     mu = N.new("ShaderNodeMath")
@@ -1116,9 +1117,14 @@ def imagen_ojo(rng):
     # esclerotica con venillas hacia el borde
     ven = desenfoque(rng.normal(0, 1, (n, n)).astype(np.float32), 3)
     ven = np.abs(ven / ven.std())
-    venas = np.clip((.12 - ven) / .12, 0, 1) * np.clip((r - .2) / .3, 0, 1) * .4
-    base = np.array((.74, .69, .63), np.float32)[None, None] * np.ones((n, n, 1), np.float32)
-    base = base * (1 - venas[..., None]) + np.array((.62, .22, .18), np.float32) * venas[..., None]
+    # hacia los lagrimales y las comisuras: mas venas y un tono rosado; un blanco puro delata el 3D
+    esquina = np.clip((np.abs(dx) - .3) / .5, 0, 1) * np.clip((r - .25) / .3, 0, 1)
+    venas = np.clip((.12 - ven) / .12, 0, 1) * np.clip((r - .2) / .3, 0, 1) * (.35 + .5 * esquina)
+    base = np.array((.6, .55, .5), np.float32)[None, None] * np.ones((n, n, 1), np.float32)
+    base = base * (1 - .55 * esquina[..., None] ** 1.5) + np.array((.58, .36, .32), np.float32) * .55 * esquina[..., None] ** 1.5
+    # junto al iris la esclerotica se oscurece un poco (anillo limbal difuso)
+    base *= (1 - .18 * np.clip((.24 - r) / .07, 0, 1))[..., None]
+    base = base * (1 - venas[..., None]) + np.array((.55, .2, .16), np.float32) * venas[..., None]
     # iris azul grisaceo, con fibras radiales
     fib = desenfoque(rng.normal(0, 1, (n, n)).astype(np.float32), 1.2)
     fib = .5 + .5 * np.sin(a * 90 + fib * 9) * .5 + .25 * np.sin(a * 37 + r * 22)
@@ -1178,6 +1184,10 @@ def imagen_surcos(rng):
     linea([(.0, 1.8165), (.008, 1.8145)], .0005, .6)
     # los surcos se abren al difuminarlos; encima, un grano fino sin formar lineas
     surco = desenfoque(surco, 5) * 1.5
+    # relieve de verdad (en metros): el surco se hunde y la piel de los lados abulta, como un pliegue
+    global RELIEVE_ARRUGAS
+    lin = np.clip(surco, 0, 1)
+    RELIEVE_ARRUGAS = -.0008 * lin + .0012 * (desenfoque(lin, 14) - lin)
     grano = desenfoque(rng.normal(0, 1, (h, w)).astype(np.float32), 3)
     surco = np.clip(surco, 0, 1) + .05 * grano / grano.std()
     p = np.ones((h, w, 4), np.float32)
@@ -1185,9 +1195,51 @@ def imagen_surcos(rng):
     # la suciedad: tierra en los surcos y parches de polvo
     polvo = desenfoque(rng.normal(0, 1, (h, w)).astype(np.float32), 60)
     polvo /= polvo.std()
-    p[..., 1] = (1 - .3 * np.clip(surco, 0, 1)) * (.93 + .07 * np.tanh(polvo))
+    p[..., 1] = (1 - .1 * np.clip(surco, 0, 1)) * (.93 + .07 * np.tanh(polvo))
     p[..., 2] = 0
     return nueva_imagen("rostro_surcos", p, True)
+
+
+def _muestra_frente(mapa, x, z):
+    """Lee un mapa de imagen_surcos (x -.1 a .1, z 1.91 a 1.66) en puntos de la cara, con interpolacion bilineal."""
+    h, w = mapa.shape
+    c = np.clip((x + .1) / .2 * (w - 1), 0, w - 1.001)
+    r = np.clip((1.91 - z) / .25 * (h - 1), 0, h - 1.001)
+    c0, r0 = c.astype(np.int64), r.astype(np.int64)
+    fc, fr = c - c0, r - r0
+    return (mapa[r0, c0] * (1 - fc) * (1 - fr) + mapa[r0, c0 + 1] * fc * (1 - fr)
+            + mapa[r0 + 1, c0] * (1 - fc) * fr + mapa[r0 + 1, c0 + 1] * fc * fr)
+
+
+def relieve_arrugas(o):
+    """Las arrugas en alto relieve: subdivide la piel donde hay surcos (de 1.5 mm a unos 0.4 mm entre vertices) y la desplaza por la normal."""
+    bm = bmesh.new()
+    bm.from_mesh(o.data)
+    bm.normal_update()
+
+    def peso(v):
+        # solo la cara vista de frente: el mapa se proyecta de frente y saldria tambien en la nuca
+        return min(max((-.01 - v.co.y) / .02, 0), 1) * min(max((-v.normal.y - .1) / .3, 0), 1)
+
+    def alto(v):
+        return float(_muestra_frente(RELIEVE_ARRUGAS, np.array([v.co.x]), np.array([v.co.z]))[0]) * peso(v)
+
+    marcados = {v for v in bm.verts if peso(v) > 0 and abs(alto(v)) > 2e-5}
+    aristas = [e for e in bm.edges if e.verts[0] in marcados or e.verts[1] in marcados]
+    bmesh.ops.subdivide_edges(bm, edges=aristas, cuts=3, use_grid_fill=True)
+    bm.normal_update()
+    vs = list(bm.verts)
+    co = np.array([v.co[:] for v in vs], np.float64)
+    nor = np.array([v.normal[:] for v in vs], np.float64)
+    w = np.clip((-.01 - co[:, 1]) / .02, 0, 1) * np.clip((-nor[:, 1] - .1) / .3, 0, 1)
+    d = _muestra_frente(RELIEVE_ARRUGAS, co[:, 0], co[:, 2]) * w
+    for v, n_, d_ in zip(vs, nor, d):
+        if d_:
+            v.co += Vector(n_ * d_)
+    bm.to_mesh(o.data)
+    bm.free()
+    o.data.update()
+    print("ARRUGAS", len(aristas), "aristas subdivididas", len(o.data.vertices), "vertices", round(float(d.min()) * 1000, 2), round(float(d.max()) * 1000, 2), "mm", flush=True)
 
 
 def cabeza_mpfb():
@@ -1338,6 +1390,7 @@ def crear_rostro():
     me.attributes.new("cine_p", "FLOAT_VECTOR", "POINT").data.foreach_set("vector", co2.astype(np.float32).ravel())
     me.materials.clear()
     me.materials.append(material_piel("piel_rostro", imagen_surcos(rng)))
+    relieve_arrugas(o)
 
     # globos oculares con cornea
     A, B = 48, 32
@@ -1362,7 +1415,14 @@ def crear_rostro():
     nb = next(q for q in mo.node_tree.nodes if q.type == "BSDF_PRINCIPLED")
     tx = mo.node_tree.nodes.new("ShaderNodeTexImage")
     tx.image = im
-    mo.node_tree.links.new(tx.outputs[0], nb.inputs["Base Color"])
+    # el parpado y las pestanas dejan en sombra la parte alta del globo
+    ao = mo.node_tree.nodes.new("ShaderNodeAmbientOcclusion")
+    ao.inputs["Distance"].default_value = .007
+    mo.node_tree.links.new(tx.outputs[0], ao.inputs["Color"])
+    mo.node_tree.links.new(ao.outputs["Color"], nb.inputs["Base Color"])
+    nb.inputs["Subsurface Weight"].default_value = .25
+    nb.inputs["Subsurface Radius"].default_value = (1.0, .45, .3)
+    nb.inputs["Subsurface Scale"].default_value = .002
     nb.inputs["Roughness"].default_value = .06
     nb.inputs["Specular IOR Level"].default_value = .6
     nb.inputs["Coat Weight"].default_value = .9
@@ -1436,18 +1496,53 @@ def crear_rostro():
     nuca = ((Y > .03) & (Z > 1.712) | (Y > -.03) & (Z > 1.838) & (AX > .05) | (Y > -.012) & (Z > 1.725) & (Z < 1.772)) & (Z < 1.885)
     el, r_, n_ = raices(nuca, 30000)
     hebras("rostro_pelo", el, r_, n_, (.045, .028, .018), (.075, .045, .028), caida=1.6, largos=(.016, .032), anchos=(.0009, .0016), suelto=.55)
-    # pestanas en el borde del parpado, segun las tiras de MPFB
-    d_ojo = np.hypot(np.abs(borde_p[:, 0]) - OJO[0], borde_p[:, 2] - OJO[1])
-    cerca_o = borde_p[d_ojo <= np.median(d_ojo)]
-    r_ = cerca_o[rng.choice(len(cerca_o), 260)] + rng.normal(0, 1, (260, 3)).astype(np.float32) * np.array((.0018, .0004, .0003), np.float32)
-    n_ = np.c_[np.sign(r_[:, 0]) * .25 * (np.abs(r_[:, 0]) - OJO[0]) / .014, np.full(260, -1.0), np.sign(r_[:, 2] - OJO[1]) * .75].astype(np.float32)
-    n_ /= np.linalg.norm(n_, axis=1, keepdims=True)
+    # pestanas en el borde real del parpado: donde, mirando de frente, la piel deja de tapar el globo
+    # (las tiras de MPFB quedan unos 6 mm por delante del ojo y las pestanas flotaban)
+    arbol_c = BVHTree.FromPolygons(cf.tolist(), [list(f_.vertices) for f_ in me.polygons])
+    frente = Vector((0, 1, 0))
+    borde = {True: [], False: []}
+    for lado in (1, -1):
+        for dx in np.linspace(-.0128, .0128, 90):
+            x = lado * OJO[0] + dx
+            visto = []
+            for z in np.arange(OJO[1] - .0125, OJO[1] + .0125, .0002):
+                q = R * R - dx * dx - (z - OJO[1]) ** 2
+                if q <= 0:
+                    continue
+                piel_y = arbol_c.ray_cast(Vector((x, -1, z)), frente, 2.0)[0]
+                if piel_y is None or piel_y.y > yc - math.sqrt(q) - 1e-5:
+                    visto.append(z)
+            if len(visto) < 3:
+                continue
+            for arr, z in ((True, max(visto) + .0003), (False, min(visto) - .0003)):
+                p_ = arbol_c.ray_cast(Vector((x, -1, z)), frente, 2.0)[0]
+                if p_ is not None:
+                    borde[arr].append((p_.x, p_.y, p_.z))
     kd = KDTree(len(cf))
     for i, c_ in enumerate(cf.tolist()):
         kd.insert(c_, i)
     kd.balance()
-    el = np.array([kd.find(v.tolist())[1] for v in r_], np.int64)
-    hebras("rostro_pestanas", el, r_, n_, (.03, .018, .012), (.06, .03, .02), n_seg=3, caida=.0, largos=(.0045, .0075), anchos=(.00028, .0005), suelto=.1)
+    # arriba una fila densa que sale hacia delante y se curva hacia arriba; abajo menos, cortas y caidas
+    for nombre, arr, cuantas, largos, anchos in (("rostro_pestanas", True, 210, (.0045, .0095), (.00015, .0003)), ("rostro_pestanas_bajo", False, 80, (.0022, .0045), (.00014, .00026))):
+        fila = np.array(borde[arr], np.float32)
+        r_ = []
+        for lado in (1, -1):
+            f_ = fila[np.sign(fila[:, 0]) == lado]
+            f_ = f_[np.argsort(f_[:, 0])]
+            # del lagrimal (x0) a la comisura (x1); el lagrimal no lleva pestanas: se empieza un poco hacia fuera
+            x0, x1 = (f_[0, 0], f_[-1, 0]) if lado > 0 else (f_[-1, 0], f_[0, 0])
+            x_ = x0 + (.12 + .88 * rng.uniform(0, 1, cuantas // 2) ** .8) * (x1 - x0)
+            r_.append(np.c_[x_, np.interp(x_, f_[:, 0], f_[:, 1]) + .0002, np.interp(x_, f_[:, 0], f_[:, 2])])
+        r_ = np.concatenate(r_).astype(np.float32)
+        # -1 en el lagrimal, +1 en la comisura: las de fuera son mas largas y se abren hacia la sien
+        fuera = np.clip(np.sign(r_[:, 0]) * (np.abs(r_[:, 0]) - OJO[0]) / .012, -1, 1)
+        # en abanico: las del lagrimal hacia la nariz, las de fuera hacia la sien; arriba casi de frente, la curva la da el peso hacia arriba
+        n_ = np.c_[np.sign(r_[:, 0]) * .55 * fuera + rng.normal(0, .12, len(r_)), np.full(len(r_), -1.0), (.08 if arr else -.35) + rng.normal(0, .1, len(r_))].astype(np.float32)
+        n_ /= np.linalg.norm(n_, axis=1, keepdims=True)
+        el = np.array([kd.find(v.tolist())[1] for v in r_], np.int64)
+        hebras(nombre, el, r_, n_, (.025, .016, .011), (.05, .028, .018), n_seg=5, sube=arr, caida=.0, largos=largos, anchos=anchos,
+               suelto=.3, factor=(.5 + .5 * np.sin(np.pi * (fuera * .45 + .55)) ** .5).astype(np.float32))
+        print("PESTANAS", nombre, len(fila), "puntos de borde", flush=True)
     # manos: misma piel, mas curtida y sucia
     h = bpy.data.objects["hands"]
     mh = h.data

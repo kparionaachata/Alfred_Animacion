@@ -10,6 +10,7 @@
 - Alfred con una herramienta o arma en la MANO DERECHA (hacha, pico, espada...): aplicar SIEMPRE la skill `herramienta-mano-derecha` (Child Of a `Rightelbow_alfred` con ubicacion, rotacion y escala fijas).
 - Objetos, sonidos y bloques 3D para animar a cualquier personaje: buscarlos primero segun la skill `recursos-animacion` (objetos en `objetos/vanilla`, sonidos en `sonidos`, bloques en `bloques_dinamicos`).
 - Cada vez que un personaje rompa un bloque (madera, piedra, tierra, menas...) picando, talando o excavando: aplicar SIEMPRE la skill `bloque-roto-drop` (el bloque se oculta, aparece un item de escala 0.25 que cae, gira y flota como en Minecraft, y luego lo absorbe el personaje que lo rompio).
+- Cuando Alfred o Jerry HABLEN (dialogo o guion de texto): generar voz y rostro con la skill `texto-a-animacion-voz` (sistema `de texto a animacion +voz`) y meter audio y claves en el frame de la escena.
 - Todo objeto que un personaje lance hacia otro personaje: el que lanza debe mirar a su objetivo (mover la cabeza y dirigir la mirada); aplicar SIEMPRE la skill `lanzador-mira-objetivo`.
 
 # Retomar el trabajo con otra cuenta

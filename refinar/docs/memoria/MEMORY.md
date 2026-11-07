@@ -45,3 +45,9 @@
 - [Subdivision de prendas](reference_subdivision_prendas.md) — flujo reutilizable para partir personajes en prendas y detalles (extractor/subdivision_prendas)
 - [Lanzamientos +20 frames](project_lanzamientos_mas_lentos.md) — vuelos alargados con remapeo global; escena 1339 f, scripts desfasados; invertible con scene['lanz_rampas']
 - [Alfred mira a los monos](feedback_alfred_mira_monos.md) — al interactuar con un mono, Alfred mira hacia arriba (cuello resuelto a su cabeza)
+- [Texto a animacion + voz](project_texto_a_animacion_voz.md) — F5 + refs del usuario, juez WavLM, Alfred sin RVC, "Jerry"->"Yeri"; lecciones de lo robotico/acento
+- [Config de render en los .blend](feedback_config_render_blend.md) — Cycles GPU OptiX RTX 3050, DLSS Balanced/Quality, viewport 20 muestras con denoise DLSS (config_render.py)
+- [No guardar sin permiso](feedback_no_guardar_sin_permiso.md) — ni el .blend ni copias para hornear sin autorizacion explicita
+- [Dos Blender, puerto 9877](reference_dos_blender_puertos.md) — el de trabajo va en 9877; cliente b9877.py y entrada MCP blender_9877
+- [Rapido y verificado](feedback_rapido_y_verificado.md) — usar los valores del usuario tal cual; una pasada, verificar y reportar; nada de iterar minutos a ciegas
+- [Ranas y hierro (nov 2026)](project_ranas_y_hierro_2026-11.md) — estado de base_tarde con las ranas_1 (990 f) y alfred_buscando_hierro (135 f, pala y carbones)

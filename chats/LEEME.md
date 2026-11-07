@@ -84,3 +84,12 @@ Nombre `chat_<fecha del ultimo mensaje>_<id>.zip` (sin imagenes). Muchas son bif
 | `chat_2026-11-01_211598cf.zip` | 2072 |
 | `chat_2026-11-01_593282e0.zip` | 5008 |
 | `chat_2026-11-01_7ced37ce.zip` | 435 |
+
+
+## Sesiones del 2026-11-01 al 2026-11-07 (exportadas el 2026-11-07)
+
+Nombre `chat_<fecha del ultimo mensaje>_<id>.zip` (sin imagenes). Varias son bifurcaciones o sesiones de otros temas (La Delgada Linea Roja, analisis de carpetas). Las de Alfred/Jerry:
+- `chat_2026-11-03_d9b7a014.zip`: base_tarde con las ranas_1 - voces de Jerry al subir, respuestas de Alfred, mesa de crafteo, Jerry que mira el crafteo.
+- `chat_2026-11-05_9fac7356.zip`: **sesion principal** - pollo de relleno y sus sonidos, dos Blender (puerto 9877), cerdo_1, pollos que atacan a Alfred, insectos, plumas, Jerry resignado, parpadeos, mirada de Alfred, cabeza rigida, ojos de dolor, forcejeo, voces del hoyo.
+- `chat_2026-11-05_91245c14.zip`, `chat_2026-11-06_35984c02.zip`: continuaciones (alargar el hoyo +90, voces, Jerry echado y mirada, render DLSS, pasto aplastado, contacto con el suelo).
+- `chat_2026-11-07_93ef65a7.zip`: **ultima** - alfred_buscando_hierro.blend (f440 como f1, carbones en el horno, pala a dos manos, descanso y sudor, recorte desde f16) y esta actualizacion del repositorio.
